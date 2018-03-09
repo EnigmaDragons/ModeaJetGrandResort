@@ -39,6 +39,7 @@ namespace SpaceResortMurder
                 { "Main Menu", () => new MainMenuScene() },
                 { "Credits", () => new CreditsScene() },
                 { "Pondering", () => new PonderingScene() },
+                { "Options", () => new OptionsScene() },
             });
         }
 
