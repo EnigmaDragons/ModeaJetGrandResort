@@ -25,6 +25,13 @@ namespace MonoDragons.Core.AudioSystem
             AddMixerInput(samples);
         }
 
+        public void Stop()
+        {
+            _mixer.RemoveAllMixerInputs();
+            //_player.Stop();
+            //_player.Play();
+        }
+
         private ISampleProvider ConvertToRightChannelCount(ISampleProvider input)
         {
             if (input.WaveFormat.Channels == _mixer.WaveFormat.Channels)

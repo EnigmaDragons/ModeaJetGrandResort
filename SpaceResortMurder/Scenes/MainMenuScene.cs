@@ -21,6 +21,7 @@ namespace SpaceResortMurder.Scenes
 
         public void Init()
         {
+            Audio.StopAllSound();
             _clickUi = new ClickUI();
             _start = new TextButton(new Rectangle(700, 300, 200, 100), () => { Audio.PlaySound("MenuButtonPress"); }, "Start Game",
                 Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
