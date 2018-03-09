@@ -1,37 +1,41 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using MonoDragons.Core.AudioSystem;
+using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
-using Microsoft.Xna.Framework;
-using MonoDragons.Core.PhysicsEngine;
+using System;
 
-namespace SpaceResortMurder
+namespace SpaceResortMurder.Scenes
 {
     public class MainMenuScene : IScene
     {
-        private TextButton start;
-        private TextButton credits;
-        private ClickUI clickUI;
+        private TextButton _start;
+        private TextButton _credits;
+        private ClickUI _clickUi;
 
         public void Draw()
         {
-            start.Draw(new Transform2(Vector2.Zero));
-            credits.Draw(new Transform2(Vector2.Zero));
+            _start.Draw(new Transform2(Vector2.Zero));
+            _credits.Draw(new Transform2(Vector2.Zero));
         }
 
         public void Init()
         {
-            clickUI = new ClickUI();
-            start = new TextButton(new Rectangle(700, 300, 200, 100), () => { }, "Start Game",
+            _clickUi = new ClickUI();
+            _start = new TextButton(new Rectangle(700, 300, 200, 100), () => { Audio.PlaySound("MenuButtonPress"); }, "Start Game",
                 Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
-            credits = new TextButton(new Rectangle(700, 500, 200, 100), () => { Scene.NavigateTo("Credits"); }, "View Credits",
-                Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
-            clickUI.Add(start);
-            clickUI.Add(credits);
+            _credits = new TextButton(new Rectangle(700, 500, 200, 100), () =>
+                {
+                    Audio.PlaySound("MenuButtonPress");
+                    Scene.NavigateTo("Credits");
+                }, "View Credits", Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
+            _clickUi.Add(_start);
+            _clickUi.Add(_credits);
         }
 
         public void Update(TimeSpan delta)
         {
-            clickUI.Update(delta);
+            _clickUi.Update(delta);
         }
     }
 }
