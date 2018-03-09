@@ -9,7 +9,8 @@ namespace SpaceResortMurder
 {
     public class MainMenuScene : IScene
     {
-        private TextButton button;
+        private TextButton start;
+        private TextButton credits;
         private ClickUI clickUI;
 
         public MainMenuScene()
@@ -19,15 +20,19 @@ namespace SpaceResortMurder
 
         public void Draw()
         {
-            button.Draw(new Transform2(Vector2.Zero, Rotation2.Default, new Size2(700, 700), 1));
+            start.Draw(new Transform2(Vector2.Zero));
+            credits.Draw(new Transform2(Vector2.Zero));
         }
 
         public void Init()
         {
             clickUI = new ClickUI();
-            button = new TextButton(new Rectangle(0, 0, 500, 500), () => { }, "Start Game",
+            start = new TextButton(new Rectangle(700, 300, 200, 100), () => { }, "Start Game",
                 Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
-            clickUI.Add(button);
+            credits = new TextButton(new Rectangle(700, 500, 200, 100), () => { Scene.NavigateTo("Credits"); }, "View Credits",
+                Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
+            clickUI.Add(start);
+            clickUI.Add(credits);
         }
 
         public void Update(TimeSpan delta)
