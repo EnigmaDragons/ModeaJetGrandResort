@@ -38,6 +38,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Scenes\OptionsScene.cs" />
     <Compile Include="Pondering\DilemmaGained.cs" />
     <Compile Include="Pondering\DilemmaLost.cs" />
     <Compile Include="Pondering\Dilemmas.cs" />
