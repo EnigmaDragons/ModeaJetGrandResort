@@ -58,12 +58,12 @@ namespace MonoDragons.Core.AudioSystem
 
         public static void PlayMusic(string name, float volume)
         {
-            TransitionToSong(volume, new Looping($"Content/{ name }.mp3"));
+            TransitionToSong(volume, new Looping($"Content/Music/{ name }.mp3"));
         }
 
         public static void StopMusic()
         {
-            PlayMusic("Music/mute", 0);
+            PlayMusic("mute", 0);
         }
 
         private static void TransitionToSong(float volume, ISampleProvider song)

@@ -4,8 +4,6 @@ using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using System;
-using MonoDragons.Core.EventSystem;
-using SpaceResortMurder.Pondering;
 
 namespace SpaceResortMurder.Scenes
 {
@@ -14,15 +12,10 @@ namespace SpaceResortMurder.Scenes
         private TextButton _start;
         private TextButton _credits;
         private ClickUI _clickUi;
-
-        public void Draw()
-        {
-            _start.Draw(new Transform2(Vector2.Zero));
-            _credits.Draw(new Transform2(Vector2.Zero));
-        }
-
+        
         public void Init()
         {
+            Audio.PlayMusic("MainTheme");
             _clickUi = new ClickUI();
             _start = new TextButton(new Rectangle(700, 300, 200, 100), () =>
                 {
@@ -43,6 +36,12 @@ namespace SpaceResortMurder.Scenes
         public void Update(TimeSpan delta)
         {
             _clickUi.Update(delta);
+        }
+
+        public void Draw()
+        {
+            _start.Draw(new Transform2(Vector2.Zero));
+            _credits.Draw(new Transform2(Vector2.Zero));
         }
     }
 }
