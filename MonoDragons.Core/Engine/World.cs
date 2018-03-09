@@ -11,14 +11,19 @@ namespace MonoDragons.Core.Engine
 {
     public static class World
     {
-        private static readonly ColoredRectangle _darken = new ColoredRectangle
-        {
-            Color = Color.FromNonPremultiplied(0, 0, 0, 130),
-            Transform = new Transform2(new Size2(1920, 1080))
-        };
+        private static readonly ColoredRectangle _darken;
         
         private static SpriteBatch _spriteBatch;
         private static Display _display;
+
+        static World()
+        {
+            _darken = new ColoredRectangle
+            {
+                Color = Color.FromNonPremultiplied(0, 0, 0, 130),
+                Transform = new Transform2(new Size2(1920, 1080))
+            };
+        }
 
         public static void Init(SpriteBatch spriteBatch, Display display)
         {
