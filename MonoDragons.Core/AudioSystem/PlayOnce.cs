@@ -12,8 +12,8 @@ namespace MonoDragons.Core.AudioSystem
 
         public WaveFormat WaveFormat => _reader.WaveFormat;
 
-        public PlayOnce(string fileName)
-            : this(new AudioFileReader(fileName))
+        public PlayOnce(string fileName, float volume = 1f)
+            : this(new AudioFileReader(fileName) { Volume = volume })
         {
         }
 

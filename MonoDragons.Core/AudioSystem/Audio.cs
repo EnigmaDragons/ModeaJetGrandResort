@@ -14,7 +14,7 @@ namespace MonoDragons.Core.AudioSystem
 
         public static void PlaySound(string name, float volume)
         {
-            AudioPlayer.Instance.Play(new PlayOnce($"Content/Sounds/{ name }.mp3"));
+            AudioPlayer.Instance.Play(new PlayOnce($"Content/Sounds/{ name }.mp3", volume));
         }
 
         public static void PlayMusicEffect(string name)
@@ -24,7 +24,7 @@ namespace MonoDragons.Core.AudioSystem
 
         public static void PlayMusicEffect(string name, float volume)
         {
-            var input = new PlayOnce($"Content/Music/{ name }.mp3");
+            var input = new PlayOnce($"Content/Music/{ name }.mp3", volume);
 
             if (_backgroundMusic != null)
             {
