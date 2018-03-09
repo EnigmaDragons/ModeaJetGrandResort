@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Input;
 using MonoDragons.Core.AudioSystem;
 using MonoDragons.Core.Common;
 using MonoDragons.Core.Development;
-using MonoDragons.Core.EngimaDragons;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.Inputs;
 using MonoDragons.Core.Memory;
@@ -39,6 +38,7 @@ namespace SpaceResortMurder
                 { "Logo", () => new FadingInScene(new Logo("Main Menu")) },
                 { "Main Menu", () => new MainMenuScene() },
                 { "Credits", () => new CreditsScene() },
+                { "Pondering", () => new PonderingScene() },
             });
         }
 

@@ -4,6 +4,8 @@ using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using System;
+using MonoDragons.Core.EventSystem;
+using SpaceResortMurder.Pondering;
 
 namespace SpaceResortMurder.Scenes
 {
@@ -22,7 +24,12 @@ namespace SpaceResortMurder.Scenes
         public void Init()
         {
             _clickUi = new ClickUI();
-            _start = new TextButton(new Rectangle(700, 300, 200, 100), () => { Audio.PlaySound("MenuButtonPress"); }, "Start Game",
+            _start = new TextButton(new Rectangle(700, 300, 200, 100), () =>
+                {
+                    Audio.PlaySound("MenuButtonPress");
+                    GameState.Init();
+                    Scene.NavigateTo("Pondering");
+                }, "Start Game",
                 Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
             _credits = new TextButton(new Rectangle(700, 500, 200, 100), () =>
                 {

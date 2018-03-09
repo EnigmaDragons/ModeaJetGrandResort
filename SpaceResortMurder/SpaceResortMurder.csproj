@@ -38,7 +38,14 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Pondering\DilemmaGained.cs" />
+    <Compile Include="Pondering\DilemmaLost.cs" />
+    <Compile Include="Pondering\Dilemmas.cs" />
+    <Compile Include="Pondering\IDilemma.cs" />
+    <Compile Include="Pondering\WhoKilledRaymondDilemma.cs" />
+    <Compile Include="GameState.cs" />
     <Compile Include="Scenes\CreditsScene.cs" />
+    <Compile Include="Scenes\PonderingScene.cs" />
     <Compile Include="Scenes\MainMenuScene.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
