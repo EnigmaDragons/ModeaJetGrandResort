@@ -3,7 +3,6 @@ using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
-using MonoDragons.Core.Engine;
 
 namespace SpaceResortMurder
 {
@@ -12,11 +11,6 @@ namespace SpaceResortMurder
         private TextButton start;
         private TextButton credits;
         private ClickUI clickUI;
-
-        public MainMenuScene()
-        {
-            
-        }
 
         public void Draw()
         {
