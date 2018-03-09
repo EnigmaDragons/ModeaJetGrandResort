@@ -8,8 +8,8 @@ namespace MonoDragons.Core.AudioSystem
 
         public WaveFormat WaveFormat => _reader.WaveFormat;
 
-        public Looping(string fileName)
-            : this(new AudioFileReader(fileName))
+        public Looping(string fileName, float volume = 1f)
+            : this(new AudioFileReader(fileName) { Volume = volume })
         {
         }
 

@@ -14,7 +14,7 @@ namespace MonoDragons.Core.AudioSystem
 
         public static void PlaySound(string name, float volume)
         {
-            AudioPlayer.Instance.Play(new PlayOnce($"Content/Sounds/{ name }.mp3"));
+            AudioPlayer.Instance.Play(new PlayOnce($"Content/Sounds/{ name }.mp3", volume));
         }
 
         public static void PlayMusicEffect(string name)
@@ -24,7 +24,7 @@ namespace MonoDragons.Core.AudioSystem
 
         public static void PlayMusicEffect(string name, float volume)
         {
-            var input = new PlayOnce($"Content/Music/{ name }.mp3");
+            var input = new PlayOnce($"Content/Music/{ name }.mp3", volume);
 
             if (_backgroundMusic != null)
             {
@@ -58,12 +58,17 @@ namespace MonoDragons.Core.AudioSystem
 
         public static void PlayMusic(string name, float volume)
         {
-            TransitionToSong(volume, new Looping($"Content/{ name }.mp3"));
+            TransitionToSong(volume, new Looping($"Content/Music/{ name }.mp3"));
+        }
+
+        public static void StopAllSound()
+        {
+            AudioPlayer.Instance.Stop();
         }
 
         public static void StopMusic()
         {
-            PlayMusic("Music/mute", 0);
+            PlayMusic("mute", 0);
         }
 
         private static void TransitionToSong(float volume, ISampleProvider song)

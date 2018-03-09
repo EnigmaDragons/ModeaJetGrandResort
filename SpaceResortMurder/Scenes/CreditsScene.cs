@@ -14,7 +14,7 @@ namespace SpaceResortMurder.Scenes
 
         public void Draw()
         {
-            _menu.Draw(new Transform2(Vector2.Zero));
+            _menu.Draw(Transform2.Zero);
         }
 
         public void Init()
