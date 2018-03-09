@@ -1,32 +1,36 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
+using MonoDragons.Core.AudioSystem;
+using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
-using Microsoft.Xna.Framework;
-using MonoDragons.Core.PhysicsEngine;
 
-namespace SpaceResortMurder
+namespace SpaceResortMurder.Scenes
 {
     public class CreditsScene : IScene
     {
-        private ClickUI clickUI;
-        private TextButton menu;
+        private ClickUI _clickUi;
+        private TextButton _menu;
 
         public void Draw()
         {
-            menu.Draw(new Transform2(Vector2.Zero));
+            _menu.Draw(new Transform2(Vector2.Zero));
         }
 
         public void Init()
         {
-            clickUI = new ClickUI();
-            menu = new TextButton(new Rectangle(700, 800, 200, 50), () => { Scene.NavigateTo("Main Menu"); }, "Main Menu",
-                Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
-            clickUI.Add(menu);
+            _clickUi = new ClickUI();
+            _menu = new TextButton(new Rectangle(700, 800, 200, 50), () =>
+                {
+                    Audio.PlaySound("MenuButtonPress");
+                    Scene.NavigateTo("Main Menu");
+                }, "Main Menu", Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
+            _clickUi.Add(_menu);
         }
 
         public void Update(TimeSpan delta)
         {
-            clickUI.Update(delta);
+            _clickUi.Update(delta);
         }
     }
 }
