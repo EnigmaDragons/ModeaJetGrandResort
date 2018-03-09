@@ -33,6 +33,7 @@ namespace SpaceResortMurder.Scenes
                 return;
 
             _transitionComplete = true;
+            Audio.StopAllSound();
             Scene.NavigateTo(_nextScene);
         }
 

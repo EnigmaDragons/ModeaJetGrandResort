@@ -28,8 +28,6 @@ namespace MonoDragons.Core.AudioSystem
         public void Stop()
         {
             _mixer.RemoveAllMixerInputs();
-            //_player.Stop();
-            //_player.Play();
         }
 
         private ISampleProvider ConvertToRightChannelCount(ISampleProvider input)
