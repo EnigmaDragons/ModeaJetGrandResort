@@ -61,6 +61,11 @@ namespace MonoDragons.Core.AudioSystem
             TransitionToSong(volume, new Looping($"Content/Music/{ name }.mp3"));
         }
 
+        public static void StopAllSound()
+        {
+            AudioPlayer.Instance.Stop();
+        }
+
         public static void StopMusic()
         {
             PlayMusic("mute", 0);
