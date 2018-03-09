@@ -9,6 +9,7 @@ using MonoDragons.Core.Inputs;
 using MonoDragons.Core.Memory;
 using MonoDragons.Core.Render;
 using MonoDragons.Core.Scenes;
+using SpaceResortMurder.Scenes;
 
 namespace SpaceResortMurder
 {
@@ -35,7 +36,7 @@ namespace SpaceResortMurder
         {
             return new SceneFactory(new Map<string, Func<IScene>>
             {
-                { "Logo", () => new FadingInScene(new OilLogoScene("Main Menu")) },
+                { "Logo", () => new FadingInScene(new Logo("Main Menu")) },
                 { "Main Menu", () => new MainMenuScene() },
                 { "Credits", () => new CreditsScene() },
             });

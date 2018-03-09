@@ -19,12 +19,12 @@ namespace MonoDragons.Core.AudioSystem
 
         public static void PlayMusicEffect(string name)
         {
-            PlaySound(name, 1.0f);
+            PlayMusicEffect(name, 1.0f);
         }
 
         public static void PlayMusicEffect(string name, float volume)
         {
-            var input = new PlayOnce($"Content/Sounds/{ name }.mp3");
+            var input = new PlayOnce($"Content/Music/{ name }.mp3");
 
             if (_backgroundMusic != null)
             {
@@ -48,7 +48,7 @@ namespace MonoDragons.Core.AudioSystem
 
         public static void PlayMusicOnce(string name, float volume)
         {
-            TransitionToSong(volume, new PlayOnce($"Content/{ name }.mp3"));
+            TransitionToSong(volume, new PlayOnce($"Content/Music/{ name }.mp3"));
         }
 
         public static void PlayMusic(string name)
