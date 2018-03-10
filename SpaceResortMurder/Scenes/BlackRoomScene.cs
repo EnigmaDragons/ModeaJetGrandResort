@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Characters;
+using MonoDragons.Core.Inputs;
+using MonoDragons.Core.Scenes;
 
 namespace SpaceResortMurder.Scenes
 {
@@ -16,6 +18,11 @@ namespace SpaceResortMurder.Scenes
 
         public override void Init()
         {
+            Input.ClearTransientBindings();
+            Input.On(Control.Select, () => {
+                Scene.NavigateTo("Options");
+            });
+            Input.On(Control.X, () => { if (!_isInTheMiddleOfDialog) Scene.NavigateTo("Dilemmas"); });
             _chillinBackCop = new ImageButton("Characters/policeman", "Characters/policeman", "Characters/policeman",
                 new Transform2(new Vector2(200, 200), new Size2(200, 470)), () =>
                 {

@@ -19,7 +19,7 @@ namespace SpaceResortMurder
         static void Main()
         {
             DefaultFont.Name = "Fonts/BodyFont";
-            using (var game = Perf.Time("Startup", () => new NeedlesslyComplexMainGame("MonoDragons.Core", "Main Menu", new Display(1600, 900, false), SetupScene(), CreateKeyboardController())))
+            using (var game = Perf.Time("Startup", () => new NeedlesslyComplexMainGame("MonoDragons.Core", "Logo", new Display(1600, 900, false), SetupScene(), CreateKeyboardController())))
                 game.Run();
         }
 
@@ -50,10 +50,11 @@ namespace SpaceResortMurder
         {
             return new KeyboardController(new Map<Keys, Control>
             {
-                { Keys.OemTilde, Control.Select },
+                { Keys.Escape, Control.Select },
+                { Keys.Space, Control.X },
                 { Keys.Enter, Control.Start },
-                { Keys.V, Control.A },
-                { Keys.O, Control.X }
+                { Keys.Z, Control.A },
+                { Keys.X, Control.B }
             });
         }
     }

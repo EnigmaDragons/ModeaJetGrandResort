@@ -6,6 +6,7 @@ using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Characters;
+using MonoDragons.Core.Inputs;
 
 namespace SpaceResortMurder.Scenes
 {
@@ -14,6 +15,7 @@ namespace SpaceResortMurder.Scenes
         protected ClickUI _clickUI;
         private List<Action> _drawActions = new List<Action>();
         protected ClickUIBranch _investigateRoomBranch;
+        protected bool _isInTheMiddleOfDialog = false;
 
         protected LocationScene(string location)
         {

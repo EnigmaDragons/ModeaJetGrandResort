@@ -9,6 +9,7 @@ using MonoDragons.Core.Engine;
 using MonoDragons.Core.Graphics;
 using MonoDragons.Core.Render;
 using SpaceResortMurder.Style;
+using MonoDragons.Core.Inputs;
 
 namespace SpaceResortMurder.Scenes
 {
@@ -22,6 +23,7 @@ namespace SpaceResortMurder.Scenes
         
         public void Init()
         {
+            Input.ClearTransientBindings();
             Audio.PlayMusic("MainTheme");
             GameState.Instance = new GameState();
             _clickUi = new ClickUI();
