@@ -13,7 +13,7 @@ namespace SpaceResortMurder.HudStuff
 
         public void Init()
         {
-            _navigateToDilemma = new TextButton(new Rectangle(1500, 0, 120, 120), () => Scene.NavigateTo("Dilemmas"), "Dilemmas",
+            _navigateToDilemma = new TextButton(new Rectangle(1500, 0, 120, 120), () => Scene.NavigateTo(GameObjects.DilemmasSceneName), "Dilemmas",
                 Color.Green, Color.GreenYellow, Color.LightGreen);
             HudBranch = new ClickUIBranch("HUD", 2);
             HudBranch.Add(_navigateToDilemma);
