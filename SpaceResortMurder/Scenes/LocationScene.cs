@@ -44,8 +44,9 @@ namespace SpaceResortMurder.Scenes
             {
                 dialogOptionsBranch.Add(x.Button);
                 var itemCount = activeDialogs.Count;
-                var spot2 = ((900 / (itemCount + 1)) * (i + 1)) - (((itemCount - i) / (itemCount + 1)) * 30);
-                drawDialogsOptions.Add(() => x.Draw(new Transform2(new Vector2(0, spot2))));
+                var verticalOffset = ((900 / (itemCount + 1)) * (i + 1)) - (((itemCount - i) / (itemCount + 1)) * 30);
+                x.Button.Offset = new Vector2(0, verticalOffset);
+                drawDialogsOptions.Add(() => x.Draw(new Transform2(new Vector2(0, verticalOffset))));
             });
             _drawActions = drawDialogsOptions;
             _clickUI.Add(dialogOptionsBranch);
