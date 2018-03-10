@@ -25,7 +25,11 @@ namespace SpaceResortMurder.Scenes
         public void Draw()
         {
             _dilemmaLabel.Draw(Transform2.Zero);
-            _deductions.ForEach(d => d.Draw());
+            _deductions.ForEach(d =>
+            {
+                d.Draw();
+                d.DrawNewIfApplicable();
+            });
         }
 
         public void Init()

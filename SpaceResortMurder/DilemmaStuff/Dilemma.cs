@@ -26,7 +26,8 @@ namespace SpaceResortMurder.DilemmaStuff
             _button = new TextButton(transform.ToRectangle(),
                 () =>
                 {
-                    Event.Publish(new ItemViewed(dilemma));
+                    if (!GameState.Instance.HasViewedItem(_dilemma))
+                        Event.Publish(new ItemViewed(dilemma));
                     Scene.NavigateTo(new DeductionScene(dilemmaText, _deductions.Where(x => x.IsActive()).ToList()));
 
                 },
