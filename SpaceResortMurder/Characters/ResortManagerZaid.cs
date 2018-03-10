@@ -7,7 +7,7 @@ namespace SpaceResortMurder.Characters
 {
     public class ResortManagerZaid : Person
     {
-        public ResortManagerZaid() : base("Characters/resort_manager_colored", new Size2(399, 937), new DidYouKillHimZaid()) {}
+        public ResortManagerZaid() : base("Characters/resort_manager_colored", new Size2(300, 705), new DidYouKillHimZaid()) {}
 
         public override string WhereAreYou()
         {

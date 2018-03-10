@@ -8,6 +8,7 @@ namespace SpaceResortMurder.Scenes
 
         public override void Init()
         {
+            InitBase();
         }
     }
 }

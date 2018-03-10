@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Characters\People.cs" />
+    <Compile Include="Dialogs\ChatBox.cs" />
     <Compile Include="Dialogs\DidYouKillHimZaid.cs" />
     <Compile Include="Characters\Person.cs" />
     <Compile Include="Characters\PoliceOfficier.cs" />
@@ -46,6 +47,7 @@
     <Compile Include="Deductions\RaymondCommittedSuicide.cs" />
     <Compile Include="Deductions\YouButcheredRaymond.cs" />
     <Compile Include="Dialogs\Dialog.cs" />
+    <Compile Include="Dialogs\Reader.cs" />
     <Compile Include="Dialogs\WhoWasMurdered.cs" />
     <Compile Include="Dialogs\WhyWouldAnyoneHireYouPolice.cs" />
     <Compile Include="GameObjects.cs" />
@@ -55,6 +57,7 @@
     <Compile Include="LocationStuff\Location.cs" />
     <Compile Include="LocationStuff\Locations.cs" />
     <Compile Include="LocationStuff\SecondRoom.cs" />
+    <Compile Include="MouseStuff\MouseIsClicked.cs" />
     <Compile Include="RoomNames.cs" />
     <Compile Include="Scenes\JamScene.cs" />
     <Compile Include="Scenes\ASecondRoomScene.cs" />
@@ -115,6 +118,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Music\MainTheme.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Placeholder\dialoguebox.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Placeholder\SpaceResortPlaceholder.png">
