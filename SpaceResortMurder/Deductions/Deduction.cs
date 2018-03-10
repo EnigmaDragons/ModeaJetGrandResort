@@ -63,9 +63,14 @@ namespace SpaceResortMurder.Deductions
                 _conclusion.Draw(Transform2.Zero);
         }
 
+        public bool IsNew()
+        {
+            return !GameState.Instance.HasViewedItem(_thought);
+        }
+
         public void DrawNewIfApplicable()
         {
-            if (!GameState.Instance.HasViewedItem(_thought))
+            if (IsNew())
                 _newLabel.Draw(Transform2.Zero);
         }
 

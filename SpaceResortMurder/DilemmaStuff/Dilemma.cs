@@ -16,6 +16,7 @@ namespace SpaceResortMurder.DilemmaStuff
         private readonly TextButton _button;
         private readonly Deduction[] _deductions;
         private readonly Label _newLabel;
+        private readonly Label _newAnswersLabel;
 
         public ClickableUIElement Button => _button;
 
@@ -44,6 +45,13 @@ namespace SpaceResortMurder.DilemmaStuff
                 RawText = "NEW!",
                 TextColor = Color.White,
             };
+            _newAnswersLabel = new Label
+            {
+                Transform = new Transform2(new Vector2(transform.Location.X + 100, transform.Location.Y - 40), new Size2(115, 60)),
+                BackgroundColor = Color.Red,
+                RawText = "NEW ANSWERS!",
+                TextColor = Color.White,
+            };
         }
 
         public abstract bool IsActive();
@@ -58,6 +66,12 @@ namespace SpaceResortMurder.DilemmaStuff
         {
             if (!GameState.Instance.HasViewedItem(_dilemma))
                 _newLabel.Draw(Transform2.Zero);
+        }
+
+        public void DrawNewAnswersIfApplicable()
+        {
+            if (_deductions.Any(d => d.IsNew()))
+                _newAnswersLabel.Draw(Transform2.Zero);
         }
 
         private void ClearPriorDeductions()

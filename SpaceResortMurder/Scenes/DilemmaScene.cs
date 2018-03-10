@@ -35,6 +35,7 @@ namespace SpaceResortMurder.Scenes
             _dilemmas.ForEach(x =>
             {
                 x.Draw();
+                x.DrawNewAnswersIfApplicable();
                 x.DrawNewIfApplicable();
             });
             _return.Draw(Transform2.Zero);
