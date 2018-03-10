@@ -25,6 +25,7 @@ namespace SpaceResortMurder.Scenes
 
         protected override void DrawForeground()
         {
+            UI.FillScreen("UI/ScreenOverlay");
         }
     }
 }

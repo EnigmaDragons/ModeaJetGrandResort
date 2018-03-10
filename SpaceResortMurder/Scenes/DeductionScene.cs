@@ -12,23 +12,24 @@ namespace SpaceResortMurder.Scenes
     public sealed class DeductionScene : JamScene
     {
         private readonly IReadOnlyList<Deduction> _deductions;
-        private readonly string _dilemmaText;
+        private readonly string _dilemmaDescription;
 
         public DeductionScene(string dilemma, IReadOnlyList<Deduction> deductions)
         {
-            _dilemmaText = dilemma;
+            _dilemmaDescription = dilemma;
             _deductions = deductions;
         }
 
         protected override void OnInit()
         {
-            Add(UiButtons.Menu("Return", new Vector2(1250, 750), () => Scene.NavigateTo(GameObjects.DilemmasSceneName)));
+            Add(UiButtons.MenuRed("Return", new Vector2(1250, 750), () => Scene.NavigateTo(GameObjects.DilemmasSceneName)));
             AddVisual(new Label
             {
-                Transform = new Transform2(new Size2(1600, 100)),
+                Transform = new Transform2(new Vector2(280, 28), new Size2(500, 80)),
                 BackgroundColor = Color.Transparent,
-                Text = _dilemmaText,
-                TextColor = Color.White
+                Text = _dilemmaDescription,
+                TextColor = UiStyle.TextLightRed,
+                Font = UiFonts.Header
             });
             _deductions.ForEach(d =>
             {
@@ -44,6 +45,7 @@ namespace SpaceResortMurder.Scenes
 
         protected override void DrawForeground()
         {
+            UI.FillScreen("UI/ScreenOverlay-Red");
         }
     }
 }

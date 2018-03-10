@@ -18,5 +18,17 @@ namespace SpaceResortMurder.Style
                     "UI/PixelButton", "UI/PixelButton-Hover", "UI/PixelButton-Press")
                 {TextColor = Color.Black};
         }
+
+        public static VisualClickableUIElement MenuRed(string text, Vector2 position, Action onClick)
+        {
+            return new ImageTextButton(new Rectangle(position.ToPoint(), new Point(240, 50)), () =>
+                    {
+                        Audio.PlaySound("MenuButtonPress");
+                        onClick();
+                    },
+                    text,
+                    "UI/PixelButtonRed", "UI/PixelButtonRed-Hover", "UI/PixelButtonRed-Press")
+                { TextColor = Color.Black };
+        }
     }
 }
