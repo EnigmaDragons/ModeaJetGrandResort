@@ -45,7 +45,7 @@ namespace SpaceResortMurder.Scenes
                 TextColor = Color.White
             };
             _deductions.ForEach(d => _clickUI.Add(d.Button));
-            _return = new TextButton(new Rectangle(1250, 750, 200, 100), () => Scene.NavigateTo("Dilemmas"), "Return",
+            _return = new TextButton(new Rectangle(1250, 750, 200, 100), () => Scene.NavigateTo(GameObjects.DilemmasSceneName), "Return",
                 Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
             _clickUI.Add(_return);
         }

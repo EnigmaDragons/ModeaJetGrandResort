@@ -30,20 +30,20 @@ namespace SpaceResortMurder.Scenes
             _start = new TextButton(new Rectangle(120, 610, 250, 60), () =>
                 {
                     Audio.PlaySound("MenuButtonPress");
-                    Scene.NavigateTo("Black Room");
+                    Scene.NavigateTo(GameObjects.RoomNames.BlackRoom);
                 }, "Start Game",
                 UiStyle.ButtonGreen, UiStyle.ButtonHoverGreen, UiStyle.ButtonPressedGreen);
             _credits = new TextButton(new Rectangle(120, 770, 250, 60), () =>
                 {
                     Audio.PlaySound("MenuButtonPress");
-                    Scene.NavigateTo("Credits");
+                    Scene.NavigateTo(GameObjects.CreditsSceneName);
                 }, "View Credits",
                 UiStyle.ButtonGreen, UiStyle.ButtonHoverGreen, UiStyle.ButtonPressedGreen);
             _options = new TextButton(new Rectangle(120, 690, 250, 60), () =>
                 {
                     Audio.PlaySound("MenuButtonPress");
                     GameState.Instance.CurrentLocation = "Main Menu";
-                    Scene.NavigateTo("Options");
+                    Scene.NavigateTo(GameObjects.OptionsSceneName);
                 },
                 "Options",
                 UiStyle.ButtonGreen, UiStyle.ButtonHoverGreen, UiStyle.ButtonPressedGreen);

@@ -49,6 +49,7 @@
     <Compile Include="Dialogs\WhyWouldAnyoneHireYouPolice.cs" />
     <Compile Include="GameObjects.cs" />
     <Compile Include="Deductions\Deduction.cs" />
+    <Compile Include="RoomNames.cs" />
     <Compile Include="Scenes\BlackRoomScene.cs" />
     <Compile Include="Scenes\DeductionScene.cs" />
     <Compile Include="Scenes\LocationScene.cs" />

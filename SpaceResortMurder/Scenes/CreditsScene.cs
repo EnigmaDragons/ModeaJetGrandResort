@@ -24,7 +24,7 @@ namespace SpaceResortMurder.Scenes
             _menu = new TextButton(new Rectangle(700, 800, 200, 50), () =>
                 {
                     Audio.PlaySound("MenuButtonPress");
-                    Scene.NavigateTo("Main Menu");
+                    Scene.NavigateTo(GameObjects.MainMenuSceneName);
                 }, "Main Menu", Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
             _clickUi.Add(_menu);
         }
