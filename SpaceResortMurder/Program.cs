@@ -19,7 +19,7 @@ namespace SpaceResortMurder
         static void Main()
         {
             DefaultFont.Name = "Fonts/BodyFont";
-            using (var game = Perf.Time("Startup", () => new NeedlesslyComplexMainGame("MonoDragons.Core", "Logo", new Display(1600, 900, false), SetupScene(), CreateKeyboardController())))
+            using (var game = Perf.Time("Startup", () => new NeedlesslyComplexMainGame("MonoDragons.Core", "Main Menu", new Display(1600, 900, false), SetupScene(), CreateKeyboardController())))
                 game.Run();
         }
 

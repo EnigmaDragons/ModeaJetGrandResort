@@ -72,6 +72,7 @@
     <Compile Include="Engine\Timer.cs" />
     <Compile Include="EventSystem\Event.cs" />
     <Compile Include="Graphics\BobbingEffect.cs" />
+    <Compile Include="Graphics\HollowedRectangleTexture.cs" />
     <Compile Include="IO\AppDataJsonIo.cs" />
     <Compile Include="Render\HideViewportExternals.cs" />
     <Compile Include="Scenes\CurrentSceneNavigation.cs" />
