@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace SpaceResortMurder.Pondering
+namespace SpaceResortMurder.DilemmaStuff
 {
     public class Dilemmas
     {
         private List<Dilemma> dilemmas = new List<Dilemma>()
         {
-            new WhoKilledRaymondDilemma(),
+            new WhoKilledRaymond(),
         };
 
         public IReadOnlyList<Dilemma> GetActiveDilemmas()

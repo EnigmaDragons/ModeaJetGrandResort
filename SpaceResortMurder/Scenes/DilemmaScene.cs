@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using MonoDragons.Core.Common;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
-using SpaceResortMurder.Pondering;
+using SpaceResortMurder.DilemmaStuff;
 
 namespace SpaceResortMurder.Scenes
 {

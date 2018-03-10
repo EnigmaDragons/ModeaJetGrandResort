@@ -40,12 +40,15 @@
   <ItemGroup>
     <Compile Include="Characters\PlaceholderPerson.cs" />
     <Compile Include="Characters\Conversation.cs" />
+    <Compile Include="Deductions\RaymondCommittedSuicide.cs" />
     <Compile Include="GameObjects.cs" />
+    <Compile Include="Deductions\Deduction.cs" />
+    <Compile Include="Scenes\DeductionScene.cs" />
     <Compile Include="State\ItemViewed.cs" />
-    <Compile Include="Dilemmas\Dilemma.cs" />
+    <Compile Include="DilemmaStuff\Dilemma.cs" />
     <Compile Include="Scenes\OptionsScene.cs" />
-    <Compile Include="Dilemmas\Dilemmas.cs" />
-    <Compile Include="Dilemmas\WhoKilledRaymondDilemma.cs" />
+    <Compile Include="DilemmaStuff\Dilemmas.cs" />
+    <Compile Include="DilemmaStuff\WhoKilledRaymond.cs" />
     <Compile Include="State\GameState.cs" />
     <Compile Include="Scenes\CreditsScene.cs" />
     <Compile Include="Scenes\DilemmaScene.cs" />

@@ -2,16 +2,16 @@
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 
-namespace SpaceResortMurder.Pondering
+namespace SpaceResortMurder.Deductions
 {
-    public abstract class Dilemma
+    public abstract class Deduction
     {
         private readonly TextButton _button;
         public ClickableUIElement Button => _button;
 
-        public Dilemma(string dilemmaText, Transform2 transform)
+        public Deduction(string deductionText, Transform2 transform)
         {
-            _button = new TextButton(transform.ToRectangle(), () => { }, dilemmaText, Color.Blue, Color.AliceBlue, Color.Aqua);
+            _button = new TextButton(transform.ToRectangle(), () => { }, deductionText, Color.Blue, Color.AliceBlue, Color.Aqua);
         }
 
         public abstract bool IsActive();

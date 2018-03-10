@@ -1,4 +1,4 @@
-﻿using SpaceResortMurder.Pondering;
+﻿using SpaceResortMurder.DilemmaStuff;
 
 namespace SpaceResortMurder
 {

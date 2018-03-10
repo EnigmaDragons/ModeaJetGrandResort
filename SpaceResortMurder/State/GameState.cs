@@ -7,9 +7,9 @@ namespace SpaceResortMurder
     {
         public static GameState Instance { get; set; }
 
-        private HashSet<string> _viewedItems = new HashSet<string>();
-        private HashSet<string> _thoughts = new HashSet<string>();
-        public string CurrentLocation = "";
+        private readonly HashSet<string> _viewedItems = new HashSet<string>();
+        private readonly HashSet<string> _thoughts = new HashSet<string>();
+        public string CurrentLocation { get; set; } = "";
 
         public GameState()
         {
