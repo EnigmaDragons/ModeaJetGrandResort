@@ -68,8 +68,7 @@
     <Compile Include="Scenes\Logo.cs" />
     <Compile Include="State\ThoughtGained.cs" />
     <Compile Include="State\ThoughtLost.cs" />
-    <Compile Include="Style\PixelButton.cs" />
-    <Compile Include="Style\PixelButtonTexture.cs" />
+    <Compile Include="Style\Buttons.cs" />
     <Compile Include="Style\UiStyle.cs" />
   </ItemGroup>
   <ItemGroup>
