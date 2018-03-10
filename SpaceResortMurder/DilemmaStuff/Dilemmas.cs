@@ -14,5 +14,10 @@ namespace SpaceResortMurder.DilemmaStuff
         {
             return dilemmas.Where(d => d.IsActive()).ToList();
         }
+
+        public void Init()
+        {
+            dilemmas.ForEach(d => d.Init());
+        }
     }
 }

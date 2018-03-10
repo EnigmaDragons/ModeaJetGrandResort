@@ -23,6 +23,7 @@ namespace SpaceResortMurder.Scenes
         
         public void Init()
         {
+            GameObjects.InitIfNeeded();
             Input.ClearTransientBindings();
             Audio.PlayMusic("MainTheme");
             GameState.Instance = new GameState();

@@ -37,12 +37,12 @@ namespace SpaceResortMurder
         {
             return new SceneFactory(new Map<string, Func<IScene>>
             {
-                { "Logo", () => new FadingInScene(new Logo("Main Menu")) },
-                { "Main Menu", () => new MainMenuScene() },
-                { "Credits", () => new CreditsScene() },
-                { "Dilemmas", () => new DilemmaScene() },
-                { "Options", () => new OptionsScene() },
-                { "Black Room", () => new BlackRoomScene() },
+                { "Logo", () => new FadingInScene(new Logo(GameObjects.MainMenuSceneName)) },
+                { GameObjects.MainMenuSceneName, () => new MainMenuScene() },
+                { GameObjects.CreditsSceneName, () => new CreditsScene() },
+                { GameObjects.DilemmasSceneName, () => new DilemmaScene() },
+                { GameObjects.OptionsSceneName, () => new OptionsScene() },
+                { GameObjects.RoomNames.BlackRoom, () => new BlackRoomScene() },
             });
         }
 

@@ -12,42 +12,50 @@ namespace SpaceResortMurder.DilemmaStuff
 {
     public abstract class Dilemma
     {
+        private readonly string _dilemmaText;
         private readonly string _dilemma;
-        private readonly TextButton _button;
         private readonly Deduction[] _deductions;
-        private readonly Label _newLabel;
-        private readonly Label _newAnswersLabel;
+        private readonly Transform2 _transform;
+        private TextButton _button;
+        private Label _newLabel;
+        private Label _newAnswersLabel;
 
         public ClickableUIElement Button => _button;
 
         protected Dilemma(string dilemmaText, Transform2 transform, string dilemma, params Deduction[] deductions)
         {
+            _dilemmaText = dilemmaText;
+            _transform = transform;
             _dilemma = dilemma;
             _deductions = deductions;
-            _button = new TextButton(transform.ToRectangle(),
+        }
+
+        public void Init()
+        {
+            _deductions.ForEach(d => d.Init(ClearPriorDeductions,
+                new Transform2(
+                    new Vector2(_transform.Location.X, _transform.Location.Y + _transform.Size.Height),
+                    new Size2(_transform.Size.Width, 100))));
+            _button = new TextButton(_transform.ToRectangle(),
                 () =>
                 {
                     if (!GameState.Instance.HasViewedItem(_dilemma))
-                        Event.Publish(new ItemViewed(dilemma));
-                    Scene.NavigateTo(new DeductionScene(dilemmaText, _deductions.Where(x => x.IsActive()).ToList()));
+                        Event.Publish(new ItemViewed(_dilemma));
+                    Scene.NavigateTo(new DeductionScene(_dilemmaText, _deductions.Where(x => x.IsActive()).ToList()));
 
                 },
-                dilemmaText,
+                _dilemmaText,
                 Color.Blue, Color.AliceBlue, Color.Aqua);
-            _deductions.ForEach(d => d.Init(ClearPriorDeductions,
-                new Transform2(
-                    new Vector2(transform.Location.X, transform.Location.Y + transform.Size.Height),
-                    new Size2(transform.Size.Width, 100))));
             _newLabel = new Label
             {
-                Transform = new Transform2(new Vector2(transform.Location.X - 20, transform.Location.Y - 20), new Size2(70, 30)),
+                Transform = new Transform2(new Vector2(_transform.Location.X - 20, _transform.Location.Y - 20), new Size2(70, 30)),
                 BackgroundColor = Color.Red,
                 RawText = "NEW!",
                 TextColor = Color.White,
             };
             _newAnswersLabel = new Label
             {
-                Transform = new Transform2(new Vector2(transform.Location.X + 100, transform.Location.Y - 40), new Size2(115, 60)),
+                Transform = new Transform2(new Vector2(_transform.Location.X + 100, _transform.Location.Y - 40), new Size2(115, 60)),
                 BackgroundColor = Color.Red,
                 RawText = "NEW ANSWERS!",
                 TextColor = Color.White,
