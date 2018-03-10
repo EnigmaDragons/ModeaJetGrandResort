@@ -51,6 +51,7 @@
     <Compile Include="Deductions\Deduction.cs" />
     <Compile Include="HudStuff\Hud.cs" />
     <Compile Include="RoomNames.cs" />
+    <Compile Include="Scenes\JamScene.cs" />
     <Compile Include="Scenes\BlackRoomScene.cs" />
     <Compile Include="Scenes\DeductionScene.cs" />
     <Compile Include="Scenes\LocationScene.cs" />
@@ -68,7 +69,7 @@
     <Compile Include="Scenes\Logo.cs" />
     <Compile Include="State\ThoughtGained.cs" />
     <Compile Include="State\ThoughtLost.cs" />
-    <Compile Include="Style\Buttons.cs" />
+    <Compile Include="Style\UiButtons.cs" />
     <Compile Include="Style\UiStyle.cs" />
   </ItemGroup>
   <ItemGroup>
