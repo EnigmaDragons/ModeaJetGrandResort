@@ -8,6 +8,7 @@ using MonoDragons.Core.Inputs;
 using MonoDragons.Core.Memory;
 using MonoDragons.Core.Render;
 using MonoDragons.Core.Scenes;
+using MonoDragons.Core.Text;
 using SpaceResortMurder.Scenes;
 
 namespace SpaceResortMurder
@@ -17,6 +18,7 @@ namespace SpaceResortMurder
         [STAThread]
         static void Main()
         {
+            DefaultFont.Name = "Fonts/BodyFont";
             using (var game = Perf.Time("Startup", () => new NeedlesslyComplexMainGame("MonoDragons.Core", "Logo", new Display(1600, 900, false), SetupScene(), CreateKeyboardController())))
                 game.Run();
         }
