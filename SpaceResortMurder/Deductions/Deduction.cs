@@ -4,10 +4,11 @@ using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using System;
+using MonoDragons.Core.Engine;
 
 namespace SpaceResortMurder.Deductions
 {
-    public abstract class Deduction
+    public abstract class Deduction : IVisual
     {
         private readonly string _thought;
         private readonly Transform2 _transform;
@@ -52,9 +53,10 @@ namespace SpaceResortMurder.Deductions
 
         public abstract bool IsActive();
 
-        public void Draw()
+        public void Draw(Transform2 parentTransform)
         {
-            _button.Draw(Transform2.Zero);
+            _button.Draw(parentTransform);
+            DrawNewIfApplicable();
         }
 
         public void DrawConclusionIfApplicable()
@@ -68,7 +70,7 @@ namespace SpaceResortMurder.Deductions
             return !GameState.Instance.HasViewedItem(_thought);
         }
 
-        public void DrawNewIfApplicable()
+        private void DrawNewIfApplicable()
         {
             if (IsNew())
                 _newLabel.Draw(Transform2.Zero);

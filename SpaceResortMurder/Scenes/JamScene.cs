@@ -40,6 +40,16 @@ namespace SpaceResortMurder.Scenes
             DrawForeground();
         }
 
+        protected void AddVisual(IVisual v)
+        {
+            _visuals.Add(v);
+        }
+
+        protected void AddUi(ClickableUIElement e)
+        {
+            _clickUi.Add(e);
+        }
+
         protected void Add(VisualClickableUIElement e)
         {
             _clickUi.Add(e);

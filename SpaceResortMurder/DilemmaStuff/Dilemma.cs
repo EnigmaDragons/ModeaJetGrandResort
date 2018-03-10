@@ -6,11 +6,12 @@ using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Deductions;
 using SpaceResortMurder.Scenes;
 using System.Linq;
+using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
 
 namespace SpaceResortMurder.DilemmaStuff
 {
-    public abstract class Dilemma
+    public abstract class Dilemma : IVisual
     {
         private readonly string _dilemmaText;
         private readonly string _dilemma;
@@ -64,19 +65,21 @@ namespace SpaceResortMurder.DilemmaStuff
 
         public abstract bool IsActive();
 
-        public void Draw()
+        public void Draw(Transform2 parentTransform)
         {
             _deductions.ForEach(x => x.DrawConclusionIfApplicable());
-            _button.Draw(Transform2.Zero);
+            _button.Draw(parentTransform);
+            DrawNewAnswersIfApplicable();
+            DrawNewIfApplicable();
         }
 
-        public void DrawNewIfApplicable()
+        private void DrawNewIfApplicable()
         {
             if (!GameState.Instance.HasViewedItem(_dilemma))
                 _newLabel.Draw(Transform2.Zero);
         }
 
-        public void DrawNewAnswersIfApplicable()
+        private void DrawNewAnswersIfApplicable()
         {
             if (_deductions.Any(d => d.IsNew()))
                 _newAnswersLabel.Draw(Transform2.Zero);
