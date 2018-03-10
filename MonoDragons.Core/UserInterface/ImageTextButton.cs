@@ -12,12 +12,16 @@ namespace MonoDragons.Core.UserInterface
         private readonly Func<bool> _isVisible;
 
         public Transform2 Transform => new Transform2(Area);
-        public string Text { set { _label.Text = value; } }
+        public string Text { set => _label.Text = value; }
+        public Color TextColor { set => _label.TextColor = value; }
 
-        public ImageTextButton(string text, string basic, string hover, string press, Transform2 transform, Action onClick)
-            : this(text, basic, hover, press, transform, onClick, () => true) { }
+        public ImageTextButton(Rectangle rect, Action onClick, string text, string basic, string hover, string press)
+            : this(new Transform2(rect), onClick, text, basic, hover, press, () => true) { }
 
-        public ImageTextButton(string text, string basic, string hover, string press, Transform2 transform, Action onClick, Func<bool> isVisible)
+        public ImageTextButton(Transform2 transform, Action onClick, string text, string basic, string hover, string press)
+            : this(transform, onClick, text, basic, hover, press, () => true) { }
+
+        public ImageTextButton(Transform2 transform, Action onClick, string text, string basic, string hover, string press, Func<bool> isVisible)
             : base(transform.ToRectangle())
         {
             _isVisible = isVisible;
