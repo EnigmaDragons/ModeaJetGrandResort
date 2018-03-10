@@ -12,13 +12,24 @@ namespace MonoDragons.Core.UserInterface
 {
     public static class UI
     {
+        private static readonly ColoredRectangle _darken;
+
         private static readonly Dictionary<HorizontalAlignment, Func<Rectangle, Vector2, Vector2>> _alignPositions = new Dictionary<HorizontalAlignment, Func<Rectangle, Vector2, Vector2>>
         {
             { HorizontalAlignment.Left, GetLeftPosition },
             { HorizontalAlignment.Center, GetCenterPosition },
             { HorizontalAlignment.Right, GetRightPosition },
         };
-        
+
+        static UI()
+        {
+            _darken = new ColoredRectangle
+            {
+                Color = Color.FromNonPremultiplied(0, 0, 0, 130),
+                Transform = new Transform2(new Size2(1920, 1080))
+            };
+        }
+
         private static SpriteBatch _spriteBatch;
         private static Display _display;
 
@@ -26,6 +37,11 @@ namespace MonoDragons.Core.UserInterface
         {
             _spriteBatch = spriteBatch;
             _display = display;
+        }
+
+        public static void Darken()
+        {
+            _darken.Draw(Transform2.Zero);
         }
 
         public static void DrawBackgroundColor(Color color)
