@@ -4,9 +4,9 @@ using System;
 
 namespace SpaceResortMurder.Deductions
 {
-    public class RaymondCommittedSuicide : Deduction
+    public class YouButcheredRaymond: Deduction
     {
-        public RaymondCommittedSuicide() : base("Raymond killed himself!!", nameof(RaymondCommittedSuicide), new Transform2(new Vector2(500, 600), new Size2(150, 150))) { }
+        public YouButcheredRaymond() : base("You brutally slain Raymond!!!", nameof(YouButcheredRaymond), new Transform2(new Vector2(200, 200), new Size2(200, 100))) { }
 
         public override bool IsActive()
         {

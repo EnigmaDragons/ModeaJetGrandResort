@@ -41,6 +41,7 @@
     <Compile Include="Characters\PlaceholderPerson.cs" />
     <Compile Include="Characters\Conversation.cs" />
     <Compile Include="Deductions\RaymondCommittedSuicide.cs" />
+    <Compile Include="Deductions\YouButcheredRaymond.cs" />
     <Compile Include="GameObjects.cs" />
     <Compile Include="Deductions\Deduction.cs" />
     <Compile Include="Scenes\DeductionScene.cs" />

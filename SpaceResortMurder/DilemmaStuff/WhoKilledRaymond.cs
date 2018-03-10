@@ -8,9 +8,7 @@ namespace SpaceResortMurder.DilemmaStuff
     public class WhoKilledRaymond : Dilemma
     {
         public WhoKilledRaymond() : base("Who Killed Raymond?", new Transform2(new Vector2(400, 400), new Size2(200, 100)),
-            new List<Deduction>() {
-                new RaymondCommittedSuicide(),
-            }) { }
+            new RaymondCommittedSuicide(), new YouButcheredRaymond()) { }
 
         public override bool IsActive()
         {
