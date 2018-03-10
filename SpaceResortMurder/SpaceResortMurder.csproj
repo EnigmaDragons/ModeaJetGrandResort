@@ -38,13 +38,20 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Characters\Person.cs" />
     <Compile Include="Characters\PlaceholderPerson.cs" />
     <Compile Include="Characters\Conversation.cs" />
+    <Compile Include="Characters\PoliceOfficier.cs" />
     <Compile Include="Deductions\RaymondCommittedSuicide.cs" />
     <Compile Include="Deductions\YouButcheredRaymond.cs" />
+    <Compile Include="Dialogs\Dialog.cs" />
+    <Compile Include="Dialogs\WhoWasMurdered.cs" />
+    <Compile Include="Dialogs\WhyWouldAnyoneHireYouPolice.cs" />
     <Compile Include="GameObjects.cs" />
     <Compile Include="Deductions\Deduction.cs" />
+    <Compile Include="Scenes\BlackRoomScene.cs" />
     <Compile Include="Scenes\DeductionScene.cs" />
+    <Compile Include="Scenes\LocationScene.cs" />
     <Compile Include="State\ItemViewed.cs" />
     <Compile Include="DilemmaStuff\Dilemma.cs" />
     <Compile Include="Scenes\OptionsScene.cs" />
@@ -68,6 +75,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Characters\policeman.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Characters\random_npc_01.png" />
+    <Content Include="Content\Characters\random_npc_02.png" />
+    <Content Include="Content\Characters\resort_manager_base.png" />
+    <Content Include="Content\Characters\resort_manager_colored.png" />
+    <Content Include="Content\Characters\resort_manager_irritated.png" />
+    <Content Include="Content\Characters\resort_manager_surprised.png" />
     <Content Include="Content\Music\Logo.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

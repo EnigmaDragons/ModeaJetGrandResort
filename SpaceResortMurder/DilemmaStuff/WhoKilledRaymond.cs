@@ -11,7 +11,7 @@ namespace SpaceResortMurder.DilemmaStuff
 
         public override bool IsActive()
         {
-            return true;
+            return true; // GameState.Instance.IsThinking(nameof(WhoKilledRaymond));
         }
     }
 }

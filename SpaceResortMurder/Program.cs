@@ -40,6 +40,7 @@ namespace SpaceResortMurder
                 { "Credits", () => new CreditsScene() },
                 { "Dilemmas", () => new DilemmaScene() },
                 { "Options", () => new OptionsScene() },
+                { "Black Room", () => new BlackRoomScene() },
             });
         }
 

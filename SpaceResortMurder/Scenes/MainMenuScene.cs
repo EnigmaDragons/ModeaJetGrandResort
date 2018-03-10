@@ -22,7 +22,7 @@ namespace SpaceResortMurder.Scenes
             _start = new TextButton(new Rectangle(700, 300, 200, 100), () =>
                 {
                     Audio.PlaySound("MenuButtonPress");
-                    Scene.NavigateTo("Dilemmas");
+                    Scene.NavigateTo("Black Room");
                 }, "Start Game",
                 Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
             _credits = new TextButton(new Rectangle(700, 500, 200, 100), () =>
