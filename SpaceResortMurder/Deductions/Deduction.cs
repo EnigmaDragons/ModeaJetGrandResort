@@ -16,7 +16,7 @@ namespace SpaceResortMurder.Deductions
         private Label _conclusion;
         public ClickableUIElement Button => _button;
 
-        public Deduction(string deductionText, string thought, Transform2 transform)
+        protected Deduction(string deductionText, string thought, Transform2 transform)
         {
             _transform = transform;
             _thought = thought;
