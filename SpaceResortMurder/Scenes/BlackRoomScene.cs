@@ -43,8 +43,11 @@ namespace SpaceResortMurder.Scenes
                 _talkingCop.Draw(Transform2.Zero);
                 DrawDialogs();
             }
-            else 
+            else
+            {
                 _chillinBackCop.Draw(Transform2.Zero);
+                DrawHud();
+            }
         }
     }
 }

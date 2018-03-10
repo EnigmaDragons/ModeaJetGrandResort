@@ -23,6 +23,7 @@ namespace SpaceResortMurder.Scenes
             _clickUI = new ClickUI();
             _investigateRoomBranch = new ClickUIBranch("Location Investigation", 1);
             _clickUI.Add(_investigateRoomBranch);
+            _clickUI.Add(GameObjects.Hud.HudBranch);
         }
 
         public abstract void Init();
@@ -34,6 +35,11 @@ namespace SpaceResortMurder.Scenes
         protected void DrawDialogs()
         {
             _drawActions.ForEach(x => x());
+        }
+
+        protected void DrawHud()
+        {
+            GameObjects.Hud.Draw();
         }
 
         protected void TalkTo(Person person)

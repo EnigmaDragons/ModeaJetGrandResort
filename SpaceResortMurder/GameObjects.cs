@@ -1,12 +1,14 @@
 ﻿using SpaceResortMurder.DilemmaStuff;
+using SpaceResortMurder.HudStuff;
 
 namespace SpaceResortMurder
 {
     public static class GameObjects
     {
-        private static bool HasInit = false;
+        private static bool _hasInit = false;
 
         public static Dilemmas Dilemmas { get; } = new Dilemmas();
+        public static Hud Hud { get; } = new Hud();
 
         public static RoomNames RoomNames { get; } = new RoomNames();
         public static string MainMenuSceneName => "Main Menu";
@@ -16,10 +18,11 @@ namespace SpaceResortMurder
 
         public static void InitIfNeeded()
         {
-            if (HasInit)
+            if (_hasInit)
                 return;
             Dilemmas.Init();
-            HasInit = true;
+            Hud.Init();
+            _hasInit = true;
         }
     }
 }
