@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 
 namespace SpaceResortMurder.Deductions
@@ -11,7 +12,7 @@ namespace SpaceResortMurder.Deductions
 
         public Deduction(string deductionText, Transform2 transform)
         {
-            _button = new TextButton(transform.ToRectangle(), () => { }, deductionText, Color.Blue, Color.AliceBlue, Color.Aqua);
+            _button = new TextButton(transform.ToRectangle(), () => Scene.NavigateTo("Dilemmas"), deductionText, Color.Blue, Color.AliceBlue, Color.Aqua);
         }
 
         public abstract bool IsActive();
