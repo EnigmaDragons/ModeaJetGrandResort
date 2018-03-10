@@ -19,6 +19,7 @@ namespace SpaceResortMurder.Scenes
 
         public void Init()
         {
+            Audio.PlayMusicOnce("Credits", 0.7f);
             _clickUi = new ClickUI();
             _menu = new TextButton(new Rectangle(700, 800, 200, 50), () =>
                 {
