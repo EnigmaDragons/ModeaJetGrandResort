@@ -4,18 +4,15 @@ using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Deductions;
-using System;
 using System.Collections.Generic;
+using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.Scenes
 {
-    public class DeductionScene : IScene
+    public sealed class DeductionScene : JamScene
     {
-        private ClickUI _clickUI;
+        private readonly IReadOnlyList<Deduction> _deductions;
         private readonly string _dilemmaText;
-        private Label _dilemmaLabel;
-        private IReadOnlyList<Deduction> _deductions;
-        private TextButton _return;
 
         public DeductionScene(string dilemma, IReadOnlyList<Deduction> deductions)
         {
@@ -23,36 +20,30 @@ namespace SpaceResortMurder.Scenes
             _deductions = deductions;
         }
 
-        public void Draw()
+        protected override void OnInit()
         {
-            _return.Draw(Transform2.Zero);
-            _dilemmaLabel.Draw(Transform2.Zero);
-            _deductions.ForEach(d =>
-            {
-                d.Draw();
-                d.DrawNewIfApplicable();
-            });
-        }
-
-        public void Init()
-        {
-            _clickUI = new ClickUI();
-            _dilemmaLabel = new Label()
+            Add(UiButtons.Menu("Return", new Vector2(1250, 750), () => Scene.NavigateTo(GameObjects.DilemmasSceneName)));
+            AddVisual(new Label
             {
                 Transform = new Transform2(new Size2(1600, 100)),
                 BackgroundColor = Color.Transparent,
                 Text = _dilemmaText,
                 TextColor = Color.White
-            };
-            _deductions.ForEach(d => _clickUI.Add(d.Button));
-            _return = new TextButton(new Rectangle(1250, 750, 200, 100), () => Scene.NavigateTo(GameObjects.DilemmasSceneName), "Return",
-                Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
-            _clickUI.Add(_return);
+            });
+            _deductions.ForEach(d =>
+            {
+                AddUi(d.Button);
+                AddVisual(d);
+            });
         }
 
-        public void Update(TimeSpan delta)
+        protected override void DrawBackground()
         {
-            _clickUI.Update(delta);
+            UI.FillScreen("UI/DeductionSceneBg");
+        }
+
+        protected override void DrawForeground()
+        {
         }
     }
 }
