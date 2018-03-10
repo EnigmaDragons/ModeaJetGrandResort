@@ -3,6 +3,7 @@ using MonoDragons.Core.AudioSystem;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
+using SpaceResortMurder.LocationStuff;
 using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.Scenes
@@ -14,7 +15,7 @@ namespace SpaceResortMurder.Scenes
             GameState.Instance = new GameState();
             Audio.PlayMusic("MainTheme");
 
-            Add(UiButtons.Menu("Start Game", new Vector2(120, 610), () => Scene.NavigateTo(GameObjects.RoomNames.BlackRoom)));
+            Add(UiButtons.Menu("Start Game", new Vector2(120, 610), () => Scene.NavigateTo(nameof(BlackRoom))));
             Add(UiButtons.Menu("Credits", new Vector2(120, 770), () => Scene.NavigateTo(GameObjects.CreditsSceneName)));
             Add(UiButtons.Menu("Options", new Vector2(120, 690), () =>
             {

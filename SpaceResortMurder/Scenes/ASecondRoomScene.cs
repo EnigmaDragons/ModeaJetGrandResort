@@ -1,8 +1,10 @@
-﻿namespace SpaceResortMurder.Scenes
+﻿using SpaceResortMurder.LocationStuff;
+
+namespace SpaceResortMurder.Scenes
 {
     public class ASecondRoomScene : LocationScene
     {
-        public ASecondRoomScene() : base(GameObjects.RoomNames.SecondRoom) {}
+        public ASecondRoomScene() : base(nameof(SecondRoom)) {}
 
         public override void Init()
         {

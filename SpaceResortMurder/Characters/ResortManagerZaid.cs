@@ -1,16 +1,17 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
 using SpaceResortMurder.Dialogs;
+using SpaceResortMurder.LocationStuff;
 
 namespace SpaceResortMurder.Characters
 {
     public class ResortManagerZaid : Person
     {
-        public ResortManagerZaid() : base("resort-manager-colored", new Size2(399, 937), new DidYouKillHimZaid()) {}
+        public ResortManagerZaid() : base("Characters/resort_manager_colored", new Size2(399, 937), new DidYouKillHimZaid()) {}
 
         public override string WhereAreYou()
         {
-            return GameObjects.RoomNames.SecondRoom;
+            return nameof(SecondRoom);
         }
 
         public override Transform2 WhereAreYouStanding()

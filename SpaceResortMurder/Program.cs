@@ -9,6 +9,7 @@ using MonoDragons.Core.Memory;
 using MonoDragons.Core.Render;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.Text;
+using SpaceResortMurder.LocationStuff;
 using SpaceResortMurder.Scenes;
 
 namespace SpaceResortMurder
@@ -42,8 +43,9 @@ namespace SpaceResortMurder
                 { GameObjects.CreditsSceneName, () => new CreditsScene() },
                 { GameObjects.DilemmasSceneName, () => new DilemmaScene() },
                 { GameObjects.OptionsSceneName, () => new OptionsScene() },
-                { GameObjects.RoomNames.BlackRoom, () => new BlackRoomScene() },
-                { GameObjects.RoomNames.SecondRoom, () => new ASecondRoomScene() },
+                { nameof(BlackRoom), () => new BlackRoomScene() },
+                { nameof(SecondRoom), () => new ASecondRoomScene() },
+                { GameObjects.MapSceneName, () => new SpaceResortMapScene() },
             });
         }
 

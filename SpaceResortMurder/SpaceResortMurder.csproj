@@ -51,12 +51,17 @@
     <Compile Include="GameObjects.cs" />
     <Compile Include="Deductions\Deduction.cs" />
     <Compile Include="HudStuff\Hud.cs" />
+    <Compile Include="LocationStuff\BlackRoom.cs" />
+    <Compile Include="LocationStuff\Location.cs" />
+    <Compile Include="LocationStuff\Locations.cs" />
+    <Compile Include="LocationStuff\SecondRoom.cs" />
     <Compile Include="RoomNames.cs" />
     <Compile Include="Scenes\JamScene.cs" />
     <Compile Include="Scenes\ASecondRoomScene.cs" />
     <Compile Include="Scenes\BlackRoomScene.cs" />
     <Compile Include="Scenes\DeductionScene.cs" />
     <Compile Include="Scenes\LocationScene.cs" />
+    <Compile Include="Scenes\SpaceResortMapScene.cs" />
     <Compile Include="State\ItemViewed.cs" />
     <Compile Include="DilemmaStuff\Dilemma.cs" />
     <Compile Include="Scenes\OptionsScene.cs" />
@@ -110,6 +115,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Music\MainTheme.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Placeholder\SpaceResortPlaceholder.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sounds\MenuButtonPress.mp3">

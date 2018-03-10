@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
 using SpaceResortMurder.Dialogs;
+using SpaceResortMurder.LocationStuff;
 
 namespace SpaceResortMurder.Characters
 {
@@ -10,7 +11,7 @@ namespace SpaceResortMurder.Characters
 
         public override string WhereAreYou()
         {
-            return GameObjects.RoomNames.BlackRoom;
+            return nameof(BlackRoom);
         }
 
         public override Transform2 WhereAreYouStanding()

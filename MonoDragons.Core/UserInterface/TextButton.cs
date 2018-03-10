@@ -7,7 +7,7 @@ using MonoDragons.Core.PhysicsEngine;
 
 namespace MonoDragons.Core.UserInterface
 {
-    public class TextButton : ClickableUIElement, IVisual
+    public class TextButton : VisualClickableUIElement
     {
         private readonly Action _onClick;
         private readonly string _text;
@@ -58,7 +58,7 @@ namespace MonoDragons.Core.UserInterface
             _onClick();
         }
 
-        public void Draw(Transform2 parentTransform)
+        public override void Draw(Transform2 parentTransform)
         {
             if (_isVisible())
             {

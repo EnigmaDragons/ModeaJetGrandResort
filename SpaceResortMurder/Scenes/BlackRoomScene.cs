@@ -1,8 +1,10 @@
-﻿namespace SpaceResortMurder.Scenes
+﻿using SpaceResortMurder.LocationStuff;
+
+namespace SpaceResortMurder.Scenes
 {
     public class BlackRoomScene : LocationScene
     {
-        public BlackRoomScene() : base("Black Room") {}
+        public BlackRoomScene() : base(nameof(BlackRoom)) {}
 
         public override void Init()
         {
