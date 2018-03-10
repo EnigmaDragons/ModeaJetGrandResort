@@ -11,16 +11,37 @@ namespace MonoDragons.Core.UserInterface
         public abstract void OnReleased();
         
         public float Scale { get; }
-        public Vector2 ParentLocation { get; set; }
+        private Vector2 parentLocation;
+        public Vector2 ParentLocation
+        {
+            get { return parentLocation; }
+            set
+            {
+                parentLocation = value;
+                TotalArea = new Rectangle(Area.Location + offset.ToPoint() + parentLocation.ToPoint(), Area.Size);
+            }
+        }
+        private Vector2 offset;
+        public Vector2 Offset
+        {
+            get { return offset; }
+            set
+            {
+                offset = value;
+                TotalArea = new Rectangle(Area.Location + offset.ToPoint() + parentLocation.ToPoint(), Area.Size);
+            }
+        }
         public Rectangle Area { get; }
         public bool IsEnabled { get; set; }
+        public Rectangle TotalArea { get; private set; } 
 
         protected ClickableUIElement(Rectangle area, bool isEnabled = true, float scale = 1)
         {
             Area = new Rectangle((int)Math.Round(area.X * scale), (int)Math.Round(area.Y * scale),
                 (int)Math.Round(area.Width * scale), (int)Math.Round(area.Height * scale));
             Scale = scale;
-            ParentLocation = new Vector2(0, 0);
+            ParentLocation = Vector2.Zero;
+            Offset = Vector2.Zero;
             IsEnabled = isEnabled;
         }
     }
