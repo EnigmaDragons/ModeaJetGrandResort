@@ -1,4 +1,5 @@
-﻿using SpaceResortMurder.DilemmaStuff;
+﻿using SpaceResortMurder.Characters;
+using SpaceResortMurder.DilemmaStuff;
 using SpaceResortMurder.HudStuff;
 
 namespace SpaceResortMurder
@@ -9,6 +10,7 @@ namespace SpaceResortMurder
 
         public static Dilemmas Dilemmas { get; } = new Dilemmas();
         public static Hud Hud { get; } = new Hud();
+        public static People People { get; } = new People();
 
         public static RoomNames RoomNames { get; } = new RoomNames();
         public static string MainMenuSceneName => "Main Menu";
@@ -22,6 +24,7 @@ namespace SpaceResortMurder
                 return;
             Dilemmas.Init();
             Hud.Init();
+            People.Init();
             _hasInit = true;
         }
     }

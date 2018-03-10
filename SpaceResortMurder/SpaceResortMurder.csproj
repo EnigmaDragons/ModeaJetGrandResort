@@ -38,10 +38,11 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Characters\People.cs" />
+    <Compile Include="Dialogs\DidYouKillHimZaid.cs" />
     <Compile Include="Characters\Person.cs" />
-    <Compile Include="Characters\PlaceholderPerson.cs" />
-    <Compile Include="Characters\Conversation.cs" />
     <Compile Include="Characters\PoliceOfficier.cs" />
+    <Compile Include="Characters\ResortManagerZaid.cs" />
     <Compile Include="Deductions\RaymondCommittedSuicide.cs" />
     <Compile Include="Deductions\YouButcheredRaymond.cs" />
     <Compile Include="Dialogs\Dialog.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Deductions\Deduction.cs" />
     <Compile Include="HudStuff\Hud.cs" />
     <Compile Include="RoomNames.cs" />
+    <Compile Include="Scenes\ASecondRoomScene.cs" />
     <Compile Include="Scenes\BlackRoomScene.cs" />
     <Compile Include="Scenes\DeductionScene.cs" />
     <Compile Include="Scenes\LocationScene.cs" />
