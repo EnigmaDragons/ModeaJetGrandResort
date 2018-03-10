@@ -38,7 +38,7 @@ namespace SpaceResortMurder
                 { "Logo", () => new FadingInScene(new Logo("Main Menu")) },
                 { "Main Menu", () => new MainMenuScene() },
                 { "Credits", () => new CreditsScene() },
-                { "Pondering", () => new PonderingScene() },
+                { "Pondering", () => new DilemmaScene() },
                 { "Options", () => new OptionsScene() },
             });
         }

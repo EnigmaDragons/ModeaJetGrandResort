@@ -17,11 +17,11 @@ namespace SpaceResortMurder.Scenes
         public void Init()
         {
             Audio.PlayMusic("MainTheme");
+            GameState.Instance = new GameState();
             _clickUi = new ClickUI();
             _start = new TextButton(new Rectangle(700, 300, 200, 100), () =>
                 {
                     Audio.PlaySound("MenuButtonPress");
-                    GameState.Init();
                     Scene.NavigateTo("Pondering");
                 }, "Start Game",
                 Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
@@ -32,7 +32,7 @@ namespace SpaceResortMurder.Scenes
                 }, "View Credits", Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
             _options = new TextButton(new Rectangle(700, 700, 200, 100), () =>
                 {
-                    GameState.LastLocationName = "Main Menu";
+                    GameState.Instance.CurrentLocation = "Main Menu";
                     Scene.NavigateTo("Options");
                 },
                 "Options", Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));

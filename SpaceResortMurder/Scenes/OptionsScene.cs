@@ -19,7 +19,7 @@ namespace SpaceResortMurder.Scenes
         public void Init()
         {
             _clickUi = new ClickUI();
-            _return = new TextButton(new Rectangle(700, 500, 200, 100), () => Scene.NavigateTo(GameState.LastLocationName), "Return",
+            _return = new TextButton(new Rectangle(700, 500, 200, 100), () => Scene.NavigateTo(GameState.Instance.CurrentLocation), "Return",
                 Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
             _clickUi.Add(_return);
         }

@@ -7,15 +7,15 @@ using SpaceResortMurder.Pondering;
 
 namespace SpaceResortMurder.Scenes
 {
-    public class PonderingScene : IScene
+    public class DilemmaScene : IScene
     {
         private ClickUI _clickUi;
-        private IReadOnlyList<IDilemma> _dilemmas;
+        private IReadOnlyList<Dilemma> _dilemmas;
 
         public void Init()
         {
             _clickUi = new ClickUI();
-            _dilemmas = GameState.Dilemmas.List;
+            _dilemmas = GameObjects.Dilemmas.GetActiveDilemmas();
             _dilemmas.ForEach(x => _clickUi.Add(x.Button));
         }
 
