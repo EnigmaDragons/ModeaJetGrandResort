@@ -7,7 +7,7 @@ namespace SpaceResortMurder.DilemmasX
 {
     public class WhoKilledRaymond : Dilemma
     {
-        public WhoKilledRaymond() : base(new Transform2(new Vector2(400, 400), new Size2(320, 120)), nameof(WhoKilledRaymond),
+        public WhoKilledRaymond() : base(new Transform2(new Vector2(400, 400), new Size2(360, 120)), nameof(WhoKilledRaymond),
             new RaymondCommittedSuicide(), new YouButcheredRaymond()) { }
 
         public override bool IsActive()

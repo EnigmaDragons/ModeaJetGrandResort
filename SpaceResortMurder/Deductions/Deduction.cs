@@ -5,6 +5,7 @@ using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using System;
 using MonoDragons.Core.Engine;
+using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.Deductions
 {
@@ -15,7 +16,7 @@ namespace SpaceResortMurder.Deductions
         private readonly string _deductionText;
         private ImageBox _newIndicator;
         private ImageTextButton _button;
-        private Label _conclusion;
+        private ImageLabel _conclusion;
         public ClickableUIElement Button => _button;
         public bool IsNew => !GameState.Instance.HasViewedItem(_thought);
 
@@ -39,10 +40,10 @@ namespace SpaceResortMurder.Deductions
                 if (!GameState.Instance.HasViewedItem(_thought))
                     Event.Publish(new ItemViewed(_thought)); 
             };
-            _conclusion = new Label() { Transform = conclusionTransform,
-                Text = _deductionText,
-                TextColor = Color.Pink,
-                BackgroundColor = Color.Transparent };
+            _conclusion = new ImageLabel(conclusionTransform, "UI/SelectedDeduction")
+            { 
+                Text = _deductionText
+            };
             _newIndicator = new ImageBox
             {
                 Transform = new Transform2(new Vector2(_transform.Location.X - 20, _transform.Location.Y - 20), new Size2(36, 36)),

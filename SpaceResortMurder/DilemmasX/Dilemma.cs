@@ -36,8 +36,8 @@ namespace SpaceResortMurder.DilemmasX
         {
             _deductions.ForEach(d => d.Init(ClearPriorDeductions,
                 new Transform2(
-                    new Vector2(_transform.Location.X, _transform.Location.Y + _transform.Size.Height),
-                    new Size2(_transform.Size.Width, 100))));
+                    new Vector2(_transform.Location.X, _transform.Location.Y + _transform.Size.Height - 8),
+                    new Size2(_transform.Size.Width, 92))));
             _button = new ImageTextButton(_transform.ToRectangle(),
                 () =>
                 {
