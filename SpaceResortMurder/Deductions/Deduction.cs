@@ -17,6 +17,7 @@ namespace SpaceResortMurder.Deductions
         private ImageTextButton _button;
         private Label _conclusion;
         public ClickableUIElement Button => _button;
+        public bool IsNew => !GameState.Instance.HasViewedItem(_thought);
 
         protected Deduction(string thought, Transform2 transform)
         {
@@ -63,14 +64,9 @@ namespace SpaceResortMurder.Deductions
                 _conclusion.Draw(Transform2.Zero);
         }
 
-        public bool IsNew()
-        {
-            return !GameState.Instance.HasViewedItem(_thought);
-        }
-
         private void DrawNewIfApplicable()
         {
-            if (IsNew())
+            if (IsNew)
                 _newIndicator.Draw(Transform2.Zero);
         }
 

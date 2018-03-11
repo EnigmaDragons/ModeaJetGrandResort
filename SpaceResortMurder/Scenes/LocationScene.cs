@@ -88,7 +88,10 @@ namespace SpaceResortMurder.Scenes
                 _backButton.Draw(Transform2.Zero);
             }
             if (!_isTalking && !_isInvestigating)
+            {
                 GameObjects.Hud.Draw();
+                GameObjects.Hud.DrawNewIconsIfApplicable();
+            }
             if (_isInvestigating)
                 _investigatingThis.FacingImage.Draw(Transform2.Zero);
             if (_isInTheMiddleOfDialog)

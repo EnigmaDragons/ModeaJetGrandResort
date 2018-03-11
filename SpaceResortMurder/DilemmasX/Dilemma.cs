@@ -21,6 +21,8 @@ namespace SpaceResortMurder.DilemmasX
         private ImageBox _newDeductions;
 
         public ClickableUIElement Button => _button;
+        public bool IsNew => !GameState.Instance.HasViewedItem(_dilemma);
+        public bool HasNewAnswers => _deductions.Any(d => d.IsNew);
 
         protected Dilemma(Transform2 transform, string dilemma, params Deduction[] deductions)
         {
@@ -69,13 +71,13 @@ namespace SpaceResortMurder.DilemmasX
 
         private void DrawNewIconIfApplicable()
         {
-            if (!GameState.Instance.HasViewedItem(_dilemma))
+            if (IsNew)
                 _newDilemma.Draw(Transform2.Zero);
         }
 
         private void DrawNewAnswersIfApplicable()
         {
-            if (_deductions.Any(d => d.IsNew()))
+            if (HasNewAnswers)
                 _newDeductions.Draw(Transform2.Zero);
         }
 
