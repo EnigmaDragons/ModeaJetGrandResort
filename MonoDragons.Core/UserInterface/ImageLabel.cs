@@ -15,6 +15,7 @@ namespace MonoDragons.Core.UserInterface
         public string Font { set => _label.Font = value; }
         public string Text { set => _label.Text = value; }
         public Color TextColor { set => _label.TextColor = value; }
+        public HorizontalAlignment TextAlignment { set => _label.HorizontalAlignment = value; }
 
         public Transform2 Transform
         {

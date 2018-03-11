@@ -7,7 +7,11 @@ namespace SpaceResortMurder.Characters
 {
     public sealed class PoliceOfficer : Person
     {
-        public PoliceOfficer() : base("Characters/policeman", new Size2(400, 940), new WhoWasMurdered(), new WhyWouldAnyoneHireYouPolice()) {}
+        public PoliceOfficer() : base(
+            "Police Officer", 
+            "Characters/policeman", 
+            new Size2(400, 940), 
+            new WhoWasMurdered(), new WhyWouldAnyoneHireYouPolice()) {}
 
         public override string WhereAreYou()
         {
