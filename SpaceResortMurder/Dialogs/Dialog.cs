@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
-using SpaceResortMurder.DilemmaStuff;
+using SpaceResortMurder.DilemmasX;
 
 namespace SpaceResortMurder.Dialogs
 {

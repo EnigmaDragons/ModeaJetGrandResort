@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace SpaceResortMurder.DilemmaStuff
+namespace SpaceResortMurder.DilemmasX
 {
     public class Dilemmas
     {

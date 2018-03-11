@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace SpaceResortMurder.ObjectiveStuff
+namespace SpaceResortMurder.ObjectivesX
 {
     public class Objectives
     {

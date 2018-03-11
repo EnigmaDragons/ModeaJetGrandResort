@@ -6,7 +6,7 @@ using MonoDragons.Core.Inputs;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Text;
 using MonoDragons.Core.UserInterface;
-using SpaceResortMurder.MouseStuff;
+using SpaceResortMurder.MouseX;
 
 namespace SpaceResortMurder.Dialogs
 {

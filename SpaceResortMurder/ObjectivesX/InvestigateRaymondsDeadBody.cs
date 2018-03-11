@@ -1,6 +1,6 @@
-﻿using SpaceResortMurder.DilemmaStuff;
+﻿using SpaceResortMurder.DilemmasX;
 
-namespace SpaceResortMurder.ObjectiveStuff
+namespace SpaceResortMurder.ObjectivesX
 {
     public class InvestigateRaymondsDeadBody : Objective
     {

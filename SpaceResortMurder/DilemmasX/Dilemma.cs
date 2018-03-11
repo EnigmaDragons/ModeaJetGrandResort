@@ -1,14 +1,14 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Linq;
+using Microsoft.Xna.Framework;
 using MonoDragons.Core.Common;
+using MonoDragons.Core.Engine;
+using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Deductions;
-using System.Linq;
-using MonoDragons.Core.Engine;
-using MonoDragons.Core.EventSystem;
 
-namespace SpaceResortMurder.DilemmaStuff
+namespace SpaceResortMurder.DilemmasX
 {
     public abstract class Dilemma : IVisual
     {

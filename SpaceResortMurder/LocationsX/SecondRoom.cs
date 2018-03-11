@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace SpaceResortMurder.LocationStuff
+namespace SpaceResortMurder.LocationsX
 {
     public class SecondRoom : Location
     {
