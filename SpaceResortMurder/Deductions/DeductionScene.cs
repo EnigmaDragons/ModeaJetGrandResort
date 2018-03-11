@@ -23,7 +23,7 @@ namespace SpaceResortMurder.Deductions
 
         protected override void OnInit()
         {
-            Add(UiButtons.BackRed(new Vector2(6, UI.ConvertHeightPercentageToPixels(100) - 138), () => Scene.NavigateTo(GameObjects.DilemmasSceneName)));
+            Add(UiButtons.BackRed(new Vector2(6, UI.ConvertHeightPercentageToPixels(100) - 138), () => Scene.NavigateTo(GameResources.DilemmasSceneName)));
             AddVisual(new Label
             {
                 Transform = new Transform2(new Vector2(280, 28), new Size2(500, 80)),

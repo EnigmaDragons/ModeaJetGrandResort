@@ -39,6 +39,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Characters\People.cs" />
+    <Compile Include="Clues\Clue.cs" />
+    <Compile Include="Clues\Necronomicon.cs" />
     <Compile Include="Dialogs\ChatBox.cs" />
     <Compile Include="Dialogs\DidYouKillHimZaid.cs" />
     <Compile Include="Characters\Person.cs" />
@@ -52,27 +54,32 @@
     <Compile Include="Dialogs\WhyWouldAnyoneHireYouPolice.cs" />
     <Compile Include="GameObjects.cs" />
     <Compile Include="Deductions\Deduction.cs" />
-    <Compile Include="HudStuff\Hud.cs" />
-    <Compile Include="LocationStuff\BlackRoom.cs" />
-    <Compile Include="LocationStuff\Location.cs" />
-    <Compile Include="LocationStuff\Locations.cs" />
-    <Compile Include="LocationStuff\SecondRoom.cs" />
-    <Compile Include="MouseStuff\MouseIsClicked.cs" />
+    <Compile Include="GameResources.cs" />
+    <Compile Include="HudX\Hud.cs" />
+    <Compile Include="LocationsX\BlackRoom.cs" />
+    <Compile Include="LocationsX\Location.cs" />
+    <Compile Include="LocationsX\Locations.cs" />
+    <Compile Include="LocationsX\SecondRoom.cs" />
+    <Compile Include="MouseX\MouseIsClicked.cs" />
+    <Compile Include="ObjectivesX\InvestigateRaymondsDeadBody.cs" />
+    <Compile Include="ObjectivesX\Objective.cs" />
+    <Compile Include="ObjectivesX\Objectives.cs" />
     <Compile Include="RoomNames.cs" />
     <Compile Include="Scenes\JamScene.cs" />
     <Compile Include="Scenes\ASecondRoomScene.cs" />
     <Compile Include="Scenes\BlackRoomScene.cs" />
     <Compile Include="Deductions\DeductionScene.cs" />
     <Compile Include="Scenes\LocationScene.cs" />
+    <Compile Include="Scenes\ObjectivesScene.cs" />
     <Compile Include="Scenes\SpaceResortMapScene.cs" />
     <Compile Include="State\ItemViewed.cs" />
-    <Compile Include="DilemmaStuff\Dilemma.cs" />
+    <Compile Include="DilemmasX\Dilemma.cs" />
     <Compile Include="Scenes\OptionsScene.cs" />
-    <Compile Include="DilemmaStuff\Dilemmas.cs" />
-    <Compile Include="DilemmaStuff\WhoKilledRaymond.cs" />
+    <Compile Include="DilemmasX\Dilemmas.cs" />
+    <Compile Include="DilemmasX\WhoKilledRaymond.cs" />
     <Compile Include="State\GameState.cs" />
     <Compile Include="Scenes\CreditsScene.cs" />
-    <Compile Include="DilemmaStuff\DilemmaScene.cs" />
+    <Compile Include="DilemmasX\DilemmaScene.cs" />
     <Compile Include="Scenes\MainMenuScene.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -127,10 +134,22 @@
     <Content Include="Content\Placeholder\dialoguebox.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Placeholder\necronomicon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Placeholder\SpaceResortPlaceholder.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sounds\MenuButtonPress.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\BackButton-Hover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\BackButton-Press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\BackButton.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\BackButtonRed-Hover.png">
@@ -155,6 +174,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\MainMenuBorder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\NewGreenIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\NewRedIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\PixelButton-Hover.png">

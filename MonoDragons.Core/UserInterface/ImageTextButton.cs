@@ -14,6 +14,7 @@ namespace MonoDragons.Core.UserInterface
         public Transform2 Transform => new Transform2(Area);
         public string Text { set => _label.Text = value; }
         public Color TextColor { set => _label.TextColor = value; }
+        public Action OnPress { set => _button.OnPress = value; }
 
         public ImageTextButton(Rectangle rect, Action onClick, string text, string basic, string hover, string press)
             : this(new Transform2(rect), onClick, text, basic, hover, press, () => true) { }

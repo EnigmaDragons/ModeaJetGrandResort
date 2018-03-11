@@ -1,14 +1,14 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Linq;
+using Microsoft.Xna.Framework;
 using MonoDragons.Core.Common;
+using MonoDragons.Core.Engine;
+using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Deductions;
-using System.Linq;
-using MonoDragons.Core.Engine;
-using MonoDragons.Core.EventSystem;
 
-namespace SpaceResortMurder.DilemmaStuff
+namespace SpaceResortMurder.DilemmasX
 {
     public abstract class Dilemma : IVisual
     {
@@ -17,8 +17,8 @@ namespace SpaceResortMurder.DilemmaStuff
         private readonly Deduction[] _deductions;
         private readonly Transform2 _transform;
         private TextButton _button;
-        private Label _newLabel;
-        private Label _newAnswersLabel;
+        private ImageBox _newDilemma;
+        private ImageBox _newDeductions;
 
         public ClickableUIElement Button => _button;
 
@@ -42,23 +42,18 @@ namespace SpaceResortMurder.DilemmaStuff
                     if (!GameState.Instance.HasViewedItem(_dilemma))
                         Event.Publish(new ItemViewed(_dilemma));
                     Scene.NavigateTo(new DeductionScene(_dilemmaText, _deductions.Where(x => x.IsActive()).ToList()));
-
                 },
                 _dilemmaText,
                 Color.Blue, Color.AliceBlue, Color.Aqua);
-            _newLabel = new Label
+            _newDilemma = new ImageBox
             {
-                Transform = new Transform2(new Vector2(_transform.Location.X - 20, _transform.Location.Y - 20), new Size2(70, 30)),
-                BackgroundColor = Color.Red,
-                RawText = "NEW!",
-                TextColor = Color.White,
+                Transform = new Transform2(new Vector2(_transform.Location.X - 20, _transform.Location.Y - 20), new Size2(36, 36)),
+                Image = "UI/NewRedIcon"
             };
-            _newAnswersLabel = new Label
+            _newDeductions = new ImageBox
             {
-                Transform = new Transform2(new Vector2(_transform.Location.X + 100, _transform.Location.Y - 40), new Size2(115, 60)),
-                BackgroundColor = Color.Red,
-                RawText = "NEW ANSWERS!",
-                TextColor = Color.White,
+                Transform = new Transform2(new Vector2(_transform.Location.X + _transform.Size.Width - 20, _transform.Location.Y - 20), new Size2(36, 36)),
+                Image = "UI/NewGreenIcon"
             };
         }
 
@@ -69,19 +64,19 @@ namespace SpaceResortMurder.DilemmaStuff
             _deductions.ForEach(x => x.DrawConclusionIfApplicable());
             _button.Draw(parentTransform);
             DrawNewAnswersIfApplicable();
-            DrawNewIfApplicable();
+            DrawNewIconIfApplicable();
         }
 
-        private void DrawNewIfApplicable()
+        private void DrawNewIconIfApplicable()
         {
             if (!GameState.Instance.HasViewedItem(_dilemma))
-                _newLabel.Draw(Transform2.Zero);
+                _newDilemma.Draw(Transform2.Zero);
         }
 
         private void DrawNewAnswersIfApplicable()
         {
             if (_deductions.Any(d => d.IsNew()))
-                _newAnswersLabel.Draw(Transform2.Zero);
+                _newDeductions.Draw(Transform2.Zero);
         }
 
         private void ClearPriorDeductions()

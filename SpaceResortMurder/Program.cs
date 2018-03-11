@@ -8,11 +8,11 @@ using MonoDragons.Core.Memory;
 using MonoDragons.Core.Render;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.Text;
-using SpaceResortMurder.LocationStuff;
 using SpaceResortMurder.Scenes;
 using SpaceResortMurder.Style;
 using System;
-using SpaceResortMurder.DilemmaStuff;
+using SpaceResortMurder.DilemmasX;
+using SpaceResortMurder.LocationsX;
 
 namespace SpaceResortMurder
 {
@@ -46,14 +46,15 @@ namespace SpaceResortMurder
         {
             return new SceneFactory(new Map<string, Func<IScene>>
             {
-                { "Logo", () => new FadingInScene(new Logo(GameObjects.MainMenuSceneName)) },
-                { GameObjects.MainMenuSceneName, () => new MainMenuScene() },
-                { GameObjects.CreditsSceneName, () => new CreditsScene() },
-                { GameObjects.DilemmasSceneName, () => new DilemmaScene() },
-                { GameObjects.OptionsSceneName, () => new OptionsScene() },
+                { "Logo", () => new FadingInScene(new Logo(GameResources.MainMenuSceneName)) },
+                { GameResources.MainMenuSceneName, () => new MainMenuScene() },
+                { GameResources.CreditsSceneName, () => new CreditsScene() },
+                { GameResources.DilemmasSceneName, () => new DilemmaScene() },
+                { GameResources.OptionsSceneName, () => new OptionsScene() },
                 { nameof(BlackRoom), () => new BlackRoomScene() },
                 { nameof(SecondRoom), () => new ASecondRoomScene() },
-                { GameObjects.MapSceneName, () => new SpaceResortMapScene() },
+                { GameResources.MapSceneName, () => new SpaceResortMapScene() },
+                { GameResources.ObjectivesSceneName, () => new ObjectivesScene() },
             });
         }
 

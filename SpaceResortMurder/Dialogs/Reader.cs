@@ -6,14 +6,14 @@ using MonoDragons.Core.Inputs;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Text;
 using MonoDragons.Core.UserInterface;
-using SpaceResortMurder.MouseStuff;
+using SpaceResortMurder.MouseX;
 
 namespace SpaceResortMurder.Dialogs
 {
     public class Reader
     {
         private readonly MouseIsClicked _mouseIsClicked = new MouseIsClicked();
-        private readonly Stack<string> _lines;
+        private readonly Queue<string> _lines;
         private readonly ChatBox _chatBox;
         private readonly Action _onFinished;
         private readonly ImageBox _box;
@@ -23,11 +23,11 @@ namespace SpaceResortMurder.Dialogs
         {
             _chatBox = new ChatBox("", 1500, DefaultFont.Font);
             _chatBoxTransform = new Transform2(new Vector2(100, 623));
-            _lines = new Stack<string>(linesToBeRead);
+            _lines = new Queue<string>(linesToBeRead);
             _onFinished = onFinished;
             Input.On(Control.A, Advance);
-            _box = new ImageBox(new Transform2(new Vector2(0, 523), new Size2(1600, 377)), "Placeholder/dialoguebox");
-            _chatBox.ShowMessage(_lines.Pop());
+            _box = new ImageBox { Transform = new Transform2(new Vector2(0, 523), new Size2(1600, 377)), Image = "Placeholder/dialoguebox" };
+            _chatBox.ShowMessage(_lines.Dequeue());
         }
 
         public void Update(TimeSpan delta)
@@ -48,7 +48,7 @@ namespace SpaceResortMurder.Dialogs
             if (!_chatBox.IsMessageCompletelyDisplayed())
                 _chatBox.CompletelyDisplayMessage();
             else if (_lines.Any())
-                _chatBox.ShowMessage(_lines.Pop());
+                _chatBox.ShowMessage(_lines.Dequeue());
             else
             {
                 Input.On(Control.A, () => {});

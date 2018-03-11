@@ -1,4 +1,5 @@
-﻿using SpaceResortMurder.LocationStuff;
+﻿using SpaceResortMurder.Clues;
+using SpaceResortMurder.LocationsX;
 
 namespace SpaceResortMurder.Scenes
 {
@@ -9,6 +10,7 @@ namespace SpaceResortMurder.Scenes
         public override void Init()
         {
             InitBase();
+            AddClue(new Necronomicon());
         }
     }
 }

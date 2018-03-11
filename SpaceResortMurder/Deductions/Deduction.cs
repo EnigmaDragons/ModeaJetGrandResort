@@ -13,7 +13,7 @@ namespace SpaceResortMurder.Deductions
         private readonly string _thought;
         private readonly Transform2 _transform;
         private readonly string _deductionText;
-        private Label _newLabel;
+        private ImageBox _newIndicator;
         private TextButton _button;
         private Label _conclusion;
         public ClickableUIElement Button => _button;
@@ -42,12 +42,10 @@ namespace SpaceResortMurder.Deductions
                 Text = _deductionText,
                 TextColor = Color.Pink,
                 BackgroundColor = Color.Transparent };
-            _newLabel = new Label
+            _newIndicator = new ImageBox
             {
-                Transform = new Transform2(new Vector2(_transform.Location.X - 20, _transform.Location.Y - 20), new Size2(70, 30)),
-                BackgroundColor = Color.Red,
-                RawText = "NEW!",
-                TextColor = Color.White,
+                Transform = new Transform2(new Vector2(_transform.Location.X - 20, _transform.Location.Y - 20), new Size2(36, 36)),
+                Image = "UI/NewRedIcon"
             };
         }
 
@@ -73,7 +71,7 @@ namespace SpaceResortMurder.Deductions
         private void DrawNewIfApplicable()
         {
             if (IsNew())
-                _newLabel.Draw(Transform2.Zero);
+                _newIndicator.Draw(Transform2.Zero);
         }
 
         public void Reset()

@@ -2,7 +2,7 @@
 using MonoDragons.Core.PhysicsEngine;
 using SpaceResortMurder.Deductions;
 
-namespace SpaceResortMurder.DilemmaStuff
+namespace SpaceResortMurder.DilemmasX
 {
     public class WhoKilledRaymond : Dilemma
     {

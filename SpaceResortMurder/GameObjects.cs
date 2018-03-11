@@ -1,7 +1,8 @@
 ﻿using SpaceResortMurder.Characters;
-using SpaceResortMurder.DilemmaStuff;
-using SpaceResortMurder.HudStuff;
-using SpaceResortMurder.LocationStuff;
+using SpaceResortMurder.DilemmasX;
+using SpaceResortMurder.HudX;
+using SpaceResortMurder.LocationsX;
+using SpaceResortMurder.ObjectivesX;
 
 namespace SpaceResortMurder
 {
@@ -13,12 +14,7 @@ namespace SpaceResortMurder
         public static Hud Hud { get; } = new Hud();
         public static People People { get; } = new People();
         public static Locations Locations { get; } = new Locations(); 
-
-        public static string MainMenuSceneName => "Main Menu";
-        public static string OptionsSceneName => "Options";
-        public static string CreditsSceneName => "Credits";
-        public static string DilemmasSceneName => "Dilemmas";
-        public static string MapSceneName => "Map";
+        public static Objectives Objectives { get; } = new Objectives();
 
         public static void InitIfNeeded()
         {
@@ -28,6 +24,7 @@ namespace SpaceResortMurder
             Hud.Init();
             People.Init();
             Locations.Init();
+            Objectives.Init();
             _hasInit = true;
         }
     }
