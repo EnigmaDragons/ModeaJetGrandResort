@@ -38,19 +38,55 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Characters\People.cs" />
+    <Compile Include="Dialogs\ChatBox.cs" />
+    <Compile Include="Dialogs\DidYouKillHimZaid.cs" />
+    <Compile Include="Characters\Person.cs" />
+    <Compile Include="Characters\PoliceOfficier.cs" />
+    <Compile Include="Characters\ResortManagerZaid.cs" />
+    <Compile Include="Deductions\RaymondCommittedSuicide.cs" />
+    <Compile Include="Deductions\YouButcheredRaymond.cs" />
+    <Compile Include="Dialogs\Dialog.cs" />
+    <Compile Include="Dialogs\Reader.cs" />
+    <Compile Include="Dialogs\WhoWasMurdered.cs" />
+    <Compile Include="Dialogs\WhyWouldAnyoneHireYouPolice.cs" />
+    <Compile Include="GameObjects.cs" />
+    <Compile Include="Deductions\Deduction.cs" />
+    <Compile Include="GameResources.cs" />
+    <Compile Include="HudX\Hud.cs" />
+    <Compile Include="LocationsX\BlackRoom.cs" />
+    <Compile Include="LocationsX\Location.cs" />
+    <Compile Include="LocationsX\Locations.cs" />
+    <Compile Include="LocationsX\SecondRoom.cs" />
+    <Compile Include="MouseX\MouseIsClicked.cs" />
+    <Compile Include="ObjectivesX\InvestigateRaymondsDeadBody.cs" />
+    <Compile Include="ObjectivesX\Objective.cs" />
+    <Compile Include="ObjectivesX\Objectives.cs" />
+    <Compile Include="RoomNames.cs" />
+    <Compile Include="Scenes\JamScene.cs" />
+    <Compile Include="Scenes\ASecondRoomScene.cs" />
+    <Compile Include="Scenes\BlackRoomScene.cs" />
+    <Compile Include="Deductions\DeductionScene.cs" />
+    <Compile Include="Scenes\LocationScene.cs" />
+    <Compile Include="Scenes\ObjectivesScene.cs" />
+    <Compile Include="Scenes\SpaceResortMapScene.cs" />
+    <Compile Include="State\ItemViewed.cs" />
+    <Compile Include="DilemmasX\Dilemma.cs" />
     <Compile Include="Scenes\OptionsScene.cs" />
-    <Compile Include="Pondering\DilemmaGained.cs" />
-    <Compile Include="Pondering\DilemmaLost.cs" />
-    <Compile Include="Pondering\Dilemmas.cs" />
-    <Compile Include="Pondering\IDilemma.cs" />
-    <Compile Include="Pondering\WhoKilledRaymondDilemma.cs" />
-    <Compile Include="GameState.cs" />
+    <Compile Include="DilemmasX\Dilemmas.cs" />
+    <Compile Include="DilemmasX\WhoKilledRaymond.cs" />
+    <Compile Include="State\GameState.cs" />
     <Compile Include="Scenes\CreditsScene.cs" />
-    <Compile Include="Scenes\PonderingScene.cs" />
+    <Compile Include="DilemmasX\DilemmaScene.cs" />
     <Compile Include="Scenes\MainMenuScene.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenes\Logo.cs" />
+    <Compile Include="State\ThoughtGained.cs" />
+    <Compile Include="State\ThoughtLost.cs" />
+    <Compile Include="Style\UiButtons.cs" />
+    <Compile Include="Style\UiFonts.cs" />
+    <Compile Include="Style\UiStyle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -60,13 +96,100 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\characters\policeman.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\characters\random_npc_01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\characters\random_npc_02.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\characters\resort_manager_base.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\characters\resort_manager_colored.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\characters\resort_manager_irritated.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\characters\resort_manager_surprised.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Locations\BedroomBg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Music\Credits.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Music\Logo.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Music\MainTheme.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Placeholder\dialoguebox.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Placeholder\SpaceResortPlaceholder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Sounds\MenuButtonPress.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\BackButtonRed-Hover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\BackButtonRed-Press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\BackButtonRed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Copyright.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\DeductionSceneBg.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\DilemmaSceneBg.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\MainMenuBg.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\MainMenuBorder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\NewRedIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\PixelButton-Hover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\PixelButton-Press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\PixelButton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\PixelButtonRed-Hover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\PixelButtonRed-Press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\PixelButtonRed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\ScreenOverlay-Red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\ScreenOverlay.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Title.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Icon.ico" />
@@ -79,6 +202,23 @@
       <Project>{a33f8fe3-a35a-4ddf-b96c-0157224f602c}</Project>
       <Name>MonoDragons.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Fonts\BodyFont.spritefont">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fonts\BodyFont.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fonts\lunchds.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\Fonts\HeaderFont.spritefont" />
+    <Content Include="Content\Fonts\HeaderFont.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

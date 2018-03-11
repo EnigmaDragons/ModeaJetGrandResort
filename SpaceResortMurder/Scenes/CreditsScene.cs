@@ -1,36 +1,24 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.AudioSystem;
-using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
-using MonoDragons.Core.UserInterface;
+using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.Scenes
 {
-    public class CreditsScene : IScene
+    public sealed class CreditsScene : JamScene
     {
-        private ClickUI _clickUi;
-        private TextButton _menu;
-
-        public void Draw()
+        protected override void OnInit()
         {
-            _menu.Draw(Transform2.Zero);
+            Audio.PlayMusicOnce("Credits");
+            Add(UiButtons.Menu("Main Menu", new Vector2(700, 800), () => Scene.NavigateTo(GameResources.MainMenuSceneName)));
         }
 
-        public void Init()
+        protected override void DrawBackground()
         {
-            _clickUi = new ClickUI();
-            _menu = new TextButton(new Rectangle(700, 800, 200, 50), () =>
-                {
-                    Audio.PlaySound("MenuButtonPress");
-                    Scene.NavigateTo("Main Menu");
-                }, "Main Menu", Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
-            _clickUi.Add(_menu);
         }
 
-        public void Update(TimeSpan delta)
+        protected override void DrawForeground()
         {
-            _clickUi.Update(delta);
         }
     }
 }

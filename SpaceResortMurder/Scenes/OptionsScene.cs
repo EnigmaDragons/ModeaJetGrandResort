@@ -1,32 +1,22 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.Scenes;
-using MonoDragons.Core.UserInterface;
-using MonoDragons.Core.PhysicsEngine;
-using Microsoft.Xna.Framework;
+using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.Scenes
 {
-    public class OptionsScene : IScene
+    public sealed class OptionsScene : JamScene
     {
-        private TextButton _return;
-        private ClickUI _clickUi;
-
-        public void Draw()
+        protected override void OnInit()
         {
-            _return.Draw(Transform2.Zero);
+            Add(UiButtons.Menu("Save", new Vector2(700, 500), () => Scene.NavigateTo(GameState.Instance.CurrentLocation)));
         }
 
-        public void Init()
+        protected override void DrawBackground()
         {
-            _clickUi = new ClickUI();
-            _return = new TextButton(new Rectangle(700, 500, 200, 100), () => Scene.NavigateTo(GameState.LastLocationName), "Return",
-                Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
-            _clickUi.Add(_return);
         }
 
-        public void Update(TimeSpan delta)
+        protected override void DrawForeground()
         {
-            _clickUi.Update(delta);
         }
     }
 }

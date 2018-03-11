@@ -1,56 +1,41 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.AudioSystem;
-using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.Engine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
-using System;
+using SpaceResortMurder.LocationsX;
+using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.Scenes
 {
-    public class MainMenuScene : IScene
+    public sealed class MainMenuScene : JamScene
     {
-        private TextButton _start;
-        private TextButton _credits;
-        private TextButton _options;
-        private ClickUI _clickUi;
-        
-        public void Init()
+        protected override void OnInit()
         {
+            GameState.Instance = new GameState();
             Audio.PlayMusic("MainTheme");
-            _clickUi = new ClickUI();
-            _start = new TextButton(new Rectangle(700, 300, 200, 100), () =>
-                {
-                    Audio.PlaySound("MenuButtonPress");
-                    GameState.Init();
-                    Scene.NavigateTo("Pondering");
-                }, "Start Game",
-                Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
-            _credits = new TextButton(new Rectangle(700, 500, 200, 100), () =>
-                {
-                    Audio.PlaySound("MenuButtonPress");
-                    Scene.NavigateTo("Credits");
-                }, "View Credits", Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
-            _options = new TextButton(new Rectangle(700, 700, 200, 100), () =>
-                {
-                    GameState.LastLocationName = "Main Menu";
-                    Scene.NavigateTo("Options");
-                },
-                "Options", Color.Red, new Color(175, 0, 0), new Color(95, 0, 0));
-            _clickUi.Add(_start);
-            _clickUi.Add(_credits);
-            _clickUi.Add(_options);
+
+            Add(UiButtons.Menu("Start Game", new Vector2(120, 610), () => Scene.NavigateTo(nameof(BlackRoom))));
+            Add(UiButtons.Menu("Credits", new Vector2(120, 770), () => Scene.NavigateTo(GameResources.CreditsSceneName)));
+            Add(UiButtons.Menu("Options", new Vector2(120, 690), () =>
+            {
+                GameState.Instance.CurrentLocation = "Main Menu";
+                Scene.NavigateTo(GameResources.OptionsSceneName);
+            }));
         }
 
-        public void Update(TimeSpan delta)
+        protected override void DrawBackground()
         {
-            _clickUi.Update(delta);
+            UI.FillScreen("UI/MainMenuBg");
+            UI.Darken();
+            World.Draw("characters/resort_manager_colored", new Vector2(700, 500));
+            UI.DrawCenteredWithOffset("UI/Title", new Vector2(0, -150));
+            UI.DrawCenteredWithOffset("UI/Copyright", new Vector2(261, 27), new Vector2(620, 412));
         }
 
-        public void Draw()
+        protected override void DrawForeground()
         {
-            _start.Draw(Transform2.Zero);
-            _credits.Draw(Transform2.Zero);
-            _options.Draw(Transform2.Zero);
+            UI.FillScreen("UI/MainMenuBorder");
         }
     }
 }

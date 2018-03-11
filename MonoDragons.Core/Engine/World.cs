@@ -55,7 +55,8 @@ namespace MonoDragons.Core.Engine
 
         public static void Draw(Texture2D texture, Rectangle rectPosition)
         {
-            Resources.Put(texture.GetHashCode().ToString(), texture);
+            if (texture.Height > 1 && texture.Width > 1) // Clever hack to prevent from disposing of RectangleTextures
+                Resources.Put(texture.GetHashCode().ToString(), texture);
             _spriteBatch.Draw(texture, ScaleRectangle(rectPosition), Color.White);
         }
 

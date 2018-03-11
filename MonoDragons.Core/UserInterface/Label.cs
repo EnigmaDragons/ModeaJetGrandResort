@@ -14,7 +14,7 @@ namespace MonoDragons.Core.UserInterface
         private readonly IWrapText _textWrapper;
 
         public string Font { get; set; } = DefaultFont.Name;
-        public Color TextColor { get; set; } = Color.White;
+        public Color TextColor { get; set; } = DefaultFont.Color;
         public HorizontalAlignment HorizontalAlignment { get; set; } = HorizontalAlignment.Center;
 
         public Transform2 Transform
