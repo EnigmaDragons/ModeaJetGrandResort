@@ -12,6 +12,7 @@ using SpaceResortMurder.LocationStuff;
 using SpaceResortMurder.Scenes;
 using SpaceResortMurder.Style;
 using System;
+using SpaceResortMurder.DilemmaStuff;
 
 namespace SpaceResortMurder
 {

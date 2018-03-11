@@ -2,9 +2,10 @@
 using MonoDragons.Core.Common;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
+using SpaceResortMurder.Scenes;
 using SpaceResortMurder.Style;
 
-namespace SpaceResortMurder.Scenes
+namespace SpaceResortMurder.DilemmaStuff
 {
     public sealed class DilemmaScene : JamScene
     {
