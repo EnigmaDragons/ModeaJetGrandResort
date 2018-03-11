@@ -41,12 +41,12 @@ namespace MonoDragons.Core.UserInterface
 
         public static int ConvertWidthPercentageToPixels(float percentage)
         {
-            return (int)Math.Round(percentage * _display.GameWidth * 0.01f);
+            return (int)Math.Round(percentage * _display.GameWidth * 0.01f / _display.Scale);
         }
 
         public static int ConvertHeightPercentageToPixels(float percentage)
         {
-            return (int)Math.Round(percentage * _display.GameHeight * 0.01f);
+            return (int)Math.Round(percentage * _display.GameHeight * 0.01f / _display.Scale);
         }
 
         public static void Darken()
@@ -61,7 +61,7 @@ namespace MonoDragons.Core.UserInterface
 
         public static void FillScreen(string imageName)
         {
-            DrawCenteredWithOffset(imageName, CurrentDisplay.Size, Vector2.Zero);
+            DrawCenteredWithOffset(imageName, new Vector2(_display.GameWidth / _display.Scale, _display.GameHeight / _display.Scale), Vector2.Zero);
         }
 
         public static void DrawCentered(string imageName)
