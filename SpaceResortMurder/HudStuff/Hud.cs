@@ -18,6 +18,7 @@ namespace SpaceResortMurder.HudStuff
             _clickables = new List<VisualClickableUIElement>();
             AddButton(() => Scene.NavigateTo(GameObjects.DilemmasSceneName), "Dilemmas");
             AddButton(() => Scene.NavigateTo(GameObjects.MapSceneName), "Map");
+            AddButton(() => Scene.NavigateTo(GameObjects.ObjectivesSceneName), "Objectives");
             HudBranch = new ClickUIBranch("HUD", 2);
             _clickables.ForEach(x => HudBranch.Add(x));
         }
@@ -29,7 +30,7 @@ namespace SpaceResortMurder.HudStuff
 
         private void AddButton(Action onClick, string name)
         {
-            _clickables.Add(new TextButton(new Rectangle(1600 - (130 * (_clickables.Count + 1)), 0, 120, 120), onClick, name,
+            _clickables.Add(new TextButton(new Rectangle(1600 - (130 * (_clickables.Count + 1)), 0, 120, 40), onClick, name,
                 Color.Green, Color.GreenYellow, Color.LightGreen));
         }
     }
