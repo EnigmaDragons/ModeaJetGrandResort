@@ -69,6 +69,14 @@ namespace SpaceResortMurder.LocationsX
             Input.On(Control.Select, () => { if (!_isInTheMiddleOfDialog) Scene.NavigateTo(GameResources.OptionsSceneName); });
             Input.On(Control.X, () => { if (!_isInTheMiddleOfDialog) Scene.NavigateTo(GameResources.DilemmasSceneName); });
             OnInit();
+
+            if(_peopleHere.Any(p => p.IsImmediatelyTalking()))
+            {
+                var person = _peopleHere.First(p => p.IsImmediatelyTalking());
+                _clickUI.Remove(_investigateRoomBranch);
+                TalkTo(person);
+                person.StartImmediatelyTalking((x) => HaveDialog(x));
+            }
         }
 
         public void Update(TimeSpan delta)
