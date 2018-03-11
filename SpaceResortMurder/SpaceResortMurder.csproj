@@ -39,6 +39,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Characters\People.cs" />
+    <Compile Include="Clues\Clue.cs" />
+    <Compile Include="Clues\Necronomicon.cs" />
     <Compile Include="Dialogs\ChatBox.cs" />
     <Compile Include="Dialogs\DidYouKillHimZaid.cs" />
     <Compile Include="Characters\Person.cs" />
@@ -130,6 +132,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Placeholder\dialoguebox.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Placeholder\necronomicon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Placeholder\SpaceResortPlaceholder.png">
