@@ -5,9 +5,7 @@ namespace SpaceResortMurder.LocationsX
 {
     public class BlackRoomScene : LocationScene
     {
-        public BlackRoomScene() : base(nameof(BlackRoom))
-        {
-        }
+        public BlackRoomScene() : base(nameof(BlackRoom)) { }
 
         protected override void OnInit()
         {

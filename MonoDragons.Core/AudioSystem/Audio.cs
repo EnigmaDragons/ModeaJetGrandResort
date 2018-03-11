@@ -6,6 +6,7 @@ namespace MonoDragons.Core.AudioSystem
     public static class Audio
     {
         private static Dampening _backgroundMusic;
+        private static string _currentMusic = "";
 
         public static void PlaySound(string name)
         {
@@ -48,7 +49,11 @@ namespace MonoDragons.Core.AudioSystem
 
         public static void PlayMusicOnce(string name, float volume)
         {
-            TransitionToSong(volume, new PlayOnce($"Content/Music/{ name }.mp3"));
+            if (_currentMusic != name)
+            {
+                TransitionToSong(volume, new PlayOnce($"Content/Music/{ name }.mp3"));
+                _currentMusic = name;
+            }
         }
 
         public static void PlayMusic(string name)
@@ -58,7 +63,11 @@ namespace MonoDragons.Core.AudioSystem
 
         public static void PlayMusic(string name, float volume)
         {
-            TransitionToSong(volume, new Looping($"Content/Music/{ name }.mp3"));
+            if (_currentMusic != name)
+            {
+                TransitionToSong(volume, new Looping($"Content/Music/{ name }.mp3"));
+                _currentMusic = name;
+            }
         }
 
         public static void StopAllSound()
