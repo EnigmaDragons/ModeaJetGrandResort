@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
+using MonoDragons.Core.AudioSystem;
 using MonoDragons.Core.Common;
 using MonoDragons.Core.PhysicsEngine;
-using MonoDragons.Core.Render;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Scenes;
@@ -13,6 +13,7 @@ namespace SpaceResortMurder.DilemmasX
     {
         protected override void OnInit()
         {
+            Audio.PlayMusic("Pondering", 0.37f);
             Add(UiButtons.Back(new Vector2(6, UI.ConvertHeightPercentageToPixels(100) - 138), () => Scene.NavigateTo(GameState.Instance.CurrentLocation)));
 			AddVisual(new Label
             {
