@@ -30,9 +30,9 @@ namespace SpaceResortMurder.Clues
             };
         }
 
-        public ImageButton CreateButton(Action onClick)
+        public ExpandingImageButton CreateButton(Action onClick)
         {
-            return new ImageButton(_image, _image, _image, _position, () => 
+            return new ExpandingImageButton(_image, _image, _image, _position, _position.Size / 8, () => 
             {
                 if(!GameState.Instance.IsThinking(_clue))
                     Event.Publish(new ThoughtGained(_clue));
