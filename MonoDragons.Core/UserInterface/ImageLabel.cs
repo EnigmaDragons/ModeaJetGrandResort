@@ -27,6 +27,7 @@ namespace MonoDragons.Core.UserInterface
             _transform = transform;
             _imageName = imageName;
             _label = new Label { BackgroundColor = Color.Transparent };
+            UpdateLabelTransform();
         }
 
         public void Draw(Transform2 parentTransform)
