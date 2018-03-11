@@ -26,7 +26,7 @@ namespace SpaceResortMurder.Dialogs
             _lines = new Stack<string>(linesToBeRead);
             _onFinished = onFinished;
             Input.On(Control.A, Advance);
-            _box = new ImageBox(new Transform2(new Vector2(0, 523), new Size2(1600, 377)), "Placeholder/dialoguebox");
+            _box = new ImageBox { Transform = new Transform2(new Vector2(0, 523), new Size2(1600, 377)), Image = "Placeholder/dialoguebox" };
             _chatBox.ShowMessage(_lines.Pop());
         }
 
