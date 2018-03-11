@@ -14,7 +14,7 @@ namespace SpaceResortMurder.Deductions
         private readonly Transform2 _transform;
         private readonly string _deductionText;
         private ImageBox _newIndicator;
-        private TextButton _button;
+        private ImageTextButton _button;
         private Label _conclusion;
         public ClickableUIElement Button => _button;
 
@@ -27,13 +27,13 @@ namespace SpaceResortMurder.Deductions
 
         public void Init(Action clearPriorDeduction, Transform2 conclusionTransform)
         {
-            _button = new TextButton(_transform.ToRectangle(), () =>
+            _button = new ImageTextButton(_transform.ToRectangle(), () =>
             {
                 clearPriorDeduction();
                 Event.Publish(new ThoughtGained(_thought));
                 Scene.NavigateTo("Dilemmas");
-            }, _deductionText, Color.Blue, Color.AliceBlue, Color.Aqua);
-            _button.EnterAction = () => 
+            }, _deductionText, "UI/DeductionCard", "UI/DeductionCard-Hover", "UI/DeductionCard-Press");
+            _button.OnEnter = () => 
             {
                 if (!GameState.Instance.HasViewedItem(_thought))
                     Event.Publish(new ItemViewed(_thought)); 

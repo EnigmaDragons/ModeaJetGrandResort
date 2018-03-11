@@ -68,7 +68,7 @@ namespace SpaceResortMurder
         private static Dictionary<string, string> _dilemmaOrDeductionText = new Dictionary<string, string>() {
             { nameof(WhoKilledRaymond), "Who Killed Raymond?" },
             { nameof(YouButcheredRaymond), "You brutally slain Raymond!!!" },
-            { nameof(RaymondCommittedSuicide), "Raymond killed himself!!" },
+            { nameof(RaymondCommittedSuicide), "Raymond killed himself!" },
         };
 
         private static Dictionary<string, Tuple<string, string>> _objectiveTexts = new Dictionary<string, Tuple<string, string>>()
@@ -76,7 +76,7 @@ namespace SpaceResortMurder
             { nameof(InvestigateRaymondsDeadBody), new Tuple<string, string>(
                 "Investigate Raymond's dead body",
                 "Raymond was found dead on his personal space craft at around 8 PM last night"
-            )}
+            )},
         };
     }
 }
