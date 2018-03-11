@@ -5,70 +5,64 @@ using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using System;
 using MonoDragons.Core.Engine;
-using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.Deductions
 {
-    public abstract class Deduction : IVisual
+    public abstract class Deduction
     {
         private readonly string _thought;
-        private readonly Transform2 _transform;
         private readonly string _deductionText;
-        private ImageBox _newIndicator;
-        private ImageTextButton _button;
         private ImageLabel _conclusion;
-        public ClickableUIElement Button => _button;
+        private Action _clearPriorDeduction;
         public bool IsNew => !GameState.Instance.HasViewedItem(_thought);
 
-        protected Deduction(string thought, Transform2 transform)
+        protected Deduction(string thought)
         {
-            _transform = transform;
             _thought = thought;
             _deductionText = GameResources.GetDilemmaOrDeductionText(thought);
         }
 
         public void Init(Action clearPriorDeduction, Transform2 conclusionTransform)
         {
-            _button = new ImageTextButton(_transform.ToRectangle(), () =>
-            {
-                clearPriorDeduction();
-                Event.Publish(new ThoughtGained(_thought));
-                Scene.NavigateTo("Dilemmas");
-            }, _deductionText, "UI/DeductionCard", "UI/DeductionCard-Hover", "UI/DeductionCard-Press");
-            _button.OnEnter = () => 
-            {
-                if (!GameState.Instance.HasViewedItem(_thought))
-                    Event.Publish(new ItemViewed(_thought)); 
-            };
+            _clearPriorDeduction = clearPriorDeduction;
             _conclusion = new ImageLabel(conclusionTransform, "UI/SelectedDeduction")
             { 
                 Text = _deductionText
-            };
-            _newIndicator = new ImageBox
-            {
-                Transform = new Transform2(new Vector2(_transform.Location.X - 20, _transform.Location.Y - 20), new Size2(36, 36)),
-                Image = "UI/NewRedIcon"
             };
         }
 
         public abstract bool IsActive();
 
-        public void Draw(Transform2 parentTransform)
+        public VisualClickableUIElement CreateButton(Vector2 position)
         {
-            _button.Draw(parentTransform);
-            DrawNewIfApplicable();
+            var button = new ImageTextButton(new Rectangle((int)position.X, (int)position.Y, 360, 120), () =>
+            {
+                _clearPriorDeduction();
+                Event.Publish(new ThoughtGained(_thought));
+                Scene.NavigateTo("Dilemmas");
+            }, _deductionText, "UI/DeductionCard", "UI/DeductionCard-Hover", "UI/DeductionCard-Press");
+            button.OnEnter = () =>
+            {
+                if (!GameState.Instance.HasViewedItem(_thought))
+                    Event.Publish(new ItemViewed(_thought));
+            };
+            return button;
+        }
+
+        public IVisual CreateNewIndicator(Vector2 position)
+        {
+            return new ImageBox
+            {
+                Transform = new Transform2(new Vector2(position.X - 20, position.Y - 20), new Size2(36, 36)),
+                Image = "UI/NewRedIcon",
+                IsActive = () => IsNew
+            };
         }
 
         public void DrawConclusionIfApplicable()
         {
             if (GameState.Instance.IsThinking(_thought))
                 _conclusion.Draw(Transform2.Zero);
-        }
-
-        private void DrawNewIfApplicable()
-        {
-            if (IsNew)
-                _newIndicator.Draw(Transform2.Zero);
         }
 
         public void Reset()

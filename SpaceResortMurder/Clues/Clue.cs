@@ -21,7 +21,7 @@ namespace SpaceResortMurder.Clues
         {
             _image = image;
             _clue = clue;
-            InvestigationLines = GameResources.GetDialogOrClueLines(clue);
+            InvestigationLines = GameResources.GetClueLines(clue);
             _position = position;
             FacingImage = new ImageBox
             {

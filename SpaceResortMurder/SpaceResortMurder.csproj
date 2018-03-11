@@ -38,23 +38,26 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Characters\People.cs" />
+    <Compile Include="CharactersX\HackerMeleena.cs" />
+    <Compile Include="CharactersX\Characters.cs" />
+    <Compile Include="CharactersX\ResearcherTravis.cs" />
     <Compile Include="Clues\Clue.cs" />
     <Compile Include="Clues\GarbageAirlock.cs" />
     <Compile Include="Clues\MeleenasShip.cs" />
     <Compile Include="Clues\PoliceCruiser.cs" />
     <Compile Include="Clues\RaymondsShip.cs" />
+    <Compile Include="Deductions\RaymondShotHisOwnShip.cs" />
+    <Compile Include="Deductions\ZaidShotRaymondsShip.cs" />
     <Compile Include="Dialogs\ChatBox.cs" />
-    <Compile Include="Dialogs\DidYouKillHimZaid.cs" />
-    <Compile Include="Characters\Person.cs" />
-    <Compile Include="Characters\PoliceOfficier.cs" />
-    <Compile Include="Characters\ResortManagerZaid.cs" />
-    <Compile Include="Deductions\RaymondCommittedSuicide.cs" />
-    <Compile Include="Deductions\YouButcheredRaymond.cs" />
+    <Compile Include="CharactersX\Character.cs" />
+    <Compile Include="CharactersX\OfficierWarren.cs" />
+    <Compile Include="CharactersX\ResortManagerZaid.cs" />
     <Compile Include="Dialogs\Dialog.cs" />
+    <Compile Include="Dialogs\Zaid\DidRaymondApproveYourResort.cs" />
+    <Compile Include="Dialogs\Warren\MeetingWarren.cs" />
     <Compile Include="Dialogs\Reader.cs" />
-    <Compile Include="Dialogs\WhoWasMurdered.cs" />
-    <Compile Include="Dialogs\WhyWouldAnyoneHireYouPolice.cs" />
+    <Compile Include="Dialogs\Zaid\WhyWasRaymondHere.cs" />
+    <Compile Include="DilemmasX\WhoShotRaymondsShip.cs" />
     <Compile Include="GameObjects.cs" />
     <Compile Include="Deductions\Deduction.cs" />
     <Compile Include="GameResources.cs" />
@@ -63,6 +66,8 @@
     <Compile Include="LocationsX\DockingBay.cs" />
     <Compile Include="LocationsX\DockingBayScene.cs" />
     <Compile Include="LocationsX\HotelLobbyScene.cs" />
+    <Compile Include="LocationsX\Lobby.cs" />
+    <Compile Include="LocationsX\LobbyScene.cs" />
     <Compile Include="LocationsX\Location.cs" />
     <Compile Include="LocationsX\Locations.cs" />
     <Compile Include="LocationsX\SecondRoom.cs" />
@@ -82,7 +87,6 @@
     <Compile Include="DilemmasX\Dilemma.cs" />
     <Compile Include="Scenes\OptionsScene.cs" />
     <Compile Include="DilemmasX\Dilemmas.cs" />
-    <Compile Include="DilemmasX\WhoKilledRaymond.cs" />
     <Compile Include="State\GameState.cs" />
     <Compile Include="Scenes\CreditsScene.cs" />
     <Compile Include="DilemmasX\DilemmaScene.cs" />
@@ -104,6 +108,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\characters\hacker_corporate_spy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\characters\policeman.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -123,6 +130,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\characters\resort_manager_surprised.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\characters\scientist_guy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Locations\BedroomBg.png">
@@ -150,6 +160,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Placeholder\DockingBay.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Placeholder\Lobby.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Placeholder\MeleenasShip.png">

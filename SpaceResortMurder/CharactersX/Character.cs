@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Dialogs;
-using System;
 
-namespace SpaceResortMurder.Characters
+namespace SpaceResortMurder.CharactersX
 {
-    public abstract class Person
+    public abstract class Character
     {
         private readonly ImageBox _facingImage;
         private readonly List<Dialog> _dialogs;
@@ -16,7 +16,7 @@ namespace SpaceResortMurder.Characters
 
         public string Image { get; }
 
-        protected Person(string image, Size2 size, params Dialog[] dialogs)
+        protected Character(string image, Size2 size, params Dialog[] dialogs)
         {
             Image = image;
             _dialogs = dialogs.ToList();

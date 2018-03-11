@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Common;
 using MonoDragons.Core.PhysicsEngine;
@@ -32,10 +33,14 @@ namespace SpaceResortMurder.Deductions
                 TextColor = UiStyle.TextLightRed,
                 Font = UiFonts.Header
             });
-            _deductions.ForEach(d =>
+            _deductions.ForEachIndex((d, i) =>
             {
-                AddUi(d.Button);
-                AddVisual(d);
+                var position = new Vector2(800 + (- (390 * (_deductions.Count - 1) / 2) - (360 / 2) + ((390) * i)), 390);
+                var button = d.CreateButton(position);
+                AddUi(button);
+                AddVisual(button);
+                if (d.IsNew)
+                    AddVisual(d.CreateNewIndicator(position));
             });
         }
 

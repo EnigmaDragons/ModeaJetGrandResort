@@ -8,7 +8,7 @@ namespace SpaceResortMurder.ObjectivesX
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(WhoWasMurdered));
+            return true;
         }
     }
 }

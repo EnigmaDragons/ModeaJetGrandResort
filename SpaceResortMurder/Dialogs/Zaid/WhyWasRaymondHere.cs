@@ -1,8 +1,8 @@
-﻿namespace SpaceResortMurder.Dialogs
+﻿namespace SpaceResortMurder.Dialogs.Zaid
 {
-    public class WhoWasMurdered : Dialog
+    public class WhyWasRaymondHere : Dialog
     {
-        public WhoWasMurdered() : base("Who was murdered?", nameof(WhoWasMurdered), 1600) {}
+        public WhyWasRaymondHere() : base(nameof(WhyWasRaymondHere)) {}
 
         public override bool IsActive()
         {

@@ -22,12 +22,12 @@ namespace SpaceResortMurder.DilemmasX
 
         public ClickableUIElement Button => _button;
         public bool IsNew => !GameState.Instance.HasViewedItem(_dilemma);
-        public bool HasNewAnswers => _deductions.Any(d => d.IsNew);
+        public bool HasNewAnswers => _deductions.Any(d => d.IsActive() && d.IsNew);
 
-        protected Dilemma(Transform2 transform, string dilemma, params Deduction[] deductions)
+        protected Dilemma(Vector2 position, string dilemma, params Deduction[] deductions)
         {
             _dilemmaText = GameResources.GetDilemmaOrDeductionText(dilemma);
-            _transform = transform;
+            _transform = new Transform2(position, new Size2(360, 120));
             _dilemma = dilemma;
             _deductions = deductions;
         }

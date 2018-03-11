@@ -1,10 +1,12 @@
 ﻿using SpaceResortMurder.Clues;
-using SpaceResortMurder.Deductions;
-using SpaceResortMurder.Dialogs;
-using SpaceResortMurder.DilemmasX;
 using SpaceResortMurder.ObjectivesX;
 using System;
 using System.Collections.Generic;
+using SpaceResortMurder.Deductions;
+using SpaceResortMurder.Dialogs;
+using SpaceResortMurder.Dialogs.Warren;
+using SpaceResortMurder.Dialogs.Zaid;
+using SpaceResortMurder.DilemmasX;
 
 namespace SpaceResortMurder
 {
@@ -17,12 +19,12 @@ namespace SpaceResortMurder
         public const string MapSceneName = "Map";
         public const string ObjectivesSceneName = "Objectives";
 
-        private static string[] _notImplementedDialogOrClueLines = new string[] { "This dialog or clue hasn't been implemented" };
-        public static string[] GetDialogOrClueLines(string dialogOrClue)
+        private static string[] _notImplementedClueLines = new string[] { "This clue hasn't been implemented" };
+        public static string[] GetClueLines(string dialogOrClue)
         {
-            if (_dialogOrClueLines.ContainsKey(dialogOrClue))
-                return _dialogOrClueLines[dialogOrClue];
-            return _notImplementedDialogOrClueLines;
+            if (_clues.ContainsKey(dialogOrClue))
+                return _clues[dialogOrClue];
+            return _notImplementedClueLines;
         }
 
         private const string _notImplementedDilemmaOrDeductionText = "This dilemma or deduction hasn't been implemented";
@@ -47,19 +49,23 @@ namespace SpaceResortMurder
             return _notImplementedObjectiveText;
         }
 
-        private static Dictionary<string, string[]> _dialogOrClueLines = new Dictionary<string, string[]>() {
-            { nameof(WhoWasMurdered), new string[] {
-                "Raymond was murdered",
-                "Sucks for him!"
-            } },
-            { nameof(WhyWouldAnyoneHireYouPolice), new string[] {
-                "because im the best you scrub!"
-            } },
-            { nameof(DidYouKillHimZaid), new string[] {
-                "No I did not!",
-                "You seem suspicious"
-            } },
+        private const string _notImplementedDialogText = "This dialog hasn't been implemented";
+        public static string GetDialogOpener(string dialog)
+        {
+            if (_dialogs.ContainsKey(dialog))
+                return _dialogs[dialog].Item1;
+            return _notImplementedDialogText;
+        }
 
+        private static string[] _notImplementedDialogLines = new string[] { "This dialog hasn't been implemented" };
+        public static string[] GetDialogLines(string dialog)
+        {
+            if (_dialogs.ContainsKey(dialog))
+                return _dialogs[dialog].Item2;
+            return _notImplementedDialogLines;
+        }
+
+        private static Dictionary<string, string[]> _clues = new Dictionary<string, string[]>() {
             { nameof(RaymondsShip), new string[] {
                 "The ship is a Regal Glider an expensive personal craft.",
                 "It is registered under the name of Raymond Soule.",
@@ -81,17 +87,45 @@ namespace SpaceResortMurder
             } },
         };
 
+        private static Dictionary<string, Tuple<string, string[]>> _dialogs = new Dictionary<string, Tuple<string, string[]>> {
+            { nameof(MeetingWarren), new Tuple<string, string[]>(
+                "Incident details",
+                new string[] {
+                    "Finally you made it!",
+                    "The victim is Raymond Soule, the CEO of the lead cloning company Human Perfect.",
+                    "He was found dead inside his personal space craft at 8 PM.",
+                    "The only people present in the space resort according to the resort manager were.",
+                    "On your left Zaid the resort manager, he was the one that called in about the incident.",
+                    "In the middle we have a lead reasearcher at Human Perfect Travis Falcon.",
+                    "And on the right Meleena Ke'lick, her file says she is a corporate freelancer. But currently she is not employed by any company." 
+                }
+            ) },
+            { nameof(WhyWasRaymondHere), new Tuple<string, string[]>(
+                "Why was Raymond visiting your resort?",
+                new string[] {
+                    "Raymond was considering my resort for beta-testing Human Perfect's new clones specifically tailored for resorts.",
+                }
+            ) },
+            { nameof(DidRaymondApproveYourResort), new Tuple<string, string[]>(
+                "Did Raymond decide your resort was a good fit?",
+                new string[] {
+                    "My resort is terrific, of course he did.",
+                }
+            ) },
+        };
+
         private static Dictionary<string, string> _dilemmaOrDeductionText = new Dictionary<string, string>() {
-            { nameof(WhoKilledRaymond), "Who Killed Raymond?" },
-            { nameof(YouButcheredRaymond), "You brutally slain Raymond!!!" },
-            { nameof(RaymondCommittedSuicide), "Raymond killed himself!" },
+            { nameof(WhoShotRaymondsShip), "Who shot Raymond's ship?" },
+
+            { nameof(RaymondShotHisOwnShip), "Raymond" },
+            { nameof(ZaidShotRaymondsShip), "Zaid" }
         };
 
         private static Dictionary<string, Tuple<string, string>> _objectiveTexts = new Dictionary<string, Tuple<string, string>>()
         {
             { nameof(InvestigateRaymondsDeadBody), new Tuple<string, string>(
-                "Investigate Raymond's dead body",
-                "Raymond was found dead on his personal space craft at around 8 PM last night"
+                "Go to Raymond's ship and investigate his remains",
+                "According to Warren, Raymond died earlier tonight and his body was found within his space craft. I should see what I can find from his remains."
             )},
         };
     }

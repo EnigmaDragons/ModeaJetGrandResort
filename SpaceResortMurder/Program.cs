@@ -57,6 +57,7 @@ namespace SpaceResortMurder
                 { GameResources.MapSceneName, () => new SpaceResortMapScene() },
                 { GameResources.ObjectivesSceneName, () => new ObjectivesScene() },
                 { nameof(DockingBay), () => new DockingBayScene() },
+                { nameof(Lobby), () => new LobbyScene() },
             });
         }
 

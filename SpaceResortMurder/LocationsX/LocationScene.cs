@@ -8,7 +8,7 @@ using MonoDragons.Core.Inputs;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
-using SpaceResortMurder.Characters;
+using SpaceResortMurder.CharactersX;
 using SpaceResortMurder.Clues;
 using SpaceResortMurder.Dialogs;
 
@@ -23,12 +23,12 @@ namespace SpaceResortMurder.LocationsX
         private TextButton _backButton;
         private bool _isInTheMiddleOfDialog = false;
         private ClickUIBranch _characterTalkingToBranch;
-        private Person _talkingTo;
+        private Character _talkingTo;
         private Clue _investigatingThis;
         private bool _isTalking;
         private Reader _reader;
         private bool _isInvestigating;
-        private IReadOnlyList<Person> _peopleHere;
+        private IReadOnlyList<Character> _peopleHere;
 
         protected ClickUIBranch _investigateRoomBranch;
         protected List<IVisual> _visuals = new List<IVisual>();
@@ -47,7 +47,8 @@ namespace SpaceResortMurder.LocationsX
 
             _investigateRoomBranch = new ClickUIBranch("Location Investigation", 1);
 
-            _peopleHere = GameObjects.People.GetPeopleAt(_location);
+            OnInit();
+            _peopleHere = GameObjects.Characters.GetPeopleAt(_location);
             var characterButtons = _peopleHere.Select(x => new ImageButton(x.Image, x.Image, x.Image, x.WhereAreYouStanding(),
                 () =>
                 {
@@ -69,7 +70,6 @@ namespace SpaceResortMurder.LocationsX
             Input.ClearTransientBindings();
             Input.On(Control.Select, () => { if (!_isInTheMiddleOfDialog) Scene.NavigateTo(GameResources.OptionsSceneName); });
             Input.On(Control.X, () => { if (!_isInTheMiddleOfDialog) Scene.NavigateTo(GameResources.DilemmasSceneName); });
-            OnInit();
 
             if(_peopleHere.Any(p => p.IsImmediatelyTalking()))
             {
@@ -116,12 +116,12 @@ namespace SpaceResortMurder.LocationsX
             _investigateRoomBranch.Add(button);
         }
 
-        private void TalkTo(Person person)
+        private void TalkTo(Character character)
         {
             _clickUI.Remove(GameObjects.Hud.HudBranch);
             var drawDialogsOptions = new List<IVisual>();
             _characterTalkingToBranch = new ClickUIBranch("Dialog Choices", 1);
-            var activeDialogs = person.GetDialogs();
+            var activeDialogs = character.GetDialogs();
             activeDialogs.ForEachIndex((x, i) =>
             {
                 var itemCount = activeDialogs.Count;
@@ -133,7 +133,7 @@ namespace SpaceResortMurder.LocationsX
             _characterTalkingToBranch.Add(_backButton);
             _dialogOptions = drawDialogsOptions;
             _clickUI.Add(_characterTalkingToBranch);
-            _talkingTo = person;
+            _talkingTo = character;
             _isTalking = true;
         }
 
