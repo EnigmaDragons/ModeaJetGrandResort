@@ -15,7 +15,7 @@ namespace SpaceResortMurder.Scenes
         protected override void OnInit()
         {
             _locations = GameObjects.Locations.GetAvailableLocations();
-            _background = new ImageBox(new Transform2(new Vector2(350, 0), new Size2(900, 900)), "Placeholder/SpaceResortPlaceholder");
+            _background = new ImageBox { Transform = new Transform2(new Vector2(350, 0), new Size2(900, 900)), Image = "Placeholder/SpaceResortPlaceholder" };
             _locations.ForEach(x => Add(x.Button));
         }
 
