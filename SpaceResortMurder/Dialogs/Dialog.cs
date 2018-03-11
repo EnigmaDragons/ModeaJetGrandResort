@@ -13,22 +13,22 @@ namespace SpaceResortMurder.Dialogs
     {
         private readonly string _dialog;
         private readonly string _dialogText;
-        private readonly List<string> _lines;
+        private readonly string[] _lines;
         private readonly int _width;
 
         public bool IsExplored => GameState.Instance.HasViewedItem(_dialog);
 
-        protected Dialog(string dialogText, string dialog, int width, params string[] dialogLines)
+        protected Dialog(string dialogText, string dialog, int width)
         {
             _dialog = dialog;
             _dialogText = dialogText;
-            _lines = dialogLines.ToList();
+            _lines = GameResources.GetDialogOrClueLines(dialog);
             _width = width;
         }
 
         public abstract bool IsActive();
 
-        public VisualClickableUIElement CreateButton(Action<List<string>> onClick, int verticalOffset)
+        public VisualClickableUIElement CreateButton(Action<string[]> onClick, int verticalOffset)
         {
             return IsExplored
                 ? new TextButton(new Transform2(new Vector2(0, verticalOffset), new Size2(_width, 30)).ToRectangle(), () => onClick(_lines), _dialogText,
@@ -36,9 +36,8 @@ namespace SpaceResortMurder.Dialogs
                 : new TextButton(new Transform2(new Vector2(0, verticalOffset), new Size2(_width, 30)).ToRectangle(),
                     () =>
                     {
-
                         Event.Publish(new ItemViewed(_dialog));
-                        Event.Publish(new ThoughtGained(nameof(WhoKilledRaymond)));
+                        Event.Publish(new ThoughtGained(_dialog));
                         onClick(_lines);
                     },
                     _dialogText,

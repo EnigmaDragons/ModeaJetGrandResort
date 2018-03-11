@@ -22,9 +22,9 @@ namespace SpaceResortMurder.DilemmasX
 
         public ClickableUIElement Button => _button;
 
-        protected Dilemma(string dilemmaText, Transform2 transform, string dilemma, params Deduction[] deductions)
+        protected Dilemma(Transform2 transform, string dilemma, params Deduction[] deductions)
         {
-            _dilemmaText = dilemmaText;
+            _dilemmaText = GameResources.GetDilemmaOrDeductionText(dilemma);
             _transform = transform;
             _dilemma = dilemma;
             _deductions = deductions;

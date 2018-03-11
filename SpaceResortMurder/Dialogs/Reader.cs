@@ -19,7 +19,7 @@ namespace SpaceResortMurder.Dialogs
         private readonly ImageBox _box;
         private readonly Transform2 _chatBoxTransform;
 
-        public Reader(List<string> linesToBeRead, Action onFinished)
+        public Reader(string[] linesToBeRead, Action onFinished)
         {
             _chatBox = new ChatBox("", 1500, DefaultFont.Font);
             _chatBoxTransform = new Transform2(new Vector2(100, 623));

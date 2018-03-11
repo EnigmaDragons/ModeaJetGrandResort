@@ -1,15 +1,14 @@
-﻿using SpaceResortMurder.DilemmasX;
+﻿using SpaceResortMurder.Dialogs;
 
 namespace SpaceResortMurder.ObjectivesX
 {
     public class InvestigateRaymondsDeadBody : Objective
     {
-        public InvestigateRaymondsDeadBody() 
-            : base("Investigate Raymond's dead body", "Raymond was found dead on his personal space craft at around 8 PM last night") {}
+        public InvestigateRaymondsDeadBody() : base(nameof(InvestigateRaymondsDeadBody)) {}
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(WhoKilledRaymond));
+            return GameState.Instance.IsThinking(nameof(WhoWasMurdered));
         }
     }
 }

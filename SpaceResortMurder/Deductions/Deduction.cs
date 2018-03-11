@@ -18,11 +18,11 @@ namespace SpaceResortMurder.Deductions
         private Label _conclusion;
         public ClickableUIElement Button => _button;
 
-        protected Deduction(string deductionText, string thought, Transform2 transform)
+        protected Deduction(string thought, Transform2 transform)
         {
             _transform = transform;
             _thought = thought;
-            _deductionText = deductionText;
+            _deductionText = GameResources.GetDilemmaOrDeductionText(thought);
         }
 
         public void Init(Action clearPriorDeduction, Transform2 conclusionTransform)

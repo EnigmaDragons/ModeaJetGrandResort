@@ -132,7 +132,7 @@ namespace SpaceResortMurder.Scenes
             _clickUI.Add(GameObjects.Hud.HudBranch);
         }
 
-        private void HaveDialog(List<string> lines)
+        private void HaveDialog(string[] lines)
         {
             _clickUI.Remove(_characterTalkingToBranch);
             _reader = new Reader(lines, EndDialog);

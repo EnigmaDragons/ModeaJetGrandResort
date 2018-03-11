@@ -10,13 +10,13 @@ namespace SpaceResortMurder.ObjectivesX
         private readonly string _name;
         public Label Description { get; }
 
-        protected Objective(string name, string description)
+        protected Objective(string objective)
         {
-            _name = name;
+            _name = GameResources.GetObjectiveName(objective);
             Description = new Label
             {
                 Transform = new Transform2(new Vector2(800, 0), new Size2(800, 900)),
-                Text = description,
+                Text = GameResources.GetObjectiveDescription(objective),
                 TextColor = Color.White,
                 BackgroundColor = Color.FromNonPremultiplied(0, 0, 255, 150),
             };
