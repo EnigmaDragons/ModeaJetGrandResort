@@ -32,6 +32,12 @@ namespace SpaceResortMurder.Style
                 { TextColor = Color.Black };
         }
 
+        public static VisualClickableUIElement Back(Vector2 position, Action onClick)
+        {
+            return new ImageButton("UI/BackButton", "UI/BackButton-Hover", "UI/BackButton-Press",
+                new Transform2(new Rectangle(position.ToPoint(), new Point(132, 132))), onClick);
+        }
+
         public static VisualClickableUIElement BackRed(Vector2 position, Action onClick)
         {
             return new ImageButton("UI/BackButtonRed", "UI/BackButtonRed-Hover", "UI/BackButtonRed-Press",

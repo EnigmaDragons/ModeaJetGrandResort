@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.Common;
+using MonoDragons.Core.Render;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Scenes;
@@ -11,12 +12,12 @@ namespace SpaceResortMurder.DilemmasX
     {
         protected override void OnInit()
         {
+            Add(UiButtons.Back(new Vector2(6, CurrentDisplay.Size.Y - 138), () => Scene.NavigateTo(GameState.Instance.CurrentLocation)));
             GameObjects.Dilemmas.GetActiveDilemmas().ForEach(d =>
             {
                 AddVisual(d);
                 AddUi(d.Button);
             });
-            Add(UiButtons.Menu("Return", new Vector2(1250, 750), () => Scene.NavigateTo(GameState.Instance.CurrentLocation)));
         }
 
         protected override void DrawBackground()
