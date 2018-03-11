@@ -11,6 +11,7 @@ using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Characters;
 using SpaceResortMurder.Clues;
 using SpaceResortMurder.Dialogs;
+using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.LocationsX
 {
@@ -21,6 +22,7 @@ namespace SpaceResortMurder.LocationsX
         private ClickUI _clickUI;
         private List<IVisual> _dialogOptions = new List<IVisual>();
         private VisualClickableUIElement _backButton;
+        private IVisual _locationNameLabel;
         private bool _isInTheMiddleOfDialog = false;
         private ClickUIBranch _characterTalkingToBranch;
         private Person _talkingTo;
@@ -33,6 +35,7 @@ namespace SpaceResortMurder.LocationsX
         protected ClickUIBranch _investigateRoomBranch;
         protected List<IVisual> _visuals = new List<IVisual>();
 
+        protected abstract string Name { get; }
         protected abstract void OnInit();
         protected abstract void DrawBackground();
 
@@ -48,6 +51,7 @@ namespace SpaceResortMurder.LocationsX
 
             _investigateRoomBranch = new ClickUIBranch("Location Investigation", 1);
 
+            _locationNameLabel = UiLabels.HeaderLabel(Name, Color.White);
             _peopleHere = GameObjects.People.GetPeopleAt(_location);
             var characterButtons = _peopleHere.Select(x => new ImageButton(x.Image, x.Image, x.Image, x.WhereAreYouStanding(),
                 () =>
@@ -119,6 +123,7 @@ namespace SpaceResortMurder.LocationsX
                 _reader.Draw();
 
             UI.FillScreen("UI/ScreenOverlay-Purple");
+            _locationNameLabel.Draw(Transform2.Zero);
         }
 
         protected void AddClue(Clue clue)

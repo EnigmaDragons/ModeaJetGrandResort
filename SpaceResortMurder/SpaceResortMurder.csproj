@@ -94,6 +94,7 @@
     <Compile Include="State\ThoughtLost.cs" />
     <Compile Include="Style\UiButtons.cs" />
     <Compile Include="Style\UiFonts.cs" />
+    <Compile Include="Style\UiLabels.cs" />
     <Compile Include="Style\UiStyle.cs" />
   </ItemGroup>
   <ItemGroup>

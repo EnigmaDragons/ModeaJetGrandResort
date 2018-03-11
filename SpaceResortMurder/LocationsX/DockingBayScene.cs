@@ -7,6 +7,8 @@ namespace SpaceResortMurder.LocationsX
     {
         public DockingBayScene() : base(nameof(DockingBay)) {}
 
+        protected override string Name => "Docking Bay";
+
         protected override void OnInit()
         {
             AddClue(new RaymondsShip());

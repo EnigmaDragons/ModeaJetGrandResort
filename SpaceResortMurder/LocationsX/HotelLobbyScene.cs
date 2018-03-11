@@ -7,6 +7,8 @@ namespace SpaceResortMurder.LocationsX
         public HotelLobbyScene() 
             : base(nameof(HotelLobbyScene)) { }
 
+        protected override string Name => "Hotel Lobby";
+
         protected override void OnInit()
         {
             Audio.PlayMusicOnce("HotelLobby");

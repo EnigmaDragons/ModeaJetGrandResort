@@ -4,6 +4,8 @@
     {
         public SecondRoomScene() : base(nameof(SecondRoom)) {}
 
+        protected override string Name => "Second Room";
+
         protected override void OnInit()
         {
         }
