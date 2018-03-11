@@ -38,21 +38,33 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Characters\People.cs" />
+    <Compile Include="Dialogs\ChatBox.cs" />
+    <Compile Include="Dialogs\DidYouKillHimZaid.cs" />
     <Compile Include="Characters\Person.cs" />
-    <Compile Include="Characters\PlaceholderPerson.cs" />
-    <Compile Include="Characters\Conversation.cs" />
     <Compile Include="Characters\PoliceOfficier.cs" />
+    <Compile Include="Characters\ResortManagerZaid.cs" />
     <Compile Include="Deductions\RaymondCommittedSuicide.cs" />
     <Compile Include="Deductions\YouButcheredRaymond.cs" />
     <Compile Include="Dialogs\Dialog.cs" />
+    <Compile Include="Dialogs\Reader.cs" />
     <Compile Include="Dialogs\WhoWasMurdered.cs" />
     <Compile Include="Dialogs\WhyWouldAnyoneHireYouPolice.cs" />
     <Compile Include="GameObjects.cs" />
     <Compile Include="Deductions\Deduction.cs" />
+    <Compile Include="HudStuff\Hud.cs" />
+    <Compile Include="LocationStuff\BlackRoom.cs" />
+    <Compile Include="LocationStuff\Location.cs" />
+    <Compile Include="LocationStuff\Locations.cs" />
+    <Compile Include="LocationStuff\SecondRoom.cs" />
+    <Compile Include="MouseStuff\MouseIsClicked.cs" />
     <Compile Include="RoomNames.cs" />
+    <Compile Include="Scenes\JamScene.cs" />
+    <Compile Include="Scenes\ASecondRoomScene.cs" />
     <Compile Include="Scenes\BlackRoomScene.cs" />
-    <Compile Include="Scenes\DeductionScene.cs" />
+    <Compile Include="Deductions\DeductionScene.cs" />
     <Compile Include="Scenes\LocationScene.cs" />
+    <Compile Include="Scenes\SpaceResortMapScene.cs" />
     <Compile Include="State\ItemViewed.cs" />
     <Compile Include="DilemmaStuff\Dilemma.cs" />
     <Compile Include="Scenes\OptionsScene.cs" />
@@ -60,13 +72,15 @@
     <Compile Include="DilemmaStuff\WhoKilledRaymond.cs" />
     <Compile Include="State\GameState.cs" />
     <Compile Include="Scenes\CreditsScene.cs" />
-    <Compile Include="Scenes\DilemmaScene.cs" />
+    <Compile Include="DilemmaStuff\DilemmaScene.cs" />
     <Compile Include="Scenes\MainMenuScene.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenes\Logo.cs" />
     <Compile Include="State\ThoughtGained.cs" />
     <Compile Include="State\ThoughtLost.cs" />
+    <Compile Include="Style\UiButtons.cs" />
+    <Compile Include="Style\UiFonts.cs" />
     <Compile Include="Style\UiStyle.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +112,9 @@
     <Content Include="Content\characters\resort_manager_surprised.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Locations\BedroomBg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Music\Credits.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -107,13 +124,61 @@
     <Content Include="Content\Music\MainTheme.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Placeholder\dialoguebox.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Placeholder\SpaceResortPlaceholder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Sounds\MenuButtonPress.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\BackButtonRed-Hover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\BackButtonRed-Press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\BackButtonRed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\Copyright.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\DeductionSceneBg.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\DilemmaSceneBg.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\MainMenuBg.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\MainMenuBorder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\PixelButton-Hover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\PixelButton-Press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\PixelButton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\PixelButtonRed-Hover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\PixelButtonRed-Press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\PixelButtonRed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\ScreenOverlay-Red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\ScreenOverlay.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\Title.png">
@@ -138,6 +203,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Fonts\lunchds.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\Fonts\HeaderFont.spritefont" />
+    <Content Include="Content\Fonts\HeaderFont.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

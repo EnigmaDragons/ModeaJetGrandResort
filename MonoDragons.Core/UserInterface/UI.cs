@@ -59,6 +59,11 @@ namespace MonoDragons.Core.UserInterface
             GameInstance.GraphicsDevice.Clear(color);
         }
 
+        public static void FillScreen(string imageName)
+        {
+            DrawCenteredWithOffset(imageName, CurrentDisplay.Size, Vector2.Zero);
+        }
+
         public static void DrawCentered(string imageName)
         {
             DrawCenteredWithOffset(imageName, Vector2.Zero);

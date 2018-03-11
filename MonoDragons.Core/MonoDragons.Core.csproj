@@ -160,7 +160,9 @@
     <Compile Include="UserInterface\SmartControl.cs" />
     <Compile Include="UserInterface\TextButton.cs" />
     <Compile Include="UserInterface\TextClickable.cs" />
+    <Compile Include="UserInterface\TextureButtonWithText.cs" />
     <Compile Include="UserInterface\UI.cs" />
+    <Compile Include="UserInterface\UiStateTextures.cs" />
     <Compile Include="UserInterface\VerticalAlignment.cs" />
     <Compile Include="UserInterface\VisualClickableUIElement.cs" />
     <Compile Include="UserInterface\WrapGrid.cs" />
@@ -203,6 +205,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Images\Logo\oilsplash.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\None.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Music\mute.mp3">

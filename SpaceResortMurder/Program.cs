@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework.Input;
 using MonoDragons.Core.AudioSystem;
 using MonoDragons.Core.Common;
 using MonoDragons.Core.Development;
@@ -9,18 +8,28 @@ using MonoDragons.Core.Memory;
 using MonoDragons.Core.Render;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.Text;
+using SpaceResortMurder.LocationStuff;
 using SpaceResortMurder.Scenes;
+using SpaceResortMurder.Style;
+using System;
+using SpaceResortMurder.DilemmaStuff;
 
 namespace SpaceResortMurder
 {
     public static class Program
     {
         [STAThread]
-        static void Main()
+        private static void Main()
         {
-            DefaultFont.Name = "Fonts/BodyFont";
-            using (var game = Perf.Time("Startup", () => new NeedlesslyComplexMainGame("MonoDragons.Core", "Logo", new Display(1600, 900, false), SetupScene(), CreateKeyboardController())))
+            InitFonts();
+            using (var game = Perf.Time("Startup", () => new NeedlesslyComplexMainGame("MonoDragons.Core", "Main Menu", new Display(1600, 900, false), SetupScene(), CreateKeyboardController())))
                 game.Run();
+        }
+
+        private static void InitFonts()
+        {
+            DefaultFont.Name = UiFonts.Body;
+            DefaultFont.Color = UiStyle.TextBlack;
         }
 
         private static IScene SetupScene()
@@ -42,7 +51,9 @@ namespace SpaceResortMurder
                 { GameObjects.CreditsSceneName, () => new CreditsScene() },
                 { GameObjects.DilemmasSceneName, () => new DilemmaScene() },
                 { GameObjects.OptionsSceneName, () => new OptionsScene() },
-                { GameObjects.RoomNames.BlackRoom, () => new BlackRoomScene() },
+                { nameof(BlackRoom), () => new BlackRoomScene() },
+                { nameof(SecondRoom), () => new ASecondRoomScene() },
+                { GameObjects.MapSceneName, () => new SpaceResortMapScene() },
             });
         }
 
