@@ -13,8 +13,8 @@ namespace SpaceResortMurder.DilemmasX
     {
         protected override void OnInit()
         {
-            Add(UiButtons.Back(new Vector2(6, CurrentDisplay.Size.Y - 138), () => Scene.NavigateTo(GameState.Instance.CurrentLocation)));
-            AddVisual(new Label
+            Add(UiButtons.Back(new Vector2(6, UI.ConvertHeightPercentageToPixels(100) - 138), () => Scene.NavigateTo(GameState.Instance.CurrentLocation)));
+			AddVisual(new Label
             {
                 Transform = new Transform2(new Vector2(160, 28), new Size2(1000, 80)),
                 BackgroundColor = Color.Transparent,
