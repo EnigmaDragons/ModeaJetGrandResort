@@ -18,7 +18,7 @@ namespace SpaceResortMurder.DilemmasX
         private readonly Transform2 _transform;
         private TextButton _button;
         private ImageBox _newDilemma;
-        private Label _newAnswersLabel;
+        private ImageBox _newDeductions;
 
         public ClickableUIElement Button => _button;
 
@@ -50,12 +50,10 @@ namespace SpaceResortMurder.DilemmasX
                 Transform = new Transform2(new Vector2(_transform.Location.X - 20, _transform.Location.Y - 20), new Size2(36, 36)),
                 Image = "UI/NewRedIcon"
             };
-            _newAnswersLabel = new Label
+            _newDeductions = new ImageBox
             {
-                Transform = new Transform2(new Vector2(_transform.Location.X + 100, _transform.Location.Y - 40), new Size2(115, 60)),
-                BackgroundColor = Color.Red,
-                RawText = "NEW ANSWERS!",
-                TextColor = Color.White,
+                Transform = new Transform2(new Vector2(_transform.Location.X + _transform.Size.Width - 20, _transform.Location.Y - 20), new Size2(36, 36)),
+                Image = "UI/NewGreenIcon"
             };
         }
 
@@ -78,7 +76,7 @@ namespace SpaceResortMurder.DilemmasX
         private void DrawNewAnswersIfApplicable()
         {
             if (_deductions.Any(d => d.IsNew()))
-                _newAnswersLabel.Draw(Transform2.Zero);
+                _newDeductions.Draw(Transform2.Zero);
         }
 
         private void ClearPriorDeductions()
