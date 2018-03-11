@@ -18,7 +18,11 @@ namespace SpaceResortMurder.Characters
         {
             Image = image;
             _dialogs = dialogs.ToList();
-            _facingImage = new ImageBox(new Transform2(new Vector2((1600 - size.Width) / 2, 900 - size.Height), size), image);
+            _facingImage = new ImageBox
+            {
+                Transform = new Transform2(new Vector2((1600 - size.Width) / 2, 900 - size.Height), size),
+                Image = image
+            };
         }
 
         public IReadOnlyList<Dialog> GetDialogs()
