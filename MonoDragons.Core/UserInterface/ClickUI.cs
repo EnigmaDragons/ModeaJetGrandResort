@@ -8,7 +8,7 @@ using MonoDragons.Core.Render;
 
 namespace MonoDragons.Core.UserInterface
 {
-    public sealed class ClickUI : IAutomaton
+    public sealed class ClickUI : IAutomaton, IDisposable
     {
         public static readonly ClickableUIElement None = new NoneClickableUIElement();
 
@@ -61,6 +61,11 @@ namespace MonoDragons.Core.UserInterface
             var branches = GetAllBranchesFrom(branch);
             foreach (var b in branches)
             {
+                if(b.IsCurrentElement(_current) && _current.IsHovered)
+                {
+                    _current.OnExitted();
+                    _current.IsHovered = false;
+                }
                 _branches.Remove(b);
                 b.Unsubscribe(subscribeAction);
             }
@@ -112,10 +117,15 @@ namespace MonoDragons.Core.UserInterface
 
         private void ChangeActiveElement(ClickableUIElement newElement)
         {
-            _current.OnExitted();
+            if (_current.IsHovered)
+            {
+                _current.OnExitted();
+                _current.IsHovered = false;
+            }
             _wasClicked = false;
             _current = newElement;
             _current.OnEntered();
+            _current.IsHovered = true;
         }
 
         private bool WasMouseReleased(MouseState mouse)
@@ -143,6 +153,13 @@ namespace MonoDragons.Core.UserInterface
         private Point ScaleMousePosition(MouseState mouse)
         {
             return new Point((int)Math.Round(mouse.Position.X / Scale), (int)Math.Round(mouse.Position.Y / Scale));
+        }
+
+        public void Dispose()
+        {
+            if (_current.IsHovered)
+                _current.OnExitted();
+            _current = None;
         }
     }
 }

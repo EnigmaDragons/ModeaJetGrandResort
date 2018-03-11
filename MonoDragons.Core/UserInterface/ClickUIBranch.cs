@@ -10,12 +10,12 @@ namespace MonoDragons.Core.UserInterface
     {
         private HashSet<ClickableUIElement> _elements = new HashSet<ClickableUIElement>();
         private List<ClickUIBranch> _subBranches = new List<ClickUIBranch>();
-        public readonly int Priority;
-        public float Scale;
         private readonly string _name;
         private List<Action<ClickUIBranch>[]> subscriberActions = new List<Action<ClickUIBranch>[]>();
+        private ClickableUIElement _currentElement = ClickUI.None;
 
-        private readonly object SubBranchesLock = new object();
+        public readonly int Priority;
+        public float Scale;
 
         private Vector2 parentLocation;
         public Vector2 ParentLocation
@@ -50,6 +50,11 @@ namespace MonoDragons.Core.UserInterface
             _name = name;
         }
 
+        public bool IsCurrentElement(ClickableUIElement element)
+        {
+            return element == _currentElement;
+        }
+
         public void Add(ClickableUIElement element)
         {
             _elements.Add(element);
@@ -57,6 +62,12 @@ namespace MonoDragons.Core.UserInterface
 
         public void Remove(ClickableUIElement element)
         {
+            if (_currentElement == element && _currentElement.IsHovered)
+            {
+                _currentElement.OnExitted();
+                _currentElement.IsHovered = false;
+                _currentElement = ClickUI.None;
+            }
             _elements.Remove(element);
         }
 
@@ -92,8 +103,15 @@ namespace MonoDragons.Core.UserInterface
         {
             subscriberActions.Remove(actions);
         }
+
         public void ClearElements()
         {
+            if (_currentElement.IsHovered)
+            {
+                _currentElement.OnExitted();
+                _currentElement.IsHovered = false;
+                _currentElement = ClickUI.None;
+            }
             _elements.Clear();
         }
 
@@ -101,7 +119,8 @@ namespace MonoDragons.Core.UserInterface
         {
             var position = new Point((int)Math.Round(mousePosition.X / Scale), (int)Math.Round(mousePosition.Y / Scale));
             var element = _elements.FirstOrDefault(x => x.TotalArea.Contains(position) && x.IsEnabled);
-            return element ?? ClickUI.None;
+            _currentElement = element ?? ClickUI.None;
+            return _currentElement;
         }
 
         public override string ToString()

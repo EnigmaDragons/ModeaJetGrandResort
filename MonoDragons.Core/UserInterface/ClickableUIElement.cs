@@ -11,6 +11,8 @@ namespace MonoDragons.Core.UserInterface
         public abstract void OnReleased();
         
         public float Scale { get; }
+        public bool IsEnabled { get; set; }
+        public bool IsHovered { get; set; }
         private Vector2 parentLocation;
         public Vector2 ParentLocation
         {
@@ -32,7 +34,6 @@ namespace MonoDragons.Core.UserInterface
             }
         }
         public Rectangle Area { get; }
-        public bool IsEnabled { get; set; }
         public Rectangle TotalArea { get; private set; } 
 
         protected ClickableUIElement(Rectangle area, bool isEnabled = true, float scale = 1)
@@ -43,6 +44,7 @@ namespace MonoDragons.Core.UserInterface
             ParentLocation = Vector2.Zero;
             Offset = Vector2.Zero;
             IsEnabled = isEnabled;
+            IsHovered = false;
         }
     }
 }

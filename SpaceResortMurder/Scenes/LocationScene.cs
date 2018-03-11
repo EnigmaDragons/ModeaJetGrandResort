@@ -162,5 +162,10 @@ namespace SpaceResortMurder.Scenes
             _isInTheMiddleOfDialog = false;
             _isInvestigating = false;
         }
+
+        public void Dispose()
+        {
+            _clickUI.Dispose();
+        }
     }
 }

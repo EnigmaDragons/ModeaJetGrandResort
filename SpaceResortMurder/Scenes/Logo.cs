@@ -46,5 +46,9 @@ namespace SpaceResortMurder.Scenes
         {
             UI.DrawCentered("Images/Logo/enigmadragons-presents");
         }
+
+        public void Dispose()
+        {
+        }
     }
 }

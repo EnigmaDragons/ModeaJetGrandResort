@@ -55,5 +55,9 @@ namespace MonoDragons.Core.Scenes
             if (!_transitionComplete)
                 _fade.Draw(Transform2.Zero);
         }
+
+        public void Dispose()
+        {
+        }
     }
 }

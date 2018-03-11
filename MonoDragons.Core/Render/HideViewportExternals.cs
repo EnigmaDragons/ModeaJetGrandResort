@@ -43,5 +43,9 @@ namespace MonoDragons.Core.Render
             World.Draw(_black.Get(), new Rectangle(new Point(0, display.GameHeight),
                 new Point(display.ProgramWidth, display.ProgramHeight - display.GameHeight)), Color.Black);
         }
+
+        public void Dispose()
+        {
+        }
     }
 }

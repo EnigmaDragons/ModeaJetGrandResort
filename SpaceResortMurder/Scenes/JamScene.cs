@@ -65,5 +65,10 @@ namespace SpaceResortMurder.Scenes
         {
             _visuals.Add(v);
         }
+
+        public void Dispose()
+        {
+            _clickUi.Dispose();
+        }
     }
 }
