@@ -2,6 +2,7 @@
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoDragons.Core.AudioSystem;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
@@ -46,9 +47,12 @@ namespace SpaceResortMurder.Dialogs
         public void Update(TimeSpan deltaMillis)
         {
             _totalMessageTime += deltaMillis.Milliseconds;
+            var previousLength = _currentlyDisplayedMessage.Length;
             var length = (int)((double)_totalMessageTime / (double)_millisToCharacter);
             length = _messageToDisplay.Length < length ? _messageToDisplay.Length : length;
             _currentlyDisplayedMessage = _messageToDisplay.Substring(0, length);
+            if (length > previousLength)
+                Audio.PlaySound(length % 19 == 0 ? "talkblip-low" : "talkblip", 0.05f);
         }
 
         public void Draw(Transform2 parentTransform)
