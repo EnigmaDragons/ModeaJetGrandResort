@@ -5,10 +5,11 @@ using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using System.Linq;
+using MonoDragons.Core.Engine;
 
 namespace SpaceResortMurder.HudX
 {
-    public class Hud
+    public sealed class Hud : IVisual
     {
         private List<VisualClickableUIElement> _clickables;
         private ImageBox _newObjectiveLabel;
@@ -36,17 +37,18 @@ namespace SpaceResortMurder.HudX
             };
         }
 
-        public void Draw()
+        public void Draw(Transform2 parentTransform)
         {
-            _clickables.ForEach(x => x.Draw(Transform2.Zero));
+            _clickables.ForEach(x => x.Draw(parentTransform));
+            DrawNewIconsIfApplicable(parentTransform);
         }
 
-        public void DrawNewIconsIfApplicable()
+        private void DrawNewIconsIfApplicable(Transform2 parentTransform)
         {
             if (GameObjects.Objectives.GetActiveObjectives().Any(o => o.IsNew))
-                _newObjectiveLabel.Draw(Transform2.Zero);
+                _newObjectiveLabel.Draw(parentTransform);
             if (GameObjects.Dilemmas.GetActiveDilemmas().Any(d => d.IsNew || d.HasNewAnswers))
-                _newDilemmaOrAnswerLabel.Draw(Transform2.Zero);
+                _newDilemmaOrAnswerLabel.Draw(parentTransform);
         }
 
         private void AddButton(Action onClick, string name)

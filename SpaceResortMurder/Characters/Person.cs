@@ -22,7 +22,7 @@ namespace SpaceResortMurder.Characters
             _dialogs = dialogs.ToList();
             _facingImage = new ImageBox
             {
-                Transform = new Transform2(new Vector2((1600 - size.Width) / 2, 900 - size.Height), size),
+                Transform = new Transform2(new Vector2(UI.ConvertWidthPercentageToPixels(0.62f), UI.ConvertHeightPercentageToPixels(1.0f) - (int)(size.Height / 1.3)), size),
                 Image = image
             };
             _newDialogIcon = new ImageBox

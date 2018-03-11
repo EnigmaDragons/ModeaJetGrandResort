@@ -47,7 +47,7 @@
     <Compile Include="Dialogs\ChatBox.cs" />
     <Compile Include="Dialogs\DidYouKillHimZaid.cs" />
     <Compile Include="Characters\Person.cs" />
-    <Compile Include="Characters\PoliceOfficier.cs" />
+    <Compile Include="Characters\PoliceOfficer.cs" />
     <Compile Include="Characters\ResortManagerZaid.cs" />
     <Compile Include="Deductions\RaymondCommittedSuicide.cs" />
     <Compile Include="Deductions\YouButcheredRaymond.cs" />
@@ -123,6 +123,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\characters\resort_manager_surprised.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Convo\DialogueButton-Hover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Convo\DialogueButton-Press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Convo\DialogueButton.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Locations\BedroomBg.png">
@@ -252,6 +261,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\PixelButtonRed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\ScreenOverlay-Purple.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\ScreenOverlay-Red.png">

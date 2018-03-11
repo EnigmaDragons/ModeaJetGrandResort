@@ -7,5 +7,9 @@
         protected override void OnInit()
         {
         }
+
+        protected override void DrawBackground()
+        {
+        }
     }
 }

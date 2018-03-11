@@ -34,6 +34,7 @@ namespace SpaceResortMurder.LocationsX
         protected List<IVisual> _visuals = new List<IVisual>();
 
         protected abstract void OnInit();
+        protected abstract void DrawBackground();
 
         protected LocationScene(string location)
         {
@@ -89,9 +90,13 @@ namespace SpaceResortMurder.LocationsX
 
         public void Draw()
         {
+            DrawBackground();
             _visuals.ForEach(x => x.Draw(Transform2.Zero));
             if (_isTalking)
+            {
+                UI.Darken();
                 _talkingTo.DrawTalking();
+            }
             if (!_isInTheMiddleOfDialog)
             {
                 _dialogOptions.ForEach(x => x.Draw(Transform2.Zero));
@@ -99,14 +104,15 @@ namespace SpaceResortMurder.LocationsX
             }
             if (!_isTalking && !_isInvestigating)
             {
-                GameObjects.Hud.Draw();
-                GameObjects.Hud.DrawNewIconsIfApplicable();
+                GameObjects.Hud.Draw(Transform2.Zero);
                 _peopleHere.ForEach(p => p.DrawNewIconIfApplicable());
             }
             if (_isInvestigating)
                 _investigatingThis.FacingImage.Draw(Transform2.Zero);
             if (_isInTheMiddleOfDialog)
                 _reader.Draw();
+
+            UI.FillScreen("UI/ScreenOverlay-Purple");
         }
 
         protected void AddClue(Clue clue)
@@ -124,9 +130,7 @@ namespace SpaceResortMurder.LocationsX
             var activeDialogs = person.GetDialogs();
             activeDialogs.ForEachIndex((x, i) =>
             {
-                var itemCount = activeDialogs.Count;
-                var verticalOffset = ((900 / (itemCount + 1)) * (i + 1)) - (((itemCount - i) / (itemCount + 1)) * 30);
-                var button = x.CreateButton(HaveDialog, verticalOffset);
+                var button = x.CreateButton(HaveDialog, i, activeDialogs.Count);
                 _characterTalkingToBranch.Add(button);
                 drawDialogsOptions.Add(button);
             });

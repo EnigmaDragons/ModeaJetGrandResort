@@ -6,7 +6,7 @@ namespace SpaceResortMurder.Characters
     public class People
     {
         private readonly List<Person> _people = new List<Person>() {
-            new PoliceOfficier(),
+            new PoliceOfficer(),
             new ResortManagerZaid(),
         };
 

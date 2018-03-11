@@ -14,7 +14,7 @@ namespace SpaceResortMurder.DilemmasX
         protected override void OnInit()
         {
             Audio.PlayMusic("Pondering", 0.37f);
-            Add(UiButtons.Back(new Vector2(6, UI.ConvertHeightPercentageToPixels(100) - 138), () => Scene.NavigateTo(GameState.Instance.CurrentLocation)));
+            Add(UiButtons.Back(new Vector2(6, UI.ConvertHeightPercentageToPixels(1.0f) - 138), () => Scene.NavigateTo(GameState.Instance.CurrentLocation)));
 			AddVisual(new Label
             {
                 Transform = new Transform2(new Vector2(160, 28), new Size2(1000, 80)),
