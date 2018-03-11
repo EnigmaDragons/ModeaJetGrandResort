@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using MonoDragons.Core.Engine;
 
-namespace SpaceResortMurder.MouseStuff
+namespace SpaceResortMurder.MouseX
 {
     public class MouseIsClicked
     {

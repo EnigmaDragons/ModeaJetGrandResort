@@ -1,4 +1,4 @@
-﻿using SpaceResortMurder.DilemmaStuff;
+﻿using SpaceResortMurder.DilemmasX;
 
 namespace SpaceResortMurder.Dialogs
 {

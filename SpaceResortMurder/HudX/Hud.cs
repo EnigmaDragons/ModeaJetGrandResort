@@ -5,7 +5,7 @@ using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 
-namespace SpaceResortMurder.HudStuff
+namespace SpaceResortMurder.HudX
 {
     public class Hud
     {
@@ -16,9 +16,9 @@ namespace SpaceResortMurder.HudStuff
         public void Init()
         {
             _clickables = new List<VisualClickableUIElement>();
-            AddButton(() => Scene.NavigateTo(GameObjects.DilemmasSceneName), "Dilemmas");
-            AddButton(() => Scene.NavigateTo(GameObjects.MapSceneName), "Map");
-            AddButton(() => Scene.NavigateTo(GameObjects.ObjectivesSceneName), "Objectives");
+            AddButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Dilemmas");
+            AddButton(() => Scene.NavigateTo(GameResources.MapSceneName), "Map");
+            AddButton(() => Scene.NavigateTo(GameResources.ObjectivesSceneName), "Objectives");
             HudBranch = new ClickUIBranch("HUD", 2);
             _clickables.ForEach(x => HudBranch.Add(x));
         }

@@ -1,4 +1,4 @@
-﻿using SpaceResortMurder.LocationStuff;
+﻿using SpaceResortMurder.LocationsX;
 
 namespace SpaceResortMurder.Scenes
 {

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 
-namespace SpaceResortMurder.ObjectiveStuff
+namespace SpaceResortMurder.ObjectivesX
 {
     public abstract class Objective
     {

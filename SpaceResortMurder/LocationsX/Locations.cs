@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace SpaceResortMurder.LocationStuff
+namespace SpaceResortMurder.LocationsX
 {
     public class Locations
     {

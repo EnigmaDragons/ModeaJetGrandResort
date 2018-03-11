@@ -2,7 +2,7 @@
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 
-namespace SpaceResortMurder.LocationStuff
+namespace SpaceResortMurder.LocationsX
 {
     public abstract class Location
     {

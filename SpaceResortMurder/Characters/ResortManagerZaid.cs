@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
 using SpaceResortMurder.Dialogs;
-using SpaceResortMurder.LocationStuff;
+using SpaceResortMurder.LocationsX;
 
 namespace SpaceResortMurder.Characters
 {
