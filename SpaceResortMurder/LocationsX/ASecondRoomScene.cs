@@ -1,14 +1,12 @@
-﻿using SpaceResortMurder.LocationsX;
-
-namespace SpaceResortMurder.Scenes
+﻿namespace SpaceResortMurder.LocationsX
 {
     public class ASecondRoomScene : LocationScene
     {
         public ASecondRoomScene() : base(nameof(SecondRoom)) {}
 
-        public override void Init()
+        protected override void OnInit()
         {
-            InitBase();
+            throw new System.NotImplementedException();
         }
     }
 }

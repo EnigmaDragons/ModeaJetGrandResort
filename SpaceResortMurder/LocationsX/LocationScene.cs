@@ -12,7 +12,7 @@ using SpaceResortMurder.Characters;
 using SpaceResortMurder.Clues;
 using SpaceResortMurder.Dialogs;
 
-namespace SpaceResortMurder.Scenes
+namespace SpaceResortMurder.LocationsX
 {
     public abstract class LocationScene : IScene
     { 
@@ -33,15 +33,14 @@ namespace SpaceResortMurder.Scenes
         protected ClickUIBranch _investigateRoomBranch;
         protected List<IVisual> _visuals = new List<IVisual>();
 
+        protected abstract void OnInit();
+
         protected LocationScene(string location)
         {
             _location = location;
-
         }
 
-        public abstract void Init();
-
-        public void InitBase()
+        public void Init()
         {
             GameState.Instance.CurrentLocation = _location;
 
@@ -69,6 +68,7 @@ namespace SpaceResortMurder.Scenes
             Input.ClearTransientBindings();
             Input.On(Control.Select, () => { if (!_isInTheMiddleOfDialog) Scene.NavigateTo(GameResources.OptionsSceneName); });
             Input.On(Control.X, () => { if (!_isInTheMiddleOfDialog) Scene.NavigateTo(GameResources.DilemmasSceneName); });
+            OnInit();
         }
 
         public void Update(TimeSpan delta)
