@@ -58,12 +58,16 @@
     <Compile Include="LocationStuff\Locations.cs" />
     <Compile Include="LocationStuff\SecondRoom.cs" />
     <Compile Include="MouseStuff\MouseIsClicked.cs" />
+    <Compile Include="ObjectiveStuff\InvestigateRaymondsDeadBody.cs" />
+    <Compile Include="ObjectiveStuff\Objective.cs" />
+    <Compile Include="ObjectiveStuff\Objectives.cs" />
     <Compile Include="RoomNames.cs" />
     <Compile Include="Scenes\JamScene.cs" />
     <Compile Include="Scenes\ASecondRoomScene.cs" />
     <Compile Include="Scenes\BlackRoomScene.cs" />
     <Compile Include="Deductions\DeductionScene.cs" />
     <Compile Include="Scenes\LocationScene.cs" />
+    <Compile Include="Scenes\ObjectivesScene.cs" />
     <Compile Include="Scenes\SpaceResortMapScene.cs" />
     <Compile Include="State\ItemViewed.cs" />
     <Compile Include="DilemmaStuff\Dilemma.cs" />

@@ -54,6 +54,7 @@ namespace SpaceResortMurder
                 { nameof(BlackRoom), () => new BlackRoomScene() },
                 { nameof(SecondRoom), () => new ASecondRoomScene() },
                 { GameObjects.MapSceneName, () => new SpaceResortMapScene() },
+                { GameObjects.ObjectivesSceneName, () => new ObjectivesScene() },
             });
         }
 
