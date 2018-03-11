@@ -23,7 +23,7 @@ namespace SpaceResortMurder
         {
             GameState.Instance = new GameState();
             InitFonts();
-            using (var game = Perf.Time("Startup", () => new NeedlesslyComplexMainGame("MonoDragons.Core", nameof(BlackRoom), new Display(1600, 900, false), SetupScene(), CreateKeyboardController())))
+            using (var game = Perf.Time("Startup", () => new NeedlesslyComplexMainGame("MonoDragons.Core", GameResources.MainMenuSceneName, new Display(1600, 900, false), SetupScene(), CreateKeyboardController())))
                 game.Run();
         }
 
@@ -56,6 +56,7 @@ namespace SpaceResortMurder
                 { nameof(SecondRoom), () => new SecondRoomScene() },
                 { GameResources.MapSceneName, () => new SpaceResortMapScene() },
                 { GameResources.ObjectivesSceneName, () => new ObjectivesScene() },
+                { nameof(DockingBay), () => new DockingBayScene() },
             });
         }
 

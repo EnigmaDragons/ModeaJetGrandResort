@@ -11,6 +11,7 @@ namespace SpaceResortMurder.LocationsX
         {
             _locations.Add(new BlackRoom());
             _locations.Add(new SecondRoom());
+            _locations.Add(new DockingBay());
         }
 
         public IReadOnlyList<Location> GetAvailableLocations()

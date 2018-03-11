@@ -10,7 +10,6 @@ namespace SpaceResortMurder.LocationsX
         protected override void OnInit()
         {
             Audio.PlayMusic("HotelLobby");
-            AddClue(new Necronomicon());
         }
     }
 }

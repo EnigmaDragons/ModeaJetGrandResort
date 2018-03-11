@@ -15,7 +15,7 @@ namespace SpaceResortMurder.Scenes
             GameState.Instance = new GameState();
             Audio.PlayMusic("MainTheme");
 
-            Add(UiButtons.Menu("Start Game", new Vector2(120, 610), () => Scene.NavigateTo(nameof(BlackRoom))));
+            Add(UiButtons.Menu("Start Game", new Vector2(120, 610), () => Scene.NavigateTo(nameof(DockingBay))));
             Add(UiButtons.Menu("Credits", new Vector2(120, 770), () => Scene.NavigateTo(GameResources.CreditsSceneName)));
             Add(UiButtons.Menu("Options", new Vector2(120, 690), () =>
             {

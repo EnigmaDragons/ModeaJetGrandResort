@@ -40,7 +40,10 @@
   <ItemGroup>
     <Compile Include="Characters\People.cs" />
     <Compile Include="Clues\Clue.cs" />
-    <Compile Include="Clues\Necronomicon.cs" />
+    <Compile Include="Clues\GarbageAirlock.cs" />
+    <Compile Include="Clues\MeleenasShip.cs" />
+    <Compile Include="Clues\PoliceCruiser.cs" />
+    <Compile Include="Clues\RaymondsShip.cs" />
     <Compile Include="Dialogs\ChatBox.cs" />
     <Compile Include="Dialogs\DidYouKillHimZaid.cs" />
     <Compile Include="Characters\Person.cs" />
@@ -57,6 +60,8 @@
     <Compile Include="GameResources.cs" />
     <Compile Include="HudX\Hud.cs" />
     <Compile Include="LocationsX\BlackRoom.cs" />
+    <Compile Include="LocationsX\DockingBay.cs" />
+    <Compile Include="LocationsX\DockingBayScene.cs" />
     <Compile Include="LocationsX\HotelLobbyScene.cs" />
     <Compile Include="LocationsX\Location.cs" />
     <Compile Include="LocationsX\Locations.cs" />
@@ -135,10 +140,25 @@
     <Content Include="Content\Music\MainTheme.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Placeholder\airlock.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Placeholder\dialoguebox.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Placeholder\DockingBay.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Placeholder\MeleenasShip.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Placeholder\necronomicon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Placeholder\PoliceCruiserShip.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Placeholder\RaymondsShip+.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Placeholder\SpaceResortPlaceholder.png">

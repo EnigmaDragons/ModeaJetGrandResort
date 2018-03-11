@@ -48,10 +48,6 @@ namespace SpaceResortMurder
         }
 
         private static Dictionary<string, string[]> _dialogOrClueLines = new Dictionary<string, string[]>() {
-            { nameof(Necronomicon), new string[] {
-                "This necronomicon feels super out of place for a sci-fi murder mystery",
-                "lazy writers"
-            } },
             { nameof(WhoWasMurdered), new string[] {
                 "Raymond was murdered",
                 "Sucks for him!"
@@ -62,6 +58,26 @@ namespace SpaceResortMurder
             { nameof(DidYouKillHimZaid), new string[] {
                 "No I did not!",
                 "You seem suspicious"
+            } },
+
+            { nameof(RaymondsShip), new string[] {
+                "The ship is a Regal Glider an expensive personal craft.",
+                "It is registered under the name of Raymond Soule.",
+                "CEO of Human Perfect.",
+                "There is a blast mark that comes from a T-71 Energy Blaster",
+                "The door control has also been hacked to stay unlocked."
+            } },
+            { nameof(MeleenasShip), new string[] {
+                "The ship is heavily modded, it is registered to a Meleena Ka'lick.",
+                "She is a corporate freelancer",
+                "Meleena must be pretty wealthy to own her own space craft."
+            } },
+            { nameof(PoliceCruiser), new string[] {
+                "I don't think my ship relates to this murder."
+            } },
+            { nameof(GarbageAirlock), new string[] {
+                "This is a garbage airlock that releases trash into space.",
+                "This was clearly used today."
             } },
         };
 
