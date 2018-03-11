@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Common;
 using MonoDragons.Core.Engine;
@@ -10,6 +9,7 @@ using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Characters;
+using SpaceResortMurder.Clues;
 using SpaceResortMurder.Dialogs;
 
 namespace SpaceResortMurder.Scenes
@@ -24,8 +24,10 @@ namespace SpaceResortMurder.Scenes
         private bool _isInTheMiddleOfDialog = false;
         private ClickUIBranch _characterTalkingToBranch;
         private Person _talkingTo;
+        private Clue _investigatingThis;
         private bool _isTalking;
         private Reader _reader;
+        private bool _isInvestigating;
 
         protected ClickUIBranch _investigateRoomBranch;
         protected List<IVisual> _visuals = new List<IVisual>();
@@ -85,15 +87,24 @@ namespace SpaceResortMurder.Scenes
                 _dialogOptions.ForEach(x => x.Draw(Transform2.Zero));
                 _backButton.Draw(Transform2.Zero);
             }
-            if (!_isTalking)
+            if (!_isTalking && !_isInvestigating)
                 GameObjects.Hud.Draw();
+            if (_isInvestigating)
+                _investigatingThis.FacingImage.Draw(Transform2.Zero);
             if (_isInTheMiddleOfDialog)
                 _reader.Draw();
+        }
 
+        protected void AddClue(Clue clue)
+        {
+            var button = clue.CreateButton(() => Investigate(clue));
+            _visuals.Add(button);
+            _investigateRoomBranch.Add(button);
         }
 
         private void TalkTo(Person person)
         {
+            _clickUI.Remove(GameObjects.Hud.HudBranch);
             var drawDialogsOptions = new List<IVisual>();
             _characterTalkingToBranch = new ClickUIBranch("Dialog Choices", 1);
             var activeDialogs = person.GetDialogs();
@@ -118,6 +129,7 @@ namespace SpaceResortMurder.Scenes
             _clickUI.Remove(_characterTalkingToBranch);
             _dialogOptions = new List<IVisual>();
             _clickUI.Add(_investigateRoomBranch);
+            _clickUI.Add(GameObjects.Hud.HudBranch);
         }
 
         private void HaveDialog(List<string> lines)
@@ -131,6 +143,24 @@ namespace SpaceResortMurder.Scenes
         {
             _isInTheMiddleOfDialog = false;
             TalkTo(_talkingTo);
+        }
+
+        private void Investigate(Clue clue)
+        {
+            _clickUI.Remove(_investigateRoomBranch);
+            _reader = new Reader(clue.InvestigationLines, StopInvestigating);
+            _investigatingThis = clue;
+            _clickUI.Remove(GameObjects.Hud.HudBranch);
+            _isInTheMiddleOfDialog = true;
+            _isInvestigating = true;
+        }
+
+        private void StopInvestigating()
+        {
+            _clickUI.Add(_investigateRoomBranch);
+            _clickUI.Add(GameObjects.Hud.HudBranch);
+            _isInTheMiddleOfDialog = false;
+            _isInvestigating = false;
         }
     }
 }

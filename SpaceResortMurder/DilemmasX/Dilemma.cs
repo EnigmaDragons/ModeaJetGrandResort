@@ -16,9 +16,9 @@ namespace SpaceResortMurder.DilemmasX
         private readonly string _dilemma;
         private readonly Deduction[] _deductions;
         private readonly Transform2 _transform;
-        private TextButton _button;
+        private ImageTextButton _button;
         private ImageBox _newDilemma;
-        private Label _newAnswersLabel;
+        private ImageBox _newDeductions;
 
         public ClickableUIElement Button => _button;
 
@@ -36,7 +36,7 @@ namespace SpaceResortMurder.DilemmasX
                 new Transform2(
                     new Vector2(_transform.Location.X, _transform.Location.Y + _transform.Size.Height),
                     new Size2(_transform.Size.Width, 100))));
-            _button = new TextButton(_transform.ToRectangle(),
+            _button = new ImageTextButton(_transform.ToRectangle(),
                 () =>
                 {
                     if (!GameState.Instance.HasViewedItem(_dilemma))
@@ -44,18 +44,16 @@ namespace SpaceResortMurder.DilemmasX
                     Scene.NavigateTo(new DeductionScene(_dilemmaText, _deductions.Where(x => x.IsActive()).ToList()));
                 },
                 _dilemmaText,
-                Color.Blue, Color.AliceBlue, Color.Aqua);
+                "UI/DilemmaCard", "UI/DilemmaCard-Hover", "UI/DilemmaCard-Press");
             _newDilemma = new ImageBox
             {
-                Transform = new Transform2(new Vector2(_transform.Location.X - 20, _transform.Location.Y - 20), new Size2(36, 36)),
-                Image = "UI/NewRedIcon"
+                Transform = new Transform2(new Vector2(_transform.Location.X + 8, _transform.Location.Y + 8), new Size2(36, 36)),
+                Image = "UI/NewRedIconBorderless"
             };
-            _newAnswersLabel = new Label
+            _newDeductions = new ImageBox
             {
-                Transform = new Transform2(new Vector2(_transform.Location.X + 100, _transform.Location.Y - 40), new Size2(115, 60)),
-                BackgroundColor = Color.Red,
-                RawText = "NEW ANSWERS!",
-                TextColor = Color.White,
+                Transform = new Transform2(new Vector2(_transform.Location.X + _transform.Size.Width - 48, _transform.Location.Y + 6), new Size2(44, 44)),
+                Image = "UI/NewDeductionIcon"
             };
         }
 
@@ -78,7 +76,7 @@ namespace SpaceResortMurder.DilemmasX
         private void DrawNewAnswersIfApplicable()
         {
             if (_deductions.Any(d => d.IsNew()))
-                _newAnswersLabel.Draw(Transform2.Zero);
+                _newDeductions.Draw(Transform2.Zero);
         }
 
         private void ClearPriorDeductions()

@@ -17,9 +17,9 @@ namespace MonoDragons.Core.UserInterface
         private Texture2D _currentRect;
         private readonly Func<bool> _isVisible;
 
-        public Action ExitAction { private get; set; } = () => { };
-        public Action EnterAction { private get; set; } = () => { };
-        public Action PressAction { private get; set; } = () => { };
+        public Action OnExit { private get; set; } = () => { };
+        public Action OnEnter { private get; set; } = () => { };
+        public Action OnPress { private get; set; } = () => { };
 
         public TextButton(Rectangle area, Action onClick, string text, Color defaultColor, Color hover, Color press)
             : this(area, onClick, text, defaultColor, hover, press, () => true) { }
@@ -37,19 +37,19 @@ namespace MonoDragons.Core.UserInterface
         public override void OnEntered()
         {
             _currentRect = _hover;
-            EnterAction();
+            OnEnter();
         }
 
         public override void OnExitted()
         {
             _currentRect = _default;
-            ExitAction();
+            OnExit();
         }
 
         public override void OnPressed()
         {
             _currentRect = _press;
-            PressAction();
+            OnPress();
         }
 
         public override void OnReleased()

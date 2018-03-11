@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.Text;
 
 namespace MonoDragons.Core.UserInterface
 {
@@ -14,6 +15,8 @@ namespace MonoDragons.Core.UserInterface
         public Transform2 Transform => new Transform2(Area);
         public string Text { set => _label.Text = value; }
         public Color TextColor { set => _label.TextColor = value; }
+        public Action OnPress { set => _button.OnPress = value; }
+        public Action OnEnter { set => _button.OnEnter = value; }
 
         public ImageTextButton(Rectangle rect, Action onClick, string text, string basic, string hover, string press)
             : this(new Transform2(rect), onClick, text, basic, hover, press, () => true) { }
@@ -26,7 +29,7 @@ namespace MonoDragons.Core.UserInterface
         {
             _isVisible = isVisible;
             _button = new ImageButton(basic, hover, press, transform, onClick, _isVisible);
-            _label = new Label { BackgroundColor = Color.Transparent, Text = text, Transform = transform.WithPadding(8, 8), TextColor = Color.White };
+            _label = new Label { BackgroundColor = Color.Transparent, Text = text, Transform = transform.WithPadding(8, 8), TextColor = DefaultFont.Color };
         }
 
         public override void OnEntered()
