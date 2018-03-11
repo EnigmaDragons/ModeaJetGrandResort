@@ -20,7 +20,7 @@ namespace SpaceResortMurder.LocationsX
 
         private ClickUI _clickUI;
         private List<IVisual> _dialogOptions = new List<IVisual>();
-        private TextButton _backButton;
+        private VisualClickableUIElement _backButton;
         private bool _isInTheMiddleOfDialog = false;
         private ClickUIBranch _characterTalkingToBranch;
         private Person _talkingTo;
@@ -65,7 +65,13 @@ namespace SpaceResortMurder.LocationsX
             _clickUI = new ClickUI();
             _clickUI.Add(_investigateRoomBranch);
             _clickUI.Add(GameObjects.Hud.HudBranch);
-            _backButton = new TextButton(new Rectangle(0, 800, 150, 50), StopTalking, "Back", Color.OrangeRed, Color.Red, Color.DarkRed, () => _isTalking);
+            _backButton = new ImageTextButton(new Transform2(new Rectangle(-900, 826, 1380, 64)), StopTalking, "Thanks for your help.",
+                "Convo/DialogueButton", "Convo/DialogueButton-Hover", "Convo/DialogueButton-Press", () => _isTalking)
+            {
+                TextColor = Color.White,
+                TextTransform = new Transform2(new Vector2(50, 826), Rotation2.Default, new Size2(1380 - 900, 64), 1.0f),
+                TextAlignment = HorizontalAlignment.Left
+            };
 
             Input.ClearTransientBindings();
             Input.On(Control.Select, () => { if (!_isInTheMiddleOfDialog) Scene.NavigateTo(GameResources.OptionsSceneName); });
