@@ -16,7 +16,7 @@ namespace SpaceResortMurder.DilemmasX
         private readonly string _dilemma;
         private readonly Deduction[] _deductions;
         private readonly Transform2 _transform;
-        private TextButton _button;
+        private ImageTextButton _button;
         private ImageBox _newDilemma;
         private ImageBox _newDeductions;
 
@@ -36,7 +36,7 @@ namespace SpaceResortMurder.DilemmasX
                 new Transform2(
                     new Vector2(_transform.Location.X, _transform.Location.Y + _transform.Size.Height),
                     new Size2(_transform.Size.Width, 100))));
-            _button = new TextButton(_transform.ToRectangle(),
+            _button = new ImageTextButton(_transform.ToRectangle(),
                 () =>
                 {
                     if (!GameState.Instance.HasViewedItem(_dilemma))
@@ -44,16 +44,16 @@ namespace SpaceResortMurder.DilemmasX
                     Scene.NavigateTo(new DeductionScene(_dilemmaText, _deductions.Where(x => x.IsActive()).ToList()));
                 },
                 _dilemmaText,
-                Color.Blue, Color.AliceBlue, Color.Aqua);
+                "UI/DilemmaCard", "UI/DilemmaCard-Hover", "UI/DilemmaCard-Press");
             _newDilemma = new ImageBox
             {
-                Transform = new Transform2(new Vector2(_transform.Location.X - 20, _transform.Location.Y - 20), new Size2(36, 36)),
-                Image = "UI/NewRedIcon"
+                Transform = new Transform2(new Vector2(_transform.Location.X + 8, _transform.Location.Y + 8), new Size2(36, 36)),
+                Image = "UI/NewRedIconBorderless"
             };
             _newDeductions = new ImageBox
             {
-                Transform = new Transform2(new Vector2(_transform.Location.X + _transform.Size.Width - 20, _transform.Location.Y - 20), new Size2(36, 36)),
-                Image = "UI/NewGreenIcon"
+                Transform = new Transform2(new Vector2(_transform.Location.X + _transform.Size.Width - 48, _transform.Location.Y + 6), new Size2(44, 44)),
+                Image = "UI/NewDeductionIcon"
             };
         }
 

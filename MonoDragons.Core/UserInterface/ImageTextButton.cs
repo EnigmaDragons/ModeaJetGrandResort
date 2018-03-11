@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.Text;
 
 namespace MonoDragons.Core.UserInterface
 {
@@ -27,7 +28,7 @@ namespace MonoDragons.Core.UserInterface
         {
             _isVisible = isVisible;
             _button = new ImageButton(basic, hover, press, transform, onClick, _isVisible);
-            _label = new Label { BackgroundColor = Color.Transparent, Text = text, Transform = transform.WithPadding(8, 8), TextColor = Color.White };
+            _label = new Label { BackgroundColor = Color.Transparent, Text = text, Transform = transform.WithPadding(8, 8), TextColor = DefaultFont.Color };
         }
 
         public override void OnEntered()
