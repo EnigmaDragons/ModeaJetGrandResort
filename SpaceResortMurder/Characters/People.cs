@@ -5,13 +5,10 @@ namespace SpaceResortMurder.Characters
 {
     public class People
     {
-        private readonly List<Person> _people = new List<Person>();
-
-        public void Init()
-        {
-            _people.Add(new PoliceOfficier());
-            _people.Add(new ResortManagerZaid());
-        }
+        private readonly List<Person> _people = new List<Person>() {
+            new PoliceOfficier(),
+            new ResortManagerZaid(),
+        };
 
         public IReadOnlyList<Person> GetPeopleAt(string location)
         {

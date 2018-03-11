@@ -28,6 +28,7 @@ namespace SpaceResortMurder.Scenes
         private bool _isTalking;
         private Reader _reader;
         private bool _isInvestigating;
+        private IReadOnlyList<Person> _peopleHere;
 
         protected ClickUIBranch _investigateRoomBranch;
         protected List<IVisual> _visuals = new List<IVisual>();
@@ -46,8 +47,8 @@ namespace SpaceResortMurder.Scenes
 
             _investigateRoomBranch = new ClickUIBranch("Location Investigation", 1);
 
-            var peopleHere = GameObjects.People.GetPeopleAt(_location);
-            var characterButtons = peopleHere.Select(x => new ImageButton(x.Image, x.Image, x.Image, x.WhereAreYouStanding(),
+            _peopleHere = GameObjects.People.GetPeopleAt(_location);
+            var characterButtons = _peopleHere.Select(x => new ImageButton(x.Image, x.Image, x.Image, x.WhereAreYouStanding(),
                 () =>
                 {
                     _clickUI.Remove(_investigateRoomBranch);
@@ -91,6 +92,7 @@ namespace SpaceResortMurder.Scenes
             {
                 GameObjects.Hud.Draw();
                 GameObjects.Hud.DrawNewIconsIfApplicable();
+                _peopleHere.ForEach(p => p.DrawNewIconIfApplicable());
             }
             if (_isInvestigating)
                 _investigatingThis.FacingImage.Draw(Transform2.Zero);

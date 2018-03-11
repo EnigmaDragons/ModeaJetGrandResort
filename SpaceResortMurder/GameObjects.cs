@@ -22,7 +22,6 @@ namespace SpaceResortMurder
                 return;
             Dilemmas.Init();
             Hud.Init();
-            People.Init();
             Locations.Init();
             Objectives.Init();
             _hasInit = true;
