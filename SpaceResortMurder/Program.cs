@@ -53,7 +53,7 @@ namespace SpaceResortMurder
                 { GameResources.DilemmasSceneName, () => new DilemmaScene() },
                 { GameResources.OptionsSceneName, () => new OptionsScene() },
                 { nameof(BlackRoom), () => new BlackRoomScene() },
-                { nameof(SecondRoom), () => new ASecondRoomScene() },
+                { nameof(SecondRoom), () => new SecondRoomScene() },
                 { GameResources.MapSceneName, () => new SpaceResortMapScene() },
                 { GameResources.ObjectivesSceneName, () => new ObjectivesScene() },
             });

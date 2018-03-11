@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Dialogs;
+using System;
 
 namespace SpaceResortMurder.Characters
 {
@@ -34,6 +35,16 @@ namespace SpaceResortMurder.Characters
         public IReadOnlyList<Dialog> GetDialogs()
         {
             return _dialogs.Where(x => x.IsActive()).OrderBy(x => !x.IsNew).ToList();
+        }
+
+        public bool IsImmediatelyTalking()
+        {
+            return _dialogs.Any(d => d.IsNew && d.IsImmediatelyStarted());
+        }
+
+        public void StartImmediatelyTalking(Action<string[]> onStart)
+        {
+            _dialogs.First(d => d.IsNew && d.IsImmediatelyStarted()).StartImmediateDialog(onStart);
         }
 
         public void DrawTalking()

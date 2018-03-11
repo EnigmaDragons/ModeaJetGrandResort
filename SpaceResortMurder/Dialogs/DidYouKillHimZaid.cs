@@ -8,5 +8,10 @@
         {
             return GameState.Instance.IsThinking(nameof(WhoWasMurdered));
         }
+
+        public override bool IsImmediatelyStarted()
+        {
+            return false;
+        }
     }
 }

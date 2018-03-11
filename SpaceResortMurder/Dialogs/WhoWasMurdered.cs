@@ -8,5 +8,10 @@
         {
             return true;
         }
+
+        public override bool IsImmediatelyStarted()
+        {
+            return false;
+        }
     }
 }

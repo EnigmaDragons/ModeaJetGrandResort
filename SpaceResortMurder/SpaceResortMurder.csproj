@@ -67,7 +67,7 @@
     <Compile Include="ObjectivesX\Objectives.cs" />
     <Compile Include="RoomNames.cs" />
     <Compile Include="Scenes\JamScene.cs" />
-    <Compile Include="LocationsX\ASecondRoomScene.cs" />
+    <Compile Include="LocationsX\SecondRoomScene.cs" />
     <Compile Include="LocationsX\BlackRoomScene.cs" />
     <Compile Include="Deductions\DeductionScene.cs" />
     <Compile Include="LocationsX\LocationScene.cs" />

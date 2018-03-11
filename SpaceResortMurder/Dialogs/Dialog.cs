@@ -10,8 +10,8 @@ namespace SpaceResortMurder.Dialogs
     {
         private readonly string _dialog;
         private readonly string _dialogText;
-        private readonly string[] _lines;
         private readonly int _width;
+        private readonly string[] _lines;
 
         public bool IsNew => !GameState.Instance.HasViewedItem(_dialog);
 
@@ -24,6 +24,15 @@ namespace SpaceResortMurder.Dialogs
         }
 
         public abstract bool IsActive();
+
+        public abstract bool IsImmediatelyStarted();
+
+        public void StartImmediateDialog(Action<string[]> onStart)
+        {
+            Event.Publish(new ItemViewed(_dialog));
+            Event.Publish(new ThoughtGained(_dialog));
+            onStart(_lines);
+        }
 
         public VisualClickableUIElement CreateButton(Action<string[]> onClick, int verticalOffset)
         {
