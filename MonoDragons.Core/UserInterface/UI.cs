@@ -39,6 +39,16 @@ namespace MonoDragons.Core.UserInterface
             _display = display;
         }
 
+        public static int ConvertWidthPercentageToPixels(float percentage)
+        {
+            return (int)Math.Round(percentage * _display.GameWidth * 0.01f);
+        }
+
+        public static int ConvertHeightPercentageToPixels(float percentage)
+        {
+            return (int)Math.Round(percentage * _display.GameHeight * 0.01f);
+        }
+
         public static void Darken()
         {
             _darken.Draw(Transform2.Zero);

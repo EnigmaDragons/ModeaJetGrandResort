@@ -1,13 +1,14 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using MonoDragons.Core.Common;
 using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.Render;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
-using SpaceResortMurder.Deductions;
-using System.Collections.Generic;
+using SpaceResortMurder.Scenes;
 using SpaceResortMurder.Style;
 
-namespace SpaceResortMurder.Scenes
+namespace SpaceResortMurder.Deductions
 {
     public sealed class DeductionScene : JamScene
     {
@@ -22,7 +23,7 @@ namespace SpaceResortMurder.Scenes
 
         protected override void OnInit()
         {
-            Add(UiButtons.MenuRed("Return", new Vector2(1250, 750), () => Scene.NavigateTo(GameObjects.DilemmasSceneName)));
+            Add(UiButtons.BackRed(new Vector2(6, CurrentDisplay.Size.Y - 138), () => Scene.NavigateTo(GameObjects.DilemmasSceneName)));
             AddVisual(new Label
             {
                 Transform = new Transform2(new Vector2(280, 28), new Size2(500, 80)),
