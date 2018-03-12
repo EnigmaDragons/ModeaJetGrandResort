@@ -28,6 +28,7 @@ namespace SpaceResortMurder
         public const string ObjectivesSceneName = "Objectives";
         public const string DialogueMemoriesScene = "Dialog Memories";
         public const string ResolutionSceneName = "Resolution";
+        public const string EndingSceneName = "Ending";
 
         private static string[] _notImplementedClueLines = new string[] { "This clue hasn't been implemented" };
         public static string[] GetClueLines(string dialogOrClue)

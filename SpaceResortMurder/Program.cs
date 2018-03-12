@@ -61,6 +61,7 @@ namespace SpaceResortMurder
                 { GameResources.DialogueMemoriesScene, () => new DialogMemoriesScene() },
                 { nameof(MeleenasShipInterior), () => new MeleenasShipInteriorScene() },
                 { GameResources.ResolutionSceneName, () => new ResolutionScene() },
+                { GameResources.EndingSceneName, () => new EndingScene() },
             });
         }
 

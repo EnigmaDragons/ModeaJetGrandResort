@@ -120,6 +120,7 @@
     <Compile Include="ResolutionsX\Resolutions.cs" />
     <Compile Include="ResolutionsX\ResolutionScene.cs" />
     <Compile Include="RoomNames.cs" />
+    <Compile Include="Scenes\EndingScene.cs" />
     <Compile Include="Scenes\JamScene.cs" />
     <Compile Include="Deductions\DeductionScene.cs" />
     <Compile Include="LocationsX\LocationScene.cs" />

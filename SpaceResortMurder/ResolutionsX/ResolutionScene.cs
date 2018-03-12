@@ -10,7 +10,7 @@ namespace SpaceResortMurder.ResolutionsX
     {
         protected override void OnInit()
         {
-            Add(UiButtons.MenuRed("Confirm Choices", new Vector2(780, 700), () => Scene.NavigateTo(GameResources.CreditsSceneName)));
+            Add(UiButtons.MenuRed("Confirm Choices", new Vector2(780, 700), () => Scene.NavigateTo(GameResources.EndingSceneName)));
             GameObjects.Resolutions.GetAvailableResolutions().ForEachIndex((r, i) =>
             {
                 Add(r.CreateButton(new Vector2(200 * (i / 4), 200 * (i % 4))));
