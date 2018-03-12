@@ -48,6 +48,7 @@
     <Compile Include="Clues\RaymondsShip.cs" />
     <Compile Include="Deductions\RaymondShotHisOwnShip.cs" />
     <Compile Include="Deductions\ZaidShotRaymondsShip.cs" />
+    <Compile Include="Dialogs\DialogMemoriesScene.cs" />
     <Compile Include="Dialogs\ChatBox.cs" />
     <Compile Include="CharactersX\Character.cs" />
     <Compile Include="CharactersX\OfficerWarren.cs" />

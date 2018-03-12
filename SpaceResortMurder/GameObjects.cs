@@ -1,4 +1,5 @@
-﻿using SpaceResortMurder.DilemmasX;
+﻿using SpaceResortMurder.CharactersX;
+using SpaceResortMurder.DilemmasX;
 using SpaceResortMurder.HudX;
 using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.ObjectivesX;
@@ -11,7 +12,7 @@ namespace SpaceResortMurder
 
         public static Dilemmas Dilemmas { get; } = new Dilemmas();
         public static Hud Hud { get; } = new Hud();
-        public static CharactersX.Characters Characters { get; } = new CharactersX.Characters();
+        public static Characters Characters { get; } = new Characters();
         public static Locations Locations { get; } = new Locations(); 
         public static Objectives Objectives { get; } = new Objectives();
 

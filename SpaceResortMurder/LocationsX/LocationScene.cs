@@ -138,7 +138,7 @@ namespace SpaceResortMurder.LocationsX
             _clickUI.Remove(GameObjects.Hud.HudBranch);
             var drawDialogsOptions = new List<IVisual>();
             _characterTalkingToBranch = new ClickUIBranch("Dialog Choices", 1);
-            var activeDialogs = character.GetDialogs();
+            var activeDialogs = character.GetNewDialogs();
             activeDialogs.ForEachIndex((x, i) =>
             {
                 var button = x.CreateButton(HaveDialog, i, activeDialogs.Count);
