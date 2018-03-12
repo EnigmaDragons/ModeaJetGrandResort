@@ -14,11 +14,13 @@ namespace SpaceResortMurder.CharactersX
         private readonly List<Dialog> _dialogs;
         private readonly ImageBox _newDialogIcon;
         private readonly ImageLabel _convoNameBox;
+        private readonly string _displayName;
 
         public string Image { get; }
 
         protected Character(string displayName, string image, Size2 size, params Dialog[] dialogs)
         {
+            _displayName = displayName;
             Image = image;
             _dialogs = dialogs.ToList();
             _facingImage = new ImageBox
@@ -35,7 +37,21 @@ namespace SpaceResortMurder.CharactersX
             {
                 Text = displayName,
                 TextColor = Color.White,
-                TextTransform = new Transform2(new Vector2(UI.PercentScreenWidth(0.66f), 800), new Size2(UI.PercentScreenWidth(0.96f) - UI.PercentScreenWidth(0.66f), 72))
+                TextTransform = new Transform2(new Vector2(UI.PercentScreenWidth(0.66f), 800),
+                    new Size2(UI.PercentScreenWidth(0.96f) - UI.PercentScreenWidth(0.66f), 72))
+            };
+        }
+
+        public VisualClickableUIElement CreateButton(Action<Character> onClick, int i, int count)
+        {
+            return new ImageTextButton(new Transform2(new Vector2(UI.PercentScreenWidth(0.66f), 100 + i * 100), new Size2(1400, 72)),
+                () => onClick(this), _displayName,
+                "Convo/NameLabel", "Convo/NameLabel", "Convo/NameLabel")
+            {
+                TextColor = Color.White,
+                TextTransform = new Transform2(new Vector2(UI.PercentScreenWidth(0.66f), 100 + i * 100),
+                    new Size2(UI.PercentScreenWidth(0.96f) - UI.PercentScreenWidth(0.66f), 72)),
+                TextAlignment = HorizontalAlignment.Left
             };
         }
 
