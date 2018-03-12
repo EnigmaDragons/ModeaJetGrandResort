@@ -25,7 +25,7 @@ namespace MonoDragons.Core.UserInterface
         {
             _darken = new ColoredRectangle
             {
-                Color = Color.FromNonPremultiplied(0, 0, 0, 130),
+                Color = Color.FromNonPremultiplied(0, 0, 0, 92),
                 Transform = new Transform2(new Size2(1920, 1080))
             };
         }
@@ -41,12 +41,12 @@ namespace MonoDragons.Core.UserInterface
 
         public static int ConvertWidthPercentageToPixels(float percentage)
         {
-            return (int)Math.Round(percentage * _display.GameWidth * 0.01f / _display.Scale);
+            return (int)Math.Round(percentage * _display.GameWidth / _display.Scale);
         }
 
         public static int ConvertHeightPercentageToPixels(float percentage)
         {
-            return (int)Math.Round(percentage * _display.GameHeight * 0.01f / _display.Scale);
+            return (int)Math.Round(percentage * _display.GameHeight / _display.Scale);
         }
 
         public static void Darken()

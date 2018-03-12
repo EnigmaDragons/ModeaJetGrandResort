@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
-using SpaceResortMurder.Dialogs;
 using SpaceResortMurder.Dialogs.Zaid;
 using SpaceResortMurder.LocationsX;
 
@@ -8,7 +7,7 @@ namespace SpaceResortMurder.CharactersX
 {
     public class ResortManagerZaid : Character
     {
-        public ResortManagerZaid() : base("Characters/resort_manager_colored", new Size2(300, 700),
+        public ResortManagerZaid() : base("Zaid, Resort Manager", "Characters/resort_manager_colored", new Size2(400, 940),
             new WhyWasRaymondHere()) {}
 
         public override string WhereAreYou()

@@ -50,7 +50,7 @@
     <Compile Include="Deductions\ZaidShotRaymondsShip.cs" />
     <Compile Include="Dialogs\ChatBox.cs" />
     <Compile Include="CharactersX\Character.cs" />
-    <Compile Include="CharactersX\OfficierWarren.cs" />
+    <Compile Include="CharactersX\OfficerWarren.cs" />
     <Compile Include="CharactersX\ResortManagerZaid.cs" />
     <Compile Include="Dialogs\Dialog.cs" />
     <Compile Include="Dialogs\Zaid\DidRaymondApproveYourResort.cs" />
@@ -65,7 +65,6 @@
     <Compile Include="LocationsX\BlackRoom.cs" />
     <Compile Include="LocationsX\DockingBay.cs" />
     <Compile Include="LocationsX\DockingBayScene.cs" />
-    <Compile Include="LocationsX\HotelLobbyScene.cs" />
     <Compile Include="LocationsX\Lobby.cs" />
     <Compile Include="LocationsX\LobbyScene.cs" />
     <Compile Include="LocationsX\Location.cs" />
@@ -98,6 +97,7 @@
     <Compile Include="State\ThoughtLost.cs" />
     <Compile Include="Style\UiButtons.cs" />
     <Compile Include="Style\UiFonts.cs" />
+    <Compile Include="Style\UiLabels.cs" />
     <Compile Include="Style\UiStyle.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -135,7 +135,25 @@
     <Content Include="Content\characters\scientist_guy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Convo\DialogueButton-Hover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Convo\DialogueButton-Press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Convo\DialogueButton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Convo\NameLabel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Locations\BedroomBg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Locations\hotel_lobby_environment.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Locations\hotelroom_environment.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Music\Credits.mp3">
@@ -265,6 +283,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\PixelButtonRed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\ScreenOverlay-Purple.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\ScreenOverlay-Red.png">

@@ -6,7 +6,7 @@ namespace SpaceResortMurder.CharactersX
 {
     public class HackerMeleena : Character
     {
-        public HackerMeleena() : base("characters/hacker_corporate_spy", new Size2(300, 700)) {}
+        public HackerMeleena() : base("Meleena Ka'lick", "characters/hacker_corporate_spy", new Size2(400, 940)) {}
 
         public override string WhereAreYou()
         {

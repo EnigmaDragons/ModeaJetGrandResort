@@ -6,7 +6,7 @@ namespace SpaceResortMurder.CharactersX
 {
     public class ResearcherTravis : Character
     {
-        public ResearcherTravis() : base("characters/scientist_guy", new Size2(300, 700)) {}
+        public ResearcherTravis() : base("Travis Falcon", "characters/scientist_guy", new Size2(400, 940)) {}
 
         public override string WhereAreYou()
         {

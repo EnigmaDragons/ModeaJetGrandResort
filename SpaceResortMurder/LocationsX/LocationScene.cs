@@ -11,6 +11,7 @@ using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.CharactersX;
 using SpaceResortMurder.Clues;
 using SpaceResortMurder.Dialogs;
+using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.LocationsX
 {
@@ -20,7 +21,8 @@ namespace SpaceResortMurder.LocationsX
 
         private ClickUI _clickUI;
         private List<IVisual> _dialogOptions = new List<IVisual>();
-        private TextButton _backButton;
+        private VisualClickableUIElement _backButton;
+        private IVisual _locationNameLabel;
         private bool _isInTheMiddleOfDialog = false;
         private ClickUIBranch _characterTalkingToBranch;
         private Character _talkingTo;
@@ -33,7 +35,9 @@ namespace SpaceResortMurder.LocationsX
         protected ClickUIBranch _investigateRoomBranch;
         protected List<IVisual> _visuals = new List<IVisual>();
 
+        protected abstract string Name { get; }
         protected abstract void OnInit();
+        protected abstract void DrawBackground();
 
         protected LocationScene(string location)
         {
@@ -48,6 +52,7 @@ namespace SpaceResortMurder.LocationsX
             _investigateRoomBranch = new ClickUIBranch("Location Investigation", 1);
 
             OnInit();
+            _locationNameLabel = UiLabels.HeaderLabel(Name, Color.White);
             _peopleHere = GameObjects.Characters.GetPeopleAt(_location);
             var characterButtons = _peopleHere.Select(x => new ImageButton(x.Image, x.Image, x.Image, x.WhereAreYouStanding(),
                 () =>
@@ -65,7 +70,13 @@ namespace SpaceResortMurder.LocationsX
             _clickUI = new ClickUI();
             _clickUI.Add(_investigateRoomBranch);
             _clickUI.Add(GameObjects.Hud.HudBranch);
-            _backButton = new TextButton(new Rectangle(0, 800, 150, 50), StopTalking, "Back", Color.OrangeRed, Color.Red, Color.DarkRed, () => _isTalking);
+            _backButton = new ImageTextButton(new Transform2(new Rectangle(-900, 826, 1380, 64)), StopTalking, "Thanks for your help.",
+                "Convo/DialogueButton", "Convo/DialogueButton-Hover", "Convo/DialogueButton-Press", () => _isTalking)
+            {
+                TextColor = Color.White,
+                TextTransform = new Transform2(new Vector2(50, 826), Rotation2.Default, new Size2(1380 - 900, 64), 1.0f),
+                TextAlignment = HorizontalAlignment.Left
+            };
 
             Input.ClearTransientBindings();
             Input.On(Control.Select, () => { if (!_isInTheMiddleOfDialog) Scene.NavigateTo(GameResources.OptionsSceneName); });
@@ -89,9 +100,13 @@ namespace SpaceResortMurder.LocationsX
 
         public void Draw()
         {
+            DrawBackground();
             _visuals.ForEach(x => x.Draw(Transform2.Zero));
             if (_isTalking)
+            {
+                UI.Darken();
                 _talkingTo.DrawTalking();
+            }
             if (!_isInTheMiddleOfDialog)
             {
                 _dialogOptions.ForEach(x => x.Draw(Transform2.Zero));
@@ -99,14 +114,16 @@ namespace SpaceResortMurder.LocationsX
             }
             if (!_isTalking && !_isInvestigating)
             {
-                GameObjects.Hud.Draw();
-                GameObjects.Hud.DrawNewIconsIfApplicable();
+                GameObjects.Hud.Draw(Transform2.Zero);
                 _peopleHere.ForEach(p => p.DrawNewIconIfApplicable());
             }
             if (_isInvestigating)
                 _investigatingThis.FacingImage.Draw(Transform2.Zero);
             if (_isInTheMiddleOfDialog)
                 _reader.Draw();
+
+            UI.FillScreen("UI/ScreenOverlay-Purple");
+            _locationNameLabel.Draw(Transform2.Zero);
         }
 
         protected void AddClue(Clue clue)
@@ -124,9 +141,7 @@ namespace SpaceResortMurder.LocationsX
             var activeDialogs = character.GetDialogs();
             activeDialogs.ForEachIndex((x, i) =>
             {
-                var itemCount = activeDialogs.Count;
-                var verticalOffset = ((900 / (itemCount + 1)) * (i + 1)) - (((itemCount - i) / (itemCount + 1)) * 30);
-                var button = x.CreateButton(HaveDialog, verticalOffset);
+                var button = x.CreateButton(HaveDialog, i, activeDialogs.Count);
                 _characterTalkingToBranch.Add(button);
                 drawDialogsOptions.Add(button);
             });

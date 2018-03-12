@@ -1,4 +1,4 @@
-﻿using MonoDragons.Core.PhysicsEngine;
+﻿using MonoDragons.Core.AudioSystem;
 using MonoDragons.Core.UserInterface;
 
 namespace SpaceResortMurder.LocationsX
@@ -7,9 +7,16 @@ namespace SpaceResortMurder.LocationsX
     {
         public LobbyScene() : base(nameof(Lobby)) {}
 
+        protected override string Name => "Hotel Lobby";
+
         protected override void OnInit()
         {
-            _visuals.Add(new ImageBox { Image = "Placeholder/Lobby", Transform = new Transform2(new Size2(1600, 900)) });
+            Audio.PlayMusicOnce("HotelLobby");
+        }
+
+        protected override void DrawBackground()
+        {
+            UI.FillScreen("Locations/hotel_lobby_environment");
         }
     }
 }

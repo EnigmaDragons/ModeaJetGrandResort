@@ -1,14 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
-using SpaceResortMurder.Dialogs;
 using SpaceResortMurder.Dialogs.Warren;
 using SpaceResortMurder.LocationsX;
 
 namespace SpaceResortMurder.CharactersX
 {
-    public class OfficierWarren : Character
+    public class OfficerWarren : Character
     {
-        public OfficierWarren() : base("Characters/policeman", new Size2(300, 700), 
+        public OfficerWarren() : base("Officer Warren", "Characters/policeman", new Size2(400, 940), 
             new MeetingWarren()) {}
 
         public override string WhereAreYou()
@@ -18,7 +17,7 @@ namespace SpaceResortMurder.CharactersX
 
         public override Transform2 WhereAreYouStanding()
         {
-            return new Transform2(new Vector2(100, 121), new Size2(282, 658));
+            return new Transform2(new Vector2(100, 121), Rotation2.Default, new Size2(300, 705), 1.0f);
         }
     }
 }

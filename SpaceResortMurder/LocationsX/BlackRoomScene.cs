@@ -1,5 +1,5 @@
 ﻿using MonoDragons.Core.AudioSystem;
-using SpaceResortMurder.Clues;
+using MonoDragons.Core.UserInterface;
 
 namespace SpaceResortMurder.LocationsX
 {
@@ -7,9 +7,16 @@ namespace SpaceResortMurder.LocationsX
     {
         public BlackRoomScene() : base(nameof(BlackRoom)) { }
 
+        protected override string Name => "Black Room";
+
         protected override void OnInit()
         {
             Audio.PlayMusic("HotelLobby");
+        }
+
+        protected override void DrawBackground()
+        {
+            UI.FillScreen("Locations/BedroomBg");
         }
     }
 }
