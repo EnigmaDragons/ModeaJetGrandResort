@@ -17,7 +17,7 @@ namespace SpaceResortMurder.DilemmasX
             Audio.PlayMusic("Pondering", 0.37f);
             Add(UiButtons.Back(new Vector2(6, UI.OfScreenHeight(1.0f) - 138), () => Scene.NavigateTo(GameState.Instance.CurrentLocation)));
             if(GameState.Instance.IsThinking(nameof(ZaidKilledForHisResort)))
-                Add(UiButtons.Menu("Resolve", new Vector2(UI.OfScreenWidth(0.5f) - 120, 700), () => Scene.NavigateTo("Credits")));
+                Add(UiButtons.MenuRed("Resolve", new Vector2(UI.OfScreenWidth(0.5f) - 120, 700), () => Scene.NavigateTo(GameResources.ResolutionSceneName)));
             AddVisual(new Label
             {
                 Transform = new Transform2(new Vector2(160, 28), new Size2(1000, 80)),

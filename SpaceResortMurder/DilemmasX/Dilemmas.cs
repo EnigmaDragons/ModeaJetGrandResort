@@ -5,7 +5,7 @@ namespace SpaceResortMurder.DilemmasX
 {
     public class Dilemmas
     {
-        private List<Dilemma> dilemmas = new List<Dilemma>()
+        private List<Dilemma> _dilemmas = new List<Dilemma>()
         {
             new WhoShotRaymondsShip(),
             new WhatWasTheCauseOfDeath(),
@@ -17,12 +17,12 @@ namespace SpaceResortMurder.DilemmasX
 
         public IReadOnlyList<Dilemma> GetActiveDilemmas()
         {
-            return dilemmas.Where(d => d.IsActive()).ToList();
+            return _dilemmas.Where(d => d.IsActive()).ToList();
         }
 
         public void Init()
         {
-            dilemmas.ForEach(d => d.Init());
+            _dilemmas.ForEach(d => d.Init());
         }
     }
 }

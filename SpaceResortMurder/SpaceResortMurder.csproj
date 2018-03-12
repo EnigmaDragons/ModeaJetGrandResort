@@ -110,6 +110,10 @@
     <Compile Include="ObjectivesX\InvestigateRaymondsDeadBody.cs" />
     <Compile Include="ObjectivesX\Objective.cs" />
     <Compile Include="ObjectivesX\Objectives.cs" />
+    <Compile Include="ResolutionsX\IAmLeaving.cs" />
+    <Compile Include="ResolutionsX\Resolution.cs" />
+    <Compile Include="ResolutionsX\Resolutions.cs" />
+    <Compile Include="ResolutionsX\ResolutionScene.cs" />
     <Compile Include="RoomNames.cs" />
     <Compile Include="Scenes\JamScene.cs" />
     <Compile Include="Deductions\DeductionScene.cs" />
