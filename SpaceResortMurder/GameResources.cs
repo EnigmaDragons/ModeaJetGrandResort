@@ -12,6 +12,7 @@ using SpaceResortMurder.Deductions.MeleenasAccountValidity;
 using SpaceResortMurder.Deductions.TheMurdererWas;
 using SpaceResortMurder.Deductions.ZaidsResortForBetaTesting;
 using SpaceResortMurder.Dialogs.Meleena;
+using SpaceResortMurder.Dialogs.Travis;
 using SpaceResortMurder.Dialogs.Warren;
 using SpaceResortMurder.Dialogs.Zaid;
 using SpaceResortMurder.DilemmasX;
@@ -261,6 +262,39 @@ namespace SpaceResortMurder
                     "Startled I quickly sealed my container again. Before the man returned into the ship.",
                     "He quickly landed the ship while cursing and took off out of the ship.",
                     "As soon as he left I booked it.",
+                }
+            ) },
+            #endregion
+
+            #region Travis
+            { nameof(DidYouWorkWithRaymond), new Tuple<string, string[]>(
+                "Do you work with Raymond at Human Perfect?",
+                new string[] {
+                    "Not directly, but I'm a researcher working under him in R/D.",
+                }
+            ) },
+            { nameof(WhyIsTravisAtTheResort), new Tuple<string, string[]>(
+                "Why are you present at this space resort?",
+                new string[] {
+                    "I was brought by Raymond to secretly make him his clone.",
+                    "Speaking of which I don't see Raymond's clone present.",
+                    "I am tracking his location to a vacant resort room with a tracking chip embedded when I created him."
+                }
+            ) },
+            { nameof(TravissAccount), new Tuple<string, string[]>(
+                "Tell me everything leading up to now?",
+                new string[] {
+                    "I'm still curious what kind of crime was commited.",
+                    "Well I can say that I begun cloning Raymond at 5 PM, and that the process was finished at about 6:30",
+                    "Then Raymond and his newly formed clone took off.",
+                    "A few hours later Officer Warren knocked at my door and escorted me to the lobby",
+                }
+            ) },
+            { nameof(InvestigateYourCloningMachine), new Tuple<string, string[]>(
+                "I'm going to need to investigate your cloning machine.",
+                new string[] {
+                    "Of course, but first you have to sign a non-disclosure agreement to not divulge any of the methods used by the machine to perform the cloning.",
+                    "I will be waiting for you at my room so that I can explain it to you.",
                 }
             ) },
             #endregion

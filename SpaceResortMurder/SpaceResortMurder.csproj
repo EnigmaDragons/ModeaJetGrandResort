@@ -87,6 +87,9 @@
     <Compile Include="Dialogs\Meleena\WhatIsACorporateFreelancerDoingHere.cs" />
     <Compile Include="Dialogs\Meleena\YouBrokeIntoRaymondsShip.cs" />
     <Compile Include="Dialogs\Travis\DidYouWorkWithRaymond.cs" />
+    <Compile Include="Dialogs\Travis\InvestigateYourCloningMachine.cs" />
+    <Compile Include="Dialogs\Travis\TravissAccount.cs" />
+    <Compile Include="Dialogs\Travis\WhyIsTravisAtTheResort.cs" />
     <Compile Include="Dialogs\Warren\INeedASearchOrder.cs" />
     <Compile Include="Dialogs\Zaid\DidRaymondApproveYourResort.cs" />
     <Compile Include="Dialogs\Warren\MeetingWarren.cs" />

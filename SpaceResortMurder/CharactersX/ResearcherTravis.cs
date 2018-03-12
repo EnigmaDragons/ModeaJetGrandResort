@@ -8,11 +8,14 @@ namespace SpaceResortMurder.CharactersX
     public class ResearcherTravis : Character
     {
         public ResearcherTravis() : base("Travis Falcon, Clone Researcher", "characters/scientist_guy", new Size2(400, 940),
-            new DidYouWorkWithRaymond()) {}
+            new WhyIsTravisAtTheResort(),
+            new DidYouWorkWithRaymond(),
+            new TravissAccount(),
+            new InvestigateYourCloningMachine()) {}
 
         public override string WhereAreYou()
         {
-            return nameof(Lobby);
+            return GameState.Instance.IsThinking(nameof(InvestigateYourCloningMachine)) ? nameof(Lobby) : nameof(Lobby);
         }
 
         public override Transform2 WhereAreYouStanding()
