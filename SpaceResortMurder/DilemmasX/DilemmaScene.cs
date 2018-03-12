@@ -32,7 +32,7 @@ namespace SpaceResortMurder.DilemmasX
 
         protected override void DrawBackground()
         {
-            UI.FillScreen("UI/DilemmaSceneBg");
+            UI.DrawCentered("UI/PonderingBgHr");
         }
 
         protected override void DrawForeground()

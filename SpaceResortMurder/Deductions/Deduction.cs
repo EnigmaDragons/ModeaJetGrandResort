@@ -40,7 +40,7 @@ namespace SpaceResortMurder.Deductions
                 _clearPriorDeduction();
                 Event.Publish(new ThoughtGained(_thought));
                 Scene.NavigateTo("Dilemmas");
-            }, _deductionText, "UI/DeductionCard", "UI/DeductionCard-Hover", "UI/DeductionCard-Press");
+            }, _deductionText, "UI/DilemmaCard", "UI/DilemmaCard-Hover", "UI/DilemmaCard-Press");
             button.OnEnter = () =>
             {
                 if (!GameState.Instance.HasViewedItem(_thought))
