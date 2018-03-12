@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
+using System;
 
 namespace MonoDragons.Core.Render
 {
@@ -14,17 +15,22 @@ namespace MonoDragons.Core.Render
 
         public Display(int width, int height, bool fullScreen, float scale = 1)
         {
-            Scale = scale;
-            GameWidth = width;
-            GameHeight = height;
             FullScreen = fullScreen;
             if (FullScreen)
             {
+                var widthScale = (float)GameInstance.TheGame.GraphicsDevice.DisplayMode.Width / width;
+                var heightScale = (float)GameInstance.TheGame.GraphicsDevice.DisplayMode.Height / height;
+                Scale = scale * Math.Min(heightScale, widthScale);
+                GameWidth = (int)Math.Round(width * Scale);
+                GameHeight = (int)Math.Round(height * Scale);
                 ProgramWidth = GameInstance.TheGame.GraphicsDevice.DisplayMode.Width;
                 ProgramHeight = GameInstance.TheGame.GraphicsDevice.DisplayMode.Height;
             }
             else
             {
+                Scale = scale;
+                GameWidth = width;
+                GameHeight = height;
                 ProgramWidth = GameWidth;
                 ProgramHeight = GameHeight;
             }

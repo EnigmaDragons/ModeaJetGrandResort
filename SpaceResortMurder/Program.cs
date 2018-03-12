@@ -14,6 +14,8 @@ using System;
 using SpaceResortMurder.DilemmasX;
 using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.ResolutionsX;
+using SpaceResortMurder.State;
+using MonoDragons.Core.PhysicsEngine;
 
 namespace SpaceResortMurder
 {
@@ -24,7 +26,13 @@ namespace SpaceResortMurder
         {
             GameState.Instance = new GameState();
             InitFonts();
-            using (var game = Perf.Time("Startup", () => new NeedlesslyComplexMainGame("MonoDragons.Core", GameResources.MainMenuSceneName, new Display(1600, 900, false), SetupScene(), CreateKeyboardController())))
+            Options.Instance = new Options();
+            Options.Instance = GameObjects.IO.HasSave("options", "json")
+                ? GameObjects.IO.Load<Options>("options", "json")
+                : new Options();
+            using (var game = Options.Instance.IsFullscreen
+                ? Perf.Time("Startup", () => new NeedlesslyComplexMainGame("MonoDragons.Core", GameResources.MainMenuSceneName, new Size2(1600, 900), SetupScene(), CreateKeyboardController()))
+                : Perf.Time("Startup", () => new NeedlesslyComplexMainGame("MonoDragons.Core", GameResources.MainMenuSceneName, new Display(1600, 900, false), SetupScene(), CreateKeyboardController())))
                 game.Run();
         }
 

@@ -13,31 +13,31 @@ namespace MonoDragons.Core.IO
             _gameStorageFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), gameFolderName);
         }
 
-        public T Load<T>(string saveName)
+        public T Load<T>(string saveName, string extension = "sav")
         {
-            return JsonConvert.DeserializeObject<T>(File.ReadAllText(GetSavePath(saveName)));
+            return JsonConvert.DeserializeObject<T>(File.ReadAllText(GetSavePath(saveName, extension)));
         }
 
-        public void Save(string saveName, object data)
+        public void Save(string saveName, object data, string extension = "sav")
         {
             if (!Directory.Exists(_gameStorageFolder))
                 Directory.CreateDirectory(_gameStorageFolder);
-            File.WriteAllText(GetSavePath(saveName), JsonConvert.SerializeObject(data));
+            File.WriteAllText(GetSavePath(saveName, extension), JsonConvert.SerializeObject(data));
         }
 
-        public bool HasSave(string saveName)
+        public bool HasSave(string saveName, string extension = "sav")
         {
-            return File.Exists(GetSavePath(saveName));
+            return File.Exists(GetSavePath(saveName, extension));
         }
 
-        public void Delete(string saveName)
+        public void Delete(string saveName, string extension = "sav")
         {
-            File.Delete(GetSavePath(saveName));
+            File.Delete(GetSavePath(saveName, extension));
         }
 
-        private string GetSavePath(string saveName)
+        private string GetSavePath(string saveName, string extension)
         {
-            return Path.Combine(_gameStorageFolder, saveName) + ".sav";
+            return Path.Combine(_gameStorageFolder, saveName + "." + extension);
         }
     }
 }

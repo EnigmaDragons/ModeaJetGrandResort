@@ -31,22 +31,20 @@ namespace MonoDragons.Core.UserInterface
         }
 
         private static SpriteBatch _spriteBatch;
-        private static Display _display;
 
-        public static void Init(SpriteBatch spriteBatch, Display display)
+        public static void Init(SpriteBatch spriteBatch)
         {
             _spriteBatch = spriteBatch;
-            _display = display;
         }
 
         public static int OfScreenWidth(float part)
         {
-            return (int)Math.Round(part * _display.GameWidth / _display.Scale);
+            return (int)Math.Round(part * CurrentDisplay.Display.GameWidth / CurrentDisplay.Display.Scale);
         }
 
         public static int OfScreenHeight(float part)
         {
-            return (int)Math.Round(part * _display.GameHeight / _display.Scale);
+            return (int)Math.Round(part * CurrentDisplay.Display.GameHeight / CurrentDisplay.Display.Scale);
         }
 
         public static void Darken()
@@ -61,7 +59,7 @@ namespace MonoDragons.Core.UserInterface
 
         public static void FillScreen(string imageName)
         {
-            DrawCenteredWithOffset(imageName, new Vector2(_display.GameWidth / _display.Scale, _display.GameHeight / _display.Scale), Vector2.Zero);
+            DrawCenteredWithOffset(imageName, new Vector2(CurrentDisplay.Display.GameWidth / CurrentDisplay.Display.Scale, CurrentDisplay.Display.GameHeight / CurrentDisplay.Display.Scale), Vector2.Zero);
         }
 
         public static void DrawCentered(string imageName)
@@ -88,8 +86,8 @@ namespace MonoDragons.Core.UserInterface
         public static void DrawCenteredWithOffset(string imageName, Vector2 widthHeight, Vector2 offSet)
         {
             _spriteBatch.Draw(Resources.Load<Texture2D>(imageName), null,
-                new Rectangle(ScalePoint(_display.GameWidth / 2 / _display.Scale - widthHeight.X / 2 + offSet.X,
-                    _display.GameHeight / 2 / _display.Scale - widthHeight.Y / 2 + offSet.Y),
+                new Rectangle(ScalePoint(CurrentDisplay.Display.GameWidth / 2 / CurrentDisplay.Display.Scale - widthHeight.X / 2 + offSet.X,
+                    CurrentDisplay.Display.GameHeight / 2 / CurrentDisplay.Display.Scale - widthHeight.Y / 2 + offSet.Y),
                     ScalePoint(widthHeight.X, widthHeight.Y)),
                 null, null, 0, new Vector2(1, 1));
         }
@@ -97,14 +95,14 @@ namespace MonoDragons.Core.UserInterface
         public static void DrawText(string text, Vector2 position, Color color)
         {
             _spriteBatch.DrawString(DefaultFont.Font, text, ScalePoint(position.X, position.Y).ToVector2(), color,
-                0, Vector2.Zero, _display.Scale, SpriteEffects.None, 1);
+                0, Vector2.Zero, CurrentDisplay.Display.Scale, SpriteEffects.None, 1);
         }
 
         public static void DrawText(string text, Vector2 position, Color color, string font)
         {
             var spriteFont = Resources.Load<SpriteFont>(font);
             _spriteBatch.DrawString(spriteFont, text, ScalePoint(position.X, position.Y).ToVector2(), color,
-                0, Vector2.Zero, _display.Scale, SpriteEffects.None, 1);
+                0, Vector2.Zero, CurrentDisplay.Display.Scale, SpriteEffects.None, 1);
         }
 
         public static void DrawTextCentered(string text, Rectangle area, Color color)
@@ -152,7 +150,7 @@ namespace MonoDragons.Core.UserInterface
 
         private static Point ScalePoint(float x, float y)
         {
-            return new Point((int)Math.Round(x * _display.Scale), (int)Math.Round(y * _display.Scale));
+            return new Point((int)Math.Round(x * CurrentDisplay.Display.Scale), (int)Math.Round(y * CurrentDisplay.Display.Scale));
         }
     }
 }

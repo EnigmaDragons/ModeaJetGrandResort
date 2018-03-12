@@ -10,11 +10,13 @@ namespace SpaceResortMurder.CharactersX
 {
     public abstract class Character
     {
-        private readonly ImageBox _facingImage;
+        
         private readonly List<Dialog> _dialogs;
-        private readonly ImageBox _newDialogIcon;
-        private readonly ImageLabel _convoNameBox;
+        private readonly Size2 _size;
         private readonly string _displayName;
+        private ImageBox _facingImage;
+        private ImageBox _newDialogIcon;
+        private ImageLabel _convoNameBox;
 
         public string Image { get; }
 
@@ -23,19 +25,24 @@ namespace SpaceResortMurder.CharactersX
             _displayName = displayName;
             Image = image;
             _dialogs = dialogs.ToList();
+            _size = size;
+        }
+
+        public void Init()
+        {
             _facingImage = new ImageBox
             {
-                Transform = new Transform2(new Vector2(UI.OfScreenWidth(0.62f), UI.OfScreenHeight(1.0f) - (int)(size.Height / 1.3)), size),
-                Image = image
+                Transform = new Transform2(new Vector2(UI.OfScreenWidth(0.62f), UI.OfScreenHeight(1.0f) - (int)(_size.Height / 1.3)), _size),
+                Image = Image
             };
             _newDialogIcon = new ImageBox
             {
-                Transform = new Transform2(new Vector2(WhereAreYouStanding().Size.Width -50, -20), new Size2(36, 36)),
+                Transform = new Transform2(new Vector2(WhereAreYouStanding().Size.Width - 50, -20), new Size2(36, 36)),
                 Image = "UI/NewRedIconBorderless"
             };
             _convoNameBox = new ImageLabel(new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 800), new Size2(1400, 72)), "Convo/NameLabel")
             {
-                Text = displayName,
+                Text = _displayName,
                 TextColor = Color.White,
                 TextTransform = new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 800),
                     new Size2(UI.OfScreenWidth(0.96f) - UI.OfScreenWidth(0.66f), 72))

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using MonoDragons.Core.Common;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SpaceResortMurder.CharactersX
@@ -11,6 +13,11 @@ namespace SpaceResortMurder.CharactersX
             new ResearcherTravis(),
             new HackerMeleena(),
         };
+
+        public void Init()
+        {
+            People.ForEach(p => p.Init());
+        }
 
         public IReadOnlyList<Character> GetPeopleAt(string location)
         {

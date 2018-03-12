@@ -126,6 +126,7 @@
     <Compile Include="LocationsX\LocationScene.cs" />
     <Compile Include="Scenes\ObjectivesScene.cs" />
     <Compile Include="Scenes\SpaceResortMapScene.cs" />
+    <Compile Include="State\Options.cs" />
     <Compile Include="State\ItemViewed.cs" />
     <Compile Include="DilemmasX\Dilemma.cs" />
     <Compile Include="Scenes\OptionsScene.cs" />

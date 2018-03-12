@@ -14,7 +14,6 @@ namespace MonoDragons.Core.Engine
         private static readonly ColoredRectangle _darken;
         
         private static SpriteBatch _spriteBatch;
-        private static Display _display;
 
         static World()
         {
@@ -25,10 +24,9 @@ namespace MonoDragons.Core.Engine
             };
         }
 
-        public static void Init(SpriteBatch spriteBatch, Display display)
+        public static void Init(SpriteBatch spriteBatch)
         {
             _spriteBatch = spriteBatch;
-            _display = display;
             DefaultFont.Load(GameInstance.ContentManager);
         }
 
@@ -62,8 +60,8 @@ namespace MonoDragons.Core.Engine
         {
             _spriteBatch.Draw(Resources.Load<Texture2D>(imageName), ScaleRectangle(new Rectangle(
                     new Point(
-                        anchor.AnchorFromLeft ? anchor.HorizontalOffset : (int)Math.Round(_display.GameWidth / _display.Scale - anchor.HorizontalOffset),
-                        anchor.AnchorFromTop ? anchor.VerticalOffset : (int)Math.Round(_display.GameHeight / _display.Scale - anchor.VerticalOffset)),
+                        anchor.AnchorFromLeft ? anchor.HorizontalOffset : (int)Math.Round(CurrentDisplay.Display.GameWidth / CurrentDisplay.Display.Scale - anchor.HorizontalOffset),
+                        anchor.AnchorFromTop ? anchor.VerticalOffset : (int)Math.Round(CurrentDisplay.Display.GameHeight / CurrentDisplay.Display.Scale - anchor.VerticalOffset)),
                     size.ToPoint())),
                 Color.White);
         }
@@ -118,7 +116,7 @@ namespace MonoDragons.Core.Engine
 
         private static Point ScalePoint(Vector2 vector)
         {
-            return new Point((int)Math.Round(vector.X * _display.Scale), (int)Math.Round(vector.Y * _display.Scale));
+            return new Point((int)Math.Round(vector.X * CurrentDisplay.Display.Scale), (int)Math.Round(vector.Y * CurrentDisplay.Display.Scale));
         }
 
         private static Point ScalePoint(Point point)

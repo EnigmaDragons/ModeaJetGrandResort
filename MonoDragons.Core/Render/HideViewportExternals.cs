@@ -37,11 +37,11 @@ namespace MonoDragons.Core.Render
 
         private void HideExternals()
         {
-            var display = CurrentDisplay.Get();
-            World.Draw(_black.Get(), new Rectangle(new Point(display.GameWidth, 0),
-                new Point(display.ProgramWidth - display.GameWidth, display.ProgramHeight)), Color.Black);
-            World.Draw(_black.Get(), new Rectangle(new Point(0, display.GameHeight),
-                new Point(display.ProgramWidth, display.ProgramHeight - display.GameHeight)), Color.Black);
+            var display = CurrentDisplay.Display;
+            World.Draw(_black.Get(), new Rectangle(new Point((int)Math.Round(display.GameWidth / display.Scale), 0),
+                new Point(5000, 5000)), Color.Black);
+            World.Draw(_black.Get(), new Rectangle(new Point(0, (int)Math.Round(display.GameHeight / display.Scale)),
+                new Point(5000, 5000)), Color.Black);
         }
 
         public void Dispose()
