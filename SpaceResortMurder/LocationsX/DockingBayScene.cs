@@ -1,4 +1,5 @@
-﻿using MonoDragons.Core.UserInterface;
+﻿using MonoDragons.Core.AudioSystem;
+using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Clues;
 using SpaceResortMurder.Clues.DockingBay;
 
@@ -12,6 +13,7 @@ namespace SpaceResortMurder.LocationsX
 
         protected override void OnInit()
         {
+            Audio.PlayMusic("DockingBay", 0.20f);
             AddClue(new RaymondsShip());
             AddClue(new MeleenasShip());
             AddClue(new PoliceCruiser());
