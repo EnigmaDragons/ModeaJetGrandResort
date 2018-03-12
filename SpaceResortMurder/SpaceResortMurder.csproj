@@ -45,6 +45,9 @@
     <Compile Include="Clues\DockingBay\GarbageAirlock.cs" />
     <Compile Include="Clues\DockingBay\MeleenasShip.cs" />
     <Compile Include="Clues\DockingBay\PoliceCruiser.cs" />
+    <Compile Include="Clues\MeleenasSpaceCraft\DataStick.cs" />
+    <Compile Include="Clues\MeleenasSpaceCraft\HackingRig.cs" />
+    <Compile Include="Clues\MeleenasSpaceCraft\SkeletonKey.cs" />
     <Compile Include="Clues\RaymondsSpaceCraft\RaymondsCorpse.cs" />
     <Compile Include="Clues\RaymondsSpaceCraft\RaymondsPad.cs" />
     <Compile Include="Clues\DockingBay\RaymondsShip.cs" />
@@ -103,6 +106,8 @@
     <Compile Include="LocationsX\LobbyScene.cs" />
     <Compile Include="LocationsX\Location.cs" />
     <Compile Include="LocationsX\Locations.cs" />
+    <Compile Include="LocationsX\MeleenasShipInterior.cs" />
+    <Compile Include="LocationsX\MeleenasShipInteriorScene.cs" />
     <Compile Include="LocationsX\RaymondsShipInterior.cs" />
     <Compile Include="LocationsX\RaymondsShipInteriorScene.cs" />
     <Compile Include="MouseX\MouseIsClicked.cs" />
@@ -265,16 +270,25 @@
     <Content Include="Content\Music\Pondering.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Placeholder\DataStick.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Placeholder\dialoguebox.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Placeholder\DockingBay.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Placeholder\HackerRig.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Placeholder\Lobby.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Placeholder\MeleenasShip.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Placeholder\MeleenasSpaceCraft.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Placeholder\necronomicon.png">
@@ -296,6 +310,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Placeholder\ShipsLogs.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Placeholder\SkeletonKey.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Placeholder\SpaceResortPlaceholder.png">
@@ -437,6 +454,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

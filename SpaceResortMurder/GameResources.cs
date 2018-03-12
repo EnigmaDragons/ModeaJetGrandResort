@@ -3,10 +3,12 @@ using SpaceResortMurder.ObjectivesX;
 using System;
 using System.Collections.Generic;
 using SpaceResortMurder.Clues.DockingBay;
+using SpaceResortMurder.Clues.MeleenasSpaceCraft;
 using SpaceResortMurder.Clues.RaymondsSpaceCraft;
 using SpaceResortMurder.Deductions;
 using SpaceResortMurder.Deductions.CauseOfDeath;
 using SpaceResortMurder.Deductions.EnteredSpaceFrom;
+using SpaceResortMurder.Deductions.TheMurdererWas;
 using SpaceResortMurder.Deductions.ZaidsResortForBetaTesting;
 using SpaceResortMurder.Dialogs.Meleena;
 using SpaceResortMurder.Dialogs.Warren;
@@ -113,6 +115,19 @@ namespace SpaceResortMurder
                 "This is Raymond's personal pad.",
                 "There is a list of resorts on here with Zaid's being one of them. A bunch of the resorts including Zaid's have been crossed out.",
                 "This pad was last used at 7:50 to send a message approving Zaid's resort for beta-testing a new resort clone.",
+            } },
+            #endregion
+
+            #region Meleena's Ship Interior
+            { nameof(DataStick), new string[] {
+                "This data stick might have something valuable on it, But it's encrypted.",
+            } },
+            { nameof(SkeletonKey), new string[] {
+                "These special skeleton keys are designed to overload unsecure door locks in a matter of nanoseconds.",
+            } },
+            { nameof(HackingRig), new string[] {
+                "This is a hacker rig used by \"Data Raven\".",
+                "\"Data Raven\" is responsible for numerous cases of information leaking about corporate corruption",
             } },
             #endregion
         };
@@ -226,6 +241,7 @@ namespace SpaceResortMurder
             { nameof(WhereDidHeEnterSpaceFrom), "Where did he enter space from?" },
             { nameof(WhatWasTheCauseOfDeath), "What was the victim's cause of death?" },
             { nameof(WasZaidsResortAcceptedAsABetaTester), "Was Zaid's resort accepted for the beta testing program?" },
+            { nameof(WhoWasTheMurderer), "Who killed the victim?" },
 
             { nameof(RaymondShotHisOwnShip), "Raymond" },
             { nameof(ZaidShotRaymondsShip), "Zaid" },
@@ -242,6 +258,7 @@ namespace SpaceResortMurder
             { nameof(CameFromtheGarbageAirlock), "He was launched from the garbage airlock in the docking bay" },
             { nameof(ZaidsResortAccepted), "His resort was accepted, because of the message on Raymond's pad." },
             { nameof(ZaidsResortDeclined), "His resort was declined, Zaid's resort was crossed off." },
+            { nameof(ZaidKilledForHisResort), "Zaid's resort needed the new resort clones to stay afloat. So he killed to ensure he would get them." },
         };
 
         private static Dictionary<string, Tuple<string, string>> _objectiveTexts = new Dictionary<string, Tuple<string, string>>()

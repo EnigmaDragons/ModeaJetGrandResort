@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using SpaceResortMurder.Clues;
 using SpaceResortMurder.Clues.DockingBay;
 using SpaceResortMurder.Deductions;
 

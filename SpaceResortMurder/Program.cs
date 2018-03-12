@@ -58,6 +58,7 @@ namespace SpaceResortMurder
                 { nameof(Lobby), () => new LobbyScene() },
                 { nameof(RaymondsShipInterior), () => new RaymondsShipInteriorScene() },
                 { GameResources.DialogueMemoriesScene, () => new DialogMemoriesScene() },
+                { nameof(MeleenasShipInterior), () => new MeleenasShipInteriorScene() },
             });
         }
 
