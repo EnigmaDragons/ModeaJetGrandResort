@@ -21,12 +21,12 @@ namespace SpaceResortMurder.Dialogs
 
         public Reader(string[] linesToBeRead, Action onFinished)
         {
-            _chatBox = new ChatBox("", 1500, DefaultFont.Font);
-            _chatBoxTransform = new Transform2(new Vector2(100, 623));
+            _chatBox = new ChatBox("", 700, DefaultFont.Font);
+            _chatBoxTransform = new Transform2(new Vector2(100, 760));
             _lines = new Queue<string>(linesToBeRead);
             _onFinished = onFinished;
             Input.On(Control.A, Advance);
-            _box = new ImageBox { Transform = new Transform2(new Vector2(0, 523), new Size2(1600, 377)), Image = "Placeholder/dialoguebox" };
+            _box = new ImageBox { Transform = new Transform2(new Vector2(0, 0), new Size2(1600, 900)), Image = "Convo/ChatBox" };
             _chatBox.ShowMessage(_lines.Dequeue());
         }
 

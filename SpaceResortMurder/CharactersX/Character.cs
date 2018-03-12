@@ -39,9 +39,14 @@ namespace SpaceResortMurder.CharactersX
             };
         }
 
-        public IReadOnlyList<Dialog> GetDialogs()
+        public IReadOnlyList<Dialog> GetNewDialogs()
         {
-            return _dialogs.Where(x => x.IsActive()).OrderBy(x => !x.IsNew).ToList();
+            return _dialogs.Where(x => x.IsActive() && x.IsNew).ToList();
+        }
+
+        public IReadOnlyList<Dialog> GetOldDialogs()
+        {
+            return _dialogs.Where(x => !x.IsNew).ToList();
         }
 
         public bool IsImmediatelyTalking()
@@ -62,7 +67,7 @@ namespace SpaceResortMurder.CharactersX
 
         public void DrawNewIconIfApplicable()
         {
-            if (GetDialogs().Any(d => d.IsNew))
+            if (GetNewDialogs().Any(d => d.IsNew))
                 _newDialogIcon.Draw(new Transform2(WhereAreYouStanding().Location));
         }
         

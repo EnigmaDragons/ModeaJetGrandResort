@@ -54,6 +54,7 @@
     <Compile Include="Deductions\ShotRaymondsShip\ZaidShotRaymondsShip.cs" />
     <Compile Include="Deductions\HackedTheDoor\ZaidHackedTheDoor.cs" />
     <Compile Include="Deductions\HackedTheDoor\TravisHackedTheDoor.cs" />
+    <Compile Include="Dialogs\DialogMemoriesScene.cs" />
     <Compile Include="Dialogs\ChatBox.cs" />
     <Compile Include="CharactersX\Character.cs" />
     <Compile Include="CharactersX\OfficerWarren.cs" />
@@ -145,6 +146,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\characters\scientist_guy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Convo\ChatBox.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Convo\DialogueButton-Hover.png">

@@ -3,7 +3,6 @@ using SpaceResortMurder.ObjectivesX;
 using System;
 using System.Collections.Generic;
 using SpaceResortMurder.Deductions;
-using SpaceResortMurder.Dialogs;
 using SpaceResortMurder.Dialogs.Warren;
 using SpaceResortMurder.Dialogs.Zaid;
 using SpaceResortMurder.DilemmasX;
@@ -18,6 +17,7 @@ namespace SpaceResortMurder
         public const string DilemmasSceneName = "Dilemmas";
         public const string MapSceneName = "Map";
         public const string ObjectivesSceneName = "Objectives";
+        public const string DialogMemoriesScene = "Dialog Memories";
 
         private static string[] _notImplementedClueLines = new string[] { "This clue hasn't been implemented" };
         public static string[] GetClueLines(string dialogOrClue)
