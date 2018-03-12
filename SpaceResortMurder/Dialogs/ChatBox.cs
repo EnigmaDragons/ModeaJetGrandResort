@@ -20,8 +20,8 @@ namespace SpaceResortMurder.Dialogs
 
         public ChatBox(string message, int maxLineWidth, SpriteFont spriteFont)
         {
-            this._spriteFont = spriteFont;
-            this._maxLineWidth = maxLineWidth;
+            _spriteFont = spriteFont;
+            _maxLineWidth = maxLineWidth;
             _currentlyDisplayedMessage = "";
             _messageToDisplay = WrapText(message);
         }
