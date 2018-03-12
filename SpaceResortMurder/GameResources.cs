@@ -131,6 +131,12 @@ namespace SpaceResortMurder
                     "And on the right Meleena Ke'lick, her file says she is a corporate freelancer. But currently she is not employed by any company."
                 }
             ) },
+            { nameof(INeedASearchOrder), new Tuple<string, string[]>(
+                "I need a search order for Meleena's craft.",
+                new string[] {
+                    "I am way ahead of you, I sent out a request as soon as I got here. Here is your search order.",
+                }
+            ) },
             #endregion
 
             #region Zaid
@@ -196,6 +202,19 @@ namespace SpaceResortMurder
                 "We are going to need to check your craft for evidence.",
                 new string[] {
                     "You are going to need a search order for that!",
+                }
+            ) },
+            { nameof(ImOnlyInvestigatingTheMurder), new Tuple<string, string[]>(
+                "I'm only investigating the murder, I don't care what other illegal activities you are up to.",
+                new string[] {
+                    "You could probably get your search order anyway.",
+                    "Alright I'm trusting you. I have unlocked my craft.",
+                }
+            ) },
+            { nameof(HereIsTheSearchOrder), new Tuple<string, string[]>(
+                "Here is the search order for your ship. You can open it or we can force entry.",
+                new string[] {
+                    "You piece of junk, go on and destroy any shred of privacy us citizens have.",
                 }
             ) },
             #endregion

@@ -12,7 +12,8 @@ namespace SpaceResortMurder.CharactersX
             new DidYouReleaseTheGarbage(),
             new WhySoFewPeopleAtTheResort(),
             new ZaidsAccount(),
-            new DidRaymondApproveYourResort()) {}
+            new DidRaymondApproveYourResort(),
+            new YouWereNotAcceptedForBetaTesting()) {}
 
         public override string WhereAreYou()
         {
