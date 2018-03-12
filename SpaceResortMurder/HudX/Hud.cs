@@ -13,28 +13,22 @@ namespace SpaceResortMurder.HudX
     public sealed class Hud : IVisual
     {
         private List<VisualClickableUIElement> _clickables;
-        private ImageBox _newObjectiveLabel;
-        private ImageBox _newDilemmaOrAnswerLabel;
+        private ImageBox _newIcon; 
 
         public ClickUIBranch HudBranch { get; private set; }
 
         public void Init()
         {
             _clickables = new List<VisualClickableUIElement>();
-            AddButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Dilemmas");
-            AddButton(() => Scene.NavigateTo(GameResources.MapSceneName), "Map");
             AddIconButton(() => Scene.NavigateTo(GameResources.ObjectivesSceneName), "Icons/Objective");
-            AddButton(() => Scene.NavigateTo(GameResources.DialogMemoriesScene), "Review");
+            AddIconButton(() => Scene.NavigateTo(GameResources.MapSceneName), "Icons/Locations");
+            AddIconButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Icons/Dilemmas");
+            AddIconButton(() => Scene.NavigateTo(GameResources.DialogueMemoriesScene), "Icons/Conversations");
             HudBranch = new ClickUIBranch("HUD", 2);
             _clickables.ForEach(x => HudBranch.Add(x));
-            _newDilemmaOrAnswerLabel = new ImageBox
+            _newIcon = new ImageBox
             {
-                Transform = new Transform2(new Vector2(1550, 0), new Size2(36, 36)),
-                Image = "UI/NewRedIconBorderless"
-            };
-            _newObjectiveLabel = new ImageBox
-            {
-                Transform = new Transform2(new Vector2(1290, 0), new Size2(36, 36)),
+                Transform = new Transform2(new Size2(36, 36)),
                 Image = "UI/NewRedIconBorderless"
             };
         }
@@ -48,20 +42,19 @@ namespace SpaceResortMurder.HudX
         private void DrawNewIconsIfApplicable(Transform2 parentTransform)
         {
             if (GameObjects.Objectives.GetActiveObjectives().Any(o => o.IsNew))
-                _newObjectiveLabel.Draw(parentTransform);
+                _newIcon.Draw(new Transform2(GetLocation(0)));
             if (GameObjects.Dilemmas.GetActiveDilemmas().Any(d => d.IsNew || d.HasNewAnswers))
-                _newDilemmaOrAnswerLabel.Draw(parentTransform);
+                _newIcon.Draw(new Transform2(GetLocation(2)));
         }
 
         private void AddIconButton(Action onClick, string name)
         {
-            _clickables.Add(UiButtons.LargeIcon(new Vector2(1600 - 72 - 20, (_clickables.Count + 1) * 80), name, onClick));
+            _clickables.Add(UiButtons.LargeIcon(new Vector2(1600 - 72 - 20, 20 +_clickables.Count * 88), name, onClick));
         }
 
-        private void AddButton(Action onClick, string name)
+        private Vector2 GetLocation(int index)
         {
-            _clickables.Add(new TextButton(new Rectangle(1600 - (130 * (_clickables.Count + 1)), 20, 120, 40), onClick, name,
-                Color.Green, Color.GreenYellow, Color.LightGreen));
+            return new Vector2(1600-36, index * 88 + 40);
         }
     }
 }
