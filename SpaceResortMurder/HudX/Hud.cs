@@ -6,6 +6,7 @@ using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using System.Linq;
 using MonoDragons.Core.Engine;
+using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.HudX
 {
@@ -22,7 +23,7 @@ namespace SpaceResortMurder.HudX
             _clickables = new List<VisualClickableUIElement>();
             AddButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Dilemmas");
             AddButton(() => Scene.NavigateTo(GameResources.MapSceneName), "Map");
-            AddButton(() => Scene.NavigateTo(GameResources.ObjectivesSceneName), "Objectives");
+            AddIconButton(() => Scene.NavigateTo(GameResources.ObjectivesSceneName), "Icons/Objective");
             HudBranch = new ClickUIBranch("HUD", 2);
             _clickables.ForEach(x => HudBranch.Add(x));
             _newDilemmaOrAnswerLabel = new ImageBox
@@ -49,6 +50,11 @@ namespace SpaceResortMurder.HudX
                 _newObjectiveLabel.Draw(parentTransform);
             if (GameObjects.Dilemmas.GetActiveDilemmas().Any(d => d.IsNew || d.HasNewAnswers))
                 _newDilemmaOrAnswerLabel.Draw(parentTransform);
+        }
+
+        private void AddIconButton(Action onClick, string name)
+        {
+            _clickables.Add(UiButtons.LargeIcon(new Vector2(1600 - 72 - 20, (_clickables.Count + 1) * 80), name, onClick));
         }
 
         private void AddButton(Action onClick, string name)
