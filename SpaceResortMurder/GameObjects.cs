@@ -1,4 +1,5 @@
-﻿using SpaceResortMurder.CharactersX;
+﻿using MonoDragons.Core.IO;
+using SpaceResortMurder.CharactersX;
 using SpaceResortMurder.DilemmasX;
 using SpaceResortMurder.HudX;
 using SpaceResortMurder.LocationsX;
@@ -11,6 +12,7 @@ namespace SpaceResortMurder
     {
         private static bool _hasInit = false;
 
+        public static AppDataJsonIo IO { get; } = new AppDataJsonIo("MonoDragons.Core");
         public static Dilemmas Dilemmas { get; } = new Dilemmas();
         public static Hud Hud { get; } = new Hud();
         public static Characters Characters { get; } = new Characters();

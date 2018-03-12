@@ -1,4 +1,5 @@
 ﻿using MonoDragons.Core.EventSystem;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace SpaceResortMurder
@@ -7,7 +8,9 @@ namespace SpaceResortMurder
     {
         public static GameState Instance { get; set; }
 
+        [JsonProperty]
         private readonly HashSet<string> _viewedItems = new HashSet<string>();
+        [JsonProperty]
         private readonly HashSet<string> _thoughts = new HashSet<string>();
         public string CurrentLocation { get; set; } = "";
 
