@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
 
-namespace SpaceResortMurder.Clues
+namespace SpaceResortMurder.Clues.DockingBay
 {
     public class GarbageAirlock : Clue
     {

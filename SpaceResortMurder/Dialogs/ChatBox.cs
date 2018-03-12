@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -69,7 +70,12 @@ namespace SpaceResortMurder.Dialogs
             foreach (var word in words)
             {
                 var size = _spriteFont.MeasureString(word);
-                if (lineWidth + size.X < _maxLineWidth)
+                if (word.StartsWith("\n"))
+                {
+                    sb.Append("\n" + new string(word.Skip(1).ToArray()) + " ");
+                    lineWidth = size.X + spaceWidth;
+                }
+                else if (lineWidth + size.X < _maxLineWidth)
                 {
                     sb.Append(word + " ");
                     lineWidth += size.X + spaceWidth;

@@ -8,6 +8,9 @@ namespace SpaceResortMurder.DilemmasX
         private List<Dilemma> dilemmas = new List<Dilemma>()
         {
             new WhoShotRaymondsShip(),
+            new WhatWasTheCauseOfDeath(),
+            new WhoHackedTheDoor(),
+            new WhereDidHeEnterSpaceFrom(),
         };
 
         public IReadOnlyList<Dilemma> GetActiveDilemmas()

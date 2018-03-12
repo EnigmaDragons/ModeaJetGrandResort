@@ -52,13 +52,12 @@ namespace SpaceResortMurder
                 { GameResources.CreditsSceneName, () => new CreditsScene() },
                 { GameResources.DilemmasSceneName, () => new DilemmaScene() },
                 { GameResources.OptionsSceneName, () => new OptionsScene() },
-                { nameof(BlackRoom), () => new BlackRoomScene() },
-                { nameof(SecondRoom), () => new SecondRoomScene() },
                 { GameResources.MapSceneName, () => new SpaceResortMapScene() },
                 { GameResources.ObjectivesSceneName, () => new ObjectivesScene() },
                 { nameof(DockingBay), () => new DockingBayScene() },
                 { nameof(Lobby), () => new LobbyScene() },
-                { GameResources.DialogMemoriesScene, () => new DialogMemoriesScene() }
+                { nameof(RaymondsShipInterior), () => new RaymondsShipInteriorScene() },
+                { GameResources.DialogMemoriesScene, () => new DialogMemoriesScene() },
             });
         }
 

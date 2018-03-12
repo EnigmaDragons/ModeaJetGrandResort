@@ -1,4 +1,5 @@
 ﻿using SpaceResortMurder.Clues;
+using SpaceResortMurder.Clues.DockingBay;
 
 namespace SpaceResortMurder.Dialogs.Zaid
 {
