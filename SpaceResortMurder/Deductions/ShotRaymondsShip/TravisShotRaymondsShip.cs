@@ -1,10 +1,10 @@
 ﻿using SpaceResortMurder.Dialogs.Warren;
 
-namespace SpaceResortMurder.ObjectivesX
+namespace SpaceResortMurder.Deductions
 {
-    public class InvestigateRaymondsDeadBody : Objective
+    public class TravisShotRaymondsShip : Deduction
     {
-        public InvestigateRaymondsDeadBody() : base(nameof(InvestigateRaymondsDeadBody)) {}
+        public TravisShotRaymondsShip() : base(nameof(TravisShotRaymondsShip)) {}
 
         public override bool IsActive()
         {
