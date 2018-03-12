@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.Text;
 using MonoDragons.Core.UserInterface;
 using System;
 
@@ -34,7 +35,7 @@ namespace SpaceResortMurder.Dialogs
             var xOff = -800;
             var xInc = 56;
             var yInc = 92;
-            var xPos = i * xInc + xOff;
+            var xPos = Math.Max(i * xInc + xOff,(int) DefaultFont.Font.MeasureString(GameResources.GetDialogOpener(_dialog)).X - buttonWidth + 165);
             var yPos = 400 + i * yInc;
             var t = new Transform2(new Vector2(xPos, yPos), new Size2(buttonWidth, 64)).ToRectangle();
             return new ImageTextButton(t, GetOnClick(onClick), GameResources.GetDialogOpener(_dialog),
