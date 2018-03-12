@@ -10,6 +10,7 @@ namespace SpaceResortMurder.ObjectivesX
         public void Init()
         {
             _objectives.Add(new InvestigateRaymondsDeadBody());
+            _objectives.Add(new InvestigateMeleenasCraft());
         }
 
         public IReadOnlyList<Objective> GetActiveObjectives()
