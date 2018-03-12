@@ -7,8 +7,12 @@ namespace SpaceResortMurder.CharactersX
 {
     public class ResortManagerZaid : Character
     {
-        public ResortManagerZaid() : base("Zaid, Resort Manager", "Characters/resort_manager_colored", new Size2(400, 940),
-            new WhyWasRaymondHere()) {}
+        public ResortManagerZaid() : base("Zaid Ahuja, Resort Manager", "Characters/resort_manager_colored", new Size2(400, 940),
+            new WhyWasRaymondHere(),
+            new DidYouReleaseTheGarbage(),
+            new WhySoFewPeopleAtTheResort(),
+            new ZaidsAccount(),
+            new DidRaymondApproveYourResort()) {}
 
         public override string WhereAreYou()
         {

@@ -6,33 +6,29 @@ using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using System.Linq;
 using MonoDragons.Core.Engine;
+using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.HudX
 {
     public sealed class Hud : IVisual
     {
         private List<VisualClickableUIElement> _clickables;
-        private ImageBox _newObjectiveLabel;
-        private ImageBox _newDilemmaOrAnswerLabel;
+        private ImageBox _newIcon; 
 
         public ClickUIBranch HudBranch { get; private set; }
 
         public void Init()
         {
             _clickables = new List<VisualClickableUIElement>();
-            AddButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Dilemmas");
-            AddButton(() => Scene.NavigateTo(GameResources.MapSceneName), "Map");
-            AddButton(() => Scene.NavigateTo(GameResources.ObjectivesSceneName), "Objectives");
+            AddIconButton(() => Scene.NavigateTo(GameResources.ObjectivesSceneName), "Icons/Objective");
+            AddIconButton(() => Scene.NavigateTo(GameResources.MapSceneName), "Icons/Locations");
+            AddIconButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Icons/Dilemmas");
+            AddIconButton(() => Scene.NavigateTo(GameResources.DialogueMemoriesScene), "Icons/Conversations");
             HudBranch = new ClickUIBranch("HUD", 2);
             _clickables.ForEach(x => HudBranch.Add(x));
-            _newDilemmaOrAnswerLabel = new ImageBox
+            _newIcon = new ImageBox
             {
-                Transform = new Transform2(new Vector2(1550, 0), new Size2(36, 36)),
-                Image = "UI/NewRedIconBorderless"
-            };
-            _newObjectiveLabel = new ImageBox
-            {
-                Transform = new Transform2(new Vector2(1290, 0), new Size2(36, 36)),
+                Transform = new Transform2(new Size2(36, 36)),
                 Image = "UI/NewRedIconBorderless"
             };
         }
@@ -46,15 +42,19 @@ namespace SpaceResortMurder.HudX
         private void DrawNewIconsIfApplicable(Transform2 parentTransform)
         {
             if (GameObjects.Objectives.GetActiveObjectives().Any(o => o.IsNew))
-                _newObjectiveLabel.Draw(parentTransform);
+                _newIcon.Draw(new Transform2(GetIndicatorLocation(0)));
             if (GameObjects.Dilemmas.GetActiveDilemmas().Any(d => d.IsNew || d.HasNewAnswers))
-                _newDilemmaOrAnswerLabel.Draw(parentTransform);
+                _newIcon.Draw(new Transform2(GetIndicatorLocation(2)));
         }
 
-        private void AddButton(Action onClick, string name)
+        private void AddIconButton(Action onClick, string name)
         {
-            _clickables.Add(new TextButton(new Rectangle(1600 - (130 * (_clickables.Count + 1)), 20, 120, 40), onClick, name,
-                Color.Green, Color.GreenYellow, Color.LightGreen));
+            _clickables.Add(UiButtons.LargeIcon(new Vector2(1600 - 72 - 24, 10 +_clickables.Count * 88), name, onClick));
+        }
+
+        private Vector2 GetIndicatorLocation(int index)
+        {
+            return new Vector2(1600-26, index * 88 + 22);
         }
     }
 }
