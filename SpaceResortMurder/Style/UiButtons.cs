@@ -36,6 +36,20 @@ namespace SpaceResortMurder.Style
                     { OnPress = PlayMenuButtonSound };
         }
 
+        public static VisualClickableUIElement Icon(Vector2 position, string name, Action onClick)
+        {
+            return new ExpandingImageButton(name, $"{name}-Hover", $"{name}-Press",
+                new Transform2(new Rectangle(position.ToPoint(), new Point(36, 36))), new Size2(4, 4), onClick)
+                    { OnPress = PlayMenuButtonSound };
+        }
+
+        public static VisualClickableUIElement LargeIcon(Vector2 position, string name, Action onClick)
+        {
+            return new ExpandingImageButton(name, $"{name}-Hover", $"{name}-Press",
+                new Transform2(new Rectangle(position.ToPoint(), new Point(72, 72))), new Size2(8, 8), onClick)
+                    { OnPress = PlayMenuButtonSound };
+        }
+
         private static void PlayMenuButtonSound()
         {
             Audio.PlaySound("MenuButtonPress", 0.4f);

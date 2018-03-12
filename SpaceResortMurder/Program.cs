@@ -57,7 +57,7 @@ namespace SpaceResortMurder
                 { nameof(DockingBay), () => new DockingBayScene() },
                 { nameof(Lobby), () => new LobbyScene() },
                 { nameof(RaymondsShipInterior), () => new RaymondsShipInteriorScene() },
-                { GameResources.DialogMemoriesScene, () => new DialogMemoriesScene() },
+                { GameResources.DialogueMemoriesScene, () => new DialogMemoriesScene() },
             });
         }
 
