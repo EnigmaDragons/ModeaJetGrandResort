@@ -7,7 +7,7 @@ namespace SpaceResortMurder.CharactersX
 {
     public class OfficerWarren : Character
     {
-        public OfficerWarren() : base("Officer Warren", "Characters/policeman", new Size2(400, 940), 
+        public OfficerWarren() : base("Warren, Officer", "Characters/policeman", new Size2(400, 940), 
             new MeetingWarren()) {}
 
         public override string WhereAreYou()

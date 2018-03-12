@@ -1,12 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
+using SpaceResortMurder.Dialogs.Travis;
 using SpaceResortMurder.LocationsX;
 
 namespace SpaceResortMurder.CharactersX
 {
     public class ResearcherTravis : Character
     {
-        public ResearcherTravis() : base("Travis Falcon", "characters/scientist_guy", new Size2(400, 940)) {}
+        public ResearcherTravis() : base("Travis Falcon, Clone Researcher", "characters/scientist_guy", new Size2(400, 940),
+            new DidYouWorkWithRaymond()) {}
 
         public override string WhereAreYou()
         {

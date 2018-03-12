@@ -3,7 +3,6 @@ using SpaceResortMurder.ObjectivesX;
 using System;
 using System.Collections.Generic;
 using SpaceResortMurder.Deductions;
-using SpaceResortMurder.Dialogs;
 using SpaceResortMurder.Dialogs.Warren;
 using SpaceResortMurder.Dialogs.Zaid;
 using SpaceResortMurder.DilemmasX;
@@ -18,6 +17,7 @@ namespace SpaceResortMurder
         public const string DilemmasSceneName = "Dilemmas";
         public const string MapSceneName = "Map";
         public const string ObjectivesSceneName = "Objectives";
+        public const string DialogMemoriesScene = "Dialog Memories";
 
         private static string[] _notImplementedClueLines = new string[] { "This clue hasn't been implemented" };
         public static string[] GetClueLines(string dialogOrClue)
@@ -88,6 +88,7 @@ namespace SpaceResortMurder
         };
 
         private static Dictionary<string, Tuple<string, string[]>> _dialogs = new Dictionary<string, Tuple<string, string[]>> {
+            #region Warren
             { nameof(MeetingWarren), new Tuple<string, string[]>(
                 "Incident details",
                 new string[] {
@@ -97,9 +98,12 @@ namespace SpaceResortMurder
                     "The only people present in the space resort according to the resort manager were.",
                     "On your left Zaid the resort manager, he was the one that called in about the incident.",
                     "In the middle we have a lead reasearcher at Human Perfect Travis Falcon.",
-                    "And on the right Meleena Ke'lick, her file says she is a corporate freelancer. But currently she is not employed by any company." 
+                    "And on the right Meleena Ke'lick, her file says she is a corporate freelancer. But currently she is not employed by any company."
                 }
             ) },
+            #endregion
+
+            #region Zaid
             { nameof(WhyWasRaymondHere), new Tuple<string, string[]>(
                 "Why was Raymond visiting your resort?",
                 new string[] {
@@ -112,13 +116,46 @@ namespace SpaceResortMurder
                     "My resort is terrific, of course he did.",
                 }
             ) },
+            { nameof(DidYouReleaseTheGarbage), new Tuple<string, string[]>(
+                "I noticed that the garbage airlock was recently used, was that you?",
+                new string[] {
+                    "No I thought it was strange the garbage airlock was empty.",
+                }
+            ) },
+            { nameof(WhySoFewPeopleAtTheResort), new Tuple<string, string[]>(
+                "Your resort seems to be lacking in occupants?",
+                new string[] {
+                    "It's been a rough year. Nothing I can't fix with a little effort.",
+                }
+            ) },
+            { nameof(ZaidsAccount), new Tuple<string, string[]>(
+                "Please tell me as detailed as you can remember what you can recall?",
+                new string[] {
+                    "I was staying in my room when I got a notification that Raymond's ship was leaving.",
+                    "I didn't find that odd until 20 minutes after it left, Raymond's ship was landing.",
+                    "I headed over to the docking bay. That's where I saw Raymond's ship was open.",
+                    "Upon coming over I saw Raymond's dead body and then immidiately called you."
+                }
+            ) },
+            #endregion
+
+            #region Meleena
+            
+            #endregion
         };
 
         private static Dictionary<string, string> _dilemmaOrDeductionText = new Dictionary<string, string>() {
             { nameof(WhoShotRaymondsShip), "Who shot Raymond's ship?" },
+            { nameof(WhoHackedTheDoor), "Who hacked the door on Raymond's craft?" },
 
             { nameof(RaymondShotHisOwnShip), "Raymond" },
-            { nameof(ZaidShotRaymondsShip), "Zaid" }
+            { nameof(ZaidShotRaymondsShip), "Zaid" },
+            { nameof(MeleenaShotRaymondsShip), "Meleena" },
+            { nameof(TravisShotRaymondsShip), "Travis" },
+            { nameof(RaymondsCloneShotRaymondsShip), "Raymond's clone" },
+            { nameof(MeleenaHackedTheDoor), "Meleena" },
+            { nameof(TravisHackedTheDoor), "Travis" },
+            { nameof(ZaidHackedTheDoor), "Zaid" },
         };
 
         private static Dictionary<string, Tuple<string, string>> _objectiveTexts = new Dictionary<string, Tuple<string, string>>()

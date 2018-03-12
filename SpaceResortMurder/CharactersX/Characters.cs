@@ -5,7 +5,7 @@ namespace SpaceResortMurder.CharactersX
 {
     public class Characters
     {
-        private readonly List<Character> _people = new List<Character>() {
+        public IReadOnlyList<Character> People { get; } = new List<Character>() {
             new OfficerWarren(),
             new ResortManagerZaid(),
             new ResearcherTravis(),
@@ -14,7 +14,7 @@ namespace SpaceResortMurder.CharactersX
 
         public IReadOnlyList<Character> GetPeopleAt(string location)
         {
-            return _people.Where(x => x.WhereAreYou() == location).ToList();
+            return People.Where(x => x.WhereAreYou() == location).ToList();
         }
     }
 }

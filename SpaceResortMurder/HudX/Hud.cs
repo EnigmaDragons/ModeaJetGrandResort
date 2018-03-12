@@ -24,6 +24,7 @@ namespace SpaceResortMurder.HudX
             AddButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Dilemmas");
             AddButton(() => Scene.NavigateTo(GameResources.MapSceneName), "Map");
             AddIconButton(() => Scene.NavigateTo(GameResources.ObjectivesSceneName), "Icons/Objective");
+            AddButton(() => Scene.NavigateTo(GameResources.DialogMemoriesScene), "Review");
             HudBranch = new ClickUIBranch("HUD", 2);
             _clickables.ForEach(x => HudBranch.Add(x));
             _newDilemmaOrAnswerLabel = new ImageBox

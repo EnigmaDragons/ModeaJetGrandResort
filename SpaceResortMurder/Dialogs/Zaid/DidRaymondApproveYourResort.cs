@@ -2,7 +2,7 @@
 {
     public class DidRaymondApproveYourResort : Dialog
     {
-        protected DidRaymondApproveYourResort() : base(nameof(DidRaymondApproveYourResort)) {}
+        public DidRaymondApproveYourResort() : base(nameof(DidRaymondApproveYourResort)) {}
 
         public override bool IsActive()
         {

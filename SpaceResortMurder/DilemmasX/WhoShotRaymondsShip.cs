@@ -8,7 +8,10 @@ namespace SpaceResortMurder.DilemmasX
     {
         public WhoShotRaymondsShip() : base(new Vector2(500, 500), nameof(WhoShotRaymondsShip), 
             new RaymondShotHisOwnShip(),
-            new ZaidShotRaymondsShip()) {}
+            new ZaidShotRaymondsShip(),
+            new MeleenaShotRaymondsShip(),
+            new TravisShotRaymondsShip(),
+            new RaymondsCloneShotRaymondsShip()) {}
 
         public override bool IsActive()
         {
