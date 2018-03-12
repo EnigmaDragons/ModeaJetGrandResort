@@ -13,6 +13,7 @@ using SpaceResortMurder.Style;
 using System;
 using SpaceResortMurder.DilemmasX;
 using SpaceResortMurder.LocationsX;
+using SpaceResortMurder.ResolutionsX;
 
 namespace SpaceResortMurder
 {
@@ -59,6 +60,7 @@ namespace SpaceResortMurder
                 { nameof(RaymondsShipInterior), () => new RaymondsShipInteriorScene() },
                 { GameResources.DialogueMemoriesScene, () => new DialogMemoriesScene() },
                 { nameof(MeleenasShipInterior), () => new MeleenasShipInteriorScene() },
+                { GameResources.ResolutionSceneName, () => new ResolutionScene() },
             });
         }
 

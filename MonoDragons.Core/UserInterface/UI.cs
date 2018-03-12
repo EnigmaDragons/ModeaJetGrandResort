@@ -39,14 +39,14 @@ namespace MonoDragons.Core.UserInterface
             _display = display;
         }
 
-        public static int PercentScreenWidth(float percentage)
+        public static int OfScreenWidth(float part)
         {
-            return (int)Math.Round(percentage * _display.GameWidth / _display.Scale);
+            return (int)Math.Round(part * _display.GameWidth / _display.Scale);
         }
 
-        public static int ConvertHeightPercentageToPixels(float percentage)
+        public static int OfScreenHeight(float part)
         {
-            return (int)Math.Round(percentage * _display.GameHeight / _display.Scale);
+            return (int)Math.Round(part * _display.GameHeight / _display.Scale);
         }
 
         public static void Darken()

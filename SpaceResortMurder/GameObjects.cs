@@ -3,6 +3,7 @@ using SpaceResortMurder.DilemmasX;
 using SpaceResortMurder.HudX;
 using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.ObjectivesX;
+using SpaceResortMurder.ResolutionsX;
 
 namespace SpaceResortMurder
 {
@@ -15,6 +16,7 @@ namespace SpaceResortMurder
         public static Characters Characters { get; } = new Characters();
         public static Locations Locations { get; } = new Locations(); 
         public static Objectives Objectives { get; } = new Objectives();
+        public static Resolutions Resolutions { get; } = new Resolutions();
 
         public static void InitIfNeeded()
         {

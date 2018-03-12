@@ -14,6 +14,7 @@ using SpaceResortMurder.Dialogs.Meleena;
 using SpaceResortMurder.Dialogs.Warren;
 using SpaceResortMurder.Dialogs.Zaid;
 using SpaceResortMurder.DilemmasX;
+using SpaceResortMurder.ResolutionsX;
 
 namespace SpaceResortMurder
 {
@@ -26,6 +27,7 @@ namespace SpaceResortMurder
         public const string MapSceneName = "Map";
         public const string ObjectivesSceneName = "Objectives";
         public const string DialogueMemoriesScene = "Dialog Memories";
+        public const string ResolutionSceneName = "Resolution";
 
         private static string[] _notImplementedClueLines = new string[] { "This clue hasn't been implemented" };
         public static string[] GetClueLines(string dialogOrClue)
@@ -64,13 +66,20 @@ namespace SpaceResortMurder
                 return _dialogs[dialog].Item1;
             return _notImplementedDialogText;
         }
-
         private static string[] _notImplementedDialogLines = new string[] { "This dialog hasn't been implemented" };
         public static string[] GetDialogLines(string dialog)
         {
             if (_dialogs.ContainsKey(dialog))
                 return _dialogs[dialog].Item2;
             return _notImplementedDialogLines;
+        }
+
+        private const string _notImplementedResolution = "This resolution hasn't been implemented";
+        public static string GetResolutionText(string resolution)
+        {
+            if (_resolutionText.ContainsKey(resolution))
+                return _resolutionText[resolution];
+            return _notImplementedResolution;
         }
 
         private static Dictionary<string, string[]> _clues = new Dictionary<string, string[]>() {
@@ -267,6 +276,11 @@ namespace SpaceResortMurder
                 "Go to Raymond's ship and investigate his remains",
                 "According to Warren, Raymond died earlier tonight and his body was found within his space craft. I should see what I can find from his remains."
             )},
+        };
+
+        private static Dictionary<string, string> _resolutionText = new Dictionary<string, string>()
+        {
+            { nameof(IAmLeaving), "I am leaving" }
         };
     }
 }

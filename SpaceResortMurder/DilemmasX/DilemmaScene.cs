@@ -4,6 +4,7 @@ using MonoDragons.Core.Common;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
+using SpaceResortMurder.Deductions.TheMurdererWas;
 using SpaceResortMurder.Scenes;
 using SpaceResortMurder.Style;
 
@@ -14,8 +15,10 @@ namespace SpaceResortMurder.DilemmasX
         protected override void OnInit()
         {
             Audio.PlayMusic("Pondering", 0.37f);
-            Add(UiButtons.Back(new Vector2(6, UI.ConvertHeightPercentageToPixels(1.0f) - 138), () => Scene.NavigateTo(GameState.Instance.CurrentLocation)));
-			AddVisual(new Label
+            Add(UiButtons.Back(new Vector2(6, UI.OfScreenHeight(1.0f) - 138), () => Scene.NavigateTo(GameState.Instance.CurrentLocation)));
+            if(GameState.Instance.IsThinking(nameof(ZaidKilledForHisResort)))
+                Add(UiButtons.MenuRed("Resolve", new Vector2(UI.OfScreenWidth(0.5f) - 120, 700), () => Scene.NavigateTo(GameResources.ResolutionSceneName)));
+            AddVisual(new Label
             {
                 Transform = new Transform2(new Vector2(160, 28), new Size2(1000, 80)),
                 BackgroundColor = Color.Transparent,
