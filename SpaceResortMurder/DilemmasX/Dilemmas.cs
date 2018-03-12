@@ -11,6 +11,7 @@ namespace SpaceResortMurder.DilemmasX
             new WhatWasTheCauseOfDeath(),
             new WhoHackedTheDoor(),
             new WhereDidHeEnterSpaceFrom(),
+            new WasZaidsResortAcceptedAsABetaTester(),
         };
 
         public IReadOnlyList<Dilemma> GetActiveDilemmas()

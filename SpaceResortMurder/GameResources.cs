@@ -7,6 +7,8 @@ using SpaceResortMurder.Clues.RaymondsSpaceCraft;
 using SpaceResortMurder.Deductions;
 using SpaceResortMurder.Deductions.CauseOfDeath;
 using SpaceResortMurder.Deductions.EnteredSpaceFrom;
+using SpaceResortMurder.Deductions.ZaidsResortForBetaTesting;
+using SpaceResortMurder.Dialogs.Meleena;
 using SpaceResortMurder.Dialogs.Warren;
 using SpaceResortMurder.Dialogs.Zaid;
 using SpaceResortMurder.DilemmasX;
@@ -165,10 +167,37 @@ namespace SpaceResortMurder
                     "Upon coming over I saw Raymond's dead body and then immidiately called you."
                 }
             ) },
+            { nameof(YouWereNotAcceptedForBetaTesting), new Tuple<string, string[]>(
+                "You were not accepted for beta testing, I found a list of resorts and yours was crossed off?",
+                new string[] {
+                    "But what about the message Raymond sent!",
+                    "Oh wait I shouldn't know about that...",
+                    "Alright truth is when I found Raymond's body I sent the message on his pad.",
+                    "I needed this, to keep my place running, But I didn't kill him.",
+                }
+            ) },
             #endregion
 
             #region Meleena
-            
+            { nameof(WhatIsACorporateFreelancerDoingHere), new Tuple<string, string[]>(
+                "Why are you visiting this resort?",
+                new string[] {
+                    "Between jobs I like to get some rest and relaxation.",
+                }
+            ) },
+            { nameof(CorporateFreelancersCantNormallyAffordPersonalSpaceCrafts), new Tuple<string, string[]>(
+                "Corporate freelancers can't normally afford to own a space craft.",
+                new string[] {
+                    "I'm a research specialist, tasked with gather invaluable market date.",
+                    "You'd be surprised how well one gets paid when they are as good as me.",
+                }
+            ) },
+            { nameof(SearchYourCraftForEvidence), new Tuple<string, string[]>(
+                "We are going to need to check your craft for evidence.",
+                new string[] {
+                    "You are going to need a search order for that!",
+                }
+            ) },
             #endregion
         };
 
@@ -177,6 +206,7 @@ namespace SpaceResortMurder
             { nameof(WhoHackedTheDoor), "Who hacked the door on Raymond's craft?" },
             { nameof(WhereDidHeEnterSpaceFrom), "Where did he enter space from?" },
             { nameof(WhatWasTheCauseOfDeath), "What was the victim's cause of death?" },
+            { nameof(WasZaidsResortAcceptedAsABetaTester), "Was Zaid's resort accepted for the beta testing program?" },
 
             { nameof(RaymondShotHisOwnShip), "Raymond" },
             { nameof(ZaidShotRaymondsShip), "Zaid" },
@@ -191,6 +221,8 @@ namespace SpaceResortMurder
             { nameof(PoisonNeedles), "Poison needles were his hidden killer" },
             { nameof(CameFromHisShip), "He was pushed out of his ship into space without a suit" },
             { nameof(CameFromtheGarbageAirlock), "He was launched from the garbage airlock in the docking bay" },
+            { nameof(ZaidsResortAccepted), "His resort was accepted, because of the message on Raymond's pad." },
+            { nameof(ZaidsResortDeclined), "His resort was declined, Zaid's resort was crossed off." },
         };
 
         private static Dictionary<string, Tuple<string, string>> _objectiveTexts = new Dictionary<string, Tuple<string, string>>()

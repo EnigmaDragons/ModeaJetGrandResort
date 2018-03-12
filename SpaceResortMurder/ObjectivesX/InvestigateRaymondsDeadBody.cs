@@ -1,4 +1,5 @@
-﻿using SpaceResortMurder.Dialogs.Warren;
+﻿using SpaceResortMurder.Clues.RaymondsSpaceCraft;
+using SpaceResortMurder.Dialogs.Warren;
 
 namespace SpaceResortMurder.ObjectivesX
 {
@@ -8,7 +9,8 @@ namespace SpaceResortMurder.ObjectivesX
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(MeetingWarren));
+            return GameState.Instance.IsThinking(nameof(MeetingWarren)) 
+                && !GameState.Instance.IsThinking(nameof(RaymondsCorpse));
         }
     }
 }
