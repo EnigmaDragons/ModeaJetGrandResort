@@ -8,6 +8,7 @@ using SpaceResortMurder.Clues.RaymondsSpaceCraft;
 using SpaceResortMurder.Deductions;
 using SpaceResortMurder.Deductions.CauseOfDeath;
 using SpaceResortMurder.Deductions.EnteredSpaceFrom;
+using SpaceResortMurder.Deductions.MeleenasAccountValidity;
 using SpaceResortMurder.Deductions.TheMurdererWas;
 using SpaceResortMurder.Deductions.ZaidsResortForBetaTesting;
 using SpaceResortMurder.Dialogs.Meleena;
@@ -210,6 +211,13 @@ namespace SpaceResortMurder
             #endregion
 
             #region Meleena
+            { nameof(MeleenasAccount), new Tuple<string, string[]>(
+                "Please give my your account of today up until being brought by Officer Warren.",
+                new string[] {
+                    "I take some kind of crime has been commited.", 
+                    "I have been in my room relaxing and taking calls all day, I don't know anything."
+                }
+            ) },
             { nameof(WhatIsACorporateFreelancerDoingHere), new Tuple<string, string[]>(
                 "Why are you visiting this resort?",
                 new string[] {
@@ -242,33 +250,57 @@ namespace SpaceResortMurder
                     "You piece of junk, go on and destroy any shred of privacy us citizens have.",
                 }
             ) },
+            { nameof(YouBrokeIntoRaymondsShip), new Tuple<string, string[]>(
+                "You broke into Raymond's craft with this skeleton key.",
+                new string[] {
+                    "Alright I broke into his ship to find dirt on Human Perfect.",
+                    "Just when I was going to leave, I felt the blast of something shoot the ship.",
+                    "I quickly hid in a storage container and then quite some time later a male with a deep voice came in muttering to himself.",
+                    "He took off with the ship. Shortly after he opened up the space hatch, and left.",
+                    "I was curious so i peeked out of my hiding spot in time to see Raymond's corpse dropped into the ship.",
+                    "Startled I quickly sealed my container again. Before the man returned into the ship.",
+                    "He quickly landed the ship while cursing and took off out of the ship.",
+                    "As soon as he left I booked it.",
+                }
+            ) },
             #endregion
         };
 
         private static Dictionary<string, string> _dilemmaOrDeductionText = new Dictionary<string, string>() {
             { nameof(WhoShotRaymondsShip), "Who shot Raymond's ship?" },
-            { nameof(WhoHackedTheDoor), "Who hacked the door on Raymond's craft?" },
-            { nameof(WhereDidHeEnterSpaceFrom), "Where did he enter space from?" },
-            { nameof(WhatWasTheCauseOfDeath), "What was the victim's cause of death?" },
-            { nameof(WasZaidsResortAcceptedAsABetaTester), "Was Zaid's resort accepted for the beta testing program?" },
-            { nameof(WhoWasTheMurderer), "Who killed the victim?" },
-
             { nameof(RaymondShotHisOwnShip), "Raymond" },
             { nameof(ZaidShotRaymondsShip), "Zaid" },
             { nameof(MeleenaShotRaymondsShip), "Meleena" },
             { nameof(TravisShotRaymondsShip), "Travis" },
             { nameof(RaymondsCloneShotRaymondsShip), "Raymond's clone" },
+
+            { nameof(WhoHackedTheDoor), "Who hacked the door on Raymond's craft?" },
             { nameof(MeleenaHackedTheDoor), "Meleena" },
             { nameof(TravisHackedTheDoor), "Travis" },
             { nameof(ZaidHackedTheDoor), "Zaid" },
+
+            { nameof(WhereDidHeEnterSpaceFrom), "Where did he enter space from?" },
+            { nameof(CameFromHisShip), "He was pushed out of his ship into space without a suit" },
+            { nameof(CameFromtheGarbageAirlock), "He was launched from the garbage airlock in the docking bay" },
+
+            { nameof(WhatWasTheCauseOfDeath), "What was the victim's cause of death?" },
             { nameof(ChokedBySomeone), "He was choked to death prior to his exposure to space" },
             { nameof(LackOfOxygenInSpace), "The victim was pushed into space died while in space" },
             { nameof(PoisonNeedles), "Poison needles were his hidden killer" },
-            { nameof(CameFromHisShip), "He was pushed out of his ship into space without a suit" },
-            { nameof(CameFromtheGarbageAirlock), "He was launched from the garbage airlock in the docking bay" },
+
+            { nameof(WasZaidsResortAcceptedAsABetaTester), "Was Zaid's resort accepted for the beta testing program?" },
             { nameof(ZaidsResortAccepted), "His resort was accepted, because of the message on Raymond's pad." },
             { nameof(ZaidsResortDeclined), "His resort was declined, Zaid's resort was crossed off." },
+
+            { nameof(WhoWasTheMurderer), "Who killed the victim?" },
             { nameof(ZaidKilledForHisResort), "Zaid's resort needed the new resort clones to stay afloat. So he killed to ensure he would get them." },
+
+            { nameof(WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip), "Was Meleena honest in what happened on Raymond's ship." },
+            { nameof(MeleenaWasHonest), "Yes" },
+            { nameof(MeleenaIsLying), "No, Something about her testimony is off." }
+
+
+
         };
 
         private static Dictionary<string, Tuple<string, string>> _objectiveTexts = new Dictionary<string, Tuple<string, string>>()

@@ -7,7 +7,9 @@ namespace SpaceResortMurder.DilemmasX
     public class WhoWasTheMurderer : Dilemma
     {
         public WhoWasTheMurderer() : base(new Vector2(620, 390), nameof(WhoWasTheMurderer), 
-            new ZaidKilledForHisResort()) {}
+            new ZaidKilledForHisResort(),
+            new MeleenaKilledBecauseSheWasDiscovered(),
+            new MeleenaKilledHimCauseHeIsCorrupt()) {}
 
         public override bool IsActive()
         {

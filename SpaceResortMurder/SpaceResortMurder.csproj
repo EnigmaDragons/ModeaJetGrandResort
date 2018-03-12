@@ -59,6 +59,8 @@
     <Compile Include="Deductions\EnteredSpaceFrom\CameFromHisShip.cs" />
     <Compile Include="Deductions\EnteredSpaceFrom\CameFromtheGarbageAirlock.cs" />
     <Compile Include="Deductions\HackedTheDoor\MeleenaHackedTheDoor.cs" />
+    <Compile Include="Deductions\MeleenasAccountValidity\MeleenaIsLying.cs" />
+    <Compile Include="Deductions\MeleenasAccountValidity\MeleenaWasHonest.cs" />
     <Compile Include="Deductions\ShotRaymondsShip\RaymondsCloneShotRaymondsShip.cs" />
     <Compile Include="Deductions\ShotRaymondsShip\MeleenaShotRaymondsShip.cs" />
     <Compile Include="Deductions\ShotRaymondsShip\RaymondShotHisOwnShip.cs" />
@@ -66,6 +68,8 @@
     <Compile Include="Deductions\ShotRaymondsShip\ZaidShotRaymondsShip.cs" />
     <Compile Include="Deductions\HackedTheDoor\ZaidHackedTheDoor.cs" />
     <Compile Include="Deductions\HackedTheDoor\TravisHackedTheDoor.cs" />
+    <Compile Include="Deductions\TheMurdererWas\MeleenaKilledBecauseSheWasDiscovered.cs" />
+    <Compile Include="Deductions\TheMurdererWas\MeleenaKilledHimCauseHeIsCorrupt.cs" />
     <Compile Include="Deductions\TheMurdererWas\ZaidKilledForHisResort.cs" />
     <Compile Include="Deductions\ZaidsResortForBetaTesting\ZaidsResortAccepted.cs" />
     <Compile Include="Deductions\ZaidsResortForBetaTesting\ZaidsResortDeclined.cs" />
@@ -78,8 +82,10 @@
     <Compile Include="Dialogs\Meleena\CorporateFreelancersCantNormallyAffordPersonalSpaceCrafts.cs" />
     <Compile Include="Dialogs\Meleena\HereIsTheSearchOrder.cs" />
     <Compile Include="Dialogs\Meleena\ImOnlyInvestigatingTheMurder.cs" />
+    <Compile Include="Dialogs\Meleena\MeleenasAccount.cs" />
     <Compile Include="Dialogs\Meleena\SearchYourCraftForEvidence.cs" />
     <Compile Include="Dialogs\Meleena\WhatIsACorporateFreelancerDoingHere.cs" />
+    <Compile Include="Dialogs\Meleena\YouBrokeIntoRaymondsShip.cs" />
     <Compile Include="Dialogs\Travis\DidYouWorkWithRaymond.cs" />
     <Compile Include="Dialogs\Warren\INeedASearchOrder.cs" />
     <Compile Include="Dialogs\Zaid\DidRaymondApproveYourResort.cs" />
@@ -90,6 +96,7 @@
     <Compile Include="Dialogs\Zaid\WhyWasRaymondHere.cs" />
     <Compile Include="Dialogs\Zaid\YouWereNotAcceptedForBetaTesting.cs" />
     <Compile Include="Dialogs\Zaid\ZaidsAccount.cs" />
+    <Compile Include="DilemmasX\WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip.cs" />
     <Compile Include="DilemmasX\WasZaidsResortAcceptedAsABetaTester.cs" />
     <Compile Include="DilemmasX\WhatWasTheCauseOfDeath.cs" />
     <Compile Include="DilemmasX\WhereDidHeEnterSpaceFrom.cs" />

@@ -13,6 +13,7 @@ namespace SpaceResortMurder.DilemmasX
             new WhereDidHeEnterSpaceFrom(),
             new WasZaidsResortAcceptedAsABetaTester(),
             new WhoWasTheMurderer(),
+            new WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip(),
         };
 
         public IReadOnlyList<Dilemma> GetActiveDilemmas()
