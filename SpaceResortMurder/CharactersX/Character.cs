@@ -25,7 +25,7 @@ namespace SpaceResortMurder.CharactersX
             _dialogs = dialogs.ToList();
             _facingImage = new ImageBox
             {
-                Transform = new Transform2(new Vector2(UI.PercentScreenWidth(0.62f), UI.ConvertHeightPercentageToPixels(1.0f) - (int)(size.Height / 1.3)), size),
+                Transform = new Transform2(new Vector2(UI.OfScreenWidth(0.62f), UI.OfScreenHeight(1.0f) - (int)(size.Height / 1.3)), size),
                 Image = image
             };
             _newDialogIcon = new ImageBox
@@ -33,24 +33,24 @@ namespace SpaceResortMurder.CharactersX
                 Transform = new Transform2(new Vector2(WhereAreYouStanding().Size.Width -50, -20), new Size2(36, 36)),
                 Image = "UI/NewRedIconBorderless"
             };
-            _convoNameBox = new ImageLabel(new Transform2(new Vector2(UI.PercentScreenWidth(0.66f), 800), new Size2(1400, 72)), "Convo/NameLabel")
+            _convoNameBox = new ImageLabel(new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 800), new Size2(1400, 72)), "Convo/NameLabel")
             {
                 Text = displayName,
                 TextColor = Color.White,
-                TextTransform = new Transform2(new Vector2(UI.PercentScreenWidth(0.66f), 800),
-                    new Size2(UI.PercentScreenWidth(0.96f) - UI.PercentScreenWidth(0.66f), 72))
+                TextTransform = new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 800),
+                    new Size2(UI.OfScreenWidth(0.96f) - UI.OfScreenWidth(0.66f), 72))
             };
         }
 
         public VisualClickableUIElement CreateButton(Action<Character> onClick, int i, int count)
         {
-            return new ImageTextButton(new Transform2(new Vector2(UI.PercentScreenWidth(0.66f), 100 + i * 100), new Size2(1400, 72)),
+            return new ImageTextButton(new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 100 + i * 100), new Size2(1400, 72)),
                 () => onClick(this), _displayName,
                 "Convo/NameLabel", "Convo/NameLabel", "Convo/NameLabel")
             {
                 TextColor = Color.White,
-                TextTransform = new Transform2(new Vector2(UI.PercentScreenWidth(0.66f), 100 + i * 100),
-                    new Size2(UI.PercentScreenWidth(0.96f) - UI.PercentScreenWidth(0.66f), 72)),
+                TextTransform = new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 100 + i * 100),
+                    new Size2(UI.OfScreenWidth(0.96f) - UI.OfScreenWidth(0.66f), 72)),
                 TextAlignment = HorizontalAlignment.Left
             };
         }
