@@ -10,12 +10,13 @@ namespace MonoDragons.Core.UserInterface
         private readonly Label _label;
         private readonly string _imageName;
 
-        private Transform2 _transform = new Transform2(new Size2(300, 60));
+        private Transform2 _transform;
 
         public string Font { set => _label.Font = value; }
         public string Text { set => _label.Text = value; }
         public Color TextColor { set => _label.TextColor = value; }
         public HorizontalAlignment TextAlignment { set => _label.HorizontalAlignment = value; }
+        public Transform2 TextTransform { set => _label.Transform = value; }
 
         public Transform2 Transform
         {
@@ -33,7 +34,7 @@ namespace MonoDragons.Core.UserInterface
 
         public void Draw(Transform2 parentTransform)
         {
-            World.Draw(_imageName, parentTransform + _label.Transform);
+            World.Draw(_imageName, parentTransform + _transform);
             _label.Draw(parentTransform);
         }
 

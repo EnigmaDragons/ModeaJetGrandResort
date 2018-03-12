@@ -39,7 +39,7 @@ namespace MonoDragons.Core.UserInterface
             _display = display;
         }
 
-        public static int ConvertWidthPercentageToPixels(float percentage)
+        public static int PercentScreenWidth(float percentage)
         {
             return (int)Math.Round(percentage * _display.GameWidth / _display.Scale);
         }
