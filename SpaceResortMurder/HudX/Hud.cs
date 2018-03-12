@@ -42,19 +42,19 @@ namespace SpaceResortMurder.HudX
         private void DrawNewIconsIfApplicable(Transform2 parentTransform)
         {
             if (GameObjects.Objectives.GetActiveObjectives().Any(o => o.IsNew))
-                _newIcon.Draw(new Transform2(GetLocation(0)));
+                _newIcon.Draw(new Transform2(GetIndicatorLocation(0)));
             if (GameObjects.Dilemmas.GetActiveDilemmas().Any(d => d.IsNew || d.HasNewAnswers))
-                _newIcon.Draw(new Transform2(GetLocation(2)));
+                _newIcon.Draw(new Transform2(GetIndicatorLocation(2)));
         }
 
         private void AddIconButton(Action onClick, string name)
         {
-            _clickables.Add(UiButtons.LargeIcon(new Vector2(1600 - 72 - 20, 20 +_clickables.Count * 88), name, onClick));
+            _clickables.Add(UiButtons.LargeIcon(new Vector2(1600 - 72 - 24, 10 +_clickables.Count * 88), name, onClick));
         }
 
-        private Vector2 GetLocation(int index)
+        private Vector2 GetIndicatorLocation(int index)
         {
-            return new Vector2(1600-36, index * 88 + 40);
+            return new Vector2(1600-26, index * 88 + 22);
         }
     }
 }
