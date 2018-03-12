@@ -24,6 +24,8 @@ namespace SpaceResortMurder.HudX
             AddIconButton(() => Scene.NavigateTo(GameResources.MapSceneName), "Icons/Locations");
             AddIconButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Icons/Dilemmas");
             AddIconButton(() => Scene.NavigateTo(GameResources.DialogueMemoriesScene), "Icons/Conversations");
+            AddIconButton(() => Scene.NavigateTo(GameResources.OptionsSceneName), "Icons/Options");
+            AddIconButton(() => Scene.NavigateTo(GameResources.MainMenuSceneName), "Icons/ExitToMenu");
             HudBranch = new ClickUIBranch("HUD", 2);
             _clickables.ForEach(x => HudBranch.Add(x));
             _newIcon = new ImageBox
@@ -54,7 +56,7 @@ namespace SpaceResortMurder.HudX
 
         private Vector2 GetIndicatorLocation(int index)
         {
-            return new Vector2(1600-26, index * 88 + 22);
+            return new Vector2(1600-30, index * 88 + 22);
         }
     }
 }
