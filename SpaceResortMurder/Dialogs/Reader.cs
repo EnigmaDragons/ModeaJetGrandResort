@@ -21,7 +21,7 @@ namespace SpaceResortMurder.Dialogs
 
         public Reader(string[] linesToBeRead, Action onFinished)
         {
-            _chatBox = new ChatBox("", 700, DefaultFont.Font);
+            _chatBox = new ChatBox("", 700, DefaultFont.Font, 30);
             _chatBoxTransform = new Transform2(new Vector2(100, 760));
             _lines = new Queue<string>(linesToBeRead);
             _onFinished = onFinished;
