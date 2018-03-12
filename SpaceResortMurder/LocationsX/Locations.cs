@@ -9,10 +9,9 @@ namespace SpaceResortMurder.LocationsX
 
         public void Init()
         {
-            _locations.Add(new BlackRoom());
-            _locations.Add(new SecondRoom());
             _locations.Add(new DockingBay());
             _locations.Add(new Lobby());
+            _locations.Add(new RaymondsShipInterior());
         }
 
         public IReadOnlyList<Location> GetAvailableLocations()

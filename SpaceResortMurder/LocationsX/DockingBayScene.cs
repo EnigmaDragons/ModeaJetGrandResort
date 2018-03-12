@@ -1,5 +1,6 @@
 ﻿using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Clues;
+using SpaceResortMurder.Clues.DockingBay;
 
 namespace SpaceResortMurder.LocationsX
 {

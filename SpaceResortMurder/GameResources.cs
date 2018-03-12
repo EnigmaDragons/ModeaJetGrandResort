@@ -2,7 +2,11 @@
 using SpaceResortMurder.ObjectivesX;
 using System;
 using System.Collections.Generic;
+using SpaceResortMurder.Clues.DockingBay;
+using SpaceResortMurder.Clues.RaymondsSpaceCraft;
 using SpaceResortMurder.Deductions;
+using SpaceResortMurder.Deductions.CauseOfDeath;
+using SpaceResortMurder.Deductions.EnteredSpaceFrom;
 using SpaceResortMurder.Dialogs.Warren;
 using SpaceResortMurder.Dialogs.Zaid;
 using SpaceResortMurder.DilemmasX;
@@ -66,6 +70,7 @@ namespace SpaceResortMurder
         }
 
         private static Dictionary<string, string[]> _clues = new Dictionary<string, string[]>() {
+            #region Docking Bay
             { nameof(RaymondsShip), new string[] {
                 "The ship is a Regal Glider an expensive personal craft.",
                 "It is registered under the name of Raymond Soule.",
@@ -85,6 +90,29 @@ namespace SpaceResortMurder
                 "This is a garbage airlock that releases trash into space.",
                 "This was clearly used today."
             } },
+            #endregion
+
+            #region Raymond's Ship Interior
+            { nameof(RaymondsCorpse), new string[] {
+                "Raymond died of asphyxiation.",
+                "His body is ballooned up to twice his normal size, his tongue and eyes have boiled. Conclusion he spent time in space without a suit.",
+                "He has bruising around his neck from someone trying to choke him with their arm prior to his exposure to space.",
+                "He has 13 recent wide needle punctures.",
+            } },
+            { nameof(ShipsLogs), new string[] {
+                "These logs might help me narrow down a time line.",
+                $"The ship launched at 7:05 \nThe space hatch was opened at 7:10 \nThe space hatch closed at 7:20 \nThe ship landed at 7:25",
+            } },
+            { nameof(T71EnergyBlaster), new string[] {
+                $"This is a T-71 Energy Blaster. It is registered to Raymond Soule.",
+                "It possess a security feature that ensures the weilder's DNA matches Raymond Soule before you can fire.",
+            } },
+            { nameof(RaymondsPad), new string[] {
+                "This is Raymond's personal pad.",
+                "There is a list of resorts on here with Zaid's being one of them. A bunch of the resorts including Zaid's have been crossed out.",
+                "This pad was last used at 7:50 to send a message approving Zaid's resort for beta-testing a new resort clone.",
+            } },
+            #endregion
         };
 
         private static Dictionary<string, Tuple<string, string[]>> _dialogs = new Dictionary<string, Tuple<string, string[]>> {
@@ -147,6 +175,8 @@ namespace SpaceResortMurder
         private static Dictionary<string, string> _dilemmaOrDeductionText = new Dictionary<string, string>() {
             { nameof(WhoShotRaymondsShip), "Who shot Raymond's ship?" },
             { nameof(WhoHackedTheDoor), "Who hacked the door on Raymond's craft?" },
+            { nameof(WhereDidHeEnterSpaceFrom), "Where did he enter space from?" },
+            { nameof(WhatWasTheCauseOfDeath), "What was the victim's cause of death?" },
 
             { nameof(RaymondShotHisOwnShip), "Raymond" },
             { nameof(ZaidShotRaymondsShip), "Zaid" },
@@ -156,6 +186,11 @@ namespace SpaceResortMurder
             { nameof(MeleenaHackedTheDoor), "Meleena" },
             { nameof(TravisHackedTheDoor), "Travis" },
             { nameof(ZaidHackedTheDoor), "Zaid" },
+            { nameof(ChokedBySomeone), "He was choked to death prior to his exposure to space" },
+            { nameof(LackOfOxygenInSpace), "The victim was pushed into space died while in space" },
+            { nameof(PoisonNeedles), "Poison needles were his hidden killer" },
+            { nameof(CameFromHisShip), "He was pushed out of his ship into space without a suit" },
+            { nameof(CameFromtheGarbageAirlock), "He was launched from the garbage airlock in the docking bay" },
         };
 
         private static Dictionary<string, Tuple<string, string>> _objectiveTexts = new Dictionary<string, Tuple<string, string>>()
