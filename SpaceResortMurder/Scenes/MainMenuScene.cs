@@ -4,6 +4,7 @@ using MonoDragons.Core.Engine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.LocationsX;
+using SpaceResortMurder.State;
 using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.Scenes
@@ -13,7 +14,7 @@ namespace SpaceResortMurder.Scenes
         protected override void OnInit()
         {
             GameState.Instance = new GameState();
-            Audio.PlayMusic("MainTheme");
+            Audio.PlayMusic("MainTheme", Options.Instance.MusicVolume);
 
             if (GameObjects.IO.HasSave("save"))
                 Add(UiButtons.Menu("Continue Game", new Vector2(120, 560), () =>

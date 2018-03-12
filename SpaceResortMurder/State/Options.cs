@@ -10,5 +10,7 @@ namespace SpaceResortMurder.State
     {
         public static Options Instance;
         public bool IsFullscreen { get; set; } = false;
+        public float MusicVolume { get; set; } = 1;
+        public float SoundVolume { get; set; } = 1;
     }
 }

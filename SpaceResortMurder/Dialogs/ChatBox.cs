@@ -8,6 +8,7 @@ using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 using MonoDragons.Core.Common;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Dialogs
 {
@@ -57,7 +58,7 @@ namespace SpaceResortMurder.Dialogs
             length = _messageToDisplay.Length < length ? _messageToDisplay.Length : length;
             _currentlyDisplayedMessage = _messageToDisplay.Substring(0, length);
             if (length > previousLength)
-                Audio.PlaySound(length % 19 == 0 ? "talkblip-low" : "talkblip", 0.05f);
+                Audio.PlaySound(length % 19 == 0 ? "talkblip-low" : "talkblip", 0.05f * Options.Instance.SoundVolume);
         }
 
         public void Draw(Transform2 parentTransform)

@@ -4,6 +4,7 @@ using MonoDragons.Core.UserInterface;
 using System;
 using MonoDragons.Core.AudioSystem;
 using MonoDragons.Core.Engine;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Scenes
 {
@@ -24,7 +25,7 @@ namespace SpaceResortMurder.Scenes
             _untilTransition = new Timer(NavigateToMainMenu, 6000);
             Input.ClearTransientBindings();
             Input.On(Control.Start, NavigateToMainMenu);
-            Audio.PlayMusicOnce("Logo", 0.5f);
+            Audio.PlayMusicOnce("Logo", 0.5f * Options.Instance.MusicVolume);
         }
 
         private void NavigateToMainMenu()

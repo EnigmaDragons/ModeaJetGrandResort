@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using MonoDragons.Core.AudioSystem;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Style
 {
@@ -52,7 +53,7 @@ namespace SpaceResortMurder.Style
 
         private static void PlayMenuButtonSound()
         {
-            Audio.PlaySound("MenuButtonPress", 0.4f);
+            Audio.PlaySound("MenuButtonPress", 0.4f * Options.Instance.SoundVolume);
         }
     }
 }
