@@ -1,6 +1,7 @@
-﻿namespace SpaceResortMurder.State
+﻿
+namespace SpaceResortMurder.State
 {
-    public class Options
+    public sealed class Options
     {
         public bool IsFullscreen { get; set; } = false;
         public float Scale { get; set; } = 1;

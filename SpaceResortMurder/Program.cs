@@ -61,7 +61,6 @@ namespace SpaceResortMurder
             var currentScene = new CurrentScene();
             Scene.Init(new CurrentSceneNavigation(currentScene, CreateSceneFactory(),
                 Input.ClearTransientBindings,
-                Audio.StopMusic,
                 Resources.Unload));
             return new HideViewportExternals(currentScene);
         }
