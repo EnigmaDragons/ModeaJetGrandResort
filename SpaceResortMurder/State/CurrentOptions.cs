@@ -6,7 +6,12 @@ namespace SpaceResortMurder.State
 {
     public static class CurrentOptions
     {
-        public static Options Instance { get; private set; }
+        private static Options _value { get; set; }
+        public static bool IsFullscreen { get => _value.IsFullscreen; set => _value.IsFullscreen = value; }
+        public static float Scale { get => _value.Scale; set => _value.Scale = value; }
+        public static float MusicVolume { get => _value.MusicVolume; set => _value.MusicVolume = value; }
+        public static float SoundVolume { get => _value.SoundVolume; set => _value.SoundVolume = value; }
+        public static double MillisPerTextCharacter { get => _value.MillisPerTextCharacter; set => _value.MillisPerTextCharacter = value; }
 
         static CurrentOptions()
         {
@@ -15,13 +20,13 @@ namespace SpaceResortMurder.State
 
         public static void Reset()
         {
-            Instance = new Options();
+            _value = new Options();
+            GameObjects.IO.Save("options", _value);
         }
 
         public static void Load()
         {
-            //Instance = new Options();
-            Instance = GameObjects.IO.HasSave("options")
+            _value = GameObjects.IO.HasSave("options")
                 ? GameObjects.IO.Load<Options>("options")
                 : new Options();
         }
@@ -34,15 +39,15 @@ namespace SpaceResortMurder.State
 
         public static void Update(Action<Options> update)
         {
-            update(Instance);
-            GameObjects.IO.Save("options", Instance);
-            Audio.SoundVolume = Instance.SoundVolume;
-            Audio.MusicVolume = Instance.MusicVolume;
+            update(_value);
+            GameObjects.IO.Save("options", _value);
+            Audio.SoundVolume = _value.SoundVolume;
+            Audio.MusicVolume = _value.MusicVolume;
         }
 
         private static void SetDisplay()
         {
-            var _options = Instance;
+            var _options = _value;
             var x = new Display((int)Math.Round(_options.Scale * 1600), (int)Math.Round(_options.Scale * 900),
                 _options.IsFullscreen, _options.Scale);
             Console.WriteLine("Fullscreen: " + x.FullScreen + " Scale: " + x.Scale + "" + " Game Width: " + x.GameWidth + " Game Height: " + x.GameHeight);

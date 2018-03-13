@@ -33,21 +33,21 @@ namespace SpaceResortMurder
 
         private static Game CreateGame()
         {
-            return CurrentOptions.Instance.IsFullscreen
+            return CurrentOptions.IsFullscreen
                 ? Perf.Time("Startup", () => new NeedlesslyComplexMainGame("ModeaJet Grand Resort", GameResources.MainMenuSceneName,
                     new Size2(1600, 900),
                     SetupScene(), CreateKeyboardController()))
                 : Perf.Time("Startup", () => new NeedlesslyComplexMainGame("ModeaJet Grand Resort", GameResources.MainMenuSceneName,
-                    new Display((int)Math.Round(CurrentOptions.Instance.Scale * 1600), (int)Math.Round(CurrentOptions.Instance.Scale * 900),
-                    false, CurrentOptions.Instance.Scale), SetupScene(), CreateKeyboardController()));
+                    new Display((int)Math.Round(CurrentOptions.Scale * 1600), (int)Math.Round(CurrentOptions.Scale * 900),
+                    false, CurrentOptions.Scale), SetupScene(), CreateKeyboardController()));
         }
 
         private static void Init()
         {
             InitFonts();
             GameResources.TestDilemmaAndDeductionSymbols();
-            Audio.MusicVolume = CurrentOptions.Instance.MusicVolume;
-            Audio.SoundVolume = CurrentOptions.Instance.SoundVolume;
+            Audio.MusicVolume = CurrentOptions.MusicVolume;
+            Audio.SoundVolume = CurrentOptions.SoundVolume;
         }
 
         private static void InitFonts()
