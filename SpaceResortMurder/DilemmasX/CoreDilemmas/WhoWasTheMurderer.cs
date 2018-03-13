@@ -3,6 +3,7 @@ using SpaceResortMurder.Deductions.MeleenasAccountValidity;
 using SpaceResortMurder.Deductions.TheMurdererWas;
 using SpaceResortMurder.Dialogues.RaymondsClone;
 using SpaceResortMurder.Dialogues.Zaid;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.DilemmasX
 {
@@ -17,9 +18,9 @@ namespace SpaceResortMurder.DilemmasX
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(YouWereNotAcceptedForBetaTesting))
-                || GameState.Instance.IsThinking(nameof(MeleenaIsLying))
-                || GameState.Instance.IsThinking(nameof(MeetingRaymondsClone));
+            return CurrentGameState.Instance.IsThinking(nameof(YouWereNotAcceptedForBetaTesting))
+                || CurrentGameState.Instance.IsThinking(nameof(MeleenaIsLying))
+                || CurrentGameState.Instance.IsThinking(nameof(MeetingRaymondsClone));
         }
     }
 }

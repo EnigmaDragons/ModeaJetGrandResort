@@ -21,7 +21,7 @@ namespace MonoDragons.Core.Graphics
             if (!Textures.ContainsKey(_color))
             {
                 var data = new[] {_color};
-                var texture = new Texture2D(GameInstance.TheGame.GraphicsDevice, 1, 1);
+                var texture = new Texture2D(CurrentGame.TheGame.GraphicsDevice, 1, 1);
                 texture.SetData(data);
                 Textures[_color] = texture;
             }

@@ -1,4 +1,5 @@
 ﻿using SpaceResortMurder.Dialogues.Meleena;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Dialogues.Warren
 {
@@ -8,8 +9,8 @@ namespace SpaceResortMurder.Dialogues.Warren
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(SearchYourCraftForEvidence)) 
-                && !GameState.Instance.IsThinking(nameof(ImOnlyInvestigatingTheMurder));
+            return CurrentGameState.Instance.IsThinking(nameof(SearchYourCraftForEvidence)) 
+                && !CurrentGameState.Instance.IsThinking(nameof(ImOnlyInvestigatingTheMurder));
         }
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 using MonoDragons.Core.EventSystem;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Clues
 {
@@ -34,7 +35,7 @@ namespace SpaceResortMurder.Clues
         {
             return new ExpandingImageButton(_image, _image, _image, _position, _position.Size / 8, () =>
             {
-                if (!GameState.Instance.IsThinking(_clue))
+                if (!CurrentGameState.Instance.IsThinking(_clue))
                     Event.Publish(new ThoughtGained(_clue));
                 onClick();
             }) { HoveredCursor = Cursors.Interactive };

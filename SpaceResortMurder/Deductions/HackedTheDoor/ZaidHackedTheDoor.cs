@@ -1,4 +1,5 @@
 ﻿using SpaceResortMurder.Dialogues.Warren;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Deductions
 {
@@ -8,7 +9,7 @@ namespace SpaceResortMurder.Deductions
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(MeetingWarren));
+            return CurrentGameState.Instance.IsThinking(nameof(MeetingWarren));
         }
     }
 }

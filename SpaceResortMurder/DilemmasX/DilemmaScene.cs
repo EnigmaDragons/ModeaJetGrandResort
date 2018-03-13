@@ -5,6 +5,7 @@ using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Scenes;
+using SpaceResortMurder.State;
 using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.DilemmasX
@@ -14,7 +15,7 @@ namespace SpaceResortMurder.DilemmasX
         protected override void OnInit()
         {
             Audio.PlayMusic("Pondering", 0.37f );
-            Add(UiButtons.Back(new Vector2(6, UI.OfScreenHeight(1.0f) - 138), () => Scene.NavigateTo(GameState.Instance.CurrentLocation)));
+            Add(UiButtons.Back(new Vector2(6, UI.OfScreenHeight(1.0f) - 138), () => Scene.NavigateTo(CurrentGameState.Instance.CurrentLocation)));
             if(GameObjects.Dilemmas.HasTheory)
                 Add(UiButtons.MenuRed("Resolve", new Vector2(UI.OfScreenWidth(0.5f) - 120, 700), () => Scene.NavigateTo(GameResources.ResolutionSceneName)));
             AddVisual(new Label

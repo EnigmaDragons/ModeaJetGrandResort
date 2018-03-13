@@ -74,7 +74,7 @@ namespace MonoDragons.Core.UserInterface
         public void Update(TimeSpan delta)
         {
             var mouse = Mouse.GetState();
-            if (GameInstance.TheGame.IsActive)
+            if (CurrentGame.TheGame.IsActive)
             {
                 var newElement = GetElement(mouse);
                 if (newElement != _current)

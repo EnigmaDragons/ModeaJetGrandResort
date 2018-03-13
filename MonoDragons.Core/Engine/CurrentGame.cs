@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace MonoDragons.Core.Engine
 {
-    public static class GameInstance
+    public static class CurrentGame
     {
-        private static readonly MustInit<Game> Game = new MustInit<Game>(nameof(GameInstance));
+        private static readonly MustInit<Game> Game = new MustInit<Game>(nameof(CurrentGame));
 
         public static Game TheGame => Game.Get();
         private static Cursor _cursor;

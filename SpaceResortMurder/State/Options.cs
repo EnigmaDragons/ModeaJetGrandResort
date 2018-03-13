@@ -2,7 +2,6 @@
 {
     public class Options
     {
-        public static Options Instance;
         public bool IsFullscreen { get; set; } = false;
         public float Scale { get; set; } = 1;
         public float MusicVolume { get; set; } = 1;

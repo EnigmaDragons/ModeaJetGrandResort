@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using SpaceResortMurder.Deductions.TheCulpritsMotive;
 using SpaceResortMurder.Deductions.TheMurdererWas;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.DilemmasX.CoreDilemmas
 {
@@ -19,11 +20,11 @@ namespace SpaceResortMurder.DilemmasX.CoreDilemmas
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(MeleenaWasTheCulprit))
-                   || GameState.Instance.IsThinking(nameof(ZaidWasTheCulprit))
-                   || GameState.Instance.IsThinking(nameof(TravisWasTheCulprit))
-                   || GameState.Instance.IsThinking(nameof(RaymondsCloneWasTheCulprit))
-                   || GameState.Instance.IsThinking(nameof(TravisAndRaymondsCloneAreTheCulprits));
+            return CurrentGameState.Instance.IsThinking(nameof(MeleenaWasTheCulprit))
+                   || CurrentGameState.Instance.IsThinking(nameof(ZaidWasTheCulprit))
+                   || CurrentGameState.Instance.IsThinking(nameof(TravisWasTheCulprit))
+                   || CurrentGameState.Instance.IsThinking(nameof(RaymondsCloneWasTheCulprit))
+                   || CurrentGameState.Instance.IsThinking(nameof(TravisAndRaymondsCloneAreTheCulprits));
         }
     }
 }

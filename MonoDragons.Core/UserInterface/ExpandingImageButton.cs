@@ -55,7 +55,7 @@ namespace MonoDragons.Core.UserInterface
         {
             _current = _hover;
             _currentTransform = _expandedTransform;
-            GameInstance.Cursor = HoveredCursor;
+            CurrentGame.Cursor = HoveredCursor;
 
             if (_isVisible())
                 OnEnter();
@@ -65,7 +65,7 @@ namespace MonoDragons.Core.UserInterface
         {
             _current = _basic;
             _currentTransform = _baseTransform;
-            GameInstance.Cursor = Cursors.Default;
+            CurrentGame.Cursor = Cursors.Default;
 
             if (_isVisible())
                 OnExit();

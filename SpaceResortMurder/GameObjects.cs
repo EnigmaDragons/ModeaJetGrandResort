@@ -14,7 +14,7 @@ namespace SpaceResortMurder
     {
         private static bool _hasInit = false;
 
-        public static AppDataJsonIo IO { get; } = new AppDataJsonIo("MonoDragons.Core");
+        public static AppDataJsonIo IO { get; } = new AppDataJsonIo("ModeaJet Grand Resort");
         public static Dilemmas Dilemmas { get; } = new Dilemmas();
         public static Hud Hud { get; } = new Hud();
         public static Characters Characters { get; } = new Characters();
@@ -26,7 +26,7 @@ namespace SpaceResortMurder
         {
             Cursors.Default = Cursors.LoadCustomCursor("Content/Cursors/PacmanGhost.ani");
             //Cursors.Interactive = Cursors.LoadCustomCursor(InsertInteractiveCursorHere);
-            GameInstance.Cursor = Cursors.Default;
+            CurrentGame.Cursor = Cursors.Default;
             if (_hasInit)
                 return;
             Dilemmas.Init();

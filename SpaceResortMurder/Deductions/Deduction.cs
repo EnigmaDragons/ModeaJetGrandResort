@@ -5,6 +5,7 @@ using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using System;
 using MonoDragons.Core.Engine;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Deductions
 {
@@ -14,8 +15,8 @@ namespace SpaceResortMurder.Deductions
         private readonly string _deductionText;
         private ImageLabel _conclusion;
         private Action _clearPriorDeduction;
-        public bool IsNew => !GameState.Instance.HasViewedItem(_thought);
-        public bool IsSelected => GameState.Instance.IsThinking(_thought);
+        public bool IsNew => !CurrentGameState.Instance.HasViewedItem(_thought);
+        public bool IsSelected => CurrentGameState.Instance.IsThinking(_thought);
 
         protected Deduction(string thought)
         {
@@ -44,7 +45,7 @@ namespace SpaceResortMurder.Deductions
             }, _deductionText, "UI/DilemmaCard", "UI/DilemmaCard-Hover", "UI/DilemmaCard-Press");
             button.OnEnter = () =>
             {
-                if (!GameState.Instance.HasViewedItem(_thought))
+                if (!CurrentGameState.Instance.HasViewedItem(_thought))
                     Event.Publish(new ItemViewed(_thought));
             };
             return button;
@@ -62,13 +63,13 @@ namespace SpaceResortMurder.Deductions
 
         public void DrawConclusionIfApplicable()
         {
-            if (GameState.Instance.IsThinking(_thought))
+            if (CurrentGameState.Instance.IsThinking(_thought))
                 _conclusion.Draw(Transform2.Zero);
         }
 
         public void Reset()
         {
-            if (GameState.Instance.IsThinking(_thought))
+            if (CurrentGameState.Instance.IsThinking(_thought))
                 Event.Publish(new ThoughtLost(_thought));
         }
     }

@@ -1,4 +1,5 @@
 ﻿using SpaceResortMurder.Clues.DockingBay;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Deductions.CauseOfDeath
 {
@@ -8,7 +9,7 @@ namespace SpaceResortMurder.Deductions.CauseOfDeath
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(GarbageAirlock));
+            return CurrentGameState.Instance.IsThinking(nameof(GarbageAirlock));
         }
     }
 }

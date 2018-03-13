@@ -7,6 +7,7 @@ using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Deductions;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.DilemmasX
 {
@@ -21,7 +22,7 @@ namespace SpaceResortMurder.DilemmasX
         private ImageBox _newDeductions;
 
         public ClickableUIElement Button => _button;
-        public bool IsNew => !GameState.Instance.HasViewedItem(_dilemma);
+        public bool IsNew => !CurrentGameState.Instance.HasViewedItem(_dilemma);
         public bool HasNewAnswers => _deductions.Any(d => d.IsActive() && d.IsNew);
         public bool HasAnswerSelected => _deductions.Any(x => x.IsSelected);
 
@@ -42,7 +43,7 @@ namespace SpaceResortMurder.DilemmasX
             _button = new ImageTextButton(_transform.ToRectangle(),
                 () =>
                 {
-                    if (!GameState.Instance.HasViewedItem(_dilemma))
+                    if (!CurrentGameState.Instance.HasViewedItem(_dilemma))
                         Event.Publish(new ItemViewed(_dilemma));
                     Scene.NavigateTo(new DeductionScene(_dilemmaText, _deductions.Where(x => x.IsActive()).ToList()));
                 },

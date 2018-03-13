@@ -27,12 +27,12 @@ namespace MonoDragons.Core.Engine
         public static void Init(SpriteBatch spriteBatch)
         {
             _spriteBatch = spriteBatch;
-            DefaultFont.Load(GameInstance.ContentManager);
+            DefaultFont.Load(CurrentGame.ContentManager);
         }
 
         public static void DrawBackgroundColor(Color color)
         {
-            GameInstance.GraphicsDevice.Clear(color);
+            CurrentGame.GraphicsDevice.Clear(color);
         }
 
         public static void Draw(Texture2D texture, Rectangle rectangle, Color color)

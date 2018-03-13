@@ -1,4 +1,5 @@
 ﻿using SpaceResortMurder.Clues.MeleenasSpaceCraft;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Dialogues.Meleena
 {
@@ -8,8 +9,8 @@ namespace SpaceResortMurder.Dialogues.Meleena
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(DataStick))
-                   && GameState.Instance.IsThinking(nameof(HereIsTheSearchOrder));
+            return CurrentGameState.Instance.IsThinking(nameof(DataStick))
+                   && CurrentGameState.Instance.IsThinking(nameof(HereIsTheSearchOrder));
         }
     }
 }

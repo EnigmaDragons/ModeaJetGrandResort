@@ -58,7 +58,7 @@ namespace MonoDragons.Core.Engine
         {
             Perf.Time($"{nameof(NeedlesslyComplexMainGame)}.Initialize", () =>
             {
-                GameInstance.Init(this);
+                CurrentGame.Init(this);
                 Resources.Init();
                 InitDisplayIfNeeded();
                 // @todo #1 Bug: Update the GraphicsDeviceManager in the constructor, to avoid the window being mispositioned and visibly changing size

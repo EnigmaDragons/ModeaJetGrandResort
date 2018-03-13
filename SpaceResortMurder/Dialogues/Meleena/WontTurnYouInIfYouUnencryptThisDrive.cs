@@ -1,4 +1,6 @@
-﻿namespace SpaceResortMurder.Dialogues.Meleena
+﻿using SpaceResortMurder.State;
+
+namespace SpaceResortMurder.Dialogues.Meleena
 {
     public class WontTurnYouInIfYouUnencryptThisDrive : Dialogue
     {
@@ -6,8 +8,8 @@
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(YouNeedToUnencryptThisDataStick))
-                   && !GameState.Instance.IsThinking(nameof(ObstructionOfJusticeWillAddToYourPrisonTime));
+            return CurrentGameState.Instance.IsThinking(nameof(YouNeedToUnencryptThisDataStick))
+                   && !CurrentGameState.Instance.IsThinking(nameof(ObstructionOfJusticeWillAddToYourPrisonTime));
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using SpaceResortMurder.Deductions.TheMurdererWas;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Deductions.TheCulpritsMotive
 {
@@ -8,7 +9,7 @@ namespace SpaceResortMurder.Deductions.TheCulpritsMotive
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(ZaidWasTheCulprit));
+            return CurrentGameState.Instance.IsThinking(nameof(ZaidWasTheCulprit));
         }
     }
 }

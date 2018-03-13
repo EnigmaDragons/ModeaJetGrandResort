@@ -1,5 +1,6 @@
 ﻿using SpaceResortMurder.Deductions.MeleenasAccountValidity;
 using SpaceResortMurder.Dialogues.Meleena;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Dialogues.RaymondsClone
 {
@@ -9,8 +10,8 @@ namespace SpaceResortMurder.Dialogues.RaymondsClone
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(MeleenaWasHonest))
-                   && GameState.Instance.IsThinking(nameof(MeleenaHeardRaymondsVoice));
+            return CurrentGameState.Instance.IsThinking(nameof(MeleenaWasHonest))
+                   && CurrentGameState.Instance.IsThinking(nameof(MeleenaHeardRaymondsVoice));
         }
     }
 }

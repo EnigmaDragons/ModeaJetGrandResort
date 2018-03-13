@@ -4,6 +4,7 @@ using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Text;
 using MonoDragons.Core.UserInterface;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Dialogues
 {
@@ -11,7 +12,7 @@ namespace SpaceResortMurder.Dialogues
     {
         private readonly string _dialog;
 
-        public bool IsNew => !GameState.Instance.HasViewedItem(_dialog);
+        public bool IsNew => !CurrentGameState.Instance.HasViewedItem(_dialog);
         public bool AutoPlay { get; protected set; } = false;
 
         protected Dialogue(string dialog)

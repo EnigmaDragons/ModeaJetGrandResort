@@ -2,6 +2,7 @@
 using MonoDragons.Core.PhysicsEngine;
 using SpaceResortMurder.Dialogues.Travis;
 using SpaceResortMurder.LocationsX;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.CharactersX
 {
@@ -15,7 +16,7 @@ namespace SpaceResortMurder.CharactersX
 
         public override string WhereAreYou()
         {
-            return GameState.Instance.IsThinking(nameof(InvestigateYourCloningMachine)) ? nameof(Lobby) : nameof(Lobby);
+            return CurrentGameState.Instance.IsThinking(nameof(InvestigateYourCloningMachine)) ? nameof(Lobby) : nameof(Lobby);
         }
 
         public override Transform2 WhereAreYouStanding()

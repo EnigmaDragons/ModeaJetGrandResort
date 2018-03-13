@@ -2,6 +2,7 @@
 using SpaceResortMurder.Clues;
 using SpaceResortMurder.Clues.DockingBay;
 using SpaceResortMurder.Deductions;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.DilemmasX
 {
@@ -16,7 +17,7 @@ namespace SpaceResortMurder.DilemmasX
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(RaymondsShip));
+            return CurrentGameState.Instance.IsThinking(nameof(RaymondsShip));
         }
     }
 }

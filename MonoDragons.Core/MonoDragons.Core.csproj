@@ -67,7 +67,7 @@
     <Compile Include="Common\Subject.cs" />
     <Compile Include="Common\SubscriptionAction.cs" />
     <Compile Include="EngimaDragons\PixelLogoScene.cs" />
-    <Compile Include="Engine\GameInstance.cs" />
+    <Compile Include="Engine\CurrentGame.cs" />
     <Compile Include="Engine\IVisualAutomaton.cs" />
     <Compile Include="Development\Metrics.cs" />
     <Compile Include="Engine\Timer.cs" />

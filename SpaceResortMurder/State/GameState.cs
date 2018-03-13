@@ -3,12 +3,10 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using SpaceResortMurder.Deductions.VictimsIdentity;
 
-namespace SpaceResortMurder
+namespace SpaceResortMurder.State
 {
     public class GameState
     {
-        public static GameState Instance { get; set; }
-
         [JsonProperty]
         private readonly HashSet<string> _viewedItems = new HashSet<string>
         {
@@ -19,7 +17,7 @@ namespace SpaceResortMurder
         {
             nameof(TheVictimIsRaymond)
         };
-        public string CurrentLocation { get; set; } = "";
+        public string CurrentLocation { get; set; } = GameResources.MainMenuSceneName;
 
         public GameState()
         {

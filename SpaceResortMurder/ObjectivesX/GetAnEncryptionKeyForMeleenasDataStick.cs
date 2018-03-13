@@ -1,5 +1,6 @@
 ﻿using SpaceResortMurder.Clues.MeleenasSpaceCraft;
 using SpaceResortMurder.Dialogues.Meleena;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.ObjectivesX
 {
@@ -9,10 +10,10 @@ namespace SpaceResortMurder.ObjectivesX
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(DataStick))
-                && !(GameState.Instance.IsThinking(nameof(CareToShowTheDirtYouCollected))
-                    || GameState.Instance.IsThinking(nameof(ObstructionOfJusticeWillAddToYourPrisonTime))
-                    || GameState.Instance.IsThinking(nameof(WontTurnYouInIfYouUnencryptThisDrive)));
+            return CurrentGameState.Instance.IsThinking(nameof(DataStick))
+                && !(CurrentGameState.Instance.IsThinking(nameof(CareToShowTheDirtYouCollected))
+                    || CurrentGameState.Instance.IsThinking(nameof(ObstructionOfJusticeWillAddToYourPrisonTime))
+                    || CurrentGameState.Instance.IsThinking(nameof(WontTurnYouInIfYouUnencryptThisDrive)));
         }
     }
 }

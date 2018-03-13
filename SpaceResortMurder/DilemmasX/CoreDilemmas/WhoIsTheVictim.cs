@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using SpaceResortMurder.Deductions.VictimsIdentity;
 using SpaceResortMurder.Dialogues.RaymondsClone;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.DilemmasX
 {
@@ -12,7 +13,7 @@ namespace SpaceResortMurder.DilemmasX
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(MeetingRaymondsClone));
+            return CurrentGameState.Instance.IsThinking(nameof(MeetingRaymondsClone));
         }
     }
 }

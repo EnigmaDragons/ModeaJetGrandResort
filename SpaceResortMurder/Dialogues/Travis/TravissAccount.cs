@@ -1,4 +1,6 @@
-﻿namespace SpaceResortMurder.Dialogues.Travis
+﻿using SpaceResortMurder.State;
+
+namespace SpaceResortMurder.Dialogues.Travis
 {
     public class TravissAccount : Dialogue
     {
@@ -6,7 +8,7 @@
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(WhyIsTravisAtTheResort));
+            return CurrentGameState.Instance.IsThinking(nameof(WhyIsTravisAtTheResort));
         }
     }
 }
