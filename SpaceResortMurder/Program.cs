@@ -45,6 +45,7 @@ namespace SpaceResortMurder
         private static void Init()
         {
             InitFonts();
+            GameResources.TestDilemmaAndDeductionSymbols();
             Audio.MusicVolume = CurrentOptions.Instance.MusicVolume;
             Audio.SoundVolume = CurrentOptions.Instance.SoundVolume;
         }

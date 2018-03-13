@@ -12,8 +12,7 @@ namespace SpaceResortMurder.Deductions
     public abstract class Deduction
     {
         private readonly string _thought;
-        private readonly string _deductionText;
-        private ImageLabel _conclusion;
+        private Transform2 _conclusionTransform;
         private Action _clearPriorDeduction;
         public bool IsNew => !CurrentGameState.Instance.HasViewedItem(_thought);
         public bool IsSelected => CurrentGameState.Instance.IsThinking(_thought);
@@ -21,19 +20,23 @@ namespace SpaceResortMurder.Deductions
         protected Deduction(string thought)
         {
             _thought = thought;
-            _deductionText = GameResources.GetDilemmaOrDeductionText(thought);
         }
 
         public void Init(Action clearPriorDeduction, Transform2 conclusionTransform)
         {
             _clearPriorDeduction = clearPriorDeduction;
-            _conclusion = new ImageLabel(conclusionTransform, "UI/SelectedDeduction")
-            { 
-                Text = _deductionText
-            };
+            _conclusionTransform = conclusionTransform;
         }
 
         public abstract bool IsActive();
+
+        public IVisual CreateConclusion()
+        {
+            return new ImageLabel(_conclusionTransform, "UI/SelectedDeduction")
+            {
+                Text = GameResources.GetDilemmaOrDeductionText(_thought)
+            };
+        }
 
         public VisualClickableUIElement CreateButton(Vector2 position)
         {
@@ -42,7 +45,7 @@ namespace SpaceResortMurder.Deductions
                 _clearPriorDeduction();
                 Event.Publish(new ThoughtGained(_thought));
                 Scene.NavigateTo("Dilemmas");
-            }, _deductionText, "UI/DilemmaCard", "UI/DilemmaCard-Hover", "UI/DilemmaCard-Press");
+            }, GameResources.GetDilemmaOrDeductionText(_thought), "UI/DilemmaCard", "UI/DilemmaCard-Hover", "UI/DilemmaCard-Press");
             button.OnEnter = () =>
             {
                 if (!CurrentGameState.Instance.HasViewedItem(_thought))
@@ -61,15 +64,9 @@ namespace SpaceResortMurder.Deductions
             };
         }
 
-        public void DrawConclusionIfApplicable()
-        {
-            if (CurrentGameState.Instance.IsThinking(_thought))
-                _conclusion.Draw(Transform2.Zero);
-        }
-
         public void Reset()
         {
-            if (CurrentGameState.Instance.IsThinking(_thought))
+            if (IsSelected)
                 Event.Publish(new ThoughtLost(_thought));
         }
     }

@@ -22,6 +22,7 @@ namespace SpaceResortMurder.State
 
         public static void Load()
         {
+            //Instance = new Options();
             Instance = GameObjects.IO.HasSave("options")
                 ? GameObjects.IO.Load<Options>("options")
                 : new Options();

@@ -8,27 +8,24 @@ using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Deductions;
 using SpaceResortMurder.State;
+using System.Collections.Generic;
 
 namespace SpaceResortMurder.DilemmasX
 {
-    public abstract class Dilemma : IVisual
+    public abstract class Dilemma
     {
-        private readonly string _dilemmaText;
         private readonly string _dilemma;
         private readonly Deduction[] _deductions;
         private readonly Transform2 _transform;
-        private ImageTextButton _button;
         private ImageBox _newDilemma;
         private ImageBox _newDeductions;
 
-        public ClickableUIElement Button => _button;
         public bool IsNew => !CurrentGameState.Instance.HasViewedItem(_dilemma);
         public bool HasNewAnswers => _deductions.Any(d => d.IsActive() && d.IsNew);
         public bool HasAnswerSelected => _deductions.Any(x => x.IsSelected);
 
         protected Dilemma(Vector2 position, string dilemma, params Deduction[] deductions)
         {
-            _dilemmaText = GameResources.GetDilemmaOrDeductionText(dilemma);
             _transform = new Transform2(position, new Size2(360, 120));
             _dilemma = dilemma;
             _deductions = deductions;
@@ -40,15 +37,6 @@ namespace SpaceResortMurder.DilemmasX
                 new Transform2(
                     new Vector2(_transform.Location.X, _transform.Location.Y + _transform.Size.Height - 8),
                     new Size2(_transform.Size.Width, 92))));
-            _button = new ImageTextButton(_transform.ToRectangle(),
-                () =>
-                {
-                    if (!CurrentGameState.Instance.HasViewedItem(_dilemma))
-                        Event.Publish(new ItemViewed(_dilemma));
-                    Scene.NavigateTo(new DeductionScene(_dilemmaText, _deductions.Where(x => x.IsActive()).ToList()));
-                },
-                _dilemmaText,
-                "UI/DilemmaCard", "UI/DilemmaCard-Hover", "UI/DilemmaCard-Press");
             _newDilemma = new ImageBox
             {
                 Transform = new Transform2(new Vector2(_transform.Location.X + 8, _transform.Location.Y + 8), new Size2(36, 36)),
@@ -61,26 +49,30 @@ namespace SpaceResortMurder.DilemmasX
             };
         }
 
+        public ImageTextButton CreateButton()
+        {
+            return new ImageTextButton(_transform.ToRectangle(),
+                () =>
+                {
+                    if (!CurrentGameState.Instance.HasViewedItem(_dilemma))
+                        Event.Publish(new ItemViewed(_dilemma));
+                    Scene.NavigateTo(new DeductionScene(GameResources.GetDilemmaOrDeductionText(_dilemma), _deductions.Where(x => x.IsActive()).ToList()));
+                },
+                GameResources.GetDilemmaOrDeductionText(_dilemma),
+                "UI/DilemmaCard", "UI/DilemmaCard-Hover", "UI/DilemmaCard-Press");
+        }
+
         public abstract bool IsActive();
 
-        public void Draw(Transform2 parentTransform)
+        public List<IVisual> GetVisuals()
         {
-            _deductions.ForEach(x => x.DrawConclusionIfApplicable());
-            _button.Draw(parentTransform);
-            DrawNewAnswersIfApplicable();
-            DrawNewIconIfApplicable();
-        }
-
-        private void DrawNewIconIfApplicable()
-        {
+            var visuals = new List<IVisual>();
             if (IsNew)
-                _newDilemma.Draw(Transform2.Zero);
-        }
-
-        private void DrawNewAnswersIfApplicable()
-        {
+                visuals.Add(_newDilemma);
             if (HasNewAnswers)
-                _newDeductions.Draw(Transform2.Zero);
+                visuals.Add(_newDeductions);
+            visuals.AddRange(_deductions.Where(x => x.IsSelected).Select(x => x.CreateConclusion()));
+            return visuals;
         }
 
         private void ClearPriorDeductions()

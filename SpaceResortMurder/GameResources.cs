@@ -20,6 +20,10 @@ using SpaceResortMurder.Dialogues.Zaid;
 using SpaceResortMurder.DilemmasX;
 using SpaceResortMurder.DilemmasX.CoreDilemmas;
 using SpaceResortMurder.ResolutionsX;
+using SpaceResortMurder.State;
+using System.Text;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace SpaceResortMurder
 {
@@ -35,6 +39,21 @@ namespace SpaceResortMurder
         public const string ResolutionSceneName = "Resolution";
         public const string EndingSceneName = "Ending";
 
+        public static void TestDilemmaAndDeductionSymbols()
+        {
+            foreach (var pair in _dilemmaOrDeductionText)
+            {
+                if (pair.Value.Where(c => c == '\\').Count() % 2 == 1)
+                    throw new FormatException("A dilemma or deduction uses the reserved character '\\' improperly, you are suppose to use them in pairs with the text evaluation symbol between them");
+                var matches = Regex.Matches(pair.Value, "\\\\([^\\\\]*)\\\\");
+                foreach (Match match in matches)
+                    foreach (Capture capture in match.Captures)
+                        // The first capture is the whole value not a value caught by the capture zone
+                        if (!capture.Value.Contains("\\") && !_dilemmaOrDeductionSymbols.ContainsKey(capture.Value))
+                            throw new NotImplementedException("A dilemma or deduction uses unimplemented symbol \"" + capture + "\"");
+            }
+        }
+
         private static string[] _notImplementedClueLines = new string[] { "This clue hasn't been implemented" };
         public static string[] GetClueLines(string dialogOrClue)
         {
@@ -47,8 +66,28 @@ namespace SpaceResortMurder
         public static string GetDilemmaOrDeductionText(string dilemmaOrDeduction)
         {
             if (_dilemmaOrDeductionText.ContainsKey(dilemmaOrDeduction))
-                return _dilemmaOrDeductionText[dilemmaOrDeduction];
+                return ReplaceSymbols(_dilemmaOrDeductionText[dilemmaOrDeduction].ToCharArray());
             return _notImplementedDilemmaOrDeductionText;
+        }
+        private static string ReplaceSymbols(char[] text)
+        {
+            var builder = new StringBuilder();
+            for (var i = 0; i < text.Length; i++)
+                if (text[i] == '\\')
+                {
+                    var symbol = new StringBuilder();
+                    for (i++; ; i++)
+                        if (text[i] == '\\')
+                        {
+                            builder.Append(_dilemmaOrDeductionSymbols[symbol.ToString()]());
+                            break;
+                        }
+                        else
+                            symbol.Append(text[i]);
+                }
+                else
+                    builder.Append(text[i]);
+            return builder.ToString();
         }
 
         private const string _notImplementedObjectiveText = "This objective hasn't been implemented";
@@ -88,7 +127,7 @@ namespace SpaceResortMurder
             return _notImplementedResolution;
         }
 
-        private static Dictionary<string, string[]> _clues = new Dictionary<string, string[]>() {
+        private static Dictionary<string, string[]> _clues = new Dictionary<string, string[]> {
             #region Docking Bay
             { nameof(RaymondsShip), new string[] {
                 "The ship is a Regal Glider an expensive personal craft.",
@@ -394,12 +433,12 @@ namespace SpaceResortMurder
             #endregion
         };
 
-        private static Dictionary<string, string> _dilemmaOrDeductionText = new Dictionary<string, string>() {
-            { nameof(WhoWasTheMurderer), "Who killed the victim?" },
+        private static Dictionary<string, string> _dilemmaOrDeductionText = new Dictionary<string, string> {
+            { nameof(WhoWasTheMurderer), "Who killed \\Raymond\\?" },
             { nameof(ZaidWasTheCulprit), "Zaid" },
             { nameof(MeleenaWasTheCulprit), "Meleena" },
             { nameof(TravisWasTheCulprit), "Travis" },
-            { nameof(RaymondsCloneWasTheCulprit), "Raymond's Clone" },
+            { nameof(RaymondsCloneWasTheCulprit), "\\NotRaymond\\" },
             { nameof(TravisAndRaymondsCloneAreTheCulprits), "Travis used Raymond's Clone" },
 
             { nameof(WhatWasTheCauseOfDeath), "What was the victim's cause of death?" },
@@ -442,6 +481,20 @@ namespace SpaceResortMurder
             { nameof(WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip), "Was Meleena honest in what happened on Raymond's ship." },
             { nameof(MeleenaWasHonest), "Yes" },
             { nameof(MeleenaIsLying), "No, Something about her testimony is off." }
+        };
+
+        private static Dictionary<string, Func<string>> _dilemmaOrDeductionSymbols = new Dictionary<string, Func<string>>
+        {
+            { "Raymond",
+                () => CurrentGameState.Instance.IsThinking(nameof(TheVictimIsRaymondsClone))
+                ? "Raymond's Clone"
+                : "Raymond"
+            },
+            { "NotRaymond",
+                () => CurrentGameState.Instance.IsThinking(nameof(TheVictimIsRaymondsClone))
+                ? "Raymond"
+                : "Raymond's Clone"
+            },
         };
 
         private static Dictionary<string, Tuple<string, string>> _objectiveTexts = new Dictionary<string, Tuple<string, string>>()

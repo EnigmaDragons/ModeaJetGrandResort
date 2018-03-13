@@ -28,8 +28,8 @@ namespace SpaceResortMurder.DilemmasX
             });
             GameObjects.Dilemmas.GetActiveDilemmas().ForEach(d =>
             {
-                AddVisual(d);
-                AddUi(d.Button);
+                d.GetVisuals().ForEach(v => AddVisual(v));
+                Add(d.CreateButton());
             });
         }
 

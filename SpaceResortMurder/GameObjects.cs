@@ -22,6 +22,11 @@ namespace SpaceResortMurder
         public static Objectives Objectives { get; } = new Objectives();
         public static Resolutions Resolutions { get; } = new Resolutions();
 
+        static GameObjects()
+        {
+
+        }
+
         public static void InitIfNeeded()
         {
             //Cursors.Default = Cursors.LoadCustomCursor("Content/Cursors/PacmanGhost.ani");

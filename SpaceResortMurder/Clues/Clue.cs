@@ -35,7 +35,7 @@ namespace SpaceResortMurder.Clues
             };
         }
 
-        public ExpandingImageButton CreateButton(Action onClick)
+        public VisualClickableUIElement CreateButton(Action onClick)
         {
             return new ExpandingImageButton(_image, _image, _image, _position, _position.Size / 8, () =>
             {

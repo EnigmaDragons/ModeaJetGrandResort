@@ -33,6 +33,7 @@ namespace SpaceResortMurder.Scenes
 
         protected override void DrawBackground()
         {
+            //new ColoredRectangle() { Transform = new MonoDragons.Core.PhysicsEngine.Transform2(new Siz) }.Draw();
             UI.FillScreen("UI/MainMenuBg");
             UI.Darken();
             World.Draw("characters/resort_manager_colored", new Vector2(700, 500));
