@@ -13,6 +13,7 @@ using SpaceResortMurder.Clues;
 using SpaceResortMurder.Dialogues;
 using SpaceResortMurder.Style;
 using SpaceResortMurder.State;
+using MonoDragons.Core.EventSystem;
 
 namespace SpaceResortMurder.LocationsX
 {
@@ -48,6 +49,8 @@ namespace SpaceResortMurder.LocationsX
 
         public void Init()
         {
+            if(!CurrentGameState.Instance.HasViewedItem(_location))
+                Event.Publish(new ItemViewed(_location));
             GameObjects.InitIfNeeded();
             CurrentGameState.Instance.CurrentLocation = _location;
             

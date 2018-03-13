@@ -90,7 +90,7 @@ namespace SpaceResortMurder.CharactersX
 
         public void DrawNewIconIfApplicable()
         {
-            if (GetNewDialogs().Any(d => d.IsNew))
+            if (GetNewDialogs().Count != 0)
                 _newDialogIcon.Draw(new Transform2(WhereAreYouStanding().Location));
         }
         
