@@ -1,5 +1,4 @@
-﻿using SpaceResortMurder.Clues;
-using SpaceResortMurder.ObjectivesX;
+﻿using SpaceResortMurder.ObjectivesX;
 using System;
 using System.Collections.Generic;
 using SpaceResortMurder.Clues.DockingBay;
@@ -7,9 +6,10 @@ using SpaceResortMurder.Clues.MeleenasSpaceCraft;
 using SpaceResortMurder.Clues.RaymondsSpaceCraft;
 using SpaceResortMurder.Deductions;
 using SpaceResortMurder.Deductions.CauseOfDeath;
-using SpaceResortMurder.Deductions.EnteredSpaceFrom;
 using SpaceResortMurder.Deductions.MeleenasAccountValidity;
+using SpaceResortMurder.Deductions.TheCulpritsMotive;
 using SpaceResortMurder.Deductions.TheMurdererWas;
+using SpaceResortMurder.Deductions.VictimsIdentity;
 using SpaceResortMurder.Deductions.ZaidsResortForBetaTesting;
 using SpaceResortMurder.Dialogues.Meleena;
 using SpaceResortMurder.Dialogues.RaymondsClone;
@@ -17,6 +17,7 @@ using SpaceResortMurder.Dialogues.Travis;
 using SpaceResortMurder.Dialogues.Warren;
 using SpaceResortMurder.Dialogues.Zaid;
 using SpaceResortMurder.DilemmasX;
+using SpaceResortMurder.DilemmasX.CoreDilemmas;
 using SpaceResortMurder.ResolutionsX;
 
 namespace SpaceResortMurder
@@ -380,6 +381,34 @@ namespace SpaceResortMurder
         };
 
         private static Dictionary<string, string> _dilemmaOrDeductionText = new Dictionary<string, string>() {
+            { nameof(WhoWasTheMurderer), "Who killed the victim?" },
+            { nameof(ZaidWasTheCulprit), "Zaid" },
+            { nameof(MeleenaWasTheCulprit), "Meleena" },
+            { nameof(TravisWasTheCulprit), "Travis" },
+            { nameof(RaymondsCloneWasTheCulprit), "Raymond's Clone" },
+            { nameof(TravisAndRaymondsCloneAreTheCulprits), "Travis used Raymond's Clone" },
+
+            { nameof(WhatWasTheCauseOfDeath), "What was the victim's cause of death?" },
+            { nameof(ChokedBySomeone), "The victim was choked to death prior to his exposure to space" },
+            { nameof(PushedOutOfHisShip), "The victim was pushed into space from his ship" },
+            { nameof(PoisonNeedles), "The victim died from his lungs giving out due to poison needles" },
+            { nameof(LaunchedIntoSpaceFromTheGarbageAirlock), "The victim was launched into space from the garbage airlock" },
+
+            { nameof(WhatWasTheCulpritsMotive), "What was the culprits motive?" },
+            { nameof(MeleenaGotCaught), "Meleena was discovered on Raymond's ship and rather than go to prison she killed him" },
+            { nameof(MeleenaKilledHimBecauseHeIsEvil), "Meleena had discovered that he covered up a massacre within his company" },
+            { nameof(RaymondsCloneWasDesignedToKillForRevenge), "Travis blames Raymond for the death of his brother, so he made a murderous clone" },
+            { nameof(RaymondsCloneWasDesignedToKillAndThenControlHumanPerfectByProxy), "Travis wanted to control Human Perfect, so he made a clone to replace Raymond" },
+            { nameof(RaymondWasDefendingHimself), "Raymond was attacked by the murderous clone and defended himself." },
+            { nameof(RevengeForHisBrothersDeath), "Travis blames Raymond for the death of his brother." },
+            { nameof(ToFrameRaymondAndMakeHimLookLikeAClone), "Travis blamed Raymond for his brothers death, so he wanted to imprison and humiliate Raymond" },
+            { nameof(ToReplaceRaymondAsCEO), "Raymond's clone wasn't satisfied pretending to be the CEO. He decided he was going to replace Raymond." },
+            { nameof(ToSaveHisResort), "Zaid needed his resort to be accepted for resort clones beta-testing" },
+
+            { nameof(WhoIsTheVictim), "Who was the victim?" },
+            { nameof(TheVictimIsRaymond), "Raymond" },
+            { nameof(TheVictimIsRaymondsClone), "Raymond's Clone" },
+
             { nameof(WhoShotRaymondsShip), "Who shot Raymond's ship?" },
             { nameof(RaymondShotHisOwnShip), "Raymond" },
             { nameof(ZaidShotRaymondsShip), "Zaid" },
@@ -392,28 +421,13 @@ namespace SpaceResortMurder
             { nameof(TravisHackedTheDoor), "Travis" },
             { nameof(ZaidHackedTheDoor), "Zaid" },
 
-            { nameof(WhereDidHeEnterSpaceFrom), "Where did he enter space from?" },
-            { nameof(CameFromHisShip), "He was pushed out of his ship into space without a suit" },
-            { nameof(CameFromtheGarbageAirlock), "He was launched from the garbage airlock in the docking bay" },
-
-            { nameof(WhatWasTheCauseOfDeath), "What was the victim's cause of death?" },
-            { nameof(ChokedBySomeone), "He was choked to death prior to his exposure to space" },
-            { nameof(LackOfOxygenInSpace), "The victim was pushed into space died while in space" },
-            { nameof(PoisonNeedles), "Poison needles were his hidden killer" },
-
             { nameof(WasZaidsResortAcceptedAsABetaTester), "Was Zaid's resort accepted for the beta testing program?" },
             { nameof(ZaidsResortAccepted), "His resort was accepted, because of the message on Raymond's pad." },
             { nameof(ZaidsResortDeclined), "His resort was declined, Zaid's resort was crossed off." },
-
-            { nameof(WhoWasTheMurderer), "Who killed the victim?" },
-            { nameof(ZaidKilledForHisResort), "Zaid's resort needed the new resort clones to stay afloat. So he killed to ensure he would get them." },
-
+            
             { nameof(WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip), "Was Meleena honest in what happened on Raymond's ship." },
             { nameof(MeleenaWasHonest), "Yes" },
             { nameof(MeleenaIsLying), "No, Something about her testimony is off." }
-
-
-
         };
 
         private static Dictionary<string, Tuple<string, string>> _objectiveTexts = new Dictionary<string, Tuple<string, string>>()

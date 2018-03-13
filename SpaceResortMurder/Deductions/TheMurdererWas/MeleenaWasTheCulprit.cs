@@ -2,9 +2,9 @@
 
 namespace SpaceResortMurder.Deductions.TheMurdererWas
 {
-    public class MeleenaKilledHimCauseHeIsCorrupt : Deduction
+    public class MeleenaWasTheCulprit : Deduction
     {
-        public MeleenaKilledHimCauseHeIsCorrupt() : base(nameof(MeleenaKilledHimCauseHeIsCorrupt)) {}
+        public MeleenaWasTheCulprit() : base(nameof(MeleenaWasTheCulprit)) {}
 
         public override bool IsActive()
         {

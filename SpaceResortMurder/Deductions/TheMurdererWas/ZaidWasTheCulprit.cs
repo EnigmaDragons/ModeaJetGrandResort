@@ -1,11 +1,10 @@
-﻿using System;
-using SpaceResortMurder.Dialogues.Zaid;
+﻿using SpaceResortMurder.Dialogues.Zaid;
 
 namespace SpaceResortMurder.Deductions.TheMurdererWas
 {
-    public class ZaidKilledForHisResort : Deduction
+    public class ZaidWasTheCulprit : Deduction
     {
-        public ZaidKilledForHisResort() : base(nameof(ZaidKilledForHisResort)) {}
+        public ZaidWasTheCulprit() : base(nameof(ZaidWasTheCulprit)) {}
 
         public override bool IsActive()
         {

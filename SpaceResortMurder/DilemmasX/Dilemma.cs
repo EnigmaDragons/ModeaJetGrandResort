@@ -23,6 +23,7 @@ namespace SpaceResortMurder.DilemmasX
         public ClickableUIElement Button => _button;
         public bool IsNew => !GameState.Instance.HasViewedItem(_dilemma);
         public bool HasNewAnswers => _deductions.Any(d => d.IsActive() && d.IsNew);
+        public bool HasAnswerSelected => _deductions.Any(x => x.IsSelected);
 
         protected Dilemma(Vector2 position, string dilemma, params Deduction[] deductions)
         {

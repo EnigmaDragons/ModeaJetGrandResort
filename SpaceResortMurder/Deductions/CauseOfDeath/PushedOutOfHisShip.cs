@@ -1,8 +1,8 @@
 ﻿namespace SpaceResortMurder.Deductions.CauseOfDeath
 {
-    public class LackOfOxygenInSpace : Deduction
+    public class PushedOutOfHisShip : Deduction
     {
-        public LackOfOxygenInSpace() : base(nameof(LackOfOxygenInSpace)) {}
+        public PushedOutOfHisShip() : base(nameof(PushedOutOfHisShip)) {}
 
         public override bool IsActive()
         {

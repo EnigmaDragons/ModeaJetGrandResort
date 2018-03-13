@@ -1,29 +1,38 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SpaceResortMurder.DilemmasX.CoreDilemmas;
 
 namespace SpaceResortMurder.DilemmasX
 {
     public class Dilemmas
     {
-        private List<Dilemma> _dilemmas = new List<Dilemma>()
+        private List<Dilemma> _coreDilemmas = new List<Dilemma>
+        {
+            new WhoWasTheMurderer(),
+            new WhatWasTheCauseOfDeath(),
+            new WhatWasTheCulpritsMotive(),
+            new WhoIsTheVictim(),
+        };
+
+        private List<Dilemma> _dilemmas = new List<Dilemma>
         {
             new WhoShotRaymondsShip(),
-            new WhatWasTheCauseOfDeath(),
             new WhoHackedTheDoor(),
-            new WhereDidHeEnterSpaceFrom(),
             new WasZaidsResortAcceptedAsABetaTester(),
-            new WhoWasTheMurderer(),
             new WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip(),
         };
 
+        public bool HasTheory => _coreDilemmas.All(d => d.HasAnswerSelected);
+
         public IReadOnlyList<Dilemma> GetActiveDilemmas()
         {
-            return _dilemmas.Where(d => d.IsActive()).ToList();
+            return _dilemmas.Where(d => d.IsActive()).Concat(_coreDilemmas.Where(d => d.IsActive())).ToList();
         }
 
         public void Init()
         {
             _dilemmas.ForEach(d => d.Init());
+            _coreDilemmas.ForEach(d => d.Init());
         }
     }
 }

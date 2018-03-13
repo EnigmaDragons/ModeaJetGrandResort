@@ -15,6 +15,7 @@ namespace SpaceResortMurder.Deductions
         private ImageLabel _conclusion;
         private Action _clearPriorDeduction;
         public bool IsNew => !GameState.Instance.HasViewedItem(_thought);
+        public bool IsSelected => GameState.Instance.IsThinking(_thought);
 
         protected Deduction(string thought)
         {
