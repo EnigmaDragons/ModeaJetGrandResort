@@ -65,29 +65,39 @@ namespace SpaceResortMurder.Scenes
             var colX = XPos(0.75f);
             Add(UiLabels.Option("Audio", new Vector2(colX, Height(0))));
             Add(UiButtons.Menu("Sound +", new Vector2(colX, Height(1)), () =>
-                {
-                    CurrentOptions.Update((x) => x.SoundVolume = Math.Min(x.SoundVolume + 0.1f, 1));
-                    _soundVolume.Text = $"Sound: {(int)Math.Floor(CurrentOptions.SoundVolume * 10)}";
-                }));
-            _soundVolume = VolumeLabel($"Sound: {(int)Math.Floor(CurrentOptions.SoundVolume * 10)}", new Vector2(colX, Height(2)), Color.Black);
+            {
+                CurrentOptions.Update((x) => x.SoundVolume = Math.Min(x.SoundVolume + 0.1f, 1));
+                _soundVolume.Text = GetSoundVolumeText();
+            }));
+            _soundVolume = VolumeLabel(GetSoundVolumeText(), new Vector2(colX, Height(2)), Color.Black);
             Add(_soundVolume);
             Add(UiButtons.Menu("Sound -", new Vector2(colX, Height(3)), () =>
                 {
                     CurrentOptions.Update((x) => x.SoundVolume = Math.Max(x.SoundVolume - 0.1f, 0));
-                    _soundVolume.Text = $"Sound: {(int)Math.Floor(CurrentOptions.SoundVolume * 10)}";
+                    _soundVolume.Text = GetSoundVolumeText();
                 }));
             Add(UiButtons.Menu("Music +", new Vector2(colX, Height(4)), () =>
-                {
-                    CurrentOptions.Update((x) => x.MusicVolume = Math.Min(x.MusicVolume + 0.1f, 1));
-                    _musicVolume.Text = $"Music: {(int)Math.Floor(CurrentOptions.MusicVolume * 10)}";
-                }));
-            _musicVolume = VolumeLabel($"Music: {(int)Math.Floor(CurrentOptions.MusicVolume * 10)}", new Vector2(colX, Height(5)), Color.Black);
+            {
+                CurrentOptions.Update((x) => x.MusicVolume = Math.Min(x.MusicVolume + 0.1f, 1));
+                _musicVolume.Text = GetMusicVolumeText();
+            }));
+            _musicVolume = VolumeLabel(GetMusicVolumeText(), new Vector2(colX, Height(5)), Color.Black);
             Add(_musicVolume);
             Add(UiButtons.Menu("Music -", new Vector2(colX, Height(6)), () =>
                 {
                     CurrentOptions.Update((x) => x.MusicVolume = Math.Max(x.MusicVolume - 0.1f, 0));
-                    _musicVolume.Text = $"Music: {(int)Math.Floor(CurrentOptions.MusicVolume * 10)}";
+                    _musicVolume.Text = GetMusicVolumeText();
                 }));
+        }
+
+        private static string GetMusicVolumeText()
+        {
+            return $"Music: {(int)Math.Round(CurrentOptions.MusicVolume * 10)}";
+        }
+
+        private static string GetSoundVolumeText()
+        {
+            return $"Sound: {(int)Math.Round(CurrentOptions.SoundVolume * 10)}";
         }
 
         protected override void DrawBackground()
