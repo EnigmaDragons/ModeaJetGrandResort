@@ -14,7 +14,7 @@ namespace SpaceResortMurder.LocationsX
 
         protected override void OnInit()
         {
-            Audio.PlayMusic("DockingBay", 0.20f * Options.Instance.MusicVolume);
+            Audio.PlayMusic("DockingBay", 0.20f);
             AddClue(new RaymondsShip());
             AddClue(new MeleenasShip());
             AddClue(new PoliceCruiser());

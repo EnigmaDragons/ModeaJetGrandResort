@@ -82,7 +82,7 @@ namespace MonoDragons.Core.UserInterface
                 else if (MouseIsOutOfGame(mouse))
                     return;
                 else if (WasMouseReleased(mouse))
-                    OnReleased();
+                    OnReleased(mouse);
                 else if (mouse.LeftButton == ButtonState.Pressed)
                     OnPressed();
             }
@@ -103,10 +103,12 @@ namespace MonoDragons.Core.UserInterface
             _wasClicked = true;
         }
 
-        private void OnReleased()
+        private void OnReleased(MouseState mouse)
         {
             _current.OnReleased();
             _wasClicked = false;
+            if(_current == GetElement(mouse))
+                _current.OnEntered();
         }
 
         private void ChangeActiveElement(ClickableUIElement newElement)

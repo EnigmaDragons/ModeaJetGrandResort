@@ -27,17 +27,20 @@ namespace SpaceResortMurder
         {
             GameState.Instance = new GameState();
             InitFonts();
-            Options.Instance = new Options();
-            Options.Instance = GameObjects.IO.HasSave("options", "json")
+            var options = new Options();
+            Options.Instance = options;
+            options = GameObjects.IO.HasSave("options", "json")
                 ? GameObjects.IO.Load<Options>("options", "json")
                 : new Options();
+            Audio.MusicVolume = options.MusicVolume;
+            Audio.SoundVolume = options.SoundVolume;
             using (var game = Options.Instance.IsFullscreen
                 ? Perf.Time("Startup", () => new NeedlesslyComplexMainGame("MonoDragons.Core", GameResources.MainMenuSceneName,
                     new Size2(1600, 900),
                     SetupScene(), CreateKeyboardController()))
                 : Perf.Time("Startup", () => new NeedlesslyComplexMainGame("MonoDragons.Core", GameResources.MainMenuSceneName,
-                    new Display((int)Math.Round(Options.Instance.Scale * 1600), (int)Math.Round(Options.Instance.Scale * 900),
-                    false, Options.Instance.Scale), SetupScene(), CreateKeyboardController())))
+                    new Display((int)Math.Round(options.Scale * 1600), (int)Math.Round(options.Scale * 900),
+                    false, options.Scale), SetupScene(), CreateKeyboardController())))
                 game.Run();
         }
 

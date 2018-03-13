@@ -53,7 +53,7 @@ namespace SpaceResortMurder.Style
 
         private static void PlayMenuButtonSound()
         {
-            Audio.PlaySound("MenuButtonPress", 0.4f * Options.Instance.SoundVolume);
+            Audio.PlaySound("MenuButtonPress", 0.4f);
         }
     }
 }

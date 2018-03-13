@@ -8,6 +8,9 @@ namespace MonoDragons.Core.AudioSystem
         private static Dampening _backgroundMusic;
         private static string _currentMusic = "";
 
+        public static float MusicVolume { get; set; } = 1;
+        public static float SoundVolume { get; set; } = 1;
+
         public static void PlaySound(string name)
         {
             PlaySound(name, 1.0f);
@@ -15,7 +18,7 @@ namespace MonoDragons.Core.AudioSystem
 
         public static void PlaySound(string name, float volume)
         {
-            AudioPlayer.Instance.Play(new PlayOnce($"Content/Sounds/{ name }.mp3", volume));
+            AudioPlayer.Instance.Play(new PlayOnce($"Content/Sounds/{ name }.mp3", volume * SoundVolume));
         }
 
         public static void PlayMusicEffect(string name)
@@ -25,7 +28,7 @@ namespace MonoDragons.Core.AudioSystem
 
         public static void PlayMusicEffect(string name, float volume)
         {
-            var input = new PlayOnce($"Content/Music/{ name }.mp3", volume);
+            var input = new PlayOnce($"Content/Music/{ name }.mp3", volume * SoundVolume);
 
             if (_backgroundMusic != null)
             {
@@ -51,7 +54,7 @@ namespace MonoDragons.Core.AudioSystem
         {
             if (_currentMusic != name)
             {
-                TransitionToSong(volume, new PlayOnce($"Content/Music/{ name }.mp3"));
+                TransitionToSong(volume * MusicVolume, new PlayOnce($"Content/Music/{ name }.mp3"));
                 _currentMusic = name;
             }
         }
@@ -65,7 +68,7 @@ namespace MonoDragons.Core.AudioSystem
         {
             if (_currentMusic != name)
             {
-                TransitionToSong(volume, new Looping($"Content/Music/{ name }.mp3"));
+                TransitionToSong(volume * MusicVolume, new Looping($"Content/Music/{ name }.mp3"));
                 _currentMusic = name;
             }
         }

@@ -15,7 +15,7 @@ namespace SpaceResortMurder.DilemmasX
     {
         protected override void OnInit()
         {
-            Audio.PlayMusic("Pondering", 0.37f * Options.Instance.MusicVolume);
+            Audio.PlayMusic("Pondering", 0.37f );
             Add(UiButtons.Back(new Vector2(6, UI.OfScreenHeight(1.0f) - 138), () => Scene.NavigateTo(GameState.Instance.CurrentLocation)));
             if(GameState.Instance.IsThinking(nameof(ZaidKilledForHisResort)))
                 Add(UiButtons.MenuRed("Resolve", new Vector2(UI.OfScreenWidth(0.5f) - 120, 700), () => Scene.NavigateTo(GameResources.ResolutionSceneName)));
