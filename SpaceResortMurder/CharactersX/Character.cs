@@ -74,12 +74,12 @@ namespace SpaceResortMurder.CharactersX
 
         public bool IsImmediatelyTalking()
         {
-            return _dialogs.Any(d => d.IsNew && d.AutoPlay);
+            return _dialogs.Any(d => d.IsNew && d.AutoPlay && d.IsActive());
         }
 
         public void StartImmediatelyTalking(Action<string[]> onStart)
         {
-            _dialogs.First(d => d.IsNew && d.AutoPlay).StartImmediateDialog(onStart);
+            _dialogs.First(d => d.IsNew && d.AutoPlay && d.IsActive()).StartImmediateDialog(onStart);
         }
 
         public void DrawTalking()

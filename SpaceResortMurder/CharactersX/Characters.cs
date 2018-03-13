@@ -1,5 +1,4 @@
 ﻿using MonoDragons.Core.Common;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,6 +11,7 @@ namespace SpaceResortMurder.CharactersX
             new ResortManagerZaid(),
             new ResearcherTravis(),
             new HackerMeleena(),
+            new RaymondsClone(),
         };
 
         public void Init()

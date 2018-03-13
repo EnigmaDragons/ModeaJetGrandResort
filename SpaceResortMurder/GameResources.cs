@@ -12,6 +12,7 @@ using SpaceResortMurder.Deductions.MeleenasAccountValidity;
 using SpaceResortMurder.Deductions.TheMurdererWas;
 using SpaceResortMurder.Deductions.ZaidsResortForBetaTesting;
 using SpaceResortMurder.Dialogues.Meleena;
+using SpaceResortMurder.Dialogues.RaymondsClone;
 using SpaceResortMurder.Dialogues.Travis;
 using SpaceResortMurder.Dialogues.Warren;
 using SpaceResortMurder.Dialogues.Zaid;
@@ -289,6 +290,13 @@ namespace SpaceResortMurder
                     "YOU WANT IT SO BAD! WELL FINE, IT'S NOT EVEN USEFUL FOR YOUR CASE!",
                 }
             ) },
+            { nameof(MeleenaHeardRaymondsVoice), new Tuple<string, string[]>(
+                "Whom Meleena Heard.",
+                new string[] {
+                    "I have something private to tell you.",
+                    "He is the one I heard on the ship. Raymond's voice was definitely the voice I heard.",
+                }
+            ) },
             #endregion
 
             #region Travis
@@ -320,6 +328,52 @@ namespace SpaceResortMurder
                 new string[] {
                     "Of course, but first you have to sign a non-disclosure agreement to not divulge any of the methods used by the machine to perform the cloning.",
                     "I will be waiting for you at my room so that I can explain it to you.",
+                }
+            ) },
+            #endregion
+
+            #region Raymond's Clone
+            { nameof(MeetingRaymondsClone), new Tuple<string, string[]>(
+                "Meeting Raymond",
+                new string[] {
+                    "You are with the police. You have got to hear me out. I had my researcher Travis make a clone of me.",
+                    "But when the process was done, I had a tracking chip embedded in me.",
+                    "Travis was trying to make me look like the clone and replace me to take control of Human Perfect.",
+                    "Travis could control the clone, and he made my clone try to kill me.",
+                    "I was chased into the docking bay where the clone tried to shoot me with my own blaster.",
+                    "The blaster requires my DNA to use but the clone shares my DNA.",
+                    "Thankfully I'm a poor shot, which makes my clone a poor shot as well.",
+                    "I managed to get out of there and hid myself in this room.",
+                }
+            ) },
+            { nameof(YourLookALikeIsDead), new Tuple<string, string[]>(
+                "Your stunt double is dead.",
+                new string[] {
+                    "Good, that means he won't try to kill me again.",
+                }
+            ) },
+            { nameof(GoToTheLobby), new Tuple<string, string[]>(
+                "Head to the lobby, Officer Warren well ensure your safety.",
+                new string[] {
+                    "Alright, I'll make sure to head on over there.",
+                }
+            ) },
+            { nameof(DidYouChokeYourClone), new Tuple<string, string[]>(
+                "When your clone tried to kill you, did you manage to get a chokehold on him?",
+                new string[] {
+                    "...",
+                    "Yes I did, I managed to get the upper hand on him for a moment."
+                }
+            ) },
+            { nameof(MeleenaIdentifiedYourVoice), new Tuple<string, string[]>(
+                "Meleena heard you in Raymonds space craft. When you took it for a spin.",
+                new string[] {
+                    "...",
+                    "Alright I lied, truth is when I was chased into the docking bay I got hit with a bolt of electricity that knocked out my senses as I writhed on the ground.",
+                    "I was watching my clone so it had to come from somewhere else.",
+                    "When I had gained back my senses, I saw the clones body floating in space with a bunch of garbage",
+                    "I got in my ship to save him, but when I brought him aboard the ship he was dead.",
+                    "I didn't want to be blamed for the murder so I landed the ship and ran away.",
                 }
             ) },
             #endregion

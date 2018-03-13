@@ -75,6 +75,7 @@ namespace SpaceResortMurder
                 { nameof(MeleenasShipInterior), () => new MeleenasShipInteriorScene() },
                 { GameResources.ResolutionSceneName, () => new ResolutionScene() },
                 { GameResources.EndingSceneName, () => new EndingScene() },
+                { nameof(VacantRoom), () => new VacantRoomScene() },
             });
         }
 

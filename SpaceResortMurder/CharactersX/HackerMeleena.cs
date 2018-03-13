@@ -18,7 +18,8 @@ namespace SpaceResortMurder.CharactersX
             new CareToShowTheDirtYouCollected(),
             new YouNeedToUnencryptThisDataStick(),
             new ObstructionOfJusticeWillAddToYourPrisonTime(),
-            new WontTurnYouInIfYouUnencryptThisDrive()) {}
+            new WontTurnYouInIfYouUnencryptThisDrive(),
+            new MeleenaHeardRaymondsVoice()) {}
 
         public override string WhereAreYou()
         {
