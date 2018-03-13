@@ -1,5 +1,6 @@
 ﻿using SpaceResortMurder.Clues.DockingBay;
 using SpaceResortMurder.Clues.MeleenasSpaceCraft;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.ObjectivesX
 {
@@ -9,10 +10,10 @@ namespace SpaceResortMurder.ObjectivesX
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(MeleenasShip))
-                && !(GameState.Instance.IsThinking(nameof(HackingRig))
-                    || GameState.Instance.IsThinking(nameof(DataStick))
-                    || GameState.Instance.IsThinking(nameof(SkeletonKey)));
+            return CurrentGameState.Instance.IsThinking(nameof(MeleenasShip))
+                && !(CurrentGameState.Instance.IsThinking(nameof(HackingRig))
+                    || CurrentGameState.Instance.IsThinking(nameof(DataStick))
+                    || CurrentGameState.Instance.IsThinking(nameof(SkeletonKey)));
         }
     }
 }

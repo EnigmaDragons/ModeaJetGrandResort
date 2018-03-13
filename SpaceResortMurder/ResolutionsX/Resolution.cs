@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.UserInterface;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.ResolutionsX
 {

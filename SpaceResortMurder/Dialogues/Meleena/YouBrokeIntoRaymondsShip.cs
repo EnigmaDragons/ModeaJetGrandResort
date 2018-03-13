@@ -1,5 +1,6 @@
 ﻿using SpaceResortMurder.Clues.MeleenasSpaceCraft;
 using SpaceResortMurder.Deductions;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Dialogues.Meleena
 {
@@ -9,8 +10,8 @@ namespace SpaceResortMurder.Dialogues.Meleena
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(SkeletonKey))
-                   && GameState.Instance.IsThinking(nameof(MeleenaHackedTheDoor));
+            return CurrentGameState.Instance.IsThinking(nameof(SkeletonKey))
+                   && CurrentGameState.Instance.IsThinking(nameof(MeleenaHackedTheDoor));
         }
     }
 }

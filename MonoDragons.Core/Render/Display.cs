@@ -18,13 +18,14 @@ namespace MonoDragons.Core.Render
             FullScreen = fullScreen;
             if (FullScreen)
             {
-                var widthScale = (float)GameInstance.TheGame.GraphicsDevice.DisplayMode.Width / width;
-                var heightScale = (float)GameInstance.TheGame.GraphicsDevice.DisplayMode.Height / height;
-                Scale = scale * Math.Min(heightScale, widthScale);
-                GameWidth = (int)Math.Round(width * Scale);
-                GameHeight = (int)Math.Round(height * Scale);
-                ProgramWidth = GameInstance.TheGame.GraphicsDevice.DisplayMode.Width;
-                ProgramHeight = GameInstance.TheGame.GraphicsDevice.DisplayMode.Height;
+                var widthScale = (float)CurrentGame.TheGame.GraphicsDevice.DisplayMode.Width / width;
+                var heightScale = (float)CurrentGame.TheGame.GraphicsDevice.DisplayMode.Height / height;
+                var newScaleModifier = Math.Min(heightScale, widthScale);
+                Scale = scale * newScaleModifier;
+                GameWidth = (int)Math.Round(width * newScaleModifier);
+                GameHeight = (int)Math.Round(height * newScaleModifier);
+                ProgramWidth = CurrentGame.TheGame.GraphicsDevice.DisplayMode.Width;
+                ProgramHeight = CurrentGame.TheGame.GraphicsDevice.DisplayMode.Height;
             }
             else
             {

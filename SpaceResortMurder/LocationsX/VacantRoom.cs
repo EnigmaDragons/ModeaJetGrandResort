@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using SpaceResortMurder.Dialogues.Travis;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.LocationsX
 {
@@ -9,7 +10,7 @@ namespace SpaceResortMurder.LocationsX
 
         public override bool IsAvailable()
         {
-            return GameState.Instance.IsThinking(nameof(WhyIsTravisAtTheResort));
+            return CurrentGameState.Instance.IsThinking(nameof(WhyIsTravisAtTheResort));
         }
     }
 }

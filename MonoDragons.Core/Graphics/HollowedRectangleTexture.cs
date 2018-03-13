@@ -25,7 +25,7 @@ namespace MonoDragons.Core.Graphics
                 if ((x <= _borderWidth || x >= _rect.Width - _borderWidth) && (y <= _borderWidth || y >= _rect.Height - _borderWidth))
                     data[x * y] = _color;
 
-            var texture = new Texture2D(GameInstance.TheGame.GraphicsDevice, _rect.Width, _rect.Height);
+            var texture = new Texture2D(CurrentGame.TheGame.GraphicsDevice, _rect.Width, _rect.Height);
             texture.SetData(data);
             return texture;
         }

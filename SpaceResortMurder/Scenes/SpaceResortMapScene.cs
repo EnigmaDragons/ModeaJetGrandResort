@@ -6,6 +6,7 @@ using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.Style;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Scenes
 {
@@ -19,7 +20,7 @@ namespace SpaceResortMurder.Scenes
             _locations = GameObjects.Locations.GetAvailableLocations();
             _background = new ImageBox { Transform = new Transform2(new Vector2(350, 0), new Size2(900, 900)), Image = "Placeholder/SpaceResortPlaceholder" };
             _locations.ForEach(x => Add(x.Button));
-            Add(UiButtons.Menu("Return", new Vector2(1250, 750), () => Scene.NavigateTo(GameState.Instance.CurrentLocation)));
+            Add(UiButtons.Menu("Return", new Vector2(1250, 750), () => Scene.NavigateTo(CurrentGameState.Instance.CurrentLocation)));
         }
 
         protected override void DrawBackground()

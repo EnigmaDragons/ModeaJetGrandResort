@@ -1,4 +1,4 @@
-﻿namespace SpaceResortMurder
+﻿namespace SpaceResortMurder.State
 {
     public class ThoughtLost
     {

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 using MonoDragons.Core.EventSystem;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.ObjectivesX
 {
@@ -12,7 +13,7 @@ namespace SpaceResortMurder.ObjectivesX
         private readonly string _objective;
         private Action viewObjective;
         public Label Description { get; }
-        public bool IsNew => !GameState.Instance.HasViewedItem(_objective);
+        public bool IsNew => !CurrentGameState.Instance.HasViewedItem(_objective);
 
         protected Objective(string objective)
         {

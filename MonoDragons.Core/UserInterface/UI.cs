@@ -54,7 +54,7 @@ namespace MonoDragons.Core.UserInterface
 
         public static void DrawBackgroundColor(Color color)
         {
-            GameInstance.GraphicsDevice.Clear(color);
+            CurrentGame.GraphicsDevice.Clear(color);
         }
 
         public static void FillScreen(string imageName)

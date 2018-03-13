@@ -1,4 +1,6 @@
-﻿namespace SpaceResortMurder.Dialogues.Zaid
+﻿using SpaceResortMurder.State;
+
+namespace SpaceResortMurder.Dialogues.Zaid
 {
     public class DidRaymondApproveYourResort : Dialogue
     {
@@ -6,7 +8,7 @@
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(WhyWasRaymondHere));
+            return CurrentGameState.Instance.IsThinking(nameof(WhyWasRaymondHere));
         }
     }
 }

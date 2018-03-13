@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using SpaceResortMurder.Dialogues.Meleena;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.LocationsX
 {
@@ -9,8 +10,8 @@ namespace SpaceResortMurder.LocationsX
 
         public override bool IsAvailable()
         {
-            return GameState.Instance.IsThinking(nameof(HereIsTheSearchOrder))
-                   || GameState.Instance.IsThinking(nameof(ImOnlyInvestigatingTheMurder));
+            return CurrentGameState.Instance.IsThinking(nameof(HereIsTheSearchOrder))
+                   || CurrentGameState.Instance.IsThinking(nameof(ImOnlyInvestigatingTheMurder));
         }
     }
 }

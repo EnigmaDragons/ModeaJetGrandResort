@@ -4,6 +4,7 @@ using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
+using SpaceResortMurder.State;
 using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.Scenes
@@ -22,7 +23,7 @@ namespace SpaceResortMurder.Scenes
                 BackgroundColor = Color.FromNonPremultiplied(0, 0, 255, 150),
             };
             GameObjects.Objectives.GetActiveObjectives().ForEachIndex((x, i) => Add(x.CreateButton(() => _description = x.Description, (i + 1) * 50)));
-            Add(UiButtons.Menu("Return", new Vector2(1250, 750), () => Scene.NavigateTo(GameState.Instance.CurrentLocation)));
+            Add(UiButtons.Menu("Return", new Vector2(1250, 750), () => Scene.NavigateTo(CurrentGameState.Instance.CurrentLocation)));
         }
 
         protected override void DrawBackground() {}

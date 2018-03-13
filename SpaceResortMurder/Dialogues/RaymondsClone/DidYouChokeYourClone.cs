@@ -1,4 +1,5 @@
 ﻿using SpaceResortMurder.Clues.RaymondsSpaceCraft;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Dialogues.RaymondsClone
 {
@@ -8,7 +9,7 @@ namespace SpaceResortMurder.Dialogues.RaymondsClone
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(RaymondsCorpse));
+            return CurrentGameState.Instance.IsThinking(nameof(RaymondsCorpse));
         }
     }
 }

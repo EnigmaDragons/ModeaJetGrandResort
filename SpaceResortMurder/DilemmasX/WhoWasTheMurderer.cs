@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using SpaceResortMurder.Deductions.TheMurdererWas;
 using SpaceResortMurder.Dialogues.Zaid;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.DilemmasX
 {
@@ -13,7 +14,7 @@ namespace SpaceResortMurder.DilemmasX
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(YouWereNotAcceptedForBetaTesting));
+            return CurrentGameState.Instance.IsThinking(nameof(YouWereNotAcceptedForBetaTesting));
         }
     }
 }

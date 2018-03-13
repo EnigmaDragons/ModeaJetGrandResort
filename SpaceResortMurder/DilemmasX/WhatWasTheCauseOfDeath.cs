@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using SpaceResortMurder.Clues.RaymondsSpaceCraft;
 using SpaceResortMurder.Deductions.CauseOfDeath;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.DilemmasX
 {
@@ -13,7 +14,7 @@ namespace SpaceResortMurder.DilemmasX
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(RaymondsCorpse));
+            return CurrentGameState.Instance.IsThinking(nameof(RaymondsCorpse));
         }
     }
 }

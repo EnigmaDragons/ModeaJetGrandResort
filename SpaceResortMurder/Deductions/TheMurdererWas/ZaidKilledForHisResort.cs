@@ -1,5 +1,6 @@
 ﻿using System;
 using SpaceResortMurder.Dialogues.Zaid;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Deductions.TheMurdererWas
 {
@@ -9,7 +10,7 @@ namespace SpaceResortMurder.Deductions.TheMurdererWas
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(YouWereNotAcceptedForBetaTesting));
+            return CurrentGameState.Instance.IsThinking(nameof(YouWereNotAcceptedForBetaTesting));
         }
     }
 }

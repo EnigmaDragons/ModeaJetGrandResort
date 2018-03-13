@@ -1,4 +1,5 @@
 ﻿using SpaceResortMurder.Deductions.ZaidsResortForBetaTesting;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Dialogues.Zaid
 {
@@ -8,8 +9,8 @@ namespace SpaceResortMurder.Dialogues.Zaid
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(ZaidsResortDeclined)) 
-                && GameState.Instance.IsThinking(nameof(DidRaymondApproveYourResort));
+            return CurrentGameState.Instance.IsThinking(nameof(ZaidsResortDeclined)) 
+                && CurrentGameState.Instance.IsThinking(nameof(DidRaymondApproveYourResort));
         }
     }
 }

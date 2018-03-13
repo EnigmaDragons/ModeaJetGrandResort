@@ -1,4 +1,5 @@
 ﻿using SpaceResortMurder.Clues.DockingBay;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Dialogues.Meleena
 {
@@ -8,7 +9,7 @@ namespace SpaceResortMurder.Dialogues.Meleena
 
         public override bool IsActive()
         {
-            return GameState.Instance.IsThinking(nameof(MeleenasShip));
+            return CurrentGameState.Instance.IsThinking(nameof(MeleenasShip));
         }
     }
 }

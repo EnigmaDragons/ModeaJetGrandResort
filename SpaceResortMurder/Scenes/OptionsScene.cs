@@ -11,7 +11,7 @@ namespace SpaceResortMurder.Scenes
 {
     public sealed class OptionsScene : JamScene
     {
-        private Options _options = Options.Instance;
+        private Options _options = CurrentOptions.Instance;
 
         protected override void OnInit()
         {
@@ -76,21 +76,23 @@ namespace SpaceResortMurder.Scenes
             }));
             Add(UiButtons.Menu("Reset Options", new Vector2(700, 625), () =>
             {
-                Options.Instance = new Options();
-                _options = Options.Instance;
+                CurrentOptions.Reset();
+                _options = CurrentOptions.Instance;
                 SetDisplay();
-                GameObjects.IO.Save("options", GameState.Instance);
+                GameObjects.IO.Save("options", CurrentGameState.Instance);
             }));
-            if(GameState.Instance.CurrentLocation != GameResources.MainMenuSceneName)
-                Add(UiButtons.Menu("Save", new Vector2(700, 700), () => GameObjects.IO.Save("save", GameState.Instance)));
-            Add(UiButtons.Menu("Delete Save", new Vector2(700, 775), () => GameObjects.IO.Delete("save")));
-            Add(UiButtons.Menu("Return", new Vector2(700, 850), () => Scene.NavigateTo(GameState.Instance.CurrentLocation)));
+            if(CurrentGameState.Instance.CurrentLocation != GameResources.MainMenuSceneName)
+                Add(UiButtons.Menu("Save", new Vector2(700, 700), () => GameObjects.IO.Save("save", CurrentGameState.Instance)));
+            Add(UiButtons.Menu("Delete Save", new Vector2(700, 775), () => CurrentGameState.Reset()));
+            Add(UiButtons.Menu("Return", new Vector2(700, 850), () => Scene.NavigateTo(CurrentGameState.Instance.CurrentLocation)));
         }
 
         private void SetDisplay()
         {
-            CurrentDisplay.Display = new Display((int)Math.Round(_options.Scale * 1600), (int)Math.Round(_options.Scale * 900),
+            var x = new Display((int)Math.Round(_options.Scale * 1600), (int)Math.Round(_options.Scale * 900),
                 _options.IsFullscreen, _options.Scale);
+            Console.WriteLine("Fullscreen: " + x.FullScreen + " Scale: " + x.Scale + "" + " Game Width: " + x.GameWidth + " Game Height: " + x.GameHeight);
+            CurrentDisplay.Display = x;
         }
 
         protected override void DrawBackground()

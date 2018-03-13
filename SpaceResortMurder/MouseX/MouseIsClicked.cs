@@ -17,8 +17,8 @@ namespace SpaceResortMurder.MouseX
         private static bool MouseIsOnScreen()
         {
             var mousePos = Mouse.GetState().Position;
-            return mousePos.X >= 0 && mousePos.X <= GameInstance.GraphicsDevice.Viewport.Width
-                   && mousePos.Y >= 0 && mousePos.Y <= GameInstance.GraphicsDevice.Viewport.Height;
+            return mousePos.X >= 0 && mousePos.X <= CurrentGame.GraphicsDevice.Viewport.Width
+                   && mousePos.Y >= 0 && mousePos.Y <= CurrentGame.GraphicsDevice.Viewport.Height;
         }
     }
 }
