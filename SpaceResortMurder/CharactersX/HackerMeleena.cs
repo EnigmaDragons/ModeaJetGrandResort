@@ -14,7 +14,11 @@ namespace SpaceResortMurder.CharactersX
             new SearchYourCraftForEvidence(),
             new ImOnlyInvestigatingTheMurder(),
             new HereIsTheSearchOrder(),
-            new YouBrokeIntoRaymondsShip()) {}
+            new YouBrokeIntoRaymondsShip(),
+            new CareToShowTheDirtYouCollected(),
+            new YouNeedToUnencryptThisDataStick(),
+            new ObstructionOfJusticeWillAddToYourPrisonTime(),
+            new WontTurnYouInIfYouUnencryptThisDrive()) {}
 
         public override string WhereAreYou()
         {
