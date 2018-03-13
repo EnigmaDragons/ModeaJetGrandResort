@@ -84,6 +84,7 @@ namespace SpaceResortMurder
                 { GameResources.ResolutionSceneName, () => new ResolutionScene() },
                 { GameResources.EndingSceneName, () => new EndingScene() },
                 { nameof(VacantRoom), () => new VacantRoomScene() },
+                { nameof(TravissCloningRoom), () => new TravissCloningRoomScene() },
             });
         }
 
