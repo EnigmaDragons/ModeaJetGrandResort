@@ -49,7 +49,7 @@ namespace SpaceResortMurder.LocationsX
         {
             GameObjects.InitIfNeeded();
             CurrentGameState.Instance.CurrentLocation = _location;
-
+            
             _investigateRoomBranch = new ClickUIBranch("Location Investigation", 1);
 
             OnInit();

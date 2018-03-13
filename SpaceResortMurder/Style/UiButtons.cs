@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using MonoDragons.Core.AudioSystem;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
-using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Style
 {
