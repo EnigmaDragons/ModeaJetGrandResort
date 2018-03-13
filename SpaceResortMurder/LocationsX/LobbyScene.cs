@@ -1,6 +1,5 @@
 ﻿using MonoDragons.Core.AudioSystem;
 using MonoDragons.Core.UserInterface;
-using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.LocationsX
 {
@@ -12,7 +11,7 @@ namespace SpaceResortMurder.LocationsX
 
         protected override void OnInit()
         {
-            Audio.PlayMusicOnce("HotelLobby");
+            Audio.PlayMusic("HotelLobby");
         }
 
         protected override void DrawBackground()
