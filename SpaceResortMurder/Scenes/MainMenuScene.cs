@@ -14,7 +14,7 @@ namespace SpaceResortMurder.Scenes
         protected override void OnInit()
         {
             GameState.Instance = new GameState();
-            Audio.PlayMusic("MainTheme", Options.Instance.MusicVolume);
+            Audio.PlayMusic("MainTheme");
 
             Add(UiButtons.Menu("Start Game", new Vector2(120, 480), () => Scene.NavigateTo(nameof(DockingBay))));
             if (GameObjects.IO.HasSave("save"))

@@ -12,7 +12,7 @@ namespace SpaceResortMurder.LocationsX
 
         protected override void OnInit()
         {
-            Audio.PlayMusicOnce("HotelLobby", Options.Instance.MusicVolume);
+            Audio.PlayMusicOnce("HotelLobby");
         }
 
         protected override void DrawBackground()

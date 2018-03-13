@@ -10,7 +10,7 @@ namespace SpaceResortMurder.Scenes
     {
         protected override void OnInit()
         {
-            Audio.PlayMusicOnce("Credits", Options.Instance.MusicVolume);
+            Audio.PlayMusicOnce("Credits");
             Add(UiButtons.Menu("Main Menu", new Vector2(700, 800), () => Scene.NavigateTo(GameResources.MainMenuSceneName)));
         }
 
