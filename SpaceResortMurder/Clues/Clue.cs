@@ -32,12 +32,12 @@ namespace SpaceResortMurder.Clues
 
         public ExpandingImageButton CreateButton(Action onClick)
         {
-            return new ExpandingImageButton(_image, _image, _image, _position, _position.Size / 8, () => 
+            return new ExpandingImageButton(_image, _image, _image, _position, _position.Size / 8, () =>
             {
-                if(!GameState.Instance.IsThinking(_clue))
+                if (!GameState.Instance.IsThinking(_clue))
                     Event.Publish(new ThoughtGained(_clue));
                 onClick();
-            });
+            }) { HoveredCursor = Cursors.Interactive };
         }
     }
 }

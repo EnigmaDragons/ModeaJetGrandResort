@@ -16,14 +16,13 @@ namespace SpaceResortMurder.Scenes
             GameState.Instance = new GameState();
             Audio.PlayMusic("MainTheme", Options.Instance.MusicVolume);
 
+            Add(UiButtons.Menu("Start Game", new Vector2(120, 480), () => Scene.NavigateTo(nameof(DockingBay))));
             if (GameObjects.IO.HasSave("save"))
                 Add(UiButtons.Menu("Continue Game", new Vector2(120, 560), () =>
                 {
                     GameState.Instance = GameObjects.IO.Load<GameState>("save");
                     Scene.NavigateTo(GameState.Instance.CurrentLocation);
                 }));
-            else
-                Add(UiButtons.Menu("Start Game", new Vector2(120, 560), () => Scene.NavigateTo(nameof(DockingBay))));
             Add(UiButtons.Menu("Credits", new Vector2(120, 720), () => Scene.NavigateTo(GameResources.CreditsSceneName)));
             Add(UiButtons.Menu("Options", new Vector2(120, 640), () =>
             {
