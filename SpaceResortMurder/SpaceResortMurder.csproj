@@ -84,6 +84,7 @@
     <Compile Include="Dialogues\Meleena\CorporateFreelancersCantNormallyAffordPersonalSpaceCrafts.cs" />
     <Compile Include="Dialogues\Meleena\HereIsTheSearchOrder.cs" />
     <Compile Include="Dialogues\Meleena\ImOnlyInvestigatingTheMurder.cs" />
+    <Compile Include="Dialogues\Meleena\MeleenaHeardRaymondsVoice.cs" />
     <Compile Include="Dialogues\Meleena\WontTurnYouInIfYouUnencryptThisDrive.cs" />
     <Compile Include="Dialogues\Meleena\MeleenasAccount.cs" />
     <Compile Include="Dialogues\Meleena\ObstructionOfJusticeWillAddToYourPrisonTime.cs" />
@@ -91,7 +92,11 @@
     <Compile Include="Dialogues\Meleena\WhatIsACorporateFreelancerDoingHere.cs" />
     <Compile Include="Dialogues\Meleena\YouBrokeIntoRaymondsShip.cs" />
     <Compile Include="Dialogues\Meleena\YouNeedToUnencryptThisDataStick.cs" />
+    <Compile Include="Dialogues\RaymondsClone\DidYouChokeYourClone.cs" />
+    <Compile Include="Dialogues\RaymondsClone\GoToTheLobby.cs" />
     <Compile Include="Dialogues\RaymondsClone\MeetingRaymondsClone.cs" />
+    <Compile Include="Dialogues\RaymondsClone\MeleenaIdentifiedYourVoice.cs" />
+    <Compile Include="Dialogues\RaymondsClone\YourLookALikeIsDead.cs" />
     <Compile Include="Dialogues\Travis\DidYouWorkWithRaymond.cs" />
     <Compile Include="Dialogues\Travis\InvestigateYourCloningMachine.cs" />
     <Compile Include="Dialogues\Travis\TravissAccount.cs" />

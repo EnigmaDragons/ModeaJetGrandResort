@@ -8,7 +8,11 @@ namespace SpaceResortMurder.CharactersX
     public class RaymondsClone : Character
     {
         public RaymondsClone() : base("Raymond, CEO of Human Perfect", "characters/random_npc_01", new Size2(400, 940), 
-            new MeetingRaymondsClone()) {}
+            new MeetingRaymondsClone(),
+            new YourLookALikeIsDead(),
+            new GoToTheLobby(),
+            new DidYouChokeYourClone(),
+            new MeleenaIdentifiedYourVoice()) {}
 
         public override string WhereAreYou()
         {
