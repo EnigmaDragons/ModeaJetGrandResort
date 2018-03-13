@@ -79,13 +79,17 @@
     <Compile Include="CharactersX\OfficerWarren.cs" />
     <Compile Include="CharactersX\ResortManagerZaid.cs" />
     <Compile Include="Dialogs\Dialog.cs" />
+    <Compile Include="Dialogs\Meleena\CareToShowTheDirtYouCollected.cs" />
     <Compile Include="Dialogs\Meleena\CorporateFreelancersCantNormallyAffordPersonalSpaceCrafts.cs" />
     <Compile Include="Dialogs\Meleena\HereIsTheSearchOrder.cs" />
     <Compile Include="Dialogs\Meleena\ImOnlyInvestigatingTheMurder.cs" />
+    <Compile Include="Dialogs\Meleena\WontTurnYouInIfYouUnencryptThisDrive.cs" />
     <Compile Include="Dialogs\Meleena\MeleenasAccount.cs" />
+    <Compile Include="Dialogs\Meleena\ObstructionOfJusticeWillAddToYourPrisonTime.cs" />
     <Compile Include="Dialogs\Meleena\SearchYourCraftForEvidence.cs" />
     <Compile Include="Dialogs\Meleena\WhatIsACorporateFreelancerDoingHere.cs" />
     <Compile Include="Dialogs\Meleena\YouBrokeIntoRaymondsShip.cs" />
+    <Compile Include="Dialogs\Meleena\YouNeedToUnencryptThisDataStick.cs" />
     <Compile Include="Dialogs\Travis\DidYouWorkWithRaymond.cs" />
     <Compile Include="Dialogs\Travis\InvestigateYourCloningMachine.cs" />
     <Compile Include="Dialogs\Travis\TravissAccount.cs" />
@@ -121,6 +125,8 @@
     <Compile Include="LocationsX\RaymondsShipInterior.cs" />
     <Compile Include="LocationsX\RaymondsShipInteriorScene.cs" />
     <Compile Include="MouseX\MouseIsClicked.cs" />
+    <Compile Include="ObjectivesX\CheckWhatsOnMeleenasDataStick.cs" />
+    <Compile Include="ObjectivesX\GetAnEncryptionKeyForMeleenasDataStick.cs" />
     <Compile Include="ObjectivesX\InvestigateMeleenasCraft.cs" />
     <Compile Include="ObjectivesX\InvestigateRaymondsDeadBody.cs" />
     <Compile Include="ObjectivesX\Objective.cs" />

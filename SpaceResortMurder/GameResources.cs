@@ -264,6 +264,31 @@ namespace SpaceResortMurder
                     "As soon as he left I booked it.",
                 }
             ) },
+            { nameof(CareToShowTheDirtYouCollected), new Tuple<string, string[]>(
+                "This data stick shows signs of recent use, care to give me the encryption key?",
+                new string[] {
+                    "There is some juicy pieces of dirt on Human Perfect and the shady Mr.Soule.",
+                    "Here is your encryption key.",
+                }
+            ) },
+            { nameof(YouNeedToUnencryptThisDataStick), new Tuple<string, string[]>(
+                "The data stick on your craft has evidence, give me the encryption key.",
+                new string[] {
+                    "Oh that's so sad, I lost the encryption key, and it would take the best AIs 290 years to crack. So good luck!",
+                }
+            ) },
+            { nameof(WontTurnYouInIfYouUnencryptThisDrive), new Tuple<string, string[]>(
+                "I don't have to report your career choices, if you can give me the encryption for the drive.",
+                new string[] {
+                    "Now you're talking, I hope I'm right about you being honest.",
+                }
+            ) },
+            { nameof(ObstructionOfJusticeWillAddToYourPrisonTime), new Tuple<string, string[]>(
+                "Obstruction of justice will only extend your prison time.",
+                new string[] {
+                    "YOU WANT IT SO BAD! WELL FINE, IT'S NOT EVEN USEFUL FOR YOUR CASE!",
+                }
+            ) },
             #endregion
 
             #region Travis
@@ -342,6 +367,18 @@ namespace SpaceResortMurder
             { nameof(InvestigateRaymondsDeadBody), new Tuple<string, string>(
                 "Go to Raymond's ship and investigate his remains",
                 "According to Warren, Raymond died earlier tonight and his body was found within his space craft. I should see what I can find from his remains."
+            )},
+            { nameof(InvestigateMeleenasCraft), new Tuple<string, string>(
+                "Investigate Meleena's Craft",
+                "Meleena's craft is pretty close to the murder scene and could be hiding evidence."
+            )},
+            { nameof(GetAnEncryptionKeyForMeleenasDataStick), new Tuple<string, string>(
+                "Aquire an encryption key for Meleena's data stick",
+                "Found a data stick with signs of recent use. I am going to need Meleena to give me the encryption key to find out what's on it."
+            )},
+            { nameof(CheckWhatsOnMeleenasDataStick), new Tuple<string, string>(
+                "Use Meleena's encryption key on the data stick",
+                "I can now find out what was on the data stick in Meleena's ship using this encryption key."
             )},
         };
 

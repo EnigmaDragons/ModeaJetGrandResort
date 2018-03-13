@@ -11,6 +11,8 @@ namespace SpaceResortMurder.ObjectivesX
         {
             _objectives.Add(new InvestigateRaymondsDeadBody());
             _objectives.Add(new InvestigateMeleenasCraft());
+            _objectives.Add(new GetAnEncryptionKeyForMeleenasDataStick());
+            _objectives.Add(new CheckWhatsOnMeleenasDataStick());
         }
 
         public IReadOnlyList<Objective> GetActiveObjectives()
