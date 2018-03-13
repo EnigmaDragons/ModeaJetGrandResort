@@ -14,6 +14,22 @@ namespace SpaceResortMurder.Scenes
 
         protected override void OnInit()
         {
+            Add(UiButtons.Menu("Slow Text Speed", new Vector2(440, 100), () =>
+            {
+                _options.MillisPerTextCharacter = 40;
+                GameObjects.IO.Save("options", _options, "json");
+            }));
+            Add(UiButtons.Menu("Fast Text Speed", new Vector2(680, 100), () =>
+            {
+                _options.MillisPerTextCharacter = 20;
+                GameObjects.IO.Save("options", _options, "json");
+            }));
+            Add(UiButtons.Menu("Instant Text Speed", new Vector2(920, 100), () =>
+            {
+                _options.MillisPerTextCharacter = 0;
+                GameObjects.IO.Save("options", _options, "json");
+            }));
+
             Add(UiButtons.Menu("Set 0.25 Scale", new Vector2(320, 200), () =>
             {
                 _options.Scale = 0.25f;

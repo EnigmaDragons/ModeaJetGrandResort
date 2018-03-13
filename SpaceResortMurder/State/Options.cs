@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SpaceResortMurder.State
+﻿namespace SpaceResortMurder.State
 {
     public class Options
     {
@@ -13,5 +7,6 @@ namespace SpaceResortMurder.State
         public float Scale { get; set; } = 1;
         public float MusicVolume { get; set; } = 1;
         public float SoundVolume { get; set; } = 1;
+        public double MillisPerTextCharacter { get; set; } = 40d;
     }
 }

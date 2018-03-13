@@ -17,14 +17,15 @@ namespace SpaceResortMurder.Dialogs
         public const int FONTSLINESPACING = -1;
         private readonly int _maxLineWidth;
         private readonly SpriteFont _spriteFont;
-        private readonly double _millisToCharacter = 35;
+        private readonly double _millisToCharacter;
         private string _currentlyDisplayedMessage;
         private readonly int _lineSpacing;
         private string _messageToDisplay;
         private long _totalMessageTime;
 
-        public ChatBox(string message, int maxLineWidth, SpriteFont spriteFont, int lineSpacing = FONTSLINESPACING)
+        public ChatBox(string message, int maxLineWidth, SpriteFont spriteFont, double millisToCharacter = 35, int lineSpacing = FONTSLINESPACING)
         {
+            _millisToCharacter = millisToCharacter;
             _lineSpacing = lineSpacing == FONTSLINESPACING ? spriteFont.LineSpacing : lineSpacing;
             _spriteFont = spriteFont;
             _maxLineWidth = maxLineWidth;
@@ -54,7 +55,7 @@ namespace SpaceResortMurder.Dialogs
         {
             _totalMessageTime += deltaMillis.Milliseconds;
             var previousLength = _currentlyDisplayedMessage.Length;
-            var length = (int)((double)_totalMessageTime / (double)_millisToCharacter);
+            var length = _millisToCharacter != 0 ? (int)((double)_totalMessageTime / (double)_millisToCharacter): int.MaxValue;
             length = _messageToDisplay.Length < length ? _messageToDisplay.Length : length;
             _currentlyDisplayedMessage = _messageToDisplay.Substring(0, length);
             if (length > previousLength)
