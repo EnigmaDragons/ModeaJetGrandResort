@@ -45,6 +45,8 @@ namespace SpaceResortMurder.HudX
         {
             if (GameObjects.Objectives.GetActiveObjectives().Any(o => o.IsNew))
                 _newIcon.Draw(new Transform2(GetIndicatorLocation(0)));
+            if (GameObjects.Locations.GetAvailableLocations().Any(l => l.IsNewOrHasNewDialogs))
+                _newIcon.Draw(new Transform2(GetIndicatorLocation(1)));
             if (GameObjects.Dilemmas.GetActiveDilemmas().Any(d => d.IsNew || d.HasNewAnswers))
                 _newIcon.Draw(new Transform2(GetIndicatorLocation(2)));
         }
