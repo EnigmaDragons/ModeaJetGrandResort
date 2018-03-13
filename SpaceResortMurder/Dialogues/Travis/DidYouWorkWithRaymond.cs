@@ -1,10 +1,10 @@
 ﻿using SpaceResortMurder.Dialogues.Warren;
 
-namespace SpaceResortMurder.Deductions
+namespace SpaceResortMurder.Dialogues.Travis
 {
-    public class TravisShotRaymondsShip : Deduction
+    public class DidYouWorkWithRaymond : Dialogue
     {
-        public TravisShotRaymondsShip() : base(nameof(TravisShotRaymondsShip)) {}
+        public DidYouWorkWithRaymond() : base(nameof(DidYouWorkWithRaymond)) {}
 
         public override bool IsActive()
         {

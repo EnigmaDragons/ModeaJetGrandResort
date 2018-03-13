@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
-using SpaceResortMurder.Dialogs.Zaid;
+using SpaceResortMurder.Dialogues.Zaid;
 using SpaceResortMurder.LocationsX;
 
 namespace SpaceResortMurder.CharactersX

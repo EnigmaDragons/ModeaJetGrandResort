@@ -1,4 +1,4 @@
-﻿using SpaceResortMurder.Dialogs.Warren;
+﻿using SpaceResortMurder.Dialogues.Warren;
 
 namespace SpaceResortMurder.Deductions
 {

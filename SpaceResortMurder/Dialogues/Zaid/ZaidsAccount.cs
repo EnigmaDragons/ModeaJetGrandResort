@@ -1,0 +1,12 @@
+﻿namespace SpaceResortMurder.Dialogues.Zaid
+{
+    public class ZaidsAccount : Dialogue
+    {
+        public ZaidsAccount() : base(nameof(ZaidsAccount)) {}
+
+        public override bool IsActive()
+        {
+            return true;
+        }
+    }
+}

@@ -13,6 +13,7 @@ namespace SpaceResortMurder.LocationsX
             _locations.Add(new Lobby());
             _locations.Add(new RaymondsShipInterior());
             _locations.Add(new MeleenasShipInterior());
+            _locations.Add(new VacantRoom());
         }
 
         public IReadOnlyList<Location> GetAvailableLocations()

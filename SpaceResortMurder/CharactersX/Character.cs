@@ -4,14 +4,14 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
-using SpaceResortMurder.Dialogs;
+using SpaceResortMurder.Dialogues;
 
 namespace SpaceResortMurder.CharactersX
 {
     public abstract class Character
     {
         
-        private readonly List<Dialog> _dialogs;
+        private readonly List<Dialogue> _dialogs;
         private readonly Size2 _size;
         private readonly string _displayName;
         private ImageBox _facingImage;
@@ -20,11 +20,11 @@ namespace SpaceResortMurder.CharactersX
 
         public string Image { get; }
 
-        protected Character(string displayName, string image, Size2 size, params Dialog[] dialogs)
+        protected Character(string displayName, string image, Size2 size, params Dialogue[] dialogues)
         {
             _displayName = displayName;
             Image = image;
-            _dialogs = dialogs.ToList();
+            _dialogs = dialogues.ToList();
             _size = size;
         }
 
@@ -62,24 +62,24 @@ namespace SpaceResortMurder.CharactersX
             };
         }
 
-        public IReadOnlyList<Dialog> GetNewDialogs()
+        public IReadOnlyList<Dialogue> GetNewDialogs()
         {
             return _dialogs.Where(x => x.IsActive() && x.IsNew).ToList();
         }
 
-        public IReadOnlyList<Dialog> GetOldDialogs()
+        public IReadOnlyList<Dialogue> GetOldDialogs()
         {
             return _dialogs.Where(x => !x.IsNew).ToList();
         }
 
         public bool IsImmediatelyTalking()
         {
-            return _dialogs.Any(d => d.IsNew && d.IsImmediatelyStarted());
+            return _dialogs.Any(d => d.IsNew && d.AutoPlay);
         }
 
         public void StartImmediatelyTalking(Action<string[]> onStart)
         {
-            _dialogs.First(d => d.IsNew && d.IsImmediatelyStarted()).StartImmediateDialog(onStart);
+            _dialogs.First(d => d.IsNew && d.AutoPlay).StartImmediateDialog(onStart);
         }
 
         public void DrawTalking()

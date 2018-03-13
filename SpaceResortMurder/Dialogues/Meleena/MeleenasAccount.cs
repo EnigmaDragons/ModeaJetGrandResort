@@ -1,10 +1,10 @@
 ﻿using SpaceResortMurder.Dialogues.Warren;
 
-namespace SpaceResortMurder.Deductions
+namespace SpaceResortMurder.Dialogues.Meleena
 {
-    public class TravisShotRaymondsShip : Deduction
+    public class MeleenasAccount : Dialogue
     {
-        public TravisShotRaymondsShip() : base(nameof(TravisShotRaymondsShip)) {}
+        public MeleenasAccount() : base(nameof(MeleenasAccount)) {}
 
         public override bool IsActive()
         {

@@ -1,5 +1,5 @@
 ﻿using System;
-using SpaceResortMurder.Dialogs.Zaid;
+using SpaceResortMurder.Dialogues.Zaid;
 
 namespace SpaceResortMurder.Deductions.TheMurdererWas
 {

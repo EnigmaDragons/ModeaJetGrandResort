@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
-using SpaceResortMurder.Dialogs.Meleena;
+using SpaceResortMurder.Dialogues.Meleena;
 using SpaceResortMurder.LocationsX;
 
 namespace SpaceResortMurder.CharactersX

@@ -1,5 +1,5 @@
 ﻿using SpaceResortMurder.Clues.MeleenasSpaceCraft;
-using SpaceResortMurder.Dialogs.Meleena;
+using SpaceResortMurder.Dialogues.Meleena;
 
 namespace SpaceResortMurder.ObjectivesX
 {

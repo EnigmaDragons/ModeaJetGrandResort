@@ -1,5 +1,5 @@
 ﻿using SpaceResortMurder.Clues.RaymondsSpaceCraft;
-using SpaceResortMurder.Dialogs.Warren;
+using SpaceResortMurder.Dialogues.Warren;
 
 namespace SpaceResortMurder.ObjectivesX
 {

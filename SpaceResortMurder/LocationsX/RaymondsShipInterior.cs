@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using SpaceResortMurder.Dialogs.Warren;
+using SpaceResortMurder.Dialogues.Warren;
 
 namespace SpaceResortMurder.LocationsX
 {

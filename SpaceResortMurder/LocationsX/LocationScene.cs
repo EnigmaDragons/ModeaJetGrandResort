@@ -10,7 +10,7 @@ using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.CharactersX;
 using SpaceResortMurder.Clues;
-using SpaceResortMurder.Dialogs;
+using SpaceResortMurder.Dialogues;
 using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.LocationsX
@@ -136,7 +136,7 @@ namespace SpaceResortMurder.LocationsX
         {
             _clickUI.Remove(GameObjects.Hud.HudBranch);
             var drawDialogsOptions = new List<IVisual>();
-            _characterTalkingToBranch = new ClickUIBranch("Dialog Choices", 1);
+            _characterTalkingToBranch = new ClickUIBranch("Dialogue Choices", 1);
             var activeDialogs = character.GetNewDialogs();
             activeDialogs.ForEachIndex((x, i) =>
             {

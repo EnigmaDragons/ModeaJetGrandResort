@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
-using SpaceResortMurder.Dialogs.Travis;
+using SpaceResortMurder.Dialogues.Travis;
 using SpaceResortMurder.LocationsX;
 
 namespace SpaceResortMurder.CharactersX

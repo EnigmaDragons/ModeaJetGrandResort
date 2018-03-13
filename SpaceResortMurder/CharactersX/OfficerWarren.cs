@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
-using SpaceResortMurder.Dialogs.Warren;
+using SpaceResortMurder.Dialogues.Warren;
 using SpaceResortMurder.LocationsX;
 
 namespace SpaceResortMurder.CharactersX
@@ -9,7 +9,7 @@ namespace SpaceResortMurder.CharactersX
     {
         public OfficerWarren() : base("Warren, Officer", "Characters/policeman", new Size2(400, 940), 
             new MeetingWarren(),
-            new INeedASearchOrder()) {}
+            new NeedASearchOrder()) {}
 
         public override string WhereAreYou()
         {

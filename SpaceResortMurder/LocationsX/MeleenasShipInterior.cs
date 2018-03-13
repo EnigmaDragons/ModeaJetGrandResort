@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using SpaceResortMurder.Dialogs.Meleena;
+using SpaceResortMurder.Dialogues.Meleena;
 
 namespace SpaceResortMurder.LocationsX
 {

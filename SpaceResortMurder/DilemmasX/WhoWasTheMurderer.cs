@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using SpaceResortMurder.Deductions.TheMurdererWas;
-using SpaceResortMurder.Dialogs.Zaid;
+using SpaceResortMurder.Dialogues.Zaid;
 
 namespace SpaceResortMurder.DilemmasX
 {

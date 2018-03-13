@@ -11,10 +11,10 @@ using SpaceResortMurder.Deductions.EnteredSpaceFrom;
 using SpaceResortMurder.Deductions.MeleenasAccountValidity;
 using SpaceResortMurder.Deductions.TheMurdererWas;
 using SpaceResortMurder.Deductions.ZaidsResortForBetaTesting;
-using SpaceResortMurder.Dialogs.Meleena;
-using SpaceResortMurder.Dialogs.Travis;
-using SpaceResortMurder.Dialogs.Warren;
-using SpaceResortMurder.Dialogs.Zaid;
+using SpaceResortMurder.Dialogues.Meleena;
+using SpaceResortMurder.Dialogues.Travis;
+using SpaceResortMurder.Dialogues.Warren;
+using SpaceResortMurder.Dialogues.Zaid;
 using SpaceResortMurder.DilemmasX;
 using SpaceResortMurder.ResolutionsX;
 
@@ -28,7 +28,7 @@ namespace SpaceResortMurder
         public const string DilemmasSceneName = "Dilemmas";
         public const string MapSceneName = "Map";
         public const string ObjectivesSceneName = "Objectives";
-        public const string DialogueMemoriesScene = "Dialog Memories";
+        public const string DialogueMemoriesScene = "Dialogue Memories";
         public const string ResolutionSceneName = "Resolution";
         public const string EndingSceneName = "Ending";
 
@@ -62,19 +62,19 @@ namespace SpaceResortMurder
             return _notImplementedObjectiveText;
         }
 
-        private const string _notImplementedDialogText = "This dialog hasn't been implemented";
-        public static string GetDialogOpener(string dialog)
+        private const string _notImplementedDialogueText = "This dialog hasn't been implemented";
+        public static string GetDialogueOpener(string dialog)
         {
-            if (_dialogs.ContainsKey(dialog))
-                return _dialogs[dialog].Item1;
-            return _notImplementedDialogText;
+            if (_dialogues.ContainsKey(dialog))
+                return _dialogues[dialog].Item1;
+            return _notImplementedDialogueText;
         }
-        private static string[] _notImplementedDialogLines = new string[] { "This dialog hasn't been implemented" };
-        public static string[] GetDialogLines(string dialog)
+        private static string[] _notImplementedDialogueLines = new string[] { "This dialog hasn't been implemented" };
+        public static string[] GetDialogueLines(string dialog)
         {
-            if (_dialogs.ContainsKey(dialog))
-                return _dialogs[dialog].Item2;
-            return _notImplementedDialogLines;
+            if (_dialogues.ContainsKey(dialog))
+                return _dialogues[dialog].Item2;
+            return _notImplementedDialogueLines;
         }
 
         private const string _notImplementedResolution = "This resolution hasn't been implemented";
@@ -144,7 +144,7 @@ namespace SpaceResortMurder
             #endregion
         };
 
-        private static Dictionary<string, Tuple<string, string[]>> _dialogs = new Dictionary<string, Tuple<string, string[]>> {
+        private static Dictionary<string, Tuple<string, string[]>> _dialogues = new Dictionary<string, Tuple<string, string[]>> {
             #region Warren
             { nameof(MeetingWarren), new Tuple<string, string[]>(
                 "Incident details",
@@ -158,7 +158,7 @@ namespace SpaceResortMurder
                     "And on the right Meleena Ke'lick, her file says she is a corporate freelancer. But currently she is not employed by any company."
                 }
             ) },
-            { nameof(INeedASearchOrder), new Tuple<string, string[]>(
+            { nameof(NeedASearchOrder), new Tuple<string, string[]>(
                 "I need a search order for Meleena's craft.",
                 new string[] {
                     "I am way ahead of you, I sent out a request as soon as I got here. Here is your search order.",
