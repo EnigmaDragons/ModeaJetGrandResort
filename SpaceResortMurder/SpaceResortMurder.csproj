@@ -170,6 +170,7 @@
       <HintPath>..\..\MonoDragons.Core\lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -478,6 +479,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\Cursors\PacmanGhost.ani">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Content\Fonts\HeaderFont.spritefont" />
     <Content Include="Content\Fonts\HeaderFont.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

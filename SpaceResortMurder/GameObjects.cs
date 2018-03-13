@@ -1,4 +1,6 @@
-﻿using MonoDragons.Core.IO;
+﻿using MonoDragons.Core.Engine;
+using MonoDragons.Core.IO;
+using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.CharactersX;
 using SpaceResortMurder.DilemmasX;
 using SpaceResortMurder.HudX;
@@ -22,6 +24,9 @@ namespace SpaceResortMurder
 
         public static void InitIfNeeded()
         {
+            Cursors.Default = Cursors.LoadCustomCursor("Content/Cursors/PacmanGhost.ani");
+            //Cursors.Interactive = Cursors.LoadCustomCursor(InsertInteractiveCursorHere);
+            GameInstance.Cursor = Cursors.Default;
             if (_hasInit)
                 return;
             Dilemmas.Init();

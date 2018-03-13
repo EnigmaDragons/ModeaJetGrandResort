@@ -56,13 +56,13 @@ namespace MonoDragons.Core.UserInterface
             var branches = GetAllBranchesFrom(branch);
             foreach (var b in branches)
             {
-                if(b.IsCurrentElement(_current) && _current.IsHovered)
+                _branches.Remove(b);
+                b.Unsubscribe(subscribeAction);
+                if (b.IsCurrentElement(_current) && _current.IsHovered)
                 {
                     _current.OnExitted();
                     _current.IsHovered = false;
                 }
-                _branches.Remove(b);
-                b.Unsubscribe(subscribeAction);
             }
         }
 
@@ -107,7 +107,6 @@ namespace MonoDragons.Core.UserInterface
         {
             _current.OnReleased();
             _wasClicked = false;
-            _current.OnEntered();
         }
 
         private void ChangeActiveElement(ClickableUIElement newElement)

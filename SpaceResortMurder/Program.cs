@@ -16,6 +16,9 @@ using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.ResolutionsX;
 using SpaceResortMurder.State;
 using MonoDragons.Core.PhysicsEngine;
+using System.Runtime.InteropServices;
+using System.Reflection;
+using System.ComponentModel;
 
 namespace SpaceResortMurder
 {
