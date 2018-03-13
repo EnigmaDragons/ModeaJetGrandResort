@@ -13,6 +13,7 @@ namespace SpaceResortMurder.LocationsX
         protected override void OnInit()
         {
             AddClue(new DataStick());
+            AddClue(new UnencryptedDataStick());
             AddClue(new SkeletonKey());
             AddClue(new HackingRig());
         }

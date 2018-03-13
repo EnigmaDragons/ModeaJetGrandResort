@@ -136,6 +136,9 @@ namespace SpaceResortMurder
             { nameof(DataStick), new string[] {
                 "This data stick might have something valuable on it, But it's encrypted.",
             } },
+            { nameof(UnencryptedDataStick), new string[] {
+                "Stub",
+            } },
             { nameof(SkeletonKey), new string[] {
                 "These special skeleton keys are designed to overload unsecure door locks in a matter of nanoseconds.",
             } },
