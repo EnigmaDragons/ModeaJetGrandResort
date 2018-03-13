@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
+using SpaceResortMurder.State;
+using SpaceResortMurder.Dialogues.Meleena;
 
 namespace SpaceResortMurder.Clues.MeleenasSpaceCraft
 {
@@ -9,6 +11,12 @@ namespace SpaceResortMurder.Clues.MeleenasSpaceCraft
             "Placeholder/datastick", 
             new Transform2(new Vector2(800, 800), new Size2(100, 50)), 
             new Size2(400, 200), 
-            nameof(DataStick)) {}
+            nameof(DataStick))
+        {
+            IsActive = () => !(CurrentGameState.Instance.IsThinking(nameof(CareToShowTheDirtYouCollected))
+                || CurrentGameState.Instance.IsThinking(nameof(ObstructionOfJusticeWillAddToYourPrisonTime))
+                || CurrentGameState.Instance.IsThinking(nameof(WontTurnYouInIfYouUnencryptThisDrive)));
+            IsVisible = IsActive;
+        }
     }
 }

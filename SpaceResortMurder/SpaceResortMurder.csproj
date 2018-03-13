@@ -42,6 +42,7 @@
     <Compile Include="CharactersX\Characters.cs" />
     <Compile Include="CharactersX\RaymondsClone.cs" />
     <Compile Include="CharactersX\ResearcherTravis.cs" />
+    <Compile Include="Clues\CloningRoom\CloningChamber.cs" />
     <Compile Include="Clues\Clue.cs" />
     <Compile Include="Clues\DockingBay\GarbageAirlock.cs" />
     <Compile Include="Clues\DockingBay\MeleenasShip.cs" />
@@ -49,6 +50,7 @@
     <Compile Include="Clues\MeleenasSpaceCraft\DataStick.cs" />
     <Compile Include="Clues\MeleenasSpaceCraft\HackingRig.cs" />
     <Compile Include="Clues\MeleenasSpaceCraft\SkeletonKey.cs" />
+    <Compile Include="Clues\MeleenasSpaceCraft\UnencryptedDateStick.cs" />
     <Compile Include="Clues\RaymondsSpaceCraft\RaymondsCorpse.cs" />
     <Compile Include="Clues\RaymondsSpaceCraft\RaymondsPad.cs" />
     <Compile Include="Clues\DockingBay\RaymondsShip.cs" />
@@ -144,6 +146,8 @@
     <Compile Include="LocationsX\MeleenasShipInteriorScene.cs" />
     <Compile Include="LocationsX\RaymondsShipInterior.cs" />
     <Compile Include="LocationsX\RaymondsShipInteriorScene.cs" />
+    <Compile Include="LocationsX\TravissCloningRoom.cs" />
+    <Compile Include="LocationsX\TravissCloningRoomScene.cs" />
     <Compile Include="LocationsX\VacantRoom.cs" />
     <Compile Include="LocationsX\VacantRoomScene.cs" />
     <Compile Include="MouseX\MouseIsClicked.cs" />
@@ -157,7 +161,6 @@
     <Compile Include="ResolutionsX\Resolution.cs" />
     <Compile Include="ResolutionsX\Resolutions.cs" />
     <Compile Include="ResolutionsX\ResolutionScene.cs" />
-    <Compile Include="RoomNames.cs" />
     <Compile Include="Scenes\EndingScene.cs" />
     <Compile Include="Scenes\JamScene.cs" />
     <Compile Include="Deductions\DeductionScene.cs" />
@@ -325,6 +328,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Music\Pondering.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Placeholder\CloningChamber.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Placeholder\CloningRoom.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Placeholder\DataStick.png">

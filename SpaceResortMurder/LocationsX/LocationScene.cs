@@ -32,6 +32,7 @@ namespace SpaceResortMurder.LocationsX
         private Reader _reader;
         private bool _isInvestigating;
         private IReadOnlyList<Character> _peopleHere;
+        private Dictionary<Clue, ClickableUIElement> _clues = new Dictionary<Clue, ClickableUIElement>();
 
         protected ClickUIBranch _investigateRoomBranch;
         protected List<IVisual> _visuals = new List<IVisual>();
@@ -130,7 +131,9 @@ namespace SpaceResortMurder.LocationsX
         {
             var button = clue.CreateButton(() => Investigate(clue));
             _visuals.Add(button);
+            _clues.Add(clue, button);
             _investigateRoomBranch.Add(button);
+            button.IsEnabled = clue.IsActive();
         }
 
         private void TalkTo(Character character)
@@ -159,6 +162,7 @@ namespace SpaceResortMurder.LocationsX
             _dialogOptions = new List<IVisual>();
             _clickUI.Add(_investigateRoomBranch);
             _clickUI.Add(GameObjects.Hud.HudBranch);
+            _clues.ForEach(p => p.Value.IsEnabled = p.Key.IsActive());
         }
 
         private void HaveDialog(string[] lines)
@@ -190,6 +194,7 @@ namespace SpaceResortMurder.LocationsX
             _clickUI.Add(GameObjects.Hud.HudBranch);
             _isInTheMiddleOfDialog = false;
             _isInvestigating = false;
+            _clues.ForEach(p => p.Value.IsEnabled = p.Key.IsActive());
         }
 
         public void Dispose()

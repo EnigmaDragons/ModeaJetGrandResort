@@ -14,6 +14,7 @@ namespace SpaceResortMurder.LocationsX
         {
             Audio.PlayMusic("HackerSpaceship", 0.28f);
             AddClue(new DataStick());
+            AddClue(new UnencryptedDataStick());
             AddClue(new SkeletonKey());
             AddClue(new HackingRig());
         }

@@ -2,6 +2,7 @@
 using MonoDragons.Core.PhysicsEngine;
 using SpaceResortMurder.Dialogues.RaymondsClone;
 using SpaceResortMurder.LocationsX;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.CharactersX
 {
@@ -16,12 +17,12 @@ namespace SpaceResortMurder.CharactersX
 
         public override string WhereAreYou()
         {
-            return nameof(VacantRoom);
+            return CurrentGameState.Instance.IsThinking(nameof(GoToTheLobby)) ? nameof(Lobby) : nameof(VacantRoom);
         }
 
         public override Transform2 WhereAreYouStanding()
         {
-            return new Transform2(new Vector2(700, 215), new Size2(200, 470));
+            return new Transform2(new Vector2(1000, 215), new Size2(200, 470));
         }
     }
 }

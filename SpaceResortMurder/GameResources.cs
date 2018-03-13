@@ -1,6 +1,7 @@
 ﻿using SpaceResortMurder.ObjectivesX;
 using System;
 using System.Collections.Generic;
+using SpaceResortMurder.Clues.CloningRoom;
 using SpaceResortMurder.Clues.DockingBay;
 using SpaceResortMurder.Clues.MeleenasSpaceCraft;
 using SpaceResortMurder.Clues.RaymondsSpaceCraft;
@@ -136,12 +137,30 @@ namespace SpaceResortMurder
             { nameof(DataStick), new string[] {
                 "This data stick might have something valuable on it, But it's encrypted.",
             } },
+            { nameof(UnencryptedDataStick), new string[] {
+                "The data stick contains Raymond's files about a recent cloning experiment gone wrong.",
+                "The experiment made much more perfect clones signifigantly faster than any known method.",
+                "It used needles to extract key matter for replication.",
+                "The experiment turned deadly when all the clones tried to kill their look a likes",
+                "It was a massacre. The researcher overseeing the project and paid for it with his life was Bernard Falcon.",
+                "Raymond Soule covered up the massacre by staging a terroist attack that supposedly killed the people.",
+            } },
             { nameof(SkeletonKey), new string[] {
                 "These special skeleton keys are designed to overload unsecure door locks in a matter of nanoseconds.",
             } },
             { nameof(HackingRig), new string[] {
                 "This is a hacker rig used by \"Data Raven\".",
                 "\"Data Raven\" is responsible for numerous cases of information leaking about corporate corruption",
+            } },
+            #endregion
+
+            #region Travis's Cloning Room
+            { nameof(CloningChamber), new string[] {
+                "This machine is where the person getting cloned lies.",
+                "We used a new process, that makes more perfect clones, much faster than any known method.",
+                "13 needles take sample matter from key places as the brain is scanned.",
+                "It then rapidly replicates the matter to form the clone.",
+                "This new process has not yet been approved for commercial use."
             } },
             #endregion
         };

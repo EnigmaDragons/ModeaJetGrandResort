@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
@@ -17,9 +15,13 @@ namespace SpaceResortMurder.Clues
 
         public string[] InvestigationLines { get; }
         public ImageBox FacingImage { get; }
+        public Func<bool> IsActive { get; protected set; }
+        protected Func<bool> IsVisible { private get; set; }
 
         protected Clue(string image, Transform2 position, Size2 zoomInSize, string clue)
         {
+            IsActive = () => true;
+            IsVisible = () => true;
             _image = image;
             _clue = clue;
             InvestigationLines = GameResources.GetClueLines(clue);
@@ -38,7 +40,7 @@ namespace SpaceResortMurder.Clues
                 if (!CurrentGameState.Instance.IsThinking(_clue))
                     Event.Publish(new ThoughtGained(_clue));
                 onClick();
-            }) { HoveredCursor = Cursors.Interactive };
+            }, IsVisible) { HoveredCursor = Cursors.Interactive };
         }
     }
 }

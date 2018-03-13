@@ -24,9 +24,9 @@ namespace SpaceResortMurder
 
         public static void InitIfNeeded()
         {
-            Cursors.Default = Cursors.LoadCustomCursor("Content/Cursors/PacmanGhost.ani");
+            //Cursors.Default = Cursors.LoadCustomCursor("Content/Cursors/PacmanGhost.ani");
             //Cursors.Interactive = Cursors.LoadCustomCursor(InsertInteractiveCursorHere);
-            CurrentGame.Cursor = Cursors.Default;
+            //CurrentGame.Cursor = Cursors.Default;
             if (_hasInit)
                 return;
             Dilemmas.Init();
