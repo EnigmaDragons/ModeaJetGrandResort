@@ -10,9 +10,9 @@ namespace MonoDragons.Core.UserInterface
         private readonly string _hover;
         private readonly string _press;
         private readonly Transform2 _transform;
-        private readonly Action _onClick;
         private readonly Func<bool> _isVisible;
 
+        public Action OnClick { get; set; } = () => { };
         public Action OnPress { get; set; } = () => { };
         public Action OnEnter { get; set; } = () => { };
         public Action OnExit { get; set; } = () => { };
@@ -29,9 +29,9 @@ namespace MonoDragons.Core.UserInterface
             _hover = hover;
             _press = press;
             _transform = transform;
-            _onClick = onClick;
             _isVisible = isVisible;
 
+            OnClick = onClick;
             _current = _basic;
         }
 
@@ -70,7 +70,7 @@ namespace MonoDragons.Core.UserInterface
             _current = _basic;
 
             if (_isVisible())
-                _onClick.Invoke();
+                OnClick.Invoke();
         }
 
         public override string ToString()

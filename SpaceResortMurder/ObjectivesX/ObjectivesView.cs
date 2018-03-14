@@ -11,7 +11,8 @@ namespace SpaceResortMurder.ObjectivesX
 {
     public sealed class ObjectivesView : IVisualAutomaton
     {
-        private ObjectivesTutorial _tutorial = new ObjectivesTutorial();
+        private bool _intialized;
+        private readonly ObjectivesTutorial _tutorial = new ObjectivesTutorial();
 
         private IReadOnlyList<Objective> _active = new List<Objective>();
 
@@ -44,6 +45,8 @@ namespace SpaceResortMurder.ObjectivesX
         public void Update(TimeSpan delta)
         {
             _tutorial.Update(delta);
+            InitIfNeeded();
+
             var newActive = GameObjects.Objectives.GetActiveObjectives();
             if (_active.Count == newActive.Count)
                 return;
@@ -52,6 +55,15 @@ namespace SpaceResortMurder.ObjectivesX
                 Audio.PlaySound("NewObjective");
 
             _active = newActive;
+        }
+
+        private void InitIfNeeded()
+        {
+            if (_intialized)
+                return;
+
+            _active = GameObjects.Objectives.GetActiveObjectives();
+            _intialized = true;
         }
     }
 }
