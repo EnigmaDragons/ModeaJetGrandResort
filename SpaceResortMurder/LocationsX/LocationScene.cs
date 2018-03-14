@@ -36,6 +36,7 @@ namespace SpaceResortMurder.LocationsX
         private VisualClickableUIElement _endConversationButton;
         private IVisual _locationNameLabel;
         private ClickUIBranch _characterTalkingToBranch;
+        private ClickUIBranch _tuturialBranch;
         private Character _talkingTo;
         private Reader _reader;
 
@@ -146,10 +147,14 @@ namespace SpaceResortMurder.LocationsX
         {
             _subview = new Nothing();
             _objectives = new ObjectivesView();
+            _objectives.Init();
             _investigateRoomBranch = new ClickUIBranch("Location Investigation", 1);
             _locationNameLabel = UiLabels.HeaderLabel(_location.Name, Color.White);
             _peopleHere = GameObjects.Characters.GetPeopleAt(_location.Value);
             _clickUI = new ClickUI();
+            _tuturialBranch = new ClickUIBranch("Tutorial", 25);
+            _tuturialBranch.Add(_objectives.TutorialButton);
+            _clickUI.Add(_tuturialBranch);
             _endConversationButton = new ImageTextButton(new Transform2(new Rectangle(-684, 960, 1380, 77)), StartLoitering,
                 "Thanks for your help.",
                 "Convo/DialogueButton", "Convo/DialogueButton-Hover", "Convo/DialogueButton-Press", () => IsTalking)
@@ -259,6 +264,7 @@ namespace SpaceResortMurder.LocationsX
 
             UpdateClues();
 
+            _clickUI.Add(_tuturialBranch);
             _clickUI.Add(_investigateRoomBranch);
             _clickUI.Add(GameObjects.Hud.HudBranch);
             CurrentMode = Mode.Loitering;

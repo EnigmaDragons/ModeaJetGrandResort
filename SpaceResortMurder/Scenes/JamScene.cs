@@ -3,6 +3,7 @@ using MonoDragons.Core.Inputs;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
+using SpaceResortMurder.TutorialsX;
 using System;
 using System.Collections.Generic;
 
@@ -14,6 +15,7 @@ namespace SpaceResortMurder.Scenes
         private readonly List<IAutomaton> _automata = new List<IAutomaton>();
 
         private ClickUI _clickUi;
+        private ClickUIBranch _tutorialBranch;
 
         protected abstract void OnInit();
         protected abstract void DrawBackground();
@@ -24,6 +26,8 @@ namespace SpaceResortMurder.Scenes
             GameObjects.InitIfNeeded();
             Input.ClearTransientBindings();
             _clickUi = new ClickUI();
+            _tutorialBranch = new ClickUIBranch("Tutorial", 10);
+            _clickUi.Add(_tutorialBranch);
             _automata.Add(_clickUi);
             OnInit();
         }
@@ -43,6 +47,13 @@ namespace SpaceResortMurder.Scenes
         protected void AddVisual(IVisual v)
         {
             _visuals.Add(v);
+        }
+
+        protected void Add(Tutorial t)
+        {
+            _visuals.Add(t);
+            _tutorialBranch.Add(t.Button);
+            _automata.Add(t);
         }
 
         protected void AddUi(ClickableUIElement e)
