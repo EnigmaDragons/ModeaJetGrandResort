@@ -54,11 +54,11 @@ namespace SpaceResortMurder.LocationsX
 
         public void Init()
         {
-            if(!CurrentGameState.Instance.HasViewedItem(_location))
-                Event.Publish(new ItemViewed(_location));
+            if(!CurrentGameState.Instance.HasViewedItem(_location.Value))
+                Event.Publish(new ItemViewed(_location.Value));
 
             GameObjects.InitIfNeeded();
-            CurrentGameState.Instance.CurrentLocation = _location;
+            CurrentGameState.Instance.CurrentLocation = _location.Value;
 			
             _objectives = new ObjectivesView();
 			
