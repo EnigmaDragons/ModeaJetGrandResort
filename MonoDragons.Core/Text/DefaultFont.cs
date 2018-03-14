@@ -2,25 +2,32 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MonoDragons.Core.Common;
+using System.Collections.Generic;
 
 namespace MonoDragons.Core.Text
 {
     public static class DefaultFont
     {
-        public static SpriteFont Font { get; set; }
+        public static ScaledSpriteFontSet ScaledFontSet { get; set; }
 
         public static string Name { get; set; } = "Fonts/Audiowide";
         public static Color Color { get; set; } = Color.White;
+        public static float[] AvailableScales { get; set; } = new float[0];
         public static Optional<int> FutureLineSpacing { get; set; } = new Optional<int>();
         public static Optional<float> FutureSpacing { get; set; } = new Optional<float>();
 
         public static void Load(ContentManager content)
         {
-            Font = content?.Load<SpriteFont>(Name);
+            if (content == null)
+                return;
+            var defaultFont = content.Load<SpriteFont>(Name);
+            var allFonts = new Dictionary<float, SpriteFont> { { 1, defaultFont } };
+            AvailableScales.ForEach(s => allFonts.Add(s, content.Load<SpriteFont>(Name + "-" + s.ToString())));
+            ScaledFontSet = new ScaledSpriteFontSet(defaultFont, allFonts);
             if (FutureLineSpacing.HasValue)
-                Font.LineSpacing = FutureLineSpacing.Value;
+                ScaledFontSet.ForEach(f => f.LineSpacing = FutureLineSpacing.Value);
             if (FutureSpacing.HasValue)
-                Font.Spacing = FutureSpacing.Value;
+                ScaledFontSet.ForEach(f => f.Spacing = FutureSpacing.Value);
         }
     }
 }
