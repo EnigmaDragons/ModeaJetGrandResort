@@ -1,5 +1,6 @@
 ﻿using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Clues.RaymondsSpaceCraft;
+using SpaceResortMurder.Pathways;
 
 namespace SpaceResortMurder.LocationsX
 {
@@ -15,6 +16,7 @@ namespace SpaceResortMurder.LocationsX
             AddClue(new RaymondsPad());
             AddClue(new ShipsLogs());
             AddClue(new T71EnergyBlaster());
+            AddPathway(new RaymondsShipToDockingBay());
         }
 
         protected override void DrawBackground()

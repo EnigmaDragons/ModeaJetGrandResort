@@ -1,4 +1,5 @@
 ﻿using MonoDragons.Core.UserInterface;
+using SpaceResortMurder.Pathways;
 
 namespace SpaceResortMurder.LocationsX
 {
@@ -8,7 +9,10 @@ namespace SpaceResortMurder.LocationsX
 
         public VacantRoomScene() : base(nameof(VacantRoom)) {}
 
-        protected override void OnInit() {}
+        protected override void OnInit()
+        {
+            AddPathway(new VacantRoomToLobby());
+        }
 
         protected override void DrawBackground()
         {

@@ -1,6 +1,7 @@
 ﻿using MonoDragons.Core.AudioSystem;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Clues.MeleenasSpaceCraft;
+using SpaceResortMurder.Pathways;
 
 namespace SpaceResortMurder.LocationsX
 {
@@ -17,6 +18,7 @@ namespace SpaceResortMurder.LocationsX
             AddClue(new UnencryptedDataStick());
             AddClue(new SkeletonKey());
             AddClue(new HackingRig());
+            AddPathway(new MeleenasShipToDockingBay());
         }
 
         protected override void DrawBackground()

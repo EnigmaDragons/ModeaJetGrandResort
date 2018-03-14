@@ -5,11 +5,6 @@ using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.ResolutionsX;
 using SpaceResortMurder.State;
 using SpaceResortMurder.Style;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SpaceResortMurder.Scenes
 {

@@ -35,7 +35,11 @@ namespace SpaceResortMurder
             Init();
             const string gameName = "ModeaJet Grand Resort";
             var scene = SetupScene();
+#if DEBUG
+            var controller = new DeveloperCheatController(CreateKeyboardController());
+#else
             var controller = CreateKeyboardController();
+#endif
             return CurrentOptions.IsFullscreen
                 ? new NeedlesslyComplexMainGame(gameName, startingScene, new Size2(1600, 900), scene, controller)
                 : new NeedlesslyComplexMainGame(gameName, startingScene,
@@ -75,7 +79,6 @@ namespace SpaceResortMurder
                 { GameResources.CreditsSceneName, () => new CreditsScene() },
                 { GameResources.DilemmasSceneName, () => new DilemmaScene() },
                 { GameResources.OptionsSceneName, () => new OptionsScene() },
-                { GameResources.MapSceneName, () => new SpaceResortMapScene() },
                 { nameof(DockingBay), () => new DockingBayScene() },
                 { nameof(Lobby), () => new LobbyScene() },
                 { nameof(RaymondsShipInterior), () => new RaymondsShipInteriorScene() },

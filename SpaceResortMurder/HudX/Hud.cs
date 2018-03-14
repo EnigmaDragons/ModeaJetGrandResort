@@ -23,7 +23,6 @@ namespace SpaceResortMurder.HudX
         {
             _objectives = new ObjectivesView();
             _clickables = new List<VisualClickableUIElement>();
-            AddIconButton(() => Scene.NavigateTo(GameResources.MapSceneName), "Icons/Locations");
             AddIconButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Icons/Dilemmas");
             AddIconButton(() => Scene.NavigateTo(GameResources.DialogueMemoriesScene), "Icons/Conversations");
             AddIconButton(() => Scene.NavigateTo(GameResources.OptionsSceneName), "Icons/Options");
@@ -46,10 +45,8 @@ namespace SpaceResortMurder.HudX
         
         private void DrawNewIconsIfApplicable(Transform2 parentTransform)
         {
-            if (GameObjects.Locations.GetAvailableLocations().Any(l => l.IsNewOrHasNewDialogs))
-                _newIcon.Draw(new Transform2(GetIndicatorLocation(0)));
             if (GameObjects.Dilemmas.GetActiveDilemmas().Any(d => d.IsNew || d.HasNewAnswers))
-                _newIcon.Draw(new Transform2(GetIndicatorLocation(1)));
+                _newIcon.Draw(new Transform2(GetIndicatorLocation(0)));
         }
 
         private void AddIconButton(Action onClick, string name)

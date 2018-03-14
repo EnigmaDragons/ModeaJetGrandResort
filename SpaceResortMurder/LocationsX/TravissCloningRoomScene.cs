@@ -1,5 +1,6 @@
 ﻿using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Clues.CloningRoom;
+using SpaceResortMurder.Pathways;
 
 namespace SpaceResortMurder.LocationsX
 {
@@ -12,6 +13,7 @@ namespace SpaceResortMurder.LocationsX
         protected override void OnInit()
         {
             AddClue(new CloningChamber());
+            AddPathway(new CloningRoomToLobby());
         }
 
         protected override void DrawBackground()
