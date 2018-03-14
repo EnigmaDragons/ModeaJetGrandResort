@@ -21,7 +21,6 @@ namespace SpaceResortMurder.HudX
         {
             _clickables = new List<VisualClickableUIElement>();
             AddIconButton(() => Scene.NavigateTo(GameResources.ObjectivesSceneName), "Icons/Objective");
-            AddIconButton(() => Scene.NavigateTo(GameResources.MapSceneName), "Icons/Locations");
             AddIconButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Icons/Dilemmas");
             AddIconButton(() => Scene.NavigateTo(GameResources.DialogueMemoriesScene), "Icons/Conversations");
             AddIconButton(() => Scene.NavigateTo(GameResources.OptionsSceneName), "Icons/Options");

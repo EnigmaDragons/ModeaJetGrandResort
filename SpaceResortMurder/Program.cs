@@ -74,7 +74,6 @@ namespace SpaceResortMurder
                 { GameResources.CreditsSceneName, () => new CreditsScene() },
                 { GameResources.DilemmasSceneName, () => new DilemmaScene() },
                 { GameResources.OptionsSceneName, () => new OptionsScene() },
-                { GameResources.MapSceneName, () => new SpaceResortMapScene() },
                 { GameResources.ObjectivesSceneName, () => new ObjectivesScene() },
                 { nameof(DockingBay), () => new DockingBayScene() },
                 { nameof(Lobby), () => new LobbyScene() },

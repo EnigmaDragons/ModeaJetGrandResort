@@ -169,6 +169,17 @@
     <Compile Include="ObjectivesX\InvestigateRaymondsDeadBody.cs" />
     <Compile Include="ObjectivesX\Objective.cs" />
     <Compile Include="ObjectivesX\Objectives.cs" />
+    <Compile Include="Pathways\CloningRoomToLobby.cs" />
+    <Compile Include="Pathways\DockingBayToLobby.cs" />
+    <Compile Include="Pathways\DockingBayToMeleenasShip.cs" />
+    <Compile Include="Pathways\DockingBayToRaymondsShip.cs" />
+    <Compile Include="Pathways\LobbyToCloningRoom.cs" />
+    <Compile Include="Pathways\LobbyToDockingBay.cs" />
+    <Compile Include="Pathways\LobbyToVacantRoom.cs" />
+    <Compile Include="Pathways\MeleenasShipToDockingBay.cs" />
+    <Compile Include="Pathways\Pathway.cs" />
+    <Compile Include="Pathways\RaymondsShipToDockingBay.cs" />
+    <Compile Include="Pathways\VacantRoomToLobby.cs" />
     <Compile Include="ResolutionsX\IAmLeaving.cs" />
     <Compile Include="ResolutionsX\Resolution.cs" />
     <Compile Include="ResolutionsX\Resolutions.cs" />
@@ -178,7 +189,6 @@
     <Compile Include="Deductions\DeductionScene.cs" />
     <Compile Include="LocationsX\LocationScene.cs" />
     <Compile Include="Scenes\ObjectivesScene.cs" />
-    <Compile Include="Scenes\SpaceResortMapScene.cs" />
     <Compile Include="State\CurrentGameState.cs" />
     <Compile Include="State\CurrentOptions.cs" />
     <Compile Include="State\Options.cs" />
@@ -355,6 +365,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Placeholder\DockingBay.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Placeholder\Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Placeholder\HackerRig.png">

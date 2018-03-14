@@ -14,6 +14,7 @@ using SpaceResortMurder.Dialogues;
 using SpaceResortMurder.Style;
 using SpaceResortMurder.State;
 using MonoDragons.Core.EventSystem;
+using SpaceResortMurder.Pathways;
 
 namespace SpaceResortMurder.LocationsX
 {
@@ -32,6 +33,7 @@ namespace SpaceResortMurder.LocationsX
         private bool _isTalking;
         private Reader _reader;
         private bool _isInvestigating;
+        private bool _isTryingToTraverse;
         private IReadOnlyList<Character> _peopleHere;
         private Dictionary<Clue, ClickableUIElement> _clues = new Dictionary<Clue, ClickableUIElement>();
 
@@ -139,6 +141,13 @@ namespace SpaceResortMurder.LocationsX
             button.IsEnabled = clue.IsActive();
         }
 
+        protected void AddPathway(Pathway pathway)
+        {
+            var button = pathway.CreateButton(ShowCantNavigate);
+            _visuals.Add(button);
+            _investigateRoomBranch.Add(button);
+        }
+
         private void TalkTo(Character character)
         {
             _clickUI.Remove(GameObjects.Hud.HudBranch);
@@ -198,6 +207,23 @@ namespace SpaceResortMurder.LocationsX
             _isInTheMiddleOfDialog = false;
             _isInvestigating = false;
             _clues.ForEach(p => p.Value.IsEnabled = p.Key.IsActive());
+        }
+
+        private void ShowCantNavigate(string pathway)
+        {
+            _clickUI.Remove(_investigateRoomBranch);
+            _reader = new Reader(new string[] { GameResources.GetPathwayText(pathway) }, FinishPathwayDialog);
+            _clickUI.Remove(GameObjects.Hud.HudBranch);
+            _isInTheMiddleOfDialog = true;
+            _isTryingToTraverse = true;
+        }
+
+        private void FinishPathwayDialog()
+        {
+            _clickUI.Add(_investigateRoomBranch);
+            _clickUI.Add(GameObjects.Hud.HudBranch);
+            _isInTheMiddleOfDialog = false;
+            _isTryingToTraverse = false;
         }
 
         public void Dispose()

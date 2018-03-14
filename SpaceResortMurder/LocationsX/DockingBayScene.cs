@@ -2,6 +2,7 @@
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Clues;
 using SpaceResortMurder.Clues.DockingBay;
+using SpaceResortMurder.Pathways;
 using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.LocationsX
@@ -19,6 +20,9 @@ namespace SpaceResortMurder.LocationsX
             AddClue(new MeleenasShip());
             AddClue(new PoliceCruiser());
             AddClue(new GarbageAirlock());
+            AddPathway(new DockingBayToLobby());
+            AddPathway(new DockingBayToRaymondsShip());
+            AddPathway(new DockingBayToMeleenasShip());
         }
 
         protected override void DrawBackground()

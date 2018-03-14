@@ -35,7 +35,6 @@ namespace SpaceResortMurder
         public const string OptionsSceneName = "Options";
         public const string CreditsSceneName = "Credits";
         public const string DilemmasSceneName = "Dilemmas";
-        public const string MapSceneName = "Map";
         public const string ObjectivesSceneName = "Objectives";
         public const string DialogueMemoriesScene = "Dialogue Memories";
         public const string ResolutionSceneName = "Resolution";
@@ -107,6 +106,14 @@ namespace SpaceResortMurder
             if (_resolutionText.ContainsKey(resolution))
                 return ReplaceSymbols(_resolutionText[resolution].ToCharArray());
             return _notImplementedResolution;
+        }
+
+        private const string _notImplementedPathway = "This pathway hasn't been implemented";
+        public static string GetPathwayText(string pathway)
+        {
+            if (_pathwayText.ContainsKey(pathway))
+                return ReplaceSymbols(_pathwayText[pathway]);
+            return _notImplementedPathway;
         }
 
         private static string ReplaceSymbols(string text)
@@ -530,7 +537,7 @@ namespace SpaceResortMurder
             { nameof(PerfectedDesign), "No, the new cloning process was perfected." }
         };
 
-        private static Dictionary<string, Tuple<string, string>> _objectiveTexts = new Dictionary<string, Tuple<string, string>>()
+        private static Dictionary<string, Tuple<string, string>> _objectiveTexts = new Dictionary<string, Tuple<string, string>>
         {
             { nameof(InvestigateRaymondsDeadBody), new Tuple<string, string>(
                 "Go to Raymond's ship and investigate his remains",
@@ -550,9 +557,14 @@ namespace SpaceResortMurder
             )},
         };
 
-        private static Dictionary<string, string> _resolutionText = new Dictionary<string, string>()
+        private static Dictionary<string, string> _resolutionText = new Dictionary<string, string>
         {
             { nameof(IAmLeaving), "I am leaving" }
+        };
+
+        private static Dictionary<string, string> _pathwayText = new Dictionary<string, string>
+        {
+            
         };
 
         private static Dictionary<string, Func<string>> _symobls = new Dictionary<string, Func<string>>
