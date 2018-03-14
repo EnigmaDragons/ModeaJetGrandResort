@@ -211,6 +211,7 @@
     <Compile Include="LocationsX\LocationScene.cs" />
     <Compile Include="State\CurrentGameState.cs" />
     <Compile Include="State\CurrentOptions.cs" />
+    <Compile Include="State\DialogMemoryGained.cs" />
     <Compile Include="State\Options.cs" />
     <Compile Include="State\ItemViewed.cs" />
     <Compile Include="DilemmasX\Dilemma.cs" />

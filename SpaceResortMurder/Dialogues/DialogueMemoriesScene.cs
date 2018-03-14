@@ -8,6 +8,7 @@ using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.CharactersX;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Dialogues
 {
@@ -21,6 +22,7 @@ namespace SpaceResortMurder.Dialogues
         private Character _selectedPerson;
         private List<IVisual> _characterOptions;
         private List<IVisual> _dialogOptions = new List<IVisual>();
+        private string _locationMemory;
 
         public void Init()
         {
@@ -47,15 +49,16 @@ namespace SpaceResortMurder.Dialogues
             _dialogMemoriesBranch.ClearElements();
             foreach (var dialog in person.GetOldDialogs())
             {
-                var button = dialog.CreateButton(RememberDialog, 0, 0);
+                var button = dialog.CreateButton((l) => RememberDialog(dialog.Dialog, l), 0, 0);
                 button.Offset = new Vector2(0, -300 + _dialogOptions.Count * 100);
                 _dialogMemoriesBranch.Add(button);
                 _dialogOptions.Add(button);
             }
         }
 
-        private void RememberDialog(string[] lines)
+        private void RememberDialog(string dialog, string[] lines)
         {
+            _locationMemory = CurrentGameState.RememberLocation(dialog);
             _clickUI.Remove(_dialogMemoriesBranch);
             _clickUI.Remove(_personMemoriesBranch);
             _clickUI.Remove(GameObjects.Hud.HudBranch);
@@ -75,6 +78,7 @@ namespace SpaceResortMurder.Dialogues
         {
             if (_isInTheMiddleOfDialog)
             {
+                UI.FillScreen(_locationMemory);
                 _selectedPerson.DrawTalking();
                 _reader.Draw();
             }

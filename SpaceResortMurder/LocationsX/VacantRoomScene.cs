@@ -4,13 +4,8 @@ namespace SpaceResortMurder.LocationsX
 {
     public class VacantRoomScene : LocationScene
     {
-        public VacantRoomScene() : base(GameObjects.Locations[nameof(VacantRoom)]) {}
+        public VacantRoomScene() : base(GameObjects.Locations[nameof(VacantRoom)], "Locations/BedroomBg") {}
 
         protected override void OnInit() {}
-
-        protected override void DrawBackground()
-        {
-            UI.FillScreen("Locations/BedroomBg");
-        }
     }
 }

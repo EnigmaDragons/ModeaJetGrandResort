@@ -4,13 +4,8 @@ namespace SpaceResortMurder.LocationsX
 {
     public class PoliceCruiserInteriorScene : LocationScene
     {
-        public PoliceCruiserInteriorScene() : base(GameObjects.Locations[nameof(PoliceCruiserInterior)]) {}
+        public PoliceCruiserInteriorScene() : base(GameObjects.Locations[nameof(PoliceCruiserInterior)], "Placeholder/PoliceCruiser") {}
 
         protected override void OnInit() {}
-
-        protected override void DrawBackground()
-        {
-            UI.FillScreen("Placeholder/PoliceCruiser");
-        }
     }
 }

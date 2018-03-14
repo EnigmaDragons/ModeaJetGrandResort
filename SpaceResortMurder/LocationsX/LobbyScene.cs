@@ -5,16 +5,11 @@ namespace SpaceResortMurder.LocationsX
 {
     public class LobbyScene : LocationScene
     {
-        public LobbyScene() : base(GameObjects.Locations[nameof(Lobby)]) {}
+        public LobbyScene() : base(GameObjects.Locations[nameof(Lobby)], "Locations/hotel_lobby_environment") {}
 
         protected override void OnInit()
         {
             Audio.PlayMusic("HotelLobby");
-        }
-
-        protected override void DrawBackground()
-        {
-            UI.FillScreen("Locations/hotel_lobby_environment");
         }
     }
 }

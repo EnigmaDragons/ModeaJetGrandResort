@@ -5,16 +5,11 @@ namespace SpaceResortMurder.LocationsX
 {
     public class MeleenasShipInteriorScene : LocationScene
     {
-        public MeleenasShipInteriorScene() : base(GameObjects.Locations[nameof(MeleenasShipInterior)]) {}
+        public MeleenasShipInteriorScene() : base(GameObjects.Locations[nameof(MeleenasShipInterior)], "Placeholder/MeleenasSpaceCraft") {}
 
         protected override void OnInit()
         {
             Audio.PlayMusic("HackerSpaceship", 0.28f);
-        }
-
-        protected override void DrawBackground()
-        {
-            UI.FillScreen("Placeholder/MeleenasSpaceCraft");
         }
     }
 }

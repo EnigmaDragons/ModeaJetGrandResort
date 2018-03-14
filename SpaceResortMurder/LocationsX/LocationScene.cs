@@ -56,11 +56,12 @@ namespace SpaceResortMurder.LocationsX
         protected List<IVisual> _visuals = new List<IVisual>();
 
         protected abstract void OnInit();
-        protected abstract void DrawBackground();
+        private readonly string _locationImage;
 
-        protected LocationScene(Location location)
+        protected LocationScene(Location location, string locationImage)
         {
             _location = location;
+            _locationImage = locationImage;
         }
 
         public void Init()
@@ -90,7 +91,7 @@ namespace SpaceResortMurder.LocationsX
 
         public void Draw()
         {
-            DrawBackground();
+            UI.FillScreen(_locationImage);
 
             _visuals.ForEach(x => x.Draw());
             if (IsLoitering)
@@ -138,6 +139,7 @@ namespace SpaceResortMurder.LocationsX
                 Event.Publish(new ItemViewed(_location.Value));
 
             CurrentGameState.CurrentLocation = _location.Value;
+            CurrentGameState.CurrentLocationImage = _locationImage;
             _location.Clues.ForEach(AddClue);
             _location.Pathways.ForEach(x => AddToRoom(x.CreateButton(ShowCantNavigate)));
             UpdateClues();
