@@ -23,7 +23,7 @@ namespace SpaceResortMurder.Clues
 
         public ClueDisplayReader(string[] linesToBeRead, Action onFinished)
         {
-            _chatBox = new ChatBox("", 840, DefaultFont.Font, CurrentOptions.MillisPerTextCharacter, 32) { SoundsEnabled = false };
+            _chatBox = new ChatBox("", 840, DefaultFont.ScaledFontSet.DefaultFont, CurrentOptions.MillisPerTextCharacter, 32) { SoundsEnabled = false };
             _chatBoxTransform = new Transform2(new Vector2(120, 912));
             _lines = new Queue<string>(linesToBeRead);
             _onFinished = onFinished;
