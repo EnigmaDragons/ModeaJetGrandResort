@@ -1,4 +1,6 @@
-﻿using SpaceResortMurder.Deductions.VictimsIdentity;
+﻿using SpaceResortMurder.Deductions.ClonesDesign;
+using SpaceResortMurder.Deductions.VictimsIdentity;
+using SpaceResortMurder.Dialogues.Travis;
 using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Deductions.TheMurdererWas
@@ -9,7 +11,9 @@ namespace SpaceResortMurder.Deductions.TheMurdererWas
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(TheVictimIsRaymond)) && false;
+            return CurrentGameState.Instance.IsThinking(nameof(TheVictimIsRaymond)) 
+                && CurrentGameState.Instance.IsThinking(nameof(ViolentExperimentalResearch))
+                && CurrentGameState.Instance.IsThinking(nameof(DesignedToKill));
         }
     }
 }

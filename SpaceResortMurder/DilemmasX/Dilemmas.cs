@@ -20,6 +20,8 @@ namespace SpaceResortMurder.DilemmasX
             new WhoHackedTheDoor(),
             new WasZaidsResortAcceptedAsABetaTester(),
             new WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip(),
+            new WhoLaunchedTheShip(),
+            new WasTheCloneDesignedToKill(),
         };
 
         public bool HasTheory => _coreDilemmas.All(d => d.HasAnswerSelected);

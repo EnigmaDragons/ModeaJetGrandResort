@@ -24,6 +24,8 @@ using SpaceResortMurder.State;
 using System.Text;
 using System.Linq;
 using System.Text.RegularExpressions;
+using SpaceResortMurder.Deductions.ClonesDesign;
+using SpaceResortMurder.Deductions.LaunchedTheShip;
 
 namespace SpaceResortMurder
 {
@@ -49,7 +51,7 @@ namespace SpaceResortMurder
                 foreach (Match match in matches)
                     foreach (Capture capture in match.Captures)
                         // The first capture is the whole value not a value caught by the capture zone
-                        if (!capture.Value.Contains("\\") && !_dilemmaOrDeductionSymbols.ContainsKey(capture.Value))
+                        if (!capture.Value.Contains("\\") && !_symobls.ContainsKey(capture.Value))
                             throw new NotImplementedException("A dilemma or deduction uses unimplemented symbol \"" + capture + "\"");
             }
         }
@@ -58,7 +60,7 @@ namespace SpaceResortMurder
         public static string[] GetClueLines(string dialogOrClue)
         {
             if (_clues.ContainsKey(dialogOrClue))
-                return _clues[dialogOrClue];
+                return _clues[dialogOrClue].Select(ReplaceSymbols).ToArray();
             return _notImplementedClueLines;
         }
 
@@ -66,9 +68,52 @@ namespace SpaceResortMurder
         public static string GetDilemmaOrDeductionText(string dilemmaOrDeduction)
         {
             if (_dilemmaOrDeductionText.ContainsKey(dilemmaOrDeduction))
-                return ReplaceSymbols(_dilemmaOrDeductionText[dilemmaOrDeduction].ToCharArray());
+                return ReplaceSymbols(_dilemmaOrDeductionText[dilemmaOrDeduction]);
             return _notImplementedDilemmaOrDeductionText;
         }
+
+        private const string _notImplementedObjectiveText = "This objective hasn't been implemented";
+        public static string GetObjectiveName(string objective)
+        {
+            if (_objectiveTexts.ContainsKey(objective))
+                return ReplaceSymbols(_objectiveTexts[objective].Item1);
+            return _notImplementedObjectiveText;
+        }
+        public static string GetObjectiveDescription(string objective)
+        {
+            if (_objectiveTexts.ContainsKey(objective))
+                return ReplaceSymbols(_objectiveTexts[objective].Item2);
+            return _notImplementedObjectiveText;
+        }
+
+        private const string _notImplementedDialogueText = "This dialog hasn't been implemented";
+        public static string GetDialogueOpener(string dialog)
+        {
+            if (_dialogues.ContainsKey(dialog))
+                return ReplaceSymbols(_dialogues[dialog].Item1);
+            return _notImplementedDialogueText;
+        }
+        private static string[] _notImplementedDialogueLines = new string[] { "This dialog hasn't been implemented" };
+        public static string[] GetDialogueLines(string dialog)
+        {
+            if (_dialogues.ContainsKey(dialog))
+                return _dialogues[dialog].Item2.Select(ReplaceSymbols).ToArray();
+            return _notImplementedDialogueLines;
+        }
+
+        private const string _notImplementedResolution = "This resolution hasn't been implemented";
+        public static string GetResolutionText(string resolution)
+        {
+            if (_resolutionText.ContainsKey(resolution))
+                return ReplaceSymbols(_resolutionText[resolution].ToCharArray());
+            return _notImplementedResolution;
+        }
+
+        private static string ReplaceSymbols(string text)
+        {
+            return ReplaceSymbols(text.ToCharArray());
+        }
+
         private static string ReplaceSymbols(char[] text)
         {
             var builder = new StringBuilder();
@@ -79,7 +124,7 @@ namespace SpaceResortMurder
                     for (i++; ; i++)
                         if (text[i] == '\\')
                         {
-                            builder.Append(_dilemmaOrDeductionSymbols[symbol.ToString()]());
+                            builder.Append(_symobls[symbol.ToString()]());
                             break;
                         }
                         else
@@ -88,43 +133,6 @@ namespace SpaceResortMurder
                 else
                     builder.Append(text[i]);
             return builder.ToString();
-        }
-
-        private const string _notImplementedObjectiveText = "This objective hasn't been implemented";
-        public static string GetObjectiveName(string objective)
-        {
-            if (_objectiveTexts.ContainsKey(objective))
-                return _objectiveTexts[objective].Item1;
-            return _notImplementedObjectiveText;
-        }
-        public static string GetObjectiveDescription(string objective)
-        {
-            if (_objectiveTexts.ContainsKey(objective))
-                return _objectiveTexts[objective].Item2;
-            return _notImplementedObjectiveText;
-        }
-
-        private const string _notImplementedDialogueText = "This dialog hasn't been implemented";
-        public static string GetDialogueOpener(string dialog)
-        {
-            if (_dialogues.ContainsKey(dialog))
-                return _dialogues[dialog].Item1;
-            return _notImplementedDialogueText;
-        }
-        private static string[] _notImplementedDialogueLines = new string[] { "This dialog hasn't been implemented" };
-        public static string[] GetDialogueLines(string dialog)
-        {
-            if (_dialogues.ContainsKey(dialog))
-                return _dialogues[dialog].Item2;
-            return _notImplementedDialogueLines;
-        }
-
-        private const string _notImplementedResolution = "This resolution hasn't been implemented";
-        public static string GetResolutionText(string resolution)
-        {
-            if (_resolutionText.ContainsKey(resolution))
-                return _resolutionText[resolution];
-            return _notImplementedResolution;
         }
 
         private static Dictionary<string, string[]> _clues = new Dictionary<string, string[]> {
@@ -356,6 +364,13 @@ namespace SpaceResortMurder
                     "He is the one I heard on the ship. Raymond's voice was definitely the voice I heard.",
                 }
             ) },
+            { nameof(YouAreAHacker), new Tuple<string, string[]>(
+                "You are not a corporate freelancer and this is not a retreat.",
+                new string[] {
+                    "You're right, I was hired to find dirt on Human Perfect.",
+                    "CEO's don't take time off to small time resorts. But that means that something fishy is up and an easy to access to the CEO's data. \nEasy mark.",
+                }
+            ) },
             #endregion
 
             #region Travis
@@ -387,6 +402,22 @@ namespace SpaceResortMurder
                 new string[] {
                     "Of course, but first you have to sign a non-disclosure agreement to not divulge any of the methods used by the machine to perform the cloning.",
                     "I will be waiting for you at my room so that I can explain it to you.",
+                }
+            ) },
+            { nameof(YourBrotherWasKilled), new Tuple<string, string[]>(
+                "Your brother died in a cloning experiment and Raymond covered it up.",
+                new string[] {
+                    "So you think this would be my motive for murder?",
+                    "Well it's even worse than a cover up, my brother told Raymond the experiment wasn't ready.",
+                    "But Raymond wasn't willing to delay it, he rushed it in an unsafe manner.",
+                    "How is that for a strong motive, although you will find the evidence doesn't support me being the murder.",
+                }
+            ) },
+            { nameof(ViolentExperimentalResearch), new Tuple<string, string[]>(
+                "The technique used by this cloning chamber is the same one used in the incident that killed your brother.",
+                new string[] {
+                    "Even though the experiment resulted in a massacre, it did produce results and we were able to perfect it with out the lethal flaw.",
+                    "This is the same method without that flaw.",
                 }
             ) },
             #endregion
@@ -485,21 +516,18 @@ namespace SpaceResortMurder
             
             { nameof(WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip), "Was Meleena honest in what happened on Raymond's ship." },
             { nameof(MeleenaWasHonest), "Yes" },
-            { nameof(MeleenaIsLying), "No, Something about her testimony is off." }
-        };
+            { nameof(MeleenaIsLying), "No, Something about her testimony is off." },
 
-        private static Dictionary<string, Func<string>> _dilemmaOrDeductionSymbols = new Dictionary<string, Func<string>>
-        {
-            { "Raymond",
-                () => CurrentGameState.Instance.IsThinking(nameof(TheVictimIsRaymondsClone))
-                ? "Raymond's Clone"
-                : "Raymond"
-            },
-            { "NotRaymond",
-                () => CurrentGameState.Instance.IsThinking(nameof(TheVictimIsRaymondsClone))
-                ? "Raymond"
-                : "Raymond's Clone"
-            },
+            { nameof(WhoLaunchedTheShip), "Who launched Raymond's craft" },
+            { nameof(ZaidLaunchedTheShip), "Zaid" },
+            { nameof(MeleenaLaunchedTheShip), "Meleena" },
+            { nameof(TravisLaunchedTheShip), "Travis" },
+            { nameof(RaymondLaunchedTheShip), "\\Raymond\\ did before his death" },
+            { nameof(RaymondsCloneLaunchedTheShip), "\\NotRaymond\\" },
+
+            { nameof(WasTheCloneDesignedToKill), "Was the clone designed to kill his look a like?" },
+            { nameof(DesignedToKill), "Yes, Travis intentionally used a process that would create a killer clone" },
+            { nameof(PerfectedDesign), "No, the new cloning process was perfected." }
         };
 
         private static Dictionary<string, Tuple<string, string>> _objectiveTexts = new Dictionary<string, Tuple<string, string>>()
@@ -525,6 +553,20 @@ namespace SpaceResortMurder
         private static Dictionary<string, string> _resolutionText = new Dictionary<string, string>()
         {
             { nameof(IAmLeaving), "I am leaving" }
+        };
+
+        private static Dictionary<string, Func<string>> _symobls = new Dictionary<string, Func<string>>
+        {
+            { "Raymond",
+                () => CurrentGameState.Instance.IsThinking(nameof(TheVictimIsRaymondsClone))
+                    ? "Raymond's Clone"
+                    : "Raymond"
+            },
+            { "NotRaymond",
+                () => CurrentGameState.Instance.IsThinking(nameof(TheVictimIsRaymondsClone))
+                    ? "Raymond"
+                    : "Raymond's Clone"
+            },
         };
     }
 }

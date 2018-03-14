@@ -12,7 +12,9 @@ namespace SpaceResortMurder.CharactersX
             new WhyIsTravisAtTheResort(),
             new DidYouWorkWithRaymond(),
             new TravissAccount(),
-            new InvestigateYourCloningMachine()) {}
+            new InvestigateYourCloningMachine(),
+            new YourBrotherWasKilled(),
+            new ViolentExperimentalResearch()) {}
 
         public override string WhereAreYou()
         {

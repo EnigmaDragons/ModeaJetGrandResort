@@ -7,7 +7,7 @@ namespace SpaceResortMurder.DilemmasX
 {
     public class WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip : Dilemma
     {
-        public WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip() : base(new Vector2(100, 100), nameof(WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip), 
+        public WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip() : base(new Vector2(1310, 200), nameof(WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip), 
             new MeleenaWasHonest(),
             new MeleenaIsLying()) {}
 

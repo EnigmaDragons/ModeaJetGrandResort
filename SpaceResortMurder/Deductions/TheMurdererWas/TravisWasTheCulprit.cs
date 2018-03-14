@@ -1,4 +1,7 @@
-﻿namespace SpaceResortMurder.Deductions.TheMurdererWas
+﻿using SpaceResortMurder.Dialogues.Travis;
+using SpaceResortMurder.State;
+
+namespace SpaceResortMurder.Deductions.TheMurdererWas
 {
     public class TravisWasTheCulprit : Deduction
     {
@@ -6,7 +9,7 @@
 
         public override bool IsActive()
         {
-            return false;
+            return CurrentGameState.Instance.IsThinking(nameof(YourBrotherWasKilled));
         }
     }
 }
