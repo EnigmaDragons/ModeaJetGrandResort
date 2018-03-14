@@ -1,23 +1,23 @@
-﻿using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using MonoDragons.Core.AudioSystem;
 using MonoDragons.Core.Common;
 using MonoDragons.Core.Development;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.Inputs;
 using MonoDragons.Core.Memory;
+using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Render;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.Text;
-using SpaceResortMurder.Scenes;
-using SpaceResortMurder.Style;
-using System;
+using SpaceResortMurder.Dialogues;
 using SpaceResortMurder.DilemmasX;
 using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.ResolutionsX;
+using SpaceResortMurder.Scenes;
 using SpaceResortMurder.State;
-using MonoDragons.Core.PhysicsEngine;
-using SpaceResortMurder.Dialogues;
-using Microsoft.Xna.Framework;
+using SpaceResortMurder.Style;
+using System;
 
 namespace SpaceResortMurder
 {
@@ -26,20 +26,21 @@ namespace SpaceResortMurder
         [STAThread]
         private static void Main()
         {
-            Init();
-            using (var game = CreateGame())
+            using (var game = Perf.Time("Startup", () => CreateGame("Logo")))
                 game.Run();
         }
 
-        private static Game CreateGame()
+        private static Game CreateGame(string startingScene)
         {
+            Init();
+            const string gameName = "ModeaJet Grand Resort";
+            var scene = SetupScene();
+            var controller = CreateKeyboardController();
             return CurrentOptions.IsFullscreen
-                ? Perf.Time("Startup", () => new NeedlesslyComplexMainGame("ModeaJet Grand Resort", GameResources.MainMenuSceneName,
-                    new Size2(1600, 900),
-                    SetupScene(), CreateKeyboardController()))
-                : Perf.Time("Startup", () => new NeedlesslyComplexMainGame("ModeaJet Grand Resort", GameResources.MainMenuSceneName,
+                ? new NeedlesslyComplexMainGame(gameName, startingScene, new Size2(1600, 900), scene, controller)
+                : new NeedlesslyComplexMainGame(gameName, startingScene,
                     new Display((int)Math.Round(CurrentOptions.Scale * 1600), (int)Math.Round(CurrentOptions.Scale * 900),
-                    false, CurrentOptions.Scale), SetupScene(), CreateKeyboardController()));
+                        false, CurrentOptions.Scale), scene, controller);
         }
 
         private static void Init()
