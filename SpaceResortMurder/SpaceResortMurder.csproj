@@ -135,6 +135,7 @@
     <Compile Include="Dialogues\Zaid\WhyWasRaymondHere.cs" />
     <Compile Include="Dialogues\Zaid\YouWereNotAcceptedForBetaTesting.cs" />
     <Compile Include="Dialogues\Zaid\ZaidsAccount.cs" />
+    <Compile Include="DilemmasX\DilemmasTutorial.cs" />
     <Compile Include="DilemmasX\WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip.cs" />
     <Compile Include="DilemmasX\WasTheCloneDesignedToKill.cs" />
     <Compile Include="DilemmasX\WasZaidsResortAcceptedAsABetaTester.cs" />
@@ -210,8 +211,8 @@
     <Compile Include="Style\UiFonts.cs" />
     <Compile Include="Style\UiLabels.cs" />
     <Compile Include="Style\UiStyle.cs" />
-    <Compile Include="TutorialsX\ObjectivesTutorial.cs" />
-    <Compile Include="TutorialsX\Tutorials.cs" />
+    <Compile Include="ObjectivesX\ObjectivesTutorial.cs" />
+    <Compile Include="TutorialsX\Tutorial.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

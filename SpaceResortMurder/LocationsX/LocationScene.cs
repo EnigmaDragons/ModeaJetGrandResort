@@ -39,7 +39,7 @@ namespace SpaceResortMurder.LocationsX
         private IReadOnlyList<Character> _peopleHere;
         private Dictionary<Clue, ClickableUIElement> _clues = new Dictionary<Clue, ClickableUIElement>();
 
-        private ObjectivesView _objectives = new ObjectivesView();
+        private ObjectivesView _objectives;
 
         protected ClickUIBranch _investigateRoomBranch;
         protected List<IVisual> _visuals = new List<IVisual>();
@@ -57,9 +57,11 @@ namespace SpaceResortMurder.LocationsX
         {
             if(!CurrentGameState.Instance.HasViewedItem(_location))
                 Event.Publish(new ItemViewed(_location));
+
             GameObjects.InitIfNeeded();
             CurrentGameState.Instance.CurrentLocation = _location;
-            
+
+            _objectives = new ObjectivesView();
             _investigateRoomBranch = new ClickUIBranch("Location Investigation", 1);
 
             OnInit();
@@ -109,7 +111,6 @@ namespace SpaceResortMurder.LocationsX
             if (_isLoitering)
             {
                 _objectives.Update(delta);
-                GameObjects.Tutorials.Update(delta);
             }
 
             _clickUI.Update(delta);
@@ -122,7 +123,6 @@ namespace SpaceResortMurder.LocationsX
             if (_isLoitering)
             {
                 _objectives.Draw();
-                GameObjects.Tutorials.Draw();
             }
             if (_isTalking)
             {

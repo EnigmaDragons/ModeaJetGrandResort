@@ -11,6 +11,8 @@ namespace SpaceResortMurder.ObjectivesX
 {
     public sealed class ObjectivesView : IVisualAutomaton
     {
+        private ObjectivesTutorial _tutorial = new ObjectivesTutorial();
+
         private IReadOnlyList<Objective> _active = new List<Objective>();
 
         private readonly ImageBox _card = new ImageBox
@@ -28,6 +30,7 @@ namespace SpaceResortMurder.ObjectivesX
         public void Draw(Transform2 parentTransform)
         {
             _active.ForEachIndex(Draw);
+            _tutorial.Draw(parentTransform);
         }
 
         private void Draw(Objective o, int index)
@@ -40,6 +43,7 @@ namespace SpaceResortMurder.ObjectivesX
 
         public void Update(TimeSpan delta)
         {
+            _tutorial.Update(delta);
             var newActive = GameObjects.Objectives.GetActiveObjectives();
             if (_active.Count == newActive.Count)
                 return;

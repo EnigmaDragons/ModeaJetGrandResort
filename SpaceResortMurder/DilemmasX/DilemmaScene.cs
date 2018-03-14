@@ -31,6 +31,7 @@ namespace SpaceResortMurder.DilemmasX
                 d.GetVisuals().ForEach(v => AddVisual(v));
                 Add(d.CreateButton());
             });
+            Add(new DilemmasTutorial());
         }
 
         protected override void DrawBackground()
