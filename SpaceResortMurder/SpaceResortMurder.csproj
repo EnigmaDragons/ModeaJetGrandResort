@@ -47,6 +47,7 @@
     <Compile Include="Clues\DockingBay\GarbageAirlock.cs" />
     <Compile Include="Clues\DockingBay\MeleenasShip.cs" />
     <Compile Include="Clues\DockingBay\PoliceCruiser.cs" />
+    <Compile Include="Clues\InvestigateClueView.cs" />
     <Compile Include="Clues\MeleenasSpaceCraft\DataStick.cs" />
     <Compile Include="Clues\MeleenasSpaceCraft\HackingRig.cs" />
     <Compile Include="Clues\MeleenasSpaceCraft\SkeletonKey.cs" />
