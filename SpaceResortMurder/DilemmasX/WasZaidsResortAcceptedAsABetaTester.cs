@@ -13,7 +13,7 @@ namespace SpaceResortMurder.DilemmasX
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(RaymondsPad));
+            return CurrentGameState.IsThinking(nameof(RaymondsPad));
         }
     }
 }

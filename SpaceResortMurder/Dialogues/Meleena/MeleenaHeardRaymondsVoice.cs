@@ -12,8 +12,8 @@ namespace SpaceResortMurder.Dialogues.Meleena
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(GoToTheLobby))
-                && CurrentGameState.Instance.IsThinking(nameof(YouBrokeIntoRaymondsShip));
+            return CurrentGameState.IsThinking(nameof(GoToTheLobby))
+                && CurrentGameState.IsThinking(nameof(YouBrokeIntoRaymondsShip));
         }
     }
 }

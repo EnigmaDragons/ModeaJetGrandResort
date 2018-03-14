@@ -9,7 +9,7 @@ namespace SpaceResortMurder.Dialogues.Warren
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(OfficerWarren));
+            return CurrentGameState.IsThinking(nameof(OfficerWarren));
         }
     }
 }

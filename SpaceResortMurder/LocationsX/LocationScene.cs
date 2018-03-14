@@ -37,7 +37,6 @@ namespace SpaceResortMurder.LocationsX
         private IVisual _locationNameLabel;
         private ClickUIBranch _characterTalkingToBranch;
         private Character _talkingTo;
-        //private Clue _investigatingThis;
         private Reader _reader;
 
         private IVisualAutomaton _subview;
@@ -134,10 +133,10 @@ namespace SpaceResortMurder.LocationsX
 
         private void InitLocation()
         {
-            if (!CurrentGameState.Instance.HasViewedItem(_location.Value))
+            if (!CurrentGameState.HasViewedItem(_location.Value))
                 Event.Publish(new ItemViewed(_location.Value));
 
-            CurrentGameState.Instance.CurrentLocation = _location.Value;
+            CurrentGameState.CurrentLocation = _location.Value;
             _location.Clues.ForEach(AddClue);
             _location.Pathways.ForEach(x => AddToRoom(x.CreateButton(ShowCantNavigate)));
             UpdateClues();

@@ -9,7 +9,7 @@ namespace SpaceResortMurder.Deductions.TheMurdererWas
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(MeleenaIsLying));
+            return CurrentGameState.IsThinking(nameof(MeleenaIsLying));
         }
     }
 }

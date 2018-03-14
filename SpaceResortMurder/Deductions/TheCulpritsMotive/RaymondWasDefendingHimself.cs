@@ -10,8 +10,8 @@ namespace SpaceResortMurder.Deductions.TheCulpritsMotive
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(RaymondsCloneWasTheCulprit))
-                   && CurrentGameState.Instance.IsThinking(nameof(TheVictimIsRaymondsClone));
+            return CurrentGameState.IsThinking(nameof(RaymondsCloneWasTheCulprit))
+                   && CurrentGameState.IsThinking(nameof(TheVictimIsRaymondsClone));
         }
     }
 }

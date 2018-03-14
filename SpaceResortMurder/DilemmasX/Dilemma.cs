@@ -20,7 +20,7 @@ namespace SpaceResortMurder.DilemmasX
         private ImageBox _newDilemma;
         private ImageBox _newDeductions;
 
-        public bool IsNew => !CurrentGameState.Instance.HasViewedItem(_dilemma);
+        public bool IsNew => !CurrentGameState.HasViewedItem(_dilemma);
         public bool HasNewAnswers => _deductions.Any(d => d.IsActive() && d.IsNew);
         public bool HasAnswerSelected => _deductions.Any(x => x.IsSelected);
 
@@ -54,7 +54,7 @@ namespace SpaceResortMurder.DilemmasX
             return new ImageTextButton(_transform.ToRectangle(),
                 () =>
                 {
-                    if (!CurrentGameState.Instance.HasViewedItem(_dilemma))
+                    if (!CurrentGameState.HasViewedItem(_dilemma))
                         Event.Publish(new ItemViewed(_dilemma));
                     Scene.NavigateTo(new DeductionScene(GameResources.GetDilemmaOrDeductionText(_dilemma), _deductions.Where(x => x.IsActive()).ToList()));
                 },

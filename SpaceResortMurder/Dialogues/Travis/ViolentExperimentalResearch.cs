@@ -10,8 +10,8 @@ namespace SpaceResortMurder.Dialogues.Travis
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(CloningChamber))
-                   && CurrentGameState.Instance.IsThinking(nameof(UnencryptedDataStick));
+            return CurrentGameState.IsThinking(nameof(CloningChamber))
+                   && CurrentGameState.IsThinking(nameof(UnencryptedDataStick));
         }
     }
 }

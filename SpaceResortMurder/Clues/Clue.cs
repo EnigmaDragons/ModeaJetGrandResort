@@ -45,7 +45,7 @@ namespace SpaceResortMurder.Clues
         {
             return new ExpandingImageButton(_roomImage, _roomImage, _roomImage, _position, _position.Size / 8, () =>
             {
-                if (!CurrentGameState.Instance.IsThinking(_clueId))
+                if (!CurrentGameState.IsThinking(_clueId))
                     Event.Publish(new ThoughtGained(_clueId));
                 onClick();
             }, IsVisible)

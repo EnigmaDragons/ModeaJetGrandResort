@@ -10,8 +10,8 @@ namespace SpaceResortMurder.ObjectivesX
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(PettyTheftAt12))
-                && !CurrentGameState.Instance.IsThinking(nameof(Clock));
+            return CurrentGameState.IsThinking(nameof(PettyTheftAt12))
+                && !CurrentGameState.IsThinking(nameof(Clock));
         }
     }
 }

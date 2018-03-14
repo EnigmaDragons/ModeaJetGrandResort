@@ -9,7 +9,7 @@ namespace SpaceResortMurder.Dialogues.Warren
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(EightPMtoMidnight));
+            return CurrentGameState.IsThinking(nameof(EightPMtoMidnight));
         }
     }
 }

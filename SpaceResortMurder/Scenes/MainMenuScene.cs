@@ -19,12 +19,12 @@ namespace SpaceResortMurder.Scenes
                 Add(UiButtons.Menu("Continue Game", new Vector2(144, 672), () =>
                 {
                     CurrentGameState.Load();
-                    Scene.NavigateTo(CurrentGameState.Instance.CurrentLocation);
+                    Scene.NavigateTo(CurrentGameState.CurrentLocation);
                 }));
             Add(UiButtons.Menu("Credits", new Vector2(144, 864), () => Scene.NavigateTo(GameResources.CreditsSceneName)));
             Add(UiButtons.Menu("Options", new Vector2(144, 768), () =>
             {
-                CurrentGameState.Instance.CurrentLocation = "Main Menu";
+                CurrentGameState.CurrentLocation = "Main Menu";
                 Scene.NavigateTo(GameResources.OptionsSceneName);
             }));
             Add(UiButtons.Menu("Exit Game", new Vector2(144, 960), () => CurrentGame.TheGame.Exit()));

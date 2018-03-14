@@ -18,9 +18,9 @@ namespace SpaceResortMurder.DilemmasX
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(YouWereNotAcceptedForBetaTesting))
-                || CurrentGameState.Instance.IsThinking(nameof(MeleenaIsLying))
-                || CurrentGameState.Instance.IsThinking(nameof(MeetingRaymondsClone));
+            return CurrentGameState.IsThinking(nameof(YouWereNotAcceptedForBetaTesting))
+                || CurrentGameState.IsThinking(nameof(MeleenaIsLying))
+                || CurrentGameState.IsThinking(nameof(MeetingRaymondsClone));
         }
     }
 }

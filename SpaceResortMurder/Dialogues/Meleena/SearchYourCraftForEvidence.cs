@@ -9,7 +9,7 @@ namespace SpaceResortMurder.Dialogues.Meleena
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(MeleenasShip));
+            return CurrentGameState.IsThinking(nameof(MeleenasShip));
         }
     }
 }

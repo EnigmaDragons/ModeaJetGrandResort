@@ -15,7 +15,7 @@ namespace SpaceResortMurder.Scenes
             Add(UiButtons.Menu("Credits", new Vector2(780, 800), () => Scene.NavigateTo(GameResources.CreditsSceneName)));
             AddVisual(new Label() { TextColor = Color.White, BackgroundColor = Color.Black,
                 Transform = new Transform2(new Vector2(210, 100), new Size2(1500, 600)),
-                Text = "Zaid was executed for killing Raymond, " + (CurrentGameState.Instance.IsThinking(nameof(IAmLeaving)) ? "and you left.": "and you stayed.")
+                Text = "Zaid was executed for killing Raymond, " + (CurrentGameState.IsThinking(nameof(IAmLeaving)) ? "and you left.": "and you stayed.")
             });
         }
 

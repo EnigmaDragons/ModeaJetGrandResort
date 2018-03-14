@@ -15,7 +15,7 @@ namespace SpaceResortMurder.DilemmasX
         protected override void OnInit()
         {
             Audio.PlayMusic("Pondering", 0.37f );
-            Add(UiButtons.Back(new Vector2(7, UI.OfScreenHeight(1.0f) - 166), () => Scene.NavigateTo(CurrentGameState.Instance.CurrentLocation)));
+            Add(UiButtons.Back(new Vector2(7, UI.OfScreenHeight(1.0f) - 166), () => Scene.NavigateTo(CurrentGameState.CurrentLocation)));
             if(GameObjects.Dilemmas.HasTheory)
                 Add(UiButtons.MenuRed("Resolve", new Vector2(UI.OfScreenWidth(0.5f) - 144, 840), () => Scene.NavigateTo(GameResources.ResolutionSceneName)));
             AddVisual(new Label

@@ -17,7 +17,7 @@ namespace SpaceResortMurder.CharactersX
 
         public override string WhereAreYou()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(GoToTheLobby)) ? nameof(Lobby) : nameof(VacantRoom);
+            return CurrentGameState.IsThinking(nameof(GoToTheLobby)) ? nameof(Lobby) : nameof(VacantRoom);
         }
 
         public override Transform2 WhereAreYouStanding()

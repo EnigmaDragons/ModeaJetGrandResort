@@ -6,6 +6,7 @@ using MonoDragons.Core.Common;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
+using System.Linq;
 
 namespace SpaceResortMurder.ObjectivesX
 {
@@ -48,10 +49,10 @@ namespace SpaceResortMurder.ObjectivesX
             InitIfNeeded();
 
             var newActive = GameObjects.Objectives.GetActiveObjectives();
-            if (_active.Count == newActive.Count)
+            if (_active.Count == newActive.Count && _active.SequenceEqual(newActive))
                 return;
 
-            if (_active.Count < newActive.Count)
+            if (newActive.Any(x => !_active.Contains(x)))
                 Audio.PlaySound("NewObjective");
 
             _active = newActive;

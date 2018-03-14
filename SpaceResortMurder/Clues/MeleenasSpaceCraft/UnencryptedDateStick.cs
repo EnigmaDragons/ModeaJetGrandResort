@@ -13,9 +13,9 @@ namespace SpaceResortMurder.Clues.MeleenasSpaceCraft
             new Size2(400, 200),
             nameof(UnencryptedDataStick))
         {
-            IsActive = () => CurrentGameState.Instance.IsThinking(nameof(CareToShowTheDirtYouCollected))
-                || CurrentGameState.Instance.IsThinking(nameof(ObstructionOfJusticeWillAddToYourPrisonTime))
-                || CurrentGameState.Instance.IsThinking(nameof(WontTurnYouInIfYouUnencryptThisDrive));
+            IsActive = () => CurrentGameState.IsThinking(nameof(CareToShowTheDirtYouCollected))
+                || CurrentGameState.IsThinking(nameof(ObstructionOfJusticeWillAddToYourPrisonTime))
+                || CurrentGameState.IsThinking(nameof(WontTurnYouInIfYouUnencryptThisDrive));
             IsVisible = IsActive;
         }
     }

@@ -10,10 +10,10 @@ namespace SpaceResortMurder.ObjectivesX
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(Clock))
-                   && !(CurrentGameState.Instance.IsThinking(nameof(FromAnytimeUntilEightPM))
-                        || CurrentGameState.Instance.IsThinking(nameof(SevenAMToEightPM))
-                        || CurrentGameState.Instance.IsThinking(nameof(EightPMtoMidnight)));
+            return CurrentGameState.IsThinking(nameof(Clock))
+                && !(CurrentGameState.IsThinking(nameof(FromAnytimeUntilEightPM))
+                    || CurrentGameState.IsThinking(nameof(SevenAMToEightPM))
+                    || CurrentGameState.IsThinking(nameof(EightPMtoMidnight)));
         }
     }
 }

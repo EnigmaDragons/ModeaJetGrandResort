@@ -11,9 +11,9 @@ namespace SpaceResortMurder.Deductions.TheMurdererWas
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(TheVictimIsRaymond)) 
-                && CurrentGameState.Instance.IsThinking(nameof(ViolentExperimentalResearch))
-                && CurrentGameState.Instance.IsThinking(nameof(DesignedToKill));
+            return CurrentGameState.IsThinking(nameof(TheVictimIsRaymond)) 
+                && CurrentGameState.IsThinking(nameof(ViolentExperimentalResearch))
+                && CurrentGameState.IsThinking(nameof(DesignedToKill));
         }
     }
 }

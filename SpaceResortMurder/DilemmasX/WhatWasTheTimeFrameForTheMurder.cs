@@ -14,7 +14,7 @@ namespace SpaceResortMurder.DilemmasX
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(Clock));
+            return CurrentGameState.IsThinking(nameof(Clock));
         }
     }
 }

@@ -11,9 +11,9 @@ namespace SpaceResortMurder.Dialogues.RaymondsClone
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(MeleenaWasHonest))
-                   && CurrentGameState.Instance.IsThinking(nameof(MeleenaHeardRaymondsVoice))
-                   && CurrentGameState.Instance.IsThinking(nameof(RaymondsCloneLaunchedTheShip));
+            return CurrentGameState.IsThinking(nameof(MeleenaWasHonest))
+                   && CurrentGameState.IsThinking(nameof(MeleenaHeardRaymondsVoice))
+                   && CurrentGameState.IsThinking(nameof(RaymondsCloneLaunchedTheShip));
         }
     }
 }

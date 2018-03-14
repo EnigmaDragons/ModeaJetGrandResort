@@ -2,21 +2,36 @@
 {
     public static class CurrentGameState
     {
-        public static GameState Instance { get; private set; }
+        private static GameState _value { get; set; }
+        public static string CurrentLocation
+        {
+            get => _value.CurrentLocation;
+            set => _value.CurrentLocation = value;
+        }
 
         static CurrentGameState()
         {
-            Instance = new GameState();
+            _value = new GameState();
         }
 
         public static void Reset()
         {
-            Instance = new GameState();
+            _value = new GameState();
         }
 
+        public static bool HasViewedItem(string item)
+        {
+            return _value.HasViewedItem(item);
+        }
+
+        public static bool IsThinking(string thought)
+        {
+            return _value.IsThinking(thought);
+        }
+        
         public static void Load()
         {
-            Instance = GameObjects.IO.HasSave("save")
+            _value = GameObjects.IO.HasSave("save")
                 ? GameObjects.IO.Load<GameState>("save")
                 : new GameState();
         }

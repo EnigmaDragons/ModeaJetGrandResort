@@ -10,10 +10,10 @@ namespace SpaceResortMurder.ObjectivesX
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(MeleenasShip))
-                && !(CurrentGameState.Instance.IsThinking(nameof(HackingRig))
-                    || CurrentGameState.Instance.IsThinking(nameof(DataStick))
-                    || CurrentGameState.Instance.IsThinking(nameof(SkeletonKey)));
+            return CurrentGameState.IsThinking(nameof(MeleenasShip))
+                && !(CurrentGameState.IsThinking(nameof(HackingRig))
+                    || CurrentGameState.IsThinking(nameof(DataStick))
+                    || CurrentGameState.IsThinking(nameof(SkeletonKey)));
         }
     }
 }

@@ -9,7 +9,7 @@ namespace SpaceResortMurder.Deductions.LaunchedTheShip
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(MeetingRaymondsClone));
+            return CurrentGameState.IsThinking(nameof(MeetingRaymondsClone));
         }
     }
 }

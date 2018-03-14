@@ -18,7 +18,7 @@ namespace SpaceResortMurder.CharactersX
 
         public override string WhereAreYou()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(InvestigateYourCloningMachine)) ? nameof(TravissCloningRoom) : nameof(Lobby);
+            return CurrentGameState.IsThinking(nameof(InvestigateYourCloningMachine)) ? nameof(TravissCloningRoom) : nameof(Lobby);
         }
 
         public override Transform2 WhereAreYouStanding()

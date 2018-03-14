@@ -16,7 +16,7 @@ namespace SpaceResortMurder.Pathways
 
         public override bool IsTraversible()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(BetweenSevenAMToEightPM));
+            return CurrentGameState.IsThinking(nameof(BetweenSevenAMToEightPM));
         }
     }
 }

@@ -8,7 +8,7 @@ namespace SpaceResortMurder.Dialogues.Travis
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(TravissAccount));
+            return CurrentGameState.IsThinking(nameof(TravissAccount));
         }
     }
 }

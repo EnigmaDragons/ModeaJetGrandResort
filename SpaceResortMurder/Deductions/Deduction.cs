@@ -14,8 +14,8 @@ namespace SpaceResortMurder.Deductions
         private readonly string _thought;
         private Transform2 _conclusionTransform;
         private Action _clearPriorDeduction;
-        public bool IsNew => !CurrentGameState.Instance.HasViewedItem(_thought);
-        public bool IsSelected => CurrentGameState.Instance.IsThinking(_thought);
+        public bool IsNew => !CurrentGameState.HasViewedItem(_thought);
+        public bool IsSelected => CurrentGameState.IsThinking(_thought);
 
         protected Deduction(string thought)
         {
@@ -48,7 +48,7 @@ namespace SpaceResortMurder.Deductions
             }, GameResources.GetDilemmaOrDeductionText(_thought), "UI/DilemmaCard", "UI/DilemmaCard-Hover", "UI/DilemmaCard-Press");
             button.OnEnter = () =>
             {
-                if (!CurrentGameState.Instance.HasViewedItem(_thought))
+                if (!CurrentGameState.HasViewedItem(_thought))
                     Event.Publish(new ItemViewed(_thought));
             };
             return button;

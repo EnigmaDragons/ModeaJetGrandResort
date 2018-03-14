@@ -9,7 +9,7 @@ namespace SpaceResortMurder.Deductions.CauseOfDeath
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(GarbageAirlock));
+            return CurrentGameState.IsThinking(nameof(GarbageAirlock));
         }
     }
 }

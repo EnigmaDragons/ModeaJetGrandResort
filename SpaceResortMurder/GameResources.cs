@@ -617,12 +617,12 @@ namespace SpaceResortMurder
         private static Dictionary<string, Func<string>> _symobls = new Dictionary<string, Func<string>>
         {
             { "Raymond",
-                () => CurrentGameState.Instance.IsThinking(nameof(TheVictimIsRaymondsClone))
+                () => CurrentGameState.IsThinking(nameof(TheVictimIsRaymondsClone))
                     ? "Raymond's Clone"
                     : "Raymond"
             },
             { "NotRaymond",
-                () => CurrentGameState.Instance.IsThinking(nameof(TheVictimIsRaymondsClone))
+                () => CurrentGameState.IsThinking(nameof(TheVictimIsRaymondsClone))
                     ? "Raymond"
                     : "Raymond's Clone"
             },

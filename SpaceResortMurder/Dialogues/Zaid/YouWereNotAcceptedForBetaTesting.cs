@@ -9,8 +9,8 @@ namespace SpaceResortMurder.Dialogues.Zaid
 
         public override bool IsActive()
         {
-            return CurrentGameState.Instance.IsThinking(nameof(ZaidsResortDeclined)) 
-                && CurrentGameState.Instance.IsThinking(nameof(DidRaymondApproveYourResort));
+            return CurrentGameState.IsThinking(nameof(ZaidsResortDeclined)) 
+                && CurrentGameState.IsThinking(nameof(DidRaymondApproveYourResort));
         }
     }
 }

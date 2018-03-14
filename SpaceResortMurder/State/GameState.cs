@@ -21,9 +21,12 @@ namespace SpaceResortMurder.State
 
         public GameState()
         {
-            Event.SubscribeForever(EventSubscription.Create<ItemViewed>(x => _viewedItems.Add(x.Item), this));
-            Event.SubscribeForever(EventSubscription.Create<ThoughtGained>(x => _thoughts.Add(x.Thought), this));
-            Event.SubscribeForever(EventSubscription.Create<ThoughtLost>(x => _thoughts.Remove(x.Thought), this));
+            Event.SubscribeForever(EventSubscription.Create<ItemViewed>( x =>
+                _viewedItems.Add(x.Item), this));
+            Event.SubscribeForever(EventSubscription.Create<ThoughtGained>( x =>
+                _thoughts.Add(x.Thought), this));
+            Event.SubscribeForever(EventSubscription.Create<ThoughtLost>( x =>
+                _thoughts.Remove(x.Thought), this));
         }
 
         public bool HasViewedItem(string item)
