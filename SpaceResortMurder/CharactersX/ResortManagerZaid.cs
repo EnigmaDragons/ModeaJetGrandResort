@@ -7,7 +7,7 @@ namespace SpaceResortMurder.CharactersX
 {
     public class ResortManagerZaid : Character
     {
-        public ResortManagerZaid() : base("Zaid Ahuja, Resort Manager", "Characters/resort_manager_colored", new Size2(400, 940),
+        public ResortManagerZaid() : base("Zaid Ahuja, Resort Manager", "Characters/resort_manager_colored", new Size2(480, 1128),
             new WhyWasRaymondHere(),
             new DidYouReleaseTheGarbage(),
             new WhySoFewPeopleAtTheResort(),
@@ -22,7 +22,7 @@ namespace SpaceResortMurder.CharactersX
 
         public override Transform2 WhereAreYouStanding()
         {
-            return new Transform2(new Vector2(400, 215), new Size2(200, 470));
+            return new Transform2(new Vector2(480, 256), new Size2(240, 564));
         }
     }
 }

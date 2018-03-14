@@ -34,11 +34,11 @@ namespace SpaceResortMurder
         private static Game CreateGame()
         {
             return CurrentOptions.IsFullscreen
-                ? Perf.Time("Startup", () => new NeedlesslyComplexMainGame("ModeaJet Grand Resort", GameResources.MainMenuSceneName,
-                    new Size2(1600, 900),
+                ? Perf.Time("Startup", () => new NeedlesslyComplexMainGame("ModeaJet Grand Resort", "Logo",
+                    new Size2(1920, 1080),
                     SetupScene(), CreateKeyboardController()))
-                : Perf.Time("Startup", () => new NeedlesslyComplexMainGame("ModeaJet Grand Resort", GameResources.MainMenuSceneName,
-                    new Display((int)Math.Round(CurrentOptions.Scale * 1600), (int)Math.Round(CurrentOptions.Scale * 900),
+                : Perf.Time("Startup", () => new NeedlesslyComplexMainGame("ModeaJet Grand Resort", "Logo",
+                    new Display((int)Math.Round(CurrentOptions.Scale * 1920), (int)Math.Round(CurrentOptions.Scale * 1080),
                     false, CurrentOptions.Scale), SetupScene(), CreateKeyboardController()));
         }
 
@@ -74,8 +74,8 @@ namespace SpaceResortMurder
                 { GameResources.CreditsSceneName, () => new CreditsScene() },
                 { GameResources.DilemmasSceneName, () => new DilemmaScene() },
                 { GameResources.OptionsSceneName, () => new OptionsScene() },
-                { GameResources.MapSceneName, () => new SpaceResortMapScene() },
-                { GameResources.ObjectivesSceneName, () => new ObjectivesScene() },
+                /*Skipped!*/ { GameResources.MapSceneName, () => new SpaceResortMapScene() },
+                /*Skipped!*/ { GameResources.ObjectivesSceneName, () => new ObjectivesScene() },
                 { nameof(DockingBay), () => new DockingBayScene() },
                 { nameof(Lobby), () => new LobbyScene() },
                 { nameof(RaymondsShipInterior), () => new RaymondsShipInteriorScene() },

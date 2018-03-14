@@ -10,7 +10,6 @@ namespace SpaceResortMurder.CharactersX
 {
     public abstract class Character
     {
-        
         private readonly List<Dialogue> _dialogs;
         private readonly Size2 _size;
         private readonly string _displayName;
@@ -37,27 +36,27 @@ namespace SpaceResortMurder.CharactersX
             };
             _newDialogIcon = new ImageBox
             {
-                Transform = new Transform2(new Vector2(WhereAreYouStanding().Size.Width - 50, -20), new Size2(36, 36)),
+                Transform = new Transform2(new Vector2(WhereAreYouStanding().Size.Width - 60, -24), new Size2(43, 43)),
                 Image = "UI/NewRedIconBorderless"
             };
-            _convoNameBox = new ImageLabel(new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 800), new Size2(1400, 72)), "Convo/NameLabel")
+            _convoNameBox = new ImageLabel(new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 960), new Size2(1680, 86)), "Convo/NameLabel")
             {
                 Text = _displayName,
                 TextColor = Color.White,
-                TextTransform = new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 800),
-                    new Size2(UI.OfScreenWidth(0.96f) - UI.OfScreenWidth(0.66f), 72))
+                TextTransform = new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 960),
+                    new Size2(UI.OfScreenWidth(0.96f) - UI.OfScreenWidth(0.66f), 86))
             };
         }
 
         public VisualClickableUIElement CreateButton(Action<Character> onClick, int i, int count)
         {
-            return new ImageTextButton(new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 100 + i * 100), new Size2(1400, 72)),
+            return new ImageTextButton(new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 120 + i * 120), new Size2(1680, 86)),
                 () => onClick(this), _displayName,
                 "Convo/NameLabel", "Convo/NameLabel", "Convo/NameLabel")
             {
                 TextColor = Color.White,
-                TextTransform = new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 100 + i * 100),
-                    new Size2(UI.OfScreenWidth(0.96f) - UI.OfScreenWidth(0.66f), 72)),
+                TextTransform = new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 120 + i * 120),
+                    new Size2(UI.OfScreenWidth(0.96f) - UI.OfScreenWidth(0.66f), 86)),
                 TextAlignment = HorizontalAlignment.Left
             };
         }

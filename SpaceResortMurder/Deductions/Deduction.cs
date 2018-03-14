@@ -40,7 +40,7 @@ namespace SpaceResortMurder.Deductions
 
         public VisualClickableUIElement CreateButton(Vector2 position)
         {
-            var button = new ImageTextButton(new Rectangle((int)position.X, (int)position.Y, 360, 120), () =>
+            var button = new ImageTextButton(new Rectangle((int)position.X, (int)position.Y, 432, 144), () =>
             {
                 _clearPriorDeduction();
                 Event.Publish(new ThoughtGained(_thought));

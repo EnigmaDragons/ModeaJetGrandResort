@@ -30,7 +30,7 @@ namespace SpaceResortMurder.HudX
             _clickables.ForEach(x => HudBranch.Add(x));
             _newIcon = new ImageBox
             {
-                Transform = new Transform2(new Size2(36, 36)),
+                Transform = new Transform2(new Size2(43, 43)),
                 Image = "UI/NewRedIconBorderless"
             };
         }
@@ -53,12 +53,12 @@ namespace SpaceResortMurder.HudX
 
         private void AddIconButton(Action onClick, string name)
         {
-            _clickables.Add(UiButtons.LargeIcon(new Vector2(1600 - 72 - 24, 10 +_clickables.Count * 88), name, onClick));
+            _clickables.Add(UiButtons.LargeIcon(new Vector2(1920 - 115, 12 + _clickables.Count * 106), name, onClick));
         }
 
         private Vector2 GetIndicatorLocation(int index)
         {
-            return new Vector2(1600-30, index * 88 + 22);
+            return new Vector2(1920 - 36, index * 106 + 26);
         }
     }
 }

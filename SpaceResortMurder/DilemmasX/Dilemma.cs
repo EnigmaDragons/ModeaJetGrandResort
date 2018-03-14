@@ -26,7 +26,7 @@ namespace SpaceResortMurder.DilemmasX
 
         protected Dilemma(Vector2 position, string dilemma, params Deduction[] deductions)
         {
-            _transform = new Transform2(position, new Size2(360, 120));
+            _transform = new Transform2(position, new Size2(432, 144));
             _dilemma = dilemma;
             _deductions = deductions;
         }
@@ -35,16 +35,16 @@ namespace SpaceResortMurder.DilemmasX
         {
             _deductions.ForEach(d => d.Init(ClearPriorDeductions,
                 new Transform2(
-                    new Vector2(_transform.Location.X, _transform.Location.Y + _transform.Size.Height - 8),
-                    new Size2(_transform.Size.Width, 92))));
+                    new Vector2(_transform.Location.X, _transform.Location.Y + _transform.Size.Height - 10),
+                    new Size2(_transform.Size.Width, 110))));
             _newDilemma = new ImageBox
             {
-                Transform = new Transform2(new Vector2(_transform.Location.X + 8, _transform.Location.Y + 8), new Size2(36, 36)),
+                Transform = new Transform2(new Vector2(_transform.Location.X + 10, _transform.Location.Y + 10), new Size2(43, 43)),
                 Image = "UI/NewRedIconBorderless"
             };
             _newDeductions = new ImageBox
             {
-                Transform = new Transform2(new Vector2(_transform.Location.X + _transform.Size.Width - 48, _transform.Location.Y + 6), new Size2(44, 44)),
+                Transform = new Transform2(new Vector2(_transform.Location.X + _transform.Size.Width - 58, _transform.Location.Y + 7), new Size2(53, 53)),
                 Image = "UI/NewDeductionIcon"
             };
         }

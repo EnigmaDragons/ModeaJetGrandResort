@@ -25,7 +25,7 @@ namespace SpaceResortMurder.Deductions
             Add(UiButtons.Back(new Vector2(6, UI.OfScreenHeight(1.0f) - 138), () => Scene.NavigateTo(GameResources.DilemmasSceneName)));
             AddVisual(new Label
             {
-                Transform = new Transform2(new Vector2(280, 28), new Size2(500, 80)),
+                Transform = new Transform2(new Vector2(336, 34), new Size2(600, 96)),
                 BackgroundColor = Color.Transparent,
                 Text = _dilemmaDescription,
                 TextColor = UiStyle.TextGreen,
@@ -33,7 +33,7 @@ namespace SpaceResortMurder.Deductions
             });
             _deductions.ForEachIndex((d, i) =>
             {
-                var position = new Vector2(800 + (-(390 * (_deductions.Count - 1) / 2) - (360 / 2) + ((390) * i)), 390);
+                var position = new Vector2(960 + (-(468 * (_deductions.Count - 1) / 2) - (432 / 2) + ((468) * i)), 468);
                 var button = d.CreateButton(position);
                 AddUi(button);
                 AddVisual(button);
