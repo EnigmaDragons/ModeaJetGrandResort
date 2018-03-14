@@ -16,6 +16,7 @@ namespace SpaceResortMurder.DilemmasX
 
         private List<Dilemma> _dilemmas = new List<Dilemma>
         {
+            new WhatWasTheTimeFrameForTheMurder(),
             new WhoShotRaymondsShip(),
             new WhoHackedTheDoor(),
             new WasZaidsResortAcceptedAsABetaTester(),
