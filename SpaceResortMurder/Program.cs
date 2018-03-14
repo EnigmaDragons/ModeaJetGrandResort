@@ -35,7 +35,11 @@ namespace SpaceResortMurder
             Init();
             const string gameName = "ModeaJet Grand Resort";
             var scene = SetupScene();
+#if DEBUG
+            var controller = new DeveloperCheatController(CreateKeyboardController());
+#else
             var controller = CreateKeyboardController();
+#endif
             return CurrentOptions.IsFullscreen
                 ? new NeedlesslyComplexMainGame(gameName, startingScene, new Size2(1600, 900), scene, controller)
                 : new NeedlesslyComplexMainGame(gameName, startingScene,

@@ -95,6 +95,7 @@
     <Compile Include="Deductions\VictimsIdentity\TheVictimIsRaymondsClone.cs" />
     <Compile Include="Deductions\ZaidsResortForBetaTesting\ZaidsResortAccepted.cs" />
     <Compile Include="Deductions\ZaidsResortForBetaTesting\ZaidsResortDeclined.cs" />
+    <Compile Include="DeveloperCheatController.cs" />
     <Compile Include="Dialogues\DialogueMemoriesScene.cs" />
     <Compile Include="Dialogues\ChatBox.cs" />
     <Compile Include="CharactersX\Character.cs" />
