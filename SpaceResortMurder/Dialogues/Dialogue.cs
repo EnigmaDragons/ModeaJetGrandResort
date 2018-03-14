@@ -10,7 +10,7 @@ namespace SpaceResortMurder.Dialogues
 {
     public abstract class Dialogue
     {
-        public string Dialog;
+        public string Dialog { get; }
 
         public bool IsNew => !CurrentGameState.HasViewedItem(Dialog);
         public bool AutoPlay { get; protected set; } = false;
