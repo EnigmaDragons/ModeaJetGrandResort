@@ -14,6 +14,7 @@ using SpaceResortMurder.Dialogues;
 using SpaceResortMurder.Style;
 using SpaceResortMurder.State;
 using MonoDragons.Core.EventSystem;
+using SpaceResortMurder.ObjectivesX;
 using SpaceResortMurder.Pathways;
 
 namespace SpaceResortMurder.LocationsX
@@ -32,10 +33,13 @@ namespace SpaceResortMurder.LocationsX
         private Clue _investigatingThis;
         private bool _isTalking;
         private Reader _reader;
-        private bool _isInvestigating;
+        private bool _isInvestigatingClue;
         private bool _isTryingToTraverse;
+        private bool _isLoitering => !_isInvestigatingClue && !_isTalking && !_isTryingToTraverse;
         private IReadOnlyList<Character> _peopleHere;
         private Dictionary<Clue, ClickableUIElement> _clues = new Dictionary<Clue, ClickableUIElement>();
+
+        private ObjectivesView _objectives = new ObjectivesView();
 
         protected ClickUIBranch _investigateRoomBranch;
         protected List<IVisual> _visuals = new List<IVisual>();
@@ -102,6 +106,8 @@ namespace SpaceResortMurder.LocationsX
         {
             if (_isInTheMiddleOfDialog)
                 _reader.Update(delta);
+            if (_isLoitering)
+                _objectives.Update(delta);
             _clickUI.Update(delta);
         }
 
@@ -109,6 +115,8 @@ namespace SpaceResortMurder.LocationsX
         {
             DrawBackground();
             _visuals.ForEach(x => x.Draw(Transform2.Zero));
+            if (_isLoitering)
+                _objectives.Draw();
             if (_isTalking)
             {
                 _talkingTo.DrawTalking();
@@ -118,12 +126,12 @@ namespace SpaceResortMurder.LocationsX
                 _dialogOptions.ForEach(x => x.Draw(Transform2.Zero));
                 _backButton.Draw(Transform2.Zero);
             }
-            if (!_isTalking && !_isInvestigating)
+            if (!_isTalking && !_isInvestigatingClue)
             {
                 GameObjects.Hud.Draw(Transform2.Zero);
                 _peopleHere.ForEach(p => p.DrawNewIconIfApplicable());
             }
-            if (_isInvestigating)
+            if (_isInvestigatingClue)
                 _investigatingThis.FacingImage.Draw(Transform2.Zero);
             if (_isInTheMiddleOfDialog)
                 _reader.Draw();
@@ -197,7 +205,7 @@ namespace SpaceResortMurder.LocationsX
             _investigatingThis = clue;
             _clickUI.Remove(GameObjects.Hud.HudBranch);
             _isInTheMiddleOfDialog = true;
-            _isInvestigating = true;
+            _isInvestigatingClue = true;
         }
 
         private void StopInvestigating()
@@ -205,7 +213,7 @@ namespace SpaceResortMurder.LocationsX
             _clickUI.Add(_investigateRoomBranch);
             _clickUI.Add(GameObjects.Hud.HudBranch);
             _isInTheMiddleOfDialog = false;
-            _isInvestigating = false;
+            _isInvestigatingClue = false;
             _clues.ForEach(p => p.Value.IsEnabled = p.Key.IsActive());
         }
 

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using MonoDragons.Core.AudioSystem;
 using MonoDragons.Core.Common;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
@@ -9,6 +11,8 @@ namespace SpaceResortMurder.ObjectivesX
 {
     public sealed class ObjectivesView : IVisualAutomaton
     {
+        private IReadOnlyList<Objective> _active = new List<Objective>();
+
         private readonly ImageBox _card = new ImageBox
         {
             Image = "UI/ObjectiveCard",
@@ -23,8 +27,7 @@ namespace SpaceResortMurder.ObjectivesX
 
         public void Draw(Transform2 parentTransform)
         {
-            GameObjects.Objectives.GetActiveObjectives()
-                .ForEachIndex(Draw);
+            _active.ForEachIndex(Draw);
         }
 
         private void Draw(Objective o, int index)
@@ -37,6 +40,14 @@ namespace SpaceResortMurder.ObjectivesX
 
         public void Update(TimeSpan delta)
         {
+            var newActive = GameObjects.Objectives.GetActiveObjectives();
+            if (_active.Count == newActive.Count)
+                return;
+
+            if (_active.Count < newActive.Count)
+                Audio.PlaySound("NewObjective");
+
+            _active = newActive;
         }
     }
 }
