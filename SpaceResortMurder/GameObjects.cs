@@ -7,7 +7,6 @@ using SpaceResortMurder.HudX;
 using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.ObjectivesX;
 using SpaceResortMurder.ResolutionsX;
-using SpaceResortMurder.TutorialsX;
 
 namespace SpaceResortMurder
 {
@@ -22,7 +21,6 @@ namespace SpaceResortMurder
         public static Locations Locations { get; } = new Locations(); 
         public static Objectives Objectives { get; } = new Objectives();
         public static Resolutions Resolutions { get; } = new Resolutions();
-        public static Tutorials Tutorials { get; } = new Tutorials();
 
         static GameObjects()
         {
@@ -40,7 +38,6 @@ namespace SpaceResortMurder
             Hud.Init();
             Characters.Init();
             Objectives.Init();
-            Tutorials.Init();
             _hasInit = true;
         }
     }

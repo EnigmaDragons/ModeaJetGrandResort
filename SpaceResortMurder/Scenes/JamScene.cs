@@ -56,6 +56,12 @@ namespace SpaceResortMurder.Scenes
             _visuals.Add(e);
         }
 
+        protected void Add(IVisualAutomaton v)
+        {
+            _automata.Add(v);
+            _visuals.Add(v);
+        }
+
         protected void Add(IAutomaton a)
         {
             _automata.Add(a);
