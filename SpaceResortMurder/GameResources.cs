@@ -220,6 +220,15 @@ namespace SpaceResortMurder
 
         private static Dictionary<string, Tuple<string, string[]>> _dialogues = new Dictionary<string, Tuple<string, string[]>> {
             #region Warren
+            { nameof(WeAreArriving), new Tuple<string, string[]>(
+                "Introduction.",
+                new string[] {
+                    "Hello there \\Player\\. This is your fist time powering up so I better get you up to speed.",
+                    "I'm Officer Warren, and you are an android detective.",
+                    "You have the unique capability to be able to rapidly search up records of people and places and percieve things I can't.",
+                    "Go ahead and look me up.",
+                }
+            ) },
             { nameof(MeetingWarren), new Tuple<string, string[]>(
                 "Incident details",
                 new string[] {
@@ -577,6 +586,10 @@ namespace SpaceResortMurder
                 () => CurrentGameState.Instance.IsThinking(nameof(TheVictimIsRaymondsClone))
                     ? "Raymond"
                     : "Raymond's Clone"
+            },
+            {
+                "Player",
+                () => "Zavix"
             },
         };
     }

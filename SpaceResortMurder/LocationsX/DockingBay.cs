@@ -20,6 +20,7 @@ namespace SpaceResortMurder.LocationsX
                 new DockingBayToLobby(),
                 new DockingBayToRaymondsShip(),
                 new DockingBayToMeleenasShip(),
+                new DockingBayToPoliceCruiser(),
             }) {}
     }
 }

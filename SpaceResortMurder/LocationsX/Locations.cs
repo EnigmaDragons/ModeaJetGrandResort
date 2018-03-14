@@ -14,6 +14,7 @@ namespace SpaceResortMurder.LocationsX
             { nameof(MeleenasShipInterior), new MeleenasShipInterior() },
             { nameof(VacantRoom), new VacantRoom() },
             { nameof(TravissCloningRoom), new TravissCloningRoom() },
+            { nameof(PoliceCruiserInterior), new PoliceCruiserInterior() },
         }; 
     }
 }

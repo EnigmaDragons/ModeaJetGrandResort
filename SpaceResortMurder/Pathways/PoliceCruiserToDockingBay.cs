@@ -4,12 +4,12 @@ using SpaceResortMurder.LocationsX;
 
 namespace SpaceResortMurder.Pathways
 {
-    public class LobbyToDockingBay : Pathway
+    public class PoliceCruiserToDockingBay : Pathway
     {
-        public LobbyToDockingBay() : base(
-            nameof(LobbyToDockingBay),
-            "Placeholder/Door",
-            new Transform2(new Vector2(0, 0), new Size2(350, 348)),
+        public PoliceCruiserToDockingBay() : base(
+            nameof(PoliceCruiserToDockingBay), 
+            "Placeholder/Door", 
+            new Transform2(new Vector2(0, 0), new Size2(350, 348)), 
             nameof(DockingBay)) {}
 
         public override bool IsTraversible()

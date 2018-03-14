@@ -4,12 +4,12 @@
     {
         public MeetingWarren() : base(nameof(MeetingWarren))
         {
-            AutoPlay = true;
+            AutoPlay = false;
         }
 
         public override bool IsActive()
         {
-            return true;
+            return false;
         }
     }
 }
