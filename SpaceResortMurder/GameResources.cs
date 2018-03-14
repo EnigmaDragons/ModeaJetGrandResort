@@ -140,7 +140,7 @@ namespace SpaceResortMurder
                     builder.Append(text[i]);
             return builder.ToString();
         }
-
+        
         private static Dictionary<string, string[]> _clues = new Dictionary<string, string[]> {
             #region Docking Bay
             { nameof(RaymondsShip), new string[] {

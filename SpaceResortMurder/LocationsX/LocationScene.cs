@@ -107,7 +107,11 @@ namespace SpaceResortMurder.LocationsX
             if (_isInTheMiddleOfDialog)
                 _reader.Update(delta);
             if (_isLoitering)
+            {
                 _objectives.Update(delta);
+                GameObjects.Tutorials.Update(delta);
+            }
+
             _clickUI.Update(delta);
         }
 
@@ -116,7 +120,10 @@ namespace SpaceResortMurder.LocationsX
             DrawBackground();
             _visuals.ForEach(x => x.Draw(Transform2.Zero));
             if (_isLoitering)
+            {
                 _objectives.Draw();
+                GameObjects.Tutorials.Draw();
+            }
             if (_isTalking)
             {
                 _talkingTo.DrawTalking();
@@ -135,6 +142,7 @@ namespace SpaceResortMurder.LocationsX
                 _investigatingThis.FacingImage.Draw(Transform2.Zero);
             if (_isInTheMiddleOfDialog)
                 _reader.Draw();
+
 
             UI.FillScreen("UI/ScreenOverlay-Purple");
             _locationNameLabel.Draw(Transform2.Zero);

@@ -47,6 +47,11 @@ namespace MonoDragons.Core.UserInterface
             return (int)Math.Round(part * CurrentDisplay.Display.GameHeight / CurrentDisplay.Display.Scale);
         }
 
+        public static Vector2 OfScreen(float xFactor, float yFactor)
+        {
+            return new Vector2(OfScreenWidth(xFactor), OfScreenHeight(yFactor));
+        }
+
         public static void Darken()
         {
             _darken.Draw(Transform2.Zero);

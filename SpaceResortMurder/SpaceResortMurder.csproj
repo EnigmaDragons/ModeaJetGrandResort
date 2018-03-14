@@ -210,6 +210,8 @@
     <Compile Include="Style\UiFonts.cs" />
     <Compile Include="Style\UiLabels.cs" />
     <Compile Include="Style\UiStyle.cs" />
+    <Compile Include="TutorialsX\ObjectivesTutorial.cs" />
+    <Compile Include="TutorialsX\Tutorials.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -528,6 +530,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\Title.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\TutorialOverlay.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Icon.ico" />
