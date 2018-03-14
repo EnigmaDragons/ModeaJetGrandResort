@@ -4,9 +4,7 @@ namespace SpaceResortMurder.LocationsX
 {
     public class VacantRoomScene : LocationScene
     {
-        protected override string Name => "Vacant Resort Room";
-
-        public VacantRoomScene() : base(nameof(VacantRoom)) {}
+        public VacantRoomScene() : base(GameObjects.Locations[nameof(VacantRoom)]) {}
 
         protected override void OnInit() {}
 

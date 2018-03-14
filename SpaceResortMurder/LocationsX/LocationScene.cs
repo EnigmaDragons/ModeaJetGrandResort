@@ -14,12 +14,14 @@ using SpaceResortMurder.Dialogues;
 using SpaceResortMurder.Style;
 using SpaceResortMurder.State;
 using MonoDragons.Core.EventSystem;
+using SpaceResortMurder.ObjectivesX;
+using SpaceResortMurder.Pathways;
 
 namespace SpaceResortMurder.LocationsX
 {
     public abstract class LocationScene : IScene
     { 
-        private readonly string _location;
+        private Location _location;
 
         private ClickUI _clickUI;
         private List<IVisual> _dialogOptions = new List<IVisual>();
@@ -31,34 +33,37 @@ namespace SpaceResortMurder.LocationsX
         private Clue _investigatingThis;
         private bool _isTalking;
         private Reader _reader;
-        private bool _isInvestigating;
+        private bool _isInvestigatingClue;
+        private bool _isTryingToTraverse;
+        private bool _isLoitering => !_isInvestigatingClue && !_isTalking && !_isTryingToTraverse;
         private IReadOnlyList<Character> _peopleHere;
         private Dictionary<Clue, ClickableUIElement> _clues = new Dictionary<Clue, ClickableUIElement>();
+
+        private ObjectivesView _objectives = new ObjectivesView();
 
         protected ClickUIBranch _investigateRoomBranch;
         protected List<IVisual> _visuals = new List<IVisual>();
 
-        protected abstract string Name { get; }
         protected abstract void OnInit();
         protected abstract void DrawBackground();
 
-        protected LocationScene(string location)
+        protected LocationScene(Location location)
         {
             _location = location;
         }
 
         public void Init()
         {
-            if(!CurrentGameState.Instance.HasViewedItem(_location))
-                Event.Publish(new ItemViewed(_location));
+            if(!CurrentGameState.Instance.HasViewedItem(_location.Value))
+                Event.Publish(new ItemViewed(_location.Value));
             GameObjects.InitIfNeeded();
-            CurrentGameState.Instance.CurrentLocation = _location;
+            CurrentGameState.Instance.CurrentLocation = _location.Value;
             
             _investigateRoomBranch = new ClickUIBranch("Location Investigation", 1);
 
             OnInit();
-            _locationNameLabel = UiLabels.HeaderLabel(Name, Color.White);
-            _peopleHere = GameObjects.Characters.GetPeopleAt(_location);
+            _locationNameLabel = UiLabels.HeaderLabel(_location.Name, Color.White);
+            _peopleHere = GameObjects.Characters.GetPeopleAt(_location.Value);
             var characterButtons = _peopleHere.Select(x => new ImageButton(x.Image, x.Image, x.Image, x.WhereAreYouStanding(),
                 () =>
                 {
@@ -92,14 +97,23 @@ namespace SpaceResortMurder.LocationsX
                 var person = _peopleHere.First(p => p.IsImmediatelyTalking());
                 _clickUI.Remove(_investigateRoomBranch);
                 TalkTo(person);
-                person.StartImmediatelyTalking((x) => HaveDialog(x));
+                person.StartImmediatelyTalking(HaveDialog);
             }
+
+            _location.Clues.ForEach(AddClue);
+            _location.Pathways.ForEach(AddPathway);
         }
 
         public void Update(TimeSpan delta)
         {
             if (_isInTheMiddleOfDialog)
                 _reader.Update(delta);
+            if (_isLoitering)
+            {
+                _objectives.Update(delta);
+                GameObjects.Tutorials.Update(delta);
+            }
+
             _clickUI.Update(delta);
         }
 
@@ -107,6 +121,11 @@ namespace SpaceResortMurder.LocationsX
         {
             DrawBackground();
             _visuals.ForEach(x => x.Draw(Transform2.Zero));
+            if (_isLoitering)
+            {
+                _objectives.Draw();
+                GameObjects.Tutorials.Draw();
+            }
             if (_isTalking)
             {
                 _talkingTo.DrawTalking();
@@ -116,27 +135,35 @@ namespace SpaceResortMurder.LocationsX
                 _dialogOptions.ForEach(x => x.Draw(Transform2.Zero));
                 _backButton.Draw(Transform2.Zero);
             }
-            if (!_isTalking && !_isInvestigating)
+            if (!_isTalking && !_isInvestigatingClue)
             {
                 GameObjects.Hud.Draw(Transform2.Zero);
                 _peopleHere.ForEach(p => p.DrawNewIconIfApplicable());
             }
-            if (_isInvestigating)
+            if (_isInvestigatingClue)
                 _investigatingThis.FacingImage.Draw(Transform2.Zero);
             if (_isInTheMiddleOfDialog)
                 _reader.Draw();
+
 
             UI.FillScreen("UI/ScreenOverlay-Purple");
             _locationNameLabel.Draw(Transform2.Zero);
         }
 
-        protected void AddClue(Clue clue)
+        private void AddClue(Clue clue)
         {
             var button = clue.CreateButton(() => Investigate(clue));
             _visuals.Add(button);
             _clues.Add(clue, button);
             _investigateRoomBranch.Add(button);
             button.IsEnabled = clue.IsActive();
+        }
+
+        private void AddPathway(Pathway pathway)
+        {
+            var button = pathway.CreateButton(ShowCantNavigate);
+            _visuals.Add(button);
+            _investigateRoomBranch.Add(button);
         }
 
         private void TalkTo(Character character)
@@ -188,7 +215,7 @@ namespace SpaceResortMurder.LocationsX
             _investigatingThis = clue;
             _clickUI.Remove(GameObjects.Hud.HudBranch);
             _isInTheMiddleOfDialog = true;
-            _isInvestigating = true;
+            _isInvestigatingClue = true;
         }
 
         private void StopInvestigating()
@@ -196,8 +223,25 @@ namespace SpaceResortMurder.LocationsX
             _clickUI.Add(_investigateRoomBranch);
             _clickUI.Add(GameObjects.Hud.HudBranch);
             _isInTheMiddleOfDialog = false;
-            _isInvestigating = false;
+            _isInvestigatingClue = false;
             _clues.ForEach(p => p.Value.IsEnabled = p.Key.IsActive());
+        }
+
+        private void ShowCantNavigate(string pathway)
+        {
+            _clickUI.Remove(_investigateRoomBranch);
+            _reader = new Reader(new string[] { GameResources.GetPathwayText(pathway) }, FinishPathwayDialog);
+            _clickUI.Remove(GameObjects.Hud.HudBranch);
+            _isInTheMiddleOfDialog = true;
+            _isTryingToTraverse = true;
+        }
+
+        private void FinishPathwayDialog()
+        {
+            _clickUI.Add(_investigateRoomBranch);
+            _clickUI.Add(GameObjects.Hud.HudBranch);
+            _isInTheMiddleOfDialog = false;
+            _isTryingToTraverse = false;
         }
 
         public void Dispose()

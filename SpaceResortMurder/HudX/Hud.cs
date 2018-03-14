@@ -13,15 +13,13 @@ namespace SpaceResortMurder.HudX
     public sealed class Hud : IVisual
     {
         private List<VisualClickableUIElement> _clickables;
-        private ImageBox _newIcon; 
+        private ImageBox _newIcon;
 
         public ClickUIBranch HudBranch { get; private set; }
 
         public void Init()
         {
             _clickables = new List<VisualClickableUIElement>();
-            AddIconButton(() => Scene.NavigateTo(GameResources.ObjectivesSceneName), "Icons/Objective");
-            AddIconButton(() => Scene.NavigateTo(GameResources.MapSceneName), "Icons/Locations");
             AddIconButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Icons/Dilemmas");
             AddIconButton(() => Scene.NavigateTo(GameResources.DialogueMemoriesScene), "Icons/Conversations");
             AddIconButton(() => Scene.NavigateTo(GameResources.OptionsSceneName), "Icons/Options");
@@ -40,15 +38,11 @@ namespace SpaceResortMurder.HudX
             _clickables.ForEach(x => x.Draw(parentTransform));
             DrawNewIconsIfApplicable(parentTransform);
         }
-
+        
         private void DrawNewIconsIfApplicable(Transform2 parentTransform)
         {
-            if (GameObjects.Objectives.GetActiveObjectives().Any(o => o.IsNew))
-                _newIcon.Draw(new Transform2(GetIndicatorLocation(0)));
-            if (GameObjects.Locations.GetAvailableLocations().Any(l => l.IsNewOrHasNewDialogs))
-                _newIcon.Draw(new Transform2(GetIndicatorLocation(1)));
             if (GameObjects.Dilemmas.GetActiveDilemmas().Any(d => d.IsNew || d.HasNewAnswers))
-                _newIcon.Draw(new Transform2(GetIndicatorLocation(2)));
+                _newIcon.Draw(new Transform2(GetIndicatorLocation(0)));
         }
 
         private void AddIconButton(Action onClick, string name)

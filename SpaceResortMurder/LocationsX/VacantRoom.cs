@@ -1,16 +1,12 @@
-﻿using Microsoft.Xna.Framework;
-using SpaceResortMurder.Dialogues.Travis;
-using SpaceResortMurder.State;
+﻿using SpaceResortMurder.Clues;
+using SpaceResortMurder.Pathways;
+using System.Collections.Generic;
 
 namespace SpaceResortMurder.LocationsX
 {
     public class VacantRoom : Location
     {
-        public VacantRoom() : base(nameof(VacantRoom), "Vacant Resort Room", new Vector2(500, 700)) {}
-
-        public override bool IsAvailable()
-        {
-            return CurrentGameState.Instance.IsThinking(nameof(WhyIsTravisAtTheResort));
-        }
+        public VacantRoom() : base(nameof(VacantRoom), "Vacant Resort Room", new List<Clue>(), 
+            new List<Pathway> { new VacantRoomToLobby() }) {}
     }
 }

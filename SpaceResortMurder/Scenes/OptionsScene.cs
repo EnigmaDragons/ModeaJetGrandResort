@@ -55,9 +55,9 @@ namespace SpaceResortMurder.Scenes
             Add(UiLabels.Option("Display", new Vector2(colX, Height(0))));
             Add(UiButtons.Menu("Toggle FullScreen", new Vector2(colX, Height(1)), () => CurrentOptions.UpdateDisplay(x => x.IsFullscreen = !x.IsFullscreen)));
 
-            Add(UiButtons.Menu("800x450", new Vector2(colX, Height(3)), () => CurrentOptions.UpdateDisplay(x => x.Scale = 0.5f)));
-            Add(UiButtons.Menu("1200x675", new Vector2(colX, Height(4)), () => CurrentOptions.UpdateDisplay(x => x.Scale = 0.75f)));
-            Add(UiButtons.Menu("1600x900", new Vector2(colX, Height(5)), () => CurrentOptions.UpdateDisplay(x => x.Scale = 1)));
+            Add(UiButtons.Menu("960x540", new Vector2(colX, Height(3)), () => CurrentOptions.UpdateDisplay(x => x.Scale = 0.5f)));
+            Add(UiButtons.Menu("1440x810", new Vector2(colX, Height(4)), () => CurrentOptions.UpdateDisplay(x => x.Scale = 0.75f)));
+            Add(UiButtons.Menu("1920x1080", new Vector2(colX, Height(5)), () => CurrentOptions.UpdateDisplay(x => x.Scale = 1)));
         }
 
         private void AddAudioOptions()

@@ -35,8 +35,6 @@ namespace SpaceResortMurder
         public const string OptionsSceneName = "Options";
         public const string CreditsSceneName = "Credits";
         public const string DilemmasSceneName = "Dilemmas";
-        public const string MapSceneName = "Map";
-        public const string ObjectivesSceneName = "Objectives";
         public const string DialogueMemoriesScene = "Dialogue Memories";
         public const string ResolutionSceneName = "Resolution";
         public const string EndingSceneName = "Ending";
@@ -109,6 +107,14 @@ namespace SpaceResortMurder
             return _notImplementedResolution;
         }
 
+        private const string _notImplementedPathway = "This pathway hasn't been implemented";
+        public static string GetPathwayText(string pathway)
+        {
+            if (_pathwayText.ContainsKey(pathway))
+                return ReplaceSymbols(_pathwayText[pathway]);
+            return _notImplementedPathway;
+        }
+
         private static string ReplaceSymbols(string text)
         {
             return ReplaceSymbols(text.ToCharArray());
@@ -134,7 +140,7 @@ namespace SpaceResortMurder
                     builder.Append(text[i]);
             return builder.ToString();
         }
-
+        
         private static Dictionary<string, string[]> _clues = new Dictionary<string, string[]> {
             #region Docking Bay
             { nameof(RaymondsShip), new string[] {
@@ -530,10 +536,10 @@ namespace SpaceResortMurder
             { nameof(PerfectedDesign), "No, the new cloning process was perfected." }
         };
 
-        private static Dictionary<string, Tuple<string, string>> _objectiveTexts = new Dictionary<string, Tuple<string, string>>()
+        private static Dictionary<string, Tuple<string, string>> _objectiveTexts = new Dictionary<string, Tuple<string, string>>
         {
             { nameof(InvestigateRaymondsDeadBody), new Tuple<string, string>(
-                "Go to Raymond's ship and investigate his remains",
+                "Investigate Raymond's Ship",
                 "According to Warren, Raymond died earlier tonight and his body was found within his space craft. I should see what I can find from his remains."
             )},
             { nameof(InvestigateMeleenasCraft), new Tuple<string, string>(
@@ -541,18 +547,23 @@ namespace SpaceResortMurder
                 "Meleena's craft is pretty close to the murder scene and could be hiding evidence."
             )},
             { nameof(GetAnEncryptionKeyForMeleenasDataStick), new Tuple<string, string>(
-                "Aquire an encryption key for Meleena's data stick",
+                "Get Meleena's Data Encryption Key",
                 "Found a data stick with signs of recent use. I am going to need Meleena to give me the encryption key to find out what's on it."
             )},
             { nameof(CheckWhatsOnMeleenasDataStick), new Tuple<string, string>(
-                "Use Meleena's encryption key on the data stick",
+                "Decrypt Meleena's Data Stick",
                 "I can now find out what was on the data stick in Meleena's ship using this encryption key."
             )},
         };
 
-        private static Dictionary<string, string> _resolutionText = new Dictionary<string, string>()
+        private static Dictionary<string, string> _resolutionText = new Dictionary<string, string>
         {
             { nameof(IAmLeaving), "I am leaving" }
+        };
+
+        private static Dictionary<string, string> _pathwayText = new Dictionary<string, string>
+        {
+            
         };
 
         private static Dictionary<string, Func<string>> _symobls = new Dictionary<string, Func<string>>

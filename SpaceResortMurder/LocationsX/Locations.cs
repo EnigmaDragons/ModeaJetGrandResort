@@ -1,25 +1,19 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace SpaceResortMurder.LocationsX
 {
     public class Locations
     {
-        private readonly List<Location> _locations = new List<Location>(); 
+        public Location this[string name] => _locations[name];
 
-        public void Init()
+        private readonly Dictionary<string, Location> _locations = new Dictionary<string, Location>
         {
-            _locations.Add(new DockingBay());
-            _locations.Add(new Lobby());
-            _locations.Add(new RaymondsShipInterior());
-            _locations.Add(new MeleenasShipInterior());
-            _locations.Add(new VacantRoom());
-            _locations.Add(new TravissCloningRoom());
-        }
-
-        public IReadOnlyList<Location> GetAvailableLocations()
-        {
-            return _locations.Where(x => x.IsAvailable()).ToList();
-        }
+            { nameof(DockingBay), new DockingBay() },
+            { nameof(Lobby), new Lobby() },
+            { nameof(RaymondsShipInterior), new RaymondsShipInterior() },
+            { nameof(MeleenasShipInterior), new MeleenasShipInterior() },
+            { nameof(VacantRoom), new VacantRoom() },
+            { nameof(TravissCloningRoom), new TravissCloningRoom() },
+        }; 
     }
 }
