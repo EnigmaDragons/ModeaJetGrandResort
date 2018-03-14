@@ -52,6 +52,11 @@ namespace MonoDragons.Core.UserInterface
             return new Vector2(OfScreenWidth(xFactor), OfScreenHeight(yFactor));
         }
 
+        public static Size2 OfScreenSize(float xFactor, float yFactor)
+        {
+            return new Size2(OfScreenWidth(xFactor), OfScreenHeight(yFactor));
+        }
+
         public static void Darken()
         {
             _darken.Draw(Transform2.Zero);

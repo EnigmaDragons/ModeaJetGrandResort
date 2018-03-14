@@ -15,12 +15,12 @@ namespace SpaceResortMurder.DilemmasX
         protected override void OnInit()
         {
             Audio.PlayMusic("Pondering", 0.37f );
-            Add(UiButtons.Back(new Vector2(6, UI.OfScreenHeight(1.0f) - 138), () => Scene.NavigateTo(CurrentGameState.Instance.CurrentLocation)));
+            Add(UiButtons.Back(new Vector2(7, UI.OfScreenHeight(1.0f) - 166), () => Scene.NavigateTo(CurrentGameState.Instance.CurrentLocation)));
             if(GameObjects.Dilemmas.HasTheory)
-                Add(UiButtons.MenuRed("Resolve", new Vector2(UI.OfScreenWidth(0.5f) - 120, 700), () => Scene.NavigateTo(GameResources.ResolutionSceneName)));
+                Add(UiButtons.MenuRed("Resolve", new Vector2(UI.OfScreenWidth(0.5f) - 144, 840), () => Scene.NavigateTo(GameResources.ResolutionSceneName)));
             AddVisual(new Label
             {
-                Transform = new Transform2(new Vector2(160, 28), new Size2(1000, 80)),
+                Transform = new Transform2(new Vector2(192, 34), new Size2(1200, 96)),
                 BackgroundColor = Color.Transparent,
                 Text = "Current Investigation",
                 TextColor = UiStyle.TextGreen,
@@ -31,6 +31,7 @@ namespace SpaceResortMurder.DilemmasX
                 d.GetVisuals().ForEach(v => AddVisual(v));
                 Add(d.CreateButton());
             });
+            Add(new DilemmasTutorial());
         }
 
         protected override void DrawBackground()

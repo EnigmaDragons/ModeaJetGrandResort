@@ -41,10 +41,10 @@ namespace SpaceResortMurder
             var controller = CreateKeyboardController();
 #endif
             return CurrentOptions.IsFullscreen
-                ? new NeedlesslyComplexMainGame(gameName, startingScene, new Size2(1600, 900), scene, controller)
+                ? new NeedlesslyComplexMainGame(gameName, startingScene, new Size2(1920, 1080), scene, controller)
                 : new NeedlesslyComplexMainGame(gameName, startingScene,
-                    new Display((int)Math.Round(CurrentOptions.Scale * 1600), (int)Math.Round(CurrentOptions.Scale * 900),
-                        false, CurrentOptions.Scale), scene, controller);
+                    new Display((int)Math.Round(CurrentOptions.Scale * 1920), (int)Math.Round(CurrentOptions.Scale * 1080), false, CurrentOptions.Scale),
+                    scene, controller);
         }
 
         private static void Init()

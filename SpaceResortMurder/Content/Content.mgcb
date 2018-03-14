@@ -13,3 +13,15 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Fonts/BodyFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:Fonts/BodyFont.spritefont
+
+#begin Fonts/HeaderFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:Fonts/HeaderFont.spritefont
+

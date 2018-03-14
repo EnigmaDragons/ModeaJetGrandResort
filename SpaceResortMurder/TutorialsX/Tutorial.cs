@@ -5,25 +5,26 @@ using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.MouseX;
 using SpaceResortMurder.State;
 using System;
-using System.Linq;
+using MonoDragons.Core.EventSystem;
 
 namespace SpaceResortMurder.TutorialsX
 {
-    public sealed class ObjectivesTutorial : IVisualAutomaton
+    public abstract class Tutorial : IVisualAutomaton
     {
+        private readonly string _name;
         private readonly MouseIsClicked _mouseIsClicked = new MouseIsClicked();
 
         private bool _ended;
         private bool _started;
 
-        protected Vector2 _location = UI.OfScreen(0.31f, 0.5f);
+        protected abstract bool TutorialIsUnlocked { get; }
+        protected abstract Vector2 OverlayPosition { get; }
+        protected abstract IVisual TutorialVisual { get; }
 
-        protected Label _explanation = new Label
+        protected Tutorial(string name)
         {
-            Transform = new Transform2(UI.OfScreen(0.67f, 0.76f), new Size2(500, 128)),
-            Text = "You just gained your first objective! Objectives give you ideas about how to approach your investigation.",
-            TextColor = Color.White
-        };
+            _name = name;
+        }
 
         public void Update(TimeSpan delta)
         {
@@ -31,10 +32,16 @@ namespace SpaceResortMurder.TutorialsX
                 return;
 
             if (_started && _mouseIsClicked.Evaluate())
-                _ended = true;
+                End();
 
             if (ShouldShowTutorial())
                 _started = true;
+        }
+
+        private void End()
+        { 
+            _ended = true;
+            Event.Publish(new ItemViewed(_name));
         }
 
         public void Draw(Transform2 parentTransform)
@@ -42,14 +49,13 @@ namespace SpaceResortMurder.TutorialsX
             if (_ended || !_started)
                 return;
 
-            UI.DrawCenteredWithOffset("UI/TutorialOverlay", new Vector2(UI.OfScreenWidth(2), UI.OfScreenHeight(2)), _location);
-            _explanation.Draw(parentTransform);
+            UI.DrawCenteredWithOffset("UI/TutorialOverlay", new Vector2(UI.OfScreenWidth(2.5f), UI.OfScreenHeight(2.5f)), OverlayPosition);
+            TutorialVisual.Draw(parentTransform);
         }
 
         private bool ShouldShowTutorial()
         {
-            return !CurrentGameState.Instance.HasViewedItem(nameof(ObjectivesTutorial))
-                   && GameObjects.Objectives.GetActiveObjectives().Any();
+            return !CurrentGameState.Instance.HasViewedItem(_name);
         }
     }
 }

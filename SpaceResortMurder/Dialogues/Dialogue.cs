@@ -32,8 +32,8 @@ namespace SpaceResortMurder.Dialogues
         public VisualClickableUIElement CreateButton(Action<string[]> onClick, int i, int count)
         {
             var buttonWidth = 1380;
-            var xOff = -800;
-            var xInc = 56;
+            var xOff = -684;
+            var xInc = 67;
             var yInc = 92;
             var xPos = Math.Max(i * xInc + xOff,(int) DefaultFont.Font.MeasureString(GameResources.GetDialogueOpener(_dialog)).X - buttonWidth + 165);
             var yPos = 400 + i * yInc;

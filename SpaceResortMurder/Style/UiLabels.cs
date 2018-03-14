@@ -12,7 +12,7 @@ namespace SpaceResortMurder.Style
         {
             return new Label
             {
-                Transform = new Transform2(new Vector2(160, 32), new Size2(1200, 56)),
+                Transform = new Transform2(new Vector2(192, 38), new Size2(1440, 67)),
                 BackgroundColor = Color.Transparent,
                 Text = text,
                 TextColor = color,
@@ -27,7 +27,7 @@ namespace SpaceResortMurder.Style
                 BackgroundColor = Color.Transparent,
                 Text = text,
                 TextColor = Color.White,
-                Transform = new Transform2(position, new Size2(240, 50))
+                Transform = new Transform2(position, new Size2(288, 60))
             };
         }
     }

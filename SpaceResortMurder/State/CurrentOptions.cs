@@ -48,7 +48,7 @@ namespace SpaceResortMurder.State
         private static void SetDisplay()
         {
             var _options = _value;
-            var x = new Display((int)Math.Round(_options.Scale * 1600), (int)Math.Round(_options.Scale * 900),
+            var x = new Display((int)Math.Round(_options.Scale * 1920), (int)Math.Round(_options.Scale * 1080),
                 _options.IsFullscreen, _options.Scale);
             Console.WriteLine("Fullscreen: " + x.FullScreen + " Scale: " + x.Scale + "" + " Game Width: " + x.GameWidth + " Game Height: " + x.GameHeight);
             CurrentDisplay.Display = x;

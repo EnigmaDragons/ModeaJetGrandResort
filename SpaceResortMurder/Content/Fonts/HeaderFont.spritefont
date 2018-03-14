@@ -2,7 +2,7 @@
 <XnaContent xmlns:Graphics="Microsoft.Xna.Framework.Content.Pipeline.Graphics">
   <Asset Type="Graphics:FontDescription">
     <FontName>lunchds.ttf</FontName>
-    <Size>32</Size>
+    <Size>40</Size>
     <Spacing>0</Spacing>
     <UseKerning>true</UseKerning>
     <Style>Regular</Style>

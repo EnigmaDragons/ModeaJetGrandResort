@@ -39,7 +39,7 @@ namespace SpaceResortMurder.LocationsX
         private IReadOnlyList<Character> _peopleHere;
         private Dictionary<Clue, ClickableUIElement> _clues = new Dictionary<Clue, ClickableUIElement>();
 
-        private ObjectivesView _objectives = new ObjectivesView();
+        private ObjectivesView _objectives;
 
         protected ClickUIBranch _investigateRoomBranch;
         protected List<IVisual> _visuals = new List<IVisual>();
@@ -56,9 +56,12 @@ namespace SpaceResortMurder.LocationsX
         {
             if(!CurrentGameState.Instance.HasViewedItem(_location.Value))
                 Event.Publish(new ItemViewed(_location.Value));
+
             GameObjects.InitIfNeeded();
             CurrentGameState.Instance.CurrentLocation = _location.Value;
-            
+			
+            _objectives = new ObjectivesView();
+			
             _investigateRoomBranch = new ClickUIBranch("Location Investigation", 1);
 
             OnInit();
@@ -80,11 +83,11 @@ namespace SpaceResortMurder.LocationsX
             _clickUI = new ClickUI();
             _clickUI.Add(_investigateRoomBranch);
             _clickUI.Add(GameObjects.Hud.HudBranch);
-            _backButton = new ImageTextButton(new Transform2(new Rectangle(-900, 800, 1380, 64)), StopTalking, "Thanks for your help.",
+            _backButton = new ImageTextButton(new Transform2(new Rectangle(-684, 960, 1380, 77)), StopTalking, "Thanks for your help.",
                 "Convo/DialogueButton", "Convo/DialogueButton-Hover", "Convo/DialogueButton-Press", () => _isTalking)
             {
                 TextColor = Color.White,
-                TextTransform = new Transform2(new Vector2(50, 800), Rotation2.Default, new Size2(1380 - 900, 64), 1.0f),
+                TextTransform = new Transform2(new Vector2(60, 960), Rotation2.Default, new Size2(1380 - 684, 77), 1.0f),
                 TextAlignment = HorizontalAlignment.Left
             };
 
@@ -111,7 +114,6 @@ namespace SpaceResortMurder.LocationsX
             if (_isLoitering)
             {
                 _objectives.Update(delta);
-                GameObjects.Tutorials.Update(delta);
             }
 
             _clickUI.Update(delta);
@@ -124,7 +126,6 @@ namespace SpaceResortMurder.LocationsX
             if (_isLoitering)
             {
                 _objectives.Draw();
-                GameObjects.Tutorials.Draw();
             }
             if (_isTalking)
             {

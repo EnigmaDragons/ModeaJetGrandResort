@@ -8,7 +8,7 @@ namespace SpaceResortMurder.CharactersX
 {
     public class ResearcherTravis : Character
     {
-        public ResearcherTravis() : base("Travis Falcon, Clone Researcher", "characters/scientist_guy", new Size2(400, 940),
+        public ResearcherTravis() : base("Travis Falcon, Clone Researcher", "characters/scientist_guy", new Size2(480, 1128),
             new WhyIsTravisAtTheResort(),
             new DidYouWorkWithRaymond(),
             new TravissAccount(),
@@ -23,7 +23,7 @@ namespace SpaceResortMurder.CharactersX
 
         public override Transform2 WhereAreYouStanding()
         {
-            return new Transform2(new Vector2(700, 215), new Size2(200, 470));
+            return new Transform2(new Vector2(840, 256), new Size2(240, 564));
         }
     }
 }

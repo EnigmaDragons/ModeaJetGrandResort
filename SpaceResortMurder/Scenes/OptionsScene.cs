@@ -11,8 +11,8 @@ namespace SpaceResortMurder.Scenes
 {
     public sealed class OptionsScene : JamScene
     {
-        private const int xOff = -120;
-        private const int yInc = 60;
+        private const int xOff = -144;
+        private const int yInc = 72;
         private int _startingY;
         private IVisual _headerText;
         private ImageLabel _soundVolume;
@@ -21,7 +21,7 @@ namespace SpaceResortMurder.Scenes
         protected override void OnInit()
         {
             _headerText = UiLabels.HeaderLabel("Options", Color.White);
-            Add(UiButtons.Back(new Vector2(6, UI.OfScreenHeight(1.0f) - 138), () => Scene.NavigateTo(CurrentGameState.Instance.CurrentLocation)));
+            Add(UiButtons.Back(new Vector2(7, UI.OfScreenHeight(1.0f) - 166), () => Scene.NavigateTo(CurrentGameState.Instance.CurrentLocation)));
 
             _startingY = UI.OfScreenHeight(0.18f); 
             AddTextSpeedOptions();
@@ -55,9 +55,9 @@ namespace SpaceResortMurder.Scenes
             Add(UiLabels.Option("Display", new Vector2(colX, Height(0))));
             Add(UiButtons.Menu("Toggle FullScreen", new Vector2(colX, Height(1)), () => CurrentOptions.UpdateDisplay(x => x.IsFullscreen = !x.IsFullscreen)));
 
-            Add(UiButtons.Menu("800x450", new Vector2(colX, Height(3)), () => CurrentOptions.UpdateDisplay(x => x.Scale = 0.5f)));
-            Add(UiButtons.Menu("1200x675", new Vector2(colX, Height(4)), () => CurrentOptions.UpdateDisplay(x => x.Scale = 0.75f)));
-            Add(UiButtons.Menu("1600x900", new Vector2(colX, Height(5)), () => CurrentOptions.UpdateDisplay(x => x.Scale = 1)));
+            Add(UiButtons.Menu("960x540", new Vector2(colX, Height(3)), () => CurrentOptions.UpdateDisplay(x => x.Scale = 0.5f)));
+            Add(UiButtons.Menu("1440x810", new Vector2(colX, Height(4)), () => CurrentOptions.UpdateDisplay(x => x.Scale = 0.75f)));
+            Add(UiButtons.Menu("1920x1080", new Vector2(colX, Height(5)), () => CurrentOptions.UpdateDisplay(x => x.Scale = 1)));
         }
 
         private void AddAudioOptions()
@@ -130,7 +130,7 @@ namespace SpaceResortMurder.Scenes
         
         public static ImageLabel VolumeLabel(string text, Vector2 position, Color color)
         {
-            return new ImageLabel(new Transform2(position, new Size2(240, 50)), "UI/PixelButton")
+            return new ImageLabel(new Transform2(position, new Size2(288, 60)), "UI/PixelButton")
             {
                 TextColor = color,
                 Text = text
