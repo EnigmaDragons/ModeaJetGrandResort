@@ -8,16 +8,16 @@ namespace SpaceResortMurder.Style
 {
     public static class UiButtons
     {
-        public static VisualClickableUIElement Menu(string text, Vector2 position, Action onClick)
+        public static ImageTextButton Menu(string text, Vector2 position, Action onClick)
         {
-            return new ImageTextButton(new Rectangle(position.ToPoint(), new Point(288, 60)), onClick, text,
+            return new ImageTextButton(new Rectangle(position.ToPoint(), new Point(360, 75)), onClick, text,
                     "UI/PixelButton", "UI/PixelButton-Hover", "UI/PixelButton-Press")
                 {TextColor = Color.Black, OnPress = PlayMenuButtonSound };
         }
 
         public static VisualClickableUIElement MenuRed(string text, Vector2 position, Action onClick)
         {
-            return new ImageTextButton(new Rectangle(position.ToPoint(), new Point(288, 60)), onClick, text,
+            return new ImageTextButton(new Rectangle(position.ToPoint(), new Point(360, 75)), onClick, text,
                     "UI/PixelButtonRed", "UI/PixelButtonRed-Hover", "UI/PixelButtonRed-Press")
                 { TextColor = Color.Black, OnPress = PlayMenuButtonSound };
         }
@@ -36,17 +36,17 @@ namespace SpaceResortMurder.Style
                     { OnPress = PlayMenuButtonSound };
         }
 
+        public static VisualClickableUIElement SmallIcon(string name, Vector2 position, Action onClick)
+        {
+            return new ExpandingImageButton(name, $"{name}-Hover", $"{name}-Press",
+                    new Transform2(new Rectangle(position.ToPoint(), new Point(48, 48))), new Size2(6, 6), onClick)
+                { OnPress = PlayMenuButtonSound };
+        }
+
         public static VisualClickableUIElement Icon(Vector2 position, string name, Action onClick)
         {
             return new ExpandingImageButton(name, $"{name}-Hover", $"{name}-Press",
-                new Transform2(new Rectangle(position.ToPoint(), new Point(43, 43))), new Size2(5, 5), onClick)
-                    { OnPress = PlayMenuButtonSound };
-        }
-
-        public static VisualClickableUIElement LargeIcon(Vector2 position, string name, Action onClick)
-        {
-            return new ExpandingImageButton(name, $"{name}-Hover", $"{name}-Press",
-                new Transform2(new Rectangle(position.ToPoint(), new Point(86, 86))), new Size2(10, 10), onClick)
+                new Transform2(new Rectangle(position.ToPoint(), new Point(72, 72))), new Size2(6, 6), onClick)
                     { OnPress = PlayMenuButtonSound };
         }
 

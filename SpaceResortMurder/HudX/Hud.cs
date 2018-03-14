@@ -47,7 +47,7 @@ namespace SpaceResortMurder.HudX
 
         private void AddIconButton(Action onClick, string name)
         {
-            _clickables.Add(UiButtons.LargeIcon(new Vector2(1920 - 115, 12 + _clickables.Count * 106), name, onClick));
+            _clickables.Add(UiButtons.Icon(new Vector2(1920 - 102, 12 + _clickables.Count * 106), name, onClick));
         }
 
         private Vector2 GetIndicatorLocation(int index)

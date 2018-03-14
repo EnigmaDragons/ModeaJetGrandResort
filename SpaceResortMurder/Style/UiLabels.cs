@@ -27,7 +27,7 @@ namespace SpaceResortMurder.Style
                 BackgroundColor = Color.Transparent,
                 Text = text,
                 TextColor = Color.White,
-                Transform = new Transform2(position, new Size2(288, 60))
+                Transform = new Transform2(position, new Size2(320, 75))
             };
         }
     }
