@@ -12,7 +12,6 @@ namespace SpaceResortMurder.TutorialsX
     public abstract class Tutorial : IVisualAutomaton
     {
         private readonly string _name;
-        private readonly MouseIsClicked _mouseIsClicked = new MouseIsClicked();
 
         protected abstract bool TutorialIsUnlocked { get; }
         protected abstract Vector2 OverlayPosition { get; }
