@@ -21,7 +21,7 @@ namespace SpaceResortMurder.LocationsX
 {
     public abstract class LocationScene : IScene
     { 
-        private readonly string _location;
+        private Location _location;
 
         private ClickUI _clickUI;
         private List<IVisual> _dialogOptions = new List<IVisual>();
@@ -44,27 +44,26 @@ namespace SpaceResortMurder.LocationsX
         protected ClickUIBranch _investigateRoomBranch;
         protected List<IVisual> _visuals = new List<IVisual>();
 
-        protected abstract string Name { get; }
         protected abstract void OnInit();
         protected abstract void DrawBackground();
 
-        protected LocationScene(string location)
+        protected LocationScene(Location location)
         {
             _location = location;
         }
 
         public void Init()
         {
-            if(!CurrentGameState.Instance.HasViewedItem(_location))
-                Event.Publish(new ItemViewed(_location));
+            if(!CurrentGameState.Instance.HasViewedItem(_location.Value))
+                Event.Publish(new ItemViewed(_location.Value));
             GameObjects.InitIfNeeded();
-            CurrentGameState.Instance.CurrentLocation = _location;
+            CurrentGameState.Instance.CurrentLocation = _location.Value;
             
             _investigateRoomBranch = new ClickUIBranch("Location Investigation", 1);
 
             OnInit();
-            _locationNameLabel = UiLabels.HeaderLabel(Name, Color.White);
-            _peopleHere = GameObjects.Characters.GetPeopleAt(_location);
+            _locationNameLabel = UiLabels.HeaderLabel(_location.Name, Color.White);
+            _peopleHere = GameObjects.Characters.GetPeopleAt(_location.Value);
             var characterButtons = _peopleHere.Select(x => new ImageButton(x.Image, x.Image, x.Image, x.WhereAreYouStanding(),
                 () =>
                 {
@@ -98,8 +97,11 @@ namespace SpaceResortMurder.LocationsX
                 var person = _peopleHere.First(p => p.IsImmediatelyTalking());
                 _clickUI.Remove(_investigateRoomBranch);
                 TalkTo(person);
-                person.StartImmediatelyTalking((x) => HaveDialog(x));
+                person.StartImmediatelyTalking(HaveDialog);
             }
+
+            _location.Clues.ForEach(AddClue);
+            _location.Pathways.ForEach(AddPathway);
         }
 
         public void Update(TimeSpan delta)
@@ -140,7 +142,7 @@ namespace SpaceResortMurder.LocationsX
             _locationNameLabel.Draw(Transform2.Zero);
         }
 
-        protected void AddClue(Clue clue)
+        private void AddClue(Clue clue)
         {
             var button = clue.CreateButton(() => Investigate(clue));
             _visuals.Add(button);
@@ -149,7 +151,7 @@ namespace SpaceResortMurder.LocationsX
             button.IsEnabled = clue.IsActive();
         }
 
-        protected void AddPathway(Pathway pathway)
+        private void AddPathway(Pathway pathway)
         {
             var button = pathway.CreateButton(ShowCantNavigate);
             _visuals.Add(button);
