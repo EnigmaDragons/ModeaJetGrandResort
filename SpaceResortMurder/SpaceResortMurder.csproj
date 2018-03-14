@@ -128,7 +128,7 @@
     <Compile Include="Dialogues\Travis\WhyIsTravisAtTheResort.cs" />
     <Compile Include="Dialogues\Travis\YourBrotherWasKilled.cs" />
     <Compile Include="Dialogues\Warren\NeedASearchOrder.cs" />
-    <Compile Include="Dialogues\Warren\WeAreArriving.cs" />
+    <Compile Include="Dialogues\Warren\WarrenIntroduction.cs" />
     <Compile Include="Dialogues\Zaid\DidRaymondApproveYourResort.cs" />
     <Compile Include="Dialogues\Warren\MeetingWarren.cs" />
     <Compile Include="Dialogues\Reader.cs" />

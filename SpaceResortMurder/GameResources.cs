@@ -24,6 +24,7 @@ using SpaceResortMurder.State;
 using System.Text;
 using System.Linq;
 using System.Text.RegularExpressions;
+using SpaceResortMurder.CharactersX;
 using SpaceResortMurder.Deductions.ClonesDesign;
 using SpaceResortMurder.Deductions.LaunchedTheShip;
 
@@ -220,7 +221,7 @@ namespace SpaceResortMurder
 
         private static Dictionary<string, Tuple<string, string[]>> _dialogues = new Dictionary<string, Tuple<string, string[]>> {
             #region Warren
-            { nameof(WeAreArriving), new Tuple<string, string[]>(
+            { nameof(WarrenIntroduction), new Tuple<string, string[]>(
                 "Introduction.",
                 new string[] {
                     "Hello there \\Player\\. This is your fist time powering up so I better get you up to speed.",
@@ -229,6 +230,17 @@ namespace SpaceResortMurder
                     "Go ahead and look me up.",
                 }
             ) },
+            { nameof(OfficerWarren), new Tuple<string, string[]>(
+                "Introduction.",
+                new string[] {
+                    "Loading...",
+                    "Officer Warren, weighs 199 lb, no augments.",
+                    "Once found guilty of petty theft at the age of 12.",
+                    "Worked in the investigative department of Outer Planet Police for 17 years.",
+                }
+            ) },
+
+
             { nameof(MeetingWarren), new Tuple<string, string[]>(
                 "Incident details",
                 new string[] {

@@ -1,8 +1,8 @@
 ﻿namespace SpaceResortMurder.Dialogues.Warren
 {
-    public class WeAreArriving : Dialogue
+    public class WarrenIntroduction : Dialogue
     {
-        public WeAreArriving() : base(nameof(WeAreArriving)) {}
+        public WarrenIntroduction() : base(nameof(WarrenIntroduction)) {}
 
         public override bool IsActive()
         {
