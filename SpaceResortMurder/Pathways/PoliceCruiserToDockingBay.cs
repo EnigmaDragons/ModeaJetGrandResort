@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
+using SpaceResortMurder.Dialogues.Warren;
 using SpaceResortMurder.LocationsX;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Pathways
 {
@@ -14,7 +16,7 @@ namespace SpaceResortMurder.Pathways
 
         public override bool IsTraversible()
         {
-            return true;
+            return CurrentGameState.Instance.IsThinking(nameof(BetweenSevenAMToEightPM));
         }
     }
 }

@@ -9,6 +9,8 @@ namespace SpaceResortMurder.ObjectivesX
 
         public void Init()
         {
+            _objectives.Add(new LookAroundForClues());
+            _objectives.Add(new AnswerADilemma());
             _objectives.Add(new InvestigateRaymondsDeadBody());
             _objectives.Add(new InvestigateMeleenasCraft());
             _objectives.Add(new GetAnEncryptionKeyForMeleenasDataStick());

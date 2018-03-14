@@ -9,6 +9,11 @@ namespace SpaceResortMurder.CharactersX
     {
         public OfficerWarren() : base(nameof(OfficerWarren), "Warren, Officer", "Characters/policeman", new Size2(480, 1128), 
             new WarrenIntroduction(),
+            new PettyTheftAt12(),
+            new AnytimeUpTilNow(),
+            new BetweenSevenAMToEightPM(),
+            new WeHaveUntilMidnight(),
+
             new MeetingWarren(),
             new NeedASearchOrder()) {}
 

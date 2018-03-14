@@ -93,6 +93,9 @@
     <Compile Include="Deductions\TheMurdererWas\TravisAndRaymondsCloneAreTheCulprits.cs" />
     <Compile Include="Deductions\TheMurdererWas\TravisWasTheCulprit.cs" />
     <Compile Include="Deductions\TheMurdererWas\ZaidWasTheCulprit.cs" />
+    <Compile Include="Deductions\TimeFrameForMurder\SevenAMToEightPM.cs" />
+    <Compile Include="Deductions\TimeFrameForMurder\EightPMtoMidnight.cs" />
+    <Compile Include="Deductions\TimeFrameForMurder\FromAnytimeUntilEightPM.cs" />
     <Compile Include="Deductions\VictimsIdentity\TheVictimIsRaymond.cs" />
     <Compile Include="Deductions\VictimsIdentity\TheVictimIsRaymondsClone.cs" />
     <Compile Include="Deductions\ZaidsResortForBetaTesting\ZaidsResortAccepted.cs" />
@@ -128,8 +131,12 @@
     <Compile Include="Dialogues\Travis\ViolentExperimentalResearch.cs" />
     <Compile Include="Dialogues\Travis\WhyIsTravisAtTheResort.cs" />
     <Compile Include="Dialogues\Travis\YourBrotherWasKilled.cs" />
+    <Compile Include="Dialogues\Warren\AnytimeUpTilNow.cs" />
+    <Compile Include="Dialogues\Warren\BetweenSevenAMToEightPM.cs" />
     <Compile Include="Dialogues\Warren\NeedASearchOrder.cs" />
+    <Compile Include="Dialogues\Warren\PettyTheftAt12.cs" />
     <Compile Include="Dialogues\Warren\WarrenIntroduction.cs" />
+    <Compile Include="Dialogues\Warren\WeHaveUntilMidnight.cs" />
     <Compile Include="Dialogues\Zaid\DidRaymondApproveYourResort.cs" />
     <Compile Include="Dialogues\Warren\MeetingWarren.cs" />
     <Compile Include="Dialogues\Reader.cs" />
@@ -144,6 +151,7 @@
     <Compile Include="DilemmasX\WasZaidsResortAcceptedAsABetaTester.cs" />
     <Compile Include="DilemmasX\CoreDilemmas\WhatWasTheCauseOfDeath.cs" />
     <Compile Include="DilemmasX\CoreDilemmas\WhatWasTheCulpritsMotive.cs" />
+    <Compile Include="DilemmasX\WhatWasTheTimeFrameForTheMurder.cs" />
     <Compile Include="DilemmasX\WhoHackedTheDoor.cs" />
     <Compile Include="DilemmasX\CoreDilemmas\WhoIsTheVictim.cs" />
     <Compile Include="DilemmasX\WhoLaunchedTheShip.cs" />
@@ -170,10 +178,12 @@
     <Compile Include="LocationsX\VacantRoom.cs" />
     <Compile Include="LocationsX\VacantRoomScene.cs" />
     <Compile Include="MouseX\MouseIsClicked.cs" />
+    <Compile Include="ObjectivesX\AnswerADilemma.cs" />
     <Compile Include="ObjectivesX\CheckWhatsOnMeleenasDataStick.cs" />
     <Compile Include="ObjectivesX\GetAnEncryptionKeyForMeleenasDataStick.cs" />
     <Compile Include="ObjectivesX\InvestigateMeleenasCraft.cs" />
     <Compile Include="ObjectivesX\InvestigateRaymondsDeadBody.cs" />
+    <Compile Include="ObjectivesX\LookAroundForClues.cs" />
     <Compile Include="ObjectivesX\Objective.cs" />
     <Compile Include="ObjectivesX\Objectives.cs" />
     <Compile Include="ObjectivesX\ObjectivesView.cs" />
