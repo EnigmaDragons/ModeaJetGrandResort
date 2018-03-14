@@ -38,6 +38,7 @@ namespace SpaceResortMurder.LocationsX
         private bool _isLoitering => !_isInvestigatingClue && !_isTalking && !_isTryingToTraverse;
         private IReadOnlyList<Character> _peopleHere;
         private Dictionary<Clue, ClickableUIElement> _clues = new Dictionary<Clue, ClickableUIElement>();
+        private VisualClickableUIElement _scan;
 
         private ObjectivesView _objectives;
 
@@ -105,6 +106,11 @@ namespace SpaceResortMurder.LocationsX
 
             _location.Clues.ForEach(AddClue);
             _location.Pathways.ForEach(AddPathway);
+            _scan = UiButtons.MenuRed("Scan", new Vector2(816, 1000), () =>
+            {
+                Event.Publish(new ThoughtGained(_talkingTo.Value));
+                HaveDialog(GameResources.GetDialogueLines(_talkingTo.Value));
+            });
         }
 
         public void Update(TimeSpan delta)
@@ -130,6 +136,10 @@ namespace SpaceResortMurder.LocationsX
             if (_isTalking)
             {
                 _talkingTo.DrawTalking();
+            }
+            if (_isTalking && !_isInTheMiddleOfDialog)
+            {
+                _scan.Draw(Transform2.Zero);
             }
             if (!_isInTheMiddleOfDialog)
             {
@@ -180,6 +190,7 @@ namespace SpaceResortMurder.LocationsX
                 drawDialogsOptions.Add(button);
             });
             _characterTalkingToBranch.Add(_backButton);
+            _characterTalkingToBranch.Add(_scan);
             _dialogOptions = drawDialogsOptions;
             _clickUI.Add(_characterTalkingToBranch);
             _talkingTo = character;

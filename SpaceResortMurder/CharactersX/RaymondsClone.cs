@@ -8,7 +8,7 @@ namespace SpaceResortMurder.CharactersX
 {
     public class RaymondsClone : Character
     {
-        public RaymondsClone() : base("Raymond, CEO of Human Perfect", "characters/random_npc_01", new Size2(480, 1128), 
+        public RaymondsClone() : base(nameof(RaymondsClone), "Raymond, CEO of Human Perfect", "characters/random_npc_01", new Size2(480, 1128), 
             new MeetingRaymondsClone(),
             new YourLookALikeIsDead(),
             new GoToTheLobby(),

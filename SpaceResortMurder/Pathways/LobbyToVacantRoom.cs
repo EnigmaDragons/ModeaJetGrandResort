@@ -9,7 +9,7 @@ namespace SpaceResortMurder.Pathways
         public LobbyToVacantRoom() : base(
             nameof(LobbyToVacantRoom),
             "Placeholder/Door",
-            new Transform2(new Vector2(700, 0), new Size2(620, 348)),
+            new Transform2(new Vector2(700, 0), new Size2(350, 348)),
             nameof(VacantRoom)) {}
 
         public override bool IsTraversible()
