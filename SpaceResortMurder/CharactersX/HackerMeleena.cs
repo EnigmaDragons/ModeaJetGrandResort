@@ -7,7 +7,7 @@ namespace SpaceResortMurder.CharactersX
 {
     public class HackerMeleena : Character
     {
-        public HackerMeleena() : base("Meleena Ka'lick, Corporate Freelancer", "characters/hacker_corporate_spy", new Size2(480, 1128),
+        public HackerMeleena() : base(nameof(HackerMeleena), "Meleena Ka'lick, Corporate Freelancer", "characters/hacker_corporate_spy", new Size2(480, 1128),
             new MeleenasAccount(),
             new WhatIsACorporateFreelancerDoingHere(),
             new CorporateFreelancersCantNormallyAffordPersonalSpaceCrafts(),

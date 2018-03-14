@@ -17,10 +17,12 @@ namespace SpaceResortMurder.CharactersX
         private ImageBox _newDialogIcon;
         private ImageLabel _convoNameBox;
 
+        public string Value { get; }
         public string Image { get; }
 
-        protected Character(string displayName, string image, Size2 size, params Dialogue[] dialogues)
+        protected Character(string character, string displayName, string image, Size2 size, params Dialogue[] dialogues)
         {
+            Value = character;
             _displayName = displayName;
             Image = image;
             _dialogs = dialogues.ToList();

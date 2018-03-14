@@ -71,6 +71,11 @@ namespace MonoDragons.Core.UserInterface
             _elementLayer.Remove(element);
         }
 
+        public void Clear()
+        {
+            _branches.ToList().ForEach(Remove);
+        }
+
         public void Update(TimeSpan delta)
         {
             var mouse = Mouse.GetState();

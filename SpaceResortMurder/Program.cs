@@ -89,6 +89,7 @@ namespace SpaceResortMurder
                 { GameResources.EndingSceneName, () => new EndingScene() },
                 { nameof(VacantRoom), () => new VacantRoomScene() },
                 { nameof(TravissCloningRoom), () => new TravissCloningRoomScene() },
+                { nameof(PoliceCruiserInterior), () => new PoliceCruiserInteriorScene() }
             });
         }
 

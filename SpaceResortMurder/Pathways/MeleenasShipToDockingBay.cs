@@ -9,7 +9,7 @@ namespace SpaceResortMurder.Pathways
         public MeleenasShipToDockingBay() : base(
             nameof(MeleenasShipToDockingBay),
             "Placeholder/Door",
-            new Transform2(new Vector2(0, 0), new Size2(620, 348)),
+            new Transform2(new Vector2(0, 0), new Size2(350, 348)),
             nameof(DockingBay)) {}
 
         public override bool IsTraversible()

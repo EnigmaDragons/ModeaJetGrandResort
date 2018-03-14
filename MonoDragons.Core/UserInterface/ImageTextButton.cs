@@ -19,6 +19,10 @@ namespace MonoDragons.Core.UserInterface
         public Action OnEnter { set => _button.OnEnter = value; }
         public HorizontalAlignment TextAlignment { set => _label.HorizontalAlignment = value; }
         public Transform2 TextTransform { set => _label.Transform = value.WithPadding(8, 8); }
+        public Action OnClick { set => _button.OnClick = value; }
+
+        public ImageTextButton(Rectangle rect, string text, string basic, string hover, string press)
+            : this(new Transform2(rect), () => {}, text, basic, hover, press, () => true) { }
 
         public ImageTextButton(Rectangle rect, Action onClick, string text, string basic, string hover, string press)
             : this(new Transform2(rect), onClick, text, basic, hover, press, () => true) { }

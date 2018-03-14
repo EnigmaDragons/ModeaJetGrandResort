@@ -1,11 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
+using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.MouseX;
 using SpaceResortMurder.State;
 using System;
-using MonoDragons.Core.EventSystem;
 
 namespace SpaceResortMurder.TutorialsX
 {
@@ -28,7 +28,7 @@ namespace SpaceResortMurder.TutorialsX
 
         public void Update(TimeSpan delta)
         {
-            if (_ended)
+            if (!CurrentOptions.TutorialsAreEnabled || _ended)
                 return;
 
             if (_started && _mouseIsClicked.Evaluate())
@@ -38,15 +38,9 @@ namespace SpaceResortMurder.TutorialsX
                 _started = true;
         }
 
-        private void End()
-        { 
-            _ended = true;
-            Event.Publish(new ItemViewed(_name));
-        }
-
         public void Draw(Transform2 parentTransform)
         {
-            if (_ended || !_started)
+            if (!CurrentOptions.TutorialsAreEnabled || _ended || !_started)
                 return;
 
             UI.DrawCenteredWithOffset("UI/TutorialOverlay", new Vector2(UI.OfScreenWidth(2.5f), UI.OfScreenHeight(2.5f)), OverlayPosition);
@@ -55,7 +49,13 @@ namespace SpaceResortMurder.TutorialsX
 
         private bool ShouldShowTutorial()
         {
-            return !CurrentGameState.Instance.HasViewedItem(_name);
+            return !CurrentGameState.Instance.HasViewedItem(_name) && TutorialIsUnlocked;
+        }
+
+        private void End()
+        {
+            _ended = true;
+            Event.Publish(new ItemViewed(_name));
         }
     }
 }

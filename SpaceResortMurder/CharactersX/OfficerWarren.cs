@@ -7,13 +7,19 @@ namespace SpaceResortMurder.CharactersX
 {
     public class OfficerWarren : Character
     {
-        public OfficerWarren() : base("Warren, Officer", "Characters/policeman", new Size2(480, 1128), 
+        public OfficerWarren() : base(nameof(OfficerWarren), "Warren, Officer", "Characters/policeman", new Size2(480, 1128), 
+            new WarrenIntroduction(),
+            new PettyTheftAt12(),
+            new AnytimeUpTilNow(),
+            new BetweenSevenAMToEightPM(),
+            new WeHaveUntilMidnight(),
+
             new MeetingWarren(),
             new NeedASearchOrder()) {}
 
         public override string WhereAreYou()
         {
-            return nameof(Lobby);
+            return nameof(PoliceCruiserInterior);
         }
 
         public override Transform2 WhereAreYouStanding()

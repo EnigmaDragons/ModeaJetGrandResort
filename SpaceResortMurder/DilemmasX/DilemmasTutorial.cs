@@ -19,7 +19,7 @@ namespace SpaceResortMurder.DilemmasX
                 Transform = new Transform2(UI.OfScreen(0.3f, 0.4f), UI.OfScreenSize(0.4f, 0.2f)),
                 TextColor = Color.White,
                 Text = "Here you will decide what you currently believe to be true. " +
-                       "Your choices here will effect which dialogues are available from people " +
+                       "Your choices here will affect which dialogues are available from people " +
                        "and will even affect what answers are available to other dilemmas"
             };
     }

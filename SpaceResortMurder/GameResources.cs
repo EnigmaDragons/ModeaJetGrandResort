@@ -24,8 +24,12 @@ using SpaceResortMurder.State;
 using System.Text;
 using System.Linq;
 using System.Text.RegularExpressions;
+using SpaceResortMurder.CharactersX;
+using SpaceResortMurder.Clues.PoliceSpaceCraft;
 using SpaceResortMurder.Deductions.ClonesDesign;
 using SpaceResortMurder.Deductions.LaunchedTheShip;
+using SpaceResortMurder.Deductions.TimeFrameForMurder;
+using SpaceResortMurder.Pathways;
 
 namespace SpaceResortMurder
 {
@@ -74,13 +78,7 @@ namespace SpaceResortMurder
         public static string GetObjectiveName(string objective)
         {
             if (_objectiveTexts.ContainsKey(objective))
-                return ReplaceSymbols(_objectiveTexts[objective].Item1);
-            return _notImplementedObjectiveText;
-        }
-        public static string GetObjectiveDescription(string objective)
-        {
-            if (_objectiveTexts.ContainsKey(objective))
-                return ReplaceSymbols(_objectiveTexts[objective].Item2);
+                return ReplaceSymbols(_objectiveTexts[objective]);
             return _notImplementedObjectiveText;
         }
 
@@ -216,10 +214,65 @@ namespace SpaceResortMurder
                 "This new process has not yet been approved for commercial use."
             } },
             #endregion
+
+            #region Police Cruiser
+            { nameof(Clock), new string[] {
+                "The time reads 8:02 PM"
+            } },
+            #endregion
         };
 
         private static Dictionary<string, Tuple<string, string[]>> _dialogues = new Dictionary<string, Tuple<string, string[]>> {
             #region Warren
+            { nameof(WarrenIntroduction), new Tuple<string, string[]>(
+                "Introduction.",
+                new string[] {
+                    "Hello there \\Player\\. This is your fist time powering up so I better get you up to speed.",
+                    "I'm Officer Warren, and you are an android detective.",
+                    "You have the unique capability to be able to rapidly search up records of people and places and percieve things I can't.",
+                    "Go ahead and look me up.",
+                }
+            ) },
+            { nameof(OfficerWarren), new Tuple<string, string[]>(
+                "Introduction.",
+                new string[] {
+                    "Loading...",
+                    "Officer Warren, weighs 199 lb, no augments.",
+                    "Once found guilty of petty theft at the age of 12.",
+                    "Worked in the investigative department of Outer Planet Police for 17 years.",
+                }
+            ) },
+            { nameof(PettyTheftAt12), new Tuple<string, string[]>(
+                "Petty theft at 12.",
+                new string[] {
+                    "You have got the hang of scanning, it's especially important when you are going toe to toe with someone with augments.",
+                    "Directly before powering you on I got a call about the murder of Raymond Soule.",
+                    "He is the CEO of the cloning company Human Perfect.",
+                    "He arrived alive at ModeaJet Grand Resort at 7:00 AM this morning, but was found dead today in his ship.",
+                    "Look around and tell me what can you infer from that.",
+                }
+            ) },
+            { nameof(AnytimeUpTilNow), new Tuple<string, string[]>(
+                "The murder take place anytime up until now.",
+                new string[] {
+                    "Not quite with it yet I see.",
+                    "No worries I said that he arrived at the resort at 7 AM alive.",
+                }
+            ) },
+            { nameof(BetweenSevenAMToEightPM), new Tuple<string, string[]>(
+                "The murder must have taken place between 7 AM and 8 PM.",
+                new string[] {
+                    "Precisely! Looks like we're ready to get started. Let's start investigating Raymond's craft.",
+                }
+            ) },
+            { nameof(WeHaveUntilMidnight), new Tuple<string, string[]>(
+                "We have until midnight, it's best if we hurry.",
+                new string[] {
+                    "What are you talking about?!",
+                    "Booting up for the first must be brutal.",
+                }
+            ) },
+
             { nameof(MeetingWarren), new Tuple<string, string[]>(
                 "Incident details",
                 new string[] {
@@ -504,6 +557,11 @@ namespace SpaceResortMurder
             { nameof(TheVictimIsRaymond), "Raymond" },
             { nameof(TheVictimIsRaymondsClone), "Raymond's Clone" },
 
+            { nameof(WhatWasTheTimeFrameForTheMurder), "When did the murder take place?" },
+            { nameof(FromAnytimeUntilEightPM), "It could have happened on any day or any time before 8 PM tonight" },
+            { nameof(SevenAMToEightPM), "It must have happened between 7 AM and 8 PM today" },
+            { nameof(EightPMtoMidnight), "It has to be 8 PM until midnight tonight, so we have to hurry" },
+
             { nameof(WhoShotRaymondsShip), "Who shot Raymond's ship?" },
             { nameof(RaymondShotHisOwnShip), "Raymond" },
             { nameof(ZaidShotRaymondsShip), "Zaid" },
@@ -536,24 +594,14 @@ namespace SpaceResortMurder
             { nameof(PerfectedDesign), "No, the new cloning process was perfected." }
         };
 
-        private static Dictionary<string, Tuple<string, string>> _objectiveTexts = new Dictionary<string, Tuple<string, string>>
+        private static Dictionary<string, string> _objectiveTexts = new Dictionary<string, string>
         {
-            { nameof(InvestigateRaymondsDeadBody), new Tuple<string, string>(
-                "Investigate Raymond's Ship",
-                "According to Warren, Raymond died earlier tonight and his body was found within his space craft. I should see what I can find from his remains."
-            )},
-            { nameof(InvestigateMeleenasCraft), new Tuple<string, string>(
-                "Investigate Meleena's Craft",
-                "Meleena's craft is pretty close to the murder scene and could be hiding evidence."
-            )},
-            { nameof(GetAnEncryptionKeyForMeleenasDataStick), new Tuple<string, string>(
-                "Get Meleena's Data Encryption Key",
-                "Found a data stick with signs of recent use. I am going to need Meleena to give me the encryption key to find out what's on it."
-            )},
-            { nameof(CheckWhatsOnMeleenasDataStick), new Tuple<string, string>(
-                "Decrypt Meleena's Data Stick",
-                "I can now find out what was on the data stick in Meleena's ship using this encryption key."
-            )},
+            { nameof(LookAroundForClues), "Look around this ship for clues." },
+            { nameof(AnswerADilemma), "Answer a dilemma located in the top right corner." },
+            { nameof(InvestigateRaymondsDeadBody), "Investigate Raymond's Ship" },
+            { nameof(InvestigateMeleenasCraft), "Investigate Meleena's Craft" },
+            { nameof(GetAnEncryptionKeyForMeleenasDataStick), "Get Meleena's Data Encryption Key" },
+            { nameof(CheckWhatsOnMeleenasDataStick), "Decrypt Meleena's Data Stick" },
         };
 
         private static Dictionary<string, string> _resolutionText = new Dictionary<string, string>
@@ -563,7 +611,7 @@ namespace SpaceResortMurder
 
         private static Dictionary<string, string> _pathwayText = new Dictionary<string, string>
         {
-            
+            { nameof(PoliceCruiserToDockingBay), "I am not ready yet." }
         };
 
         private static Dictionary<string, Func<string>> _symobls = new Dictionary<string, Func<string>>
@@ -577,6 +625,10 @@ namespace SpaceResortMurder
                 () => CurrentGameState.Instance.IsThinking(nameof(TheVictimIsRaymondsClone))
                     ? "Raymond"
                     : "Raymond's Clone"
+            },
+            {
+                "Player",
+                () => "Zavix"
             },
         };
     }

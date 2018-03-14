@@ -20,27 +20,38 @@ using SpaceResortMurder.Pathways;
 namespace SpaceResortMurder.LocationsX
 {
     public abstract class LocationScene : IScene
-    { 
+    {
+        protected enum Mode
+        {
+            Loitering,
+            InvestigatingClue,
+            Conversation,
+            Traversing
+        }
+
         private Location _location;
 
         private ClickUI _clickUI;
         private List<IVisual> _dialogOptions = new List<IVisual>();
-        private VisualClickableUIElement _backButton;
+        private VisualClickableUIElement _endConversationButton;
         private IVisual _locationNameLabel;
-        private bool _isInTheMiddleOfDialog = false;
         private ClickUIBranch _characterTalkingToBranch;
         private Character _talkingTo;
-        private Clue _investigatingThis;
-        private bool _isTalking;
+        //private Clue _investigatingThis;
         private Reader _reader;
-        private bool _isInvestigatingClue;
-        private bool _isTryingToTraverse;
-        private bool _isLoitering => !_isInvestigatingClue && !_isTalking && !_isTryingToTraverse;
+
+        private IVisualAutomaton _subview;
+
+        protected Mode CurrentMode { get; private set; } = Mode.Loitering;
+
+        private bool _isInTheMiddleOfDialog = false;
+        private bool IsTalking => CurrentMode.Equals(Mode.Conversation);
+        private bool IsLoitering => CurrentMode.Equals(Mode.Loitering);
+
         private IReadOnlyList<Character> _peopleHere;
         private Dictionary<Clue, ClickableUIElement> _clues = new Dictionary<Clue, ClickableUIElement>();
-
+        private VisualClickableUIElement _scan;
         private ObjectivesView _objectives;
-
         protected ClickUIBranch _investigateRoomBranch;
         protected List<IVisual> _visuals = new List<IVisual>();
 
@@ -54,152 +65,164 @@ namespace SpaceResortMurder.LocationsX
 
         public void Init()
         {
-            if(!CurrentGameState.Instance.HasViewedItem(_location.Value))
-                Event.Publish(new ItemViewed(_location.Value));
-
             GameObjects.InitIfNeeded();
-            CurrentGameState.Instance.CurrentLocation = _location.Value;
-			
-            _objectives = new ObjectivesView();
-			
-            _investigateRoomBranch = new ClickUIBranch("Location Investigation", 1);
+
+            InitInputs();
+            InitUiElements();
+            InitLocation();
 
             OnInit();
-            _locationNameLabel = UiLabels.HeaderLabel(_location.Name, Color.White);
-            _peopleHere = GameObjects.Characters.GetPeopleAt(_location.Value);
-            var characterButtons = _peopleHere.Select(x => new ImageButton(x.Image, x.Image, x.Image, x.WhereAreYouStanding(),
-                () =>
-                {
-                    _clickUI.Remove(_investigateRoomBranch);
-                    TalkTo(x);
-                },
-                () => !(_isTalking && _talkingTo == x)));
-            characterButtons.ForEach(x =>
-            {
-                _visuals.Add(x);
-                _investigateRoomBranch.Add(x);
-            });
 
-            _clickUI = new ClickUI();
-            _clickUI.Add(_investigateRoomBranch);
-            _clickUI.Add(GameObjects.Hud.HudBranch);
-            _backButton = new ImageTextButton(new Transform2(new Rectangle(-684, 960, 1380, 77)), StopTalking, "Thanks for your help.",
-                "Convo/DialogueButton", "Convo/DialogueButton-Hover", "Convo/DialogueButton-Press", () => _isTalking)
-            {
-                TextColor = Color.White,
-                TextTransform = new Transform2(new Vector2(60, 960), Rotation2.Default, new Size2(1380 - 684, 77), 1.0f),
-                TextAlignment = HorizontalAlignment.Left
-            };
-
-            Input.ClearTransientBindings();
-            Input.On(Control.Select, () => { if (!_isInTheMiddleOfDialog) Scene.NavigateTo(GameResources.OptionsSceneName); });
-            Input.On(Control.X, () => { if (!_isInTheMiddleOfDialog) Scene.NavigateTo(GameResources.DilemmasSceneName); });
-
-            if(_peopleHere.Any(p => p.IsImmediatelyTalking()))
-            {
-                var person = _peopleHere.First(p => p.IsImmediatelyTalking());
-                _clickUI.Remove(_investigateRoomBranch);
-                TalkTo(person);
-                person.StartImmediatelyTalking(HaveDialog);
-            }
-
-            _location.Clues.ForEach(AddClue);
-            _location.Pathways.ForEach(AddPathway);
+            StartLoitering();
+            AutoStartConversationIfApplicable();
         }
 
         public void Update(TimeSpan delta)
         {
             if (_isInTheMiddleOfDialog)
                 _reader.Update(delta);
-            if (_isLoitering)
-            {
+            if (IsLoitering)
                 _objectives.Update(delta);
-            }
 
             _clickUI.Update(delta);
+            _subview.Update(delta);
         }
 
         public void Draw()
         {
             DrawBackground();
-            _visuals.ForEach(x => x.Draw(Transform2.Zero));
-            if (_isLoitering)
+
+            _visuals.ForEach(x => x.Draw());
+            if (IsLoitering)
             {
                 _objectives.Draw();
+                GameObjects.Hud.Draw();
+                _peopleHere.ForEach(p => p.DrawNewIconIfApplicable());
             }
-            if (_isTalking)
+
+            if (IsTalking)
             {
                 _talkingTo.DrawTalking();
             }
+            if (IsTalking && !_isInTheMiddleOfDialog)
+            {
+                _scan.Draw();
+            }
             if (!_isInTheMiddleOfDialog)
             {
-                _dialogOptions.ForEach(x => x.Draw(Transform2.Zero));
-                _backButton.Draw(Transform2.Zero);
+                _dialogOptions.ForEach(x => x.Draw());
+                _endConversationButton.Draw();
             }
-            if (!_isTalking && !_isInvestigatingClue)
-            {
-                GameObjects.Hud.Draw(Transform2.Zero);
-                _peopleHere.ForEach(p => p.DrawNewIconIfApplicable());
-            }
-            if (_isInvestigatingClue)
-                _investigatingThis.FacingImage.Draw(Transform2.Zero);
             if (_isInTheMiddleOfDialog)
                 _reader.Draw();
-
+            _subview.Draw();
 
             UI.FillScreen("UI/ScreenOverlay-Purple");
-            _locationNameLabel.Draw(Transform2.Zero);
+            _locationNameLabel.Draw();
+        }
+
+        private void AutoStartConversationIfApplicable()
+        {
+            if (!_peopleHere.Any(p => p.IsImmediatelyTalking()))
+                return;
+
+            var person = _peopleHere.First(p => p.IsImmediatelyTalking());
+            StopLoitering(Mode.Conversation);
+            TalkTo(person);
+            person.StartImmediatelyTalking(HaveDialog);
+        }
+
+        private void InitLocation()
+        {
+            if (!CurrentGameState.Instance.HasViewedItem(_location.Value))
+                Event.Publish(new ItemViewed(_location.Value));
+
+            CurrentGameState.Instance.CurrentLocation = _location.Value;
+            _location.Clues.ForEach(AddClue);
+            _location.Pathways.ForEach(x => AddToRoom(x.CreateButton(ShowCantNavigate)));
+            UpdateClues();
+        }
+
+        private void InitUiElements()
+        {
+            _subview = new Nothing();
+            _objectives = new ObjectivesView();
+            _investigateRoomBranch = new ClickUIBranch("Location Investigation", 1);
+            _locationNameLabel = UiLabels.HeaderLabel(_location.Name, Color.White);
+            _peopleHere = GameObjects.Characters.GetPeopleAt(_location.Value);
+            _clickUI = new ClickUI();
+            _endConversationButton = new ImageTextButton(new Transform2(new Rectangle(-684, 960, 1380, 77)), StartLoitering,
+                "Thanks for your help.",
+                "Convo/DialogueButton", "Convo/DialogueButton-Hover", "Convo/DialogueButton-Press", () => IsTalking)
+            {
+                TextColor = Color.White,
+                TextTransform = new Transform2(new Vector2(60, 960), Rotation2.Default, new Size2(1380 - 684, 77), 1.0f),
+                TextAlignment = HorizontalAlignment.Left
+            };
+
+            _peopleHere
+                .Select(x => new ImageButton(x.Image, x.Image, x.Image, x.WhereAreYouStanding(),
+                    () => TalkTo(x),
+                    () => !(IsTalking && _talkingTo == x)))
+                .ForEach(AddToRoom);
+            _scan = UiButtons.MenuRed("Scan", new Vector2(816, 1000), () =>
+            {
+                Event.Publish(new ThoughtGained(_talkingTo.Value));
+                HaveDialog(GameResources.GetDialogueLines(_talkingTo.Value));
+            });
+        }
+
+        private void InitInputs()
+        {
+            Input.ClearTransientBindings();
+            Input.On(Control.Select, () => { if (!_isInTheMiddleOfDialog) Scene.NavigateTo(GameResources.OptionsSceneName); });
+            Input.On(Control.X, () => { if (!_isInTheMiddleOfDialog) Scene.NavigateTo(GameResources.DilemmasSceneName); });
         }
 
         private void AddClue(Clue clue)
         {
             var button = clue.CreateButton(() => Investigate(clue));
-            _visuals.Add(button);
             _clues.Add(clue, button);
-            _investigateRoomBranch.Add(button);
+            AddToRoom(button);
             button.IsEnabled = clue.IsActive();
         }
 
-        private void AddPathway(Pathway pathway)
+        private void AddToRoom(VisualClickableUIElement e)
         {
-            var button = pathway.CreateButton(ShowCantNavigate);
-            _visuals.Add(button);
-            _investigateRoomBranch.Add(button);
+            _visuals.Add(e);
+            _investigateRoomBranch.Add(e);
         }
 
         private void TalkTo(Character character)
         {
-            _clickUI.Remove(GameObjects.Hud.HudBranch);
-            var drawDialogsOptions = new List<IVisual>();
+            StopLoitering(Mode.Conversation);
+
             _characterTalkingToBranch = new ClickUIBranch("Dialogue Choices", 1);
-            var activeDialogs = character.GetNewDialogs();
-            activeDialogs.ForEachIndex((x, i) =>
+            _characterTalkingToBranch.Add(_endConversationButton);
+            _characterTalkingToBranch.Add(_scan);
+            _clickUI.Add(_characterTalkingToBranch);
+
+            var drawDialogsOptions = new List<IVisual>();
+            character.GetNewDialogs().ForEachIndex((x, i) =>
             {
-                var button = x.CreateButton(HaveDialog, i, activeDialogs.Count);
+                var button = x.CreateButton(HaveDialog, i, character.GetNewDialogs().Count);
                 _characterTalkingToBranch.Add(button);
                 drawDialogsOptions.Add(button);
             });
-            _characterTalkingToBranch.Add(_backButton);
             _dialogOptions = drawDialogsOptions;
-            _clickUI.Add(_characterTalkingToBranch);
-            _talkingTo = character;
-            _isTalking = true;
-        }
 
-        private void StopTalking()
-        {
-            _isTalking = false;
-            _clickUI.Remove(_characterTalkingToBranch);
-            _dialogOptions = new List<IVisual>();
-            _clickUI.Add(_investigateRoomBranch);
-            _clickUI.Add(GameObjects.Hud.HudBranch);
-            _clues.ForEach(p => p.Value.IsEnabled = p.Key.IsActive());
+            _talkingTo = character;
         }
 
         private void HaveDialog(string[] lines)
         {
             _clickUI.Remove(_characterTalkingToBranch);
-            _reader = new Reader(lines, EndDialog);
+            StartReader(lines, EndDialog);
+        }
+
+        private void StartReader(string[] lines, Action onFinished)
+        {
+            _reader = new Reader(lines, onFinished);
             _isInTheMiddleOfDialog = true;
         }
 
@@ -211,38 +234,40 @@ namespace SpaceResortMurder.LocationsX
 
         private void Investigate(Clue clue)
         {
-            _clickUI.Remove(_investigateRoomBranch);
-            _reader = new Reader(clue.InvestigationLines, StopInvestigating);
-            _investigatingThis = clue;
-            _clickUI.Remove(GameObjects.Hud.HudBranch);
-            _isInTheMiddleOfDialog = true;
-            _isInvestigatingClue = true;
-        }
-
-        private void StopInvestigating()
-        {
-            _clickUI.Add(_investigateRoomBranch);
-            _clickUI.Add(GameObjects.Hud.HudBranch);
-            _isInTheMiddleOfDialog = false;
-            _isInvestigatingClue = false;
-            _clues.ForEach(p => p.Value.IsEnabled = p.Key.IsActive());
+            StopLoitering(Mode.InvestigatingClue);
+            _subview = new InvestigateClueView(clue, StartLoitering);
         }
 
         private void ShowCantNavigate(string pathway)
         {
-            _clickUI.Remove(_investigateRoomBranch);
-            _reader = new Reader(new string[] { GameResources.GetPathwayText(pathway) }, FinishPathwayDialog);
-            _clickUI.Remove(GameObjects.Hud.HudBranch);
-            _isInTheMiddleOfDialog = true;
-            _isTryingToTraverse = true;
+            StopLoitering(Mode.Traversing);
+            StartReader(new[] { GameResources.GetPathwayText(pathway) }, StartLoitering);
         }
 
-        private void FinishPathwayDialog()
+        private void StopLoitering(Mode newMode)
         {
+            _clickUI.Remove(_investigateRoomBranch);
+            _clickUI.Remove(GameObjects.Hud.HudBranch);
+            CurrentMode = newMode;
+        }
+
+        private void StartLoitering()
+        {
+            _subview = new Nothing();
+            _clickUI.Clear();
+            _dialogOptions = new List<IVisual>();
+            _isInTheMiddleOfDialog = false;
+
+            UpdateClues();
+
             _clickUI.Add(_investigateRoomBranch);
             _clickUI.Add(GameObjects.Hud.HudBranch);
-            _isInTheMiddleOfDialog = false;
-            _isTryingToTraverse = false;
+            CurrentMode = Mode.Loitering;
+        }
+
+        private void UpdateClues()
+        {
+            _clues.ForEach(p => p.Value.IsEnabled = p.Key.IsActive());
         }
 
         public void Dispose()
