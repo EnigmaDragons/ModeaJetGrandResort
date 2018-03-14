@@ -37,7 +37,6 @@ namespace SpaceResortMurder
             Dilemmas.Init();
             Hud.Init();
             Characters.Init();
-            Locations.Init();
             Objectives.Init();
             _hasInit = true;
         }

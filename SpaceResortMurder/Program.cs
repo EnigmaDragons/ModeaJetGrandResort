@@ -26,7 +26,7 @@ namespace SpaceResortMurder
         [STAThread]
         private static void Main()
         {
-            using (var game = Perf.Time("Startup", () => CreateGame("Lobby")))
+            using (var game = Perf.Time("Startup", () => CreateGame("Main Menu")))
                 game.Run();
         }
 
