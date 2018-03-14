@@ -26,7 +26,7 @@ namespace SpaceResortMurder
         [STAThread]
         private static void Main()
         {
-            using (var game = Perf.Time("Startup", () => CreateGame("Logo")))
+            using (var game = Perf.Time("Startup", () => CreateGame("Lobby")))
                 game.Run();
         }
 
@@ -76,7 +76,6 @@ namespace SpaceResortMurder
                 { GameResources.DilemmasSceneName, () => new DilemmaScene() },
                 { GameResources.OptionsSceneName, () => new OptionsScene() },
                 { GameResources.MapSceneName, () => new SpaceResortMapScene() },
-                { GameResources.ObjectivesSceneName, () => new ObjectivesScene() },
                 { nameof(DockingBay), () => new DockingBayScene() },
                 { nameof(Lobby), () => new LobbyScene() },
                 { nameof(RaymondsShipInterior), () => new RaymondsShipInteriorScene() },

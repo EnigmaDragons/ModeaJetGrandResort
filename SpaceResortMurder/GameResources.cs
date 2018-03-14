@@ -36,7 +36,6 @@ namespace SpaceResortMurder
         public const string CreditsSceneName = "Credits";
         public const string DilemmasSceneName = "Dilemmas";
         public const string MapSceneName = "Map";
-        public const string ObjectivesSceneName = "Objectives";
         public const string DialogueMemoriesScene = "Dialogue Memories";
         public const string ResolutionSceneName = "Resolution";
         public const string EndingSceneName = "Ending";
@@ -533,7 +532,7 @@ namespace SpaceResortMurder
         private static Dictionary<string, Tuple<string, string>> _objectiveTexts = new Dictionary<string, Tuple<string, string>>()
         {
             { nameof(InvestigateRaymondsDeadBody), new Tuple<string, string>(
-                "Go to Raymond's ship and investigate his remains",
+                "Investigate Raymond's Ship",
                 "According to Warren, Raymond died earlier tonight and his body was found within his space craft. I should see what I can find from his remains."
             )},
             { nameof(InvestigateMeleenasCraft), new Tuple<string, string>(
@@ -541,11 +540,11 @@ namespace SpaceResortMurder
                 "Meleena's craft is pretty close to the murder scene and could be hiding evidence."
             )},
             { nameof(GetAnEncryptionKeyForMeleenasDataStick), new Tuple<string, string>(
-                "Aquire an encryption key for Meleena's data stick",
+                "Get Meleena's Data Encryption Key",
                 "Found a data stick with signs of recent use. I am going to need Meleena to give me the encryption key to find out what's on it."
             )},
             { nameof(CheckWhatsOnMeleenasDataStick), new Tuple<string, string>(
-                "Use Meleena's encryption key on the data stick",
+                "Decrypt Meleena's Data Stick",
                 "I can now find out what was on the data stick in Meleena's ship using this encryption key."
             )},
         };

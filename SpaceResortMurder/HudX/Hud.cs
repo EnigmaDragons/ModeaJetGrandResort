@@ -6,6 +6,7 @@ using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using System.Linq;
 using MonoDragons.Core.Engine;
+using SpaceResortMurder.ObjectivesX;
 using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.HudX
@@ -13,14 +14,15 @@ namespace SpaceResortMurder.HudX
     public sealed class Hud : IVisual
     {
         private List<VisualClickableUIElement> _clickables;
-        private ImageBox _newIcon; 
+        private ImageBox _newIcon;
+        private ObjectivesView _objectives;
 
         public ClickUIBranch HudBranch { get; private set; }
 
         public void Init()
         {
+            _objectives = new ObjectivesView();
             _clickables = new List<VisualClickableUIElement>();
-            AddIconButton(() => Scene.NavigateTo(GameResources.ObjectivesSceneName), "Icons/Objective");
             AddIconButton(() => Scene.NavigateTo(GameResources.MapSceneName), "Icons/Locations");
             AddIconButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Icons/Dilemmas");
             AddIconButton(() => Scene.NavigateTo(GameResources.DialogueMemoriesScene), "Icons/Conversations");
@@ -39,16 +41,15 @@ namespace SpaceResortMurder.HudX
         {
             _clickables.ForEach(x => x.Draw(parentTransform));
             DrawNewIconsIfApplicable(parentTransform);
+            _objectives.Draw(parentTransform);
         }
-
+        
         private void DrawNewIconsIfApplicable(Transform2 parentTransform)
         {
-            if (GameObjects.Objectives.GetActiveObjectives().Any(o => o.IsNew))
-                _newIcon.Draw(new Transform2(GetIndicatorLocation(0)));
             if (GameObjects.Locations.GetAvailableLocations().Any(l => l.IsNewOrHasNewDialogs))
-                _newIcon.Draw(new Transform2(GetIndicatorLocation(1)));
+                _newIcon.Draw(new Transform2(GetIndicatorLocation(0)));
             if (GameObjects.Dilemmas.GetActiveDilemmas().Any(d => d.IsNew || d.HasNewAnswers))
-                _newIcon.Draw(new Transform2(GetIndicatorLocation(2)));
+                _newIcon.Draw(new Transform2(GetIndicatorLocation(1)));
         }
 
         private void AddIconButton(Action onClick, string name)
