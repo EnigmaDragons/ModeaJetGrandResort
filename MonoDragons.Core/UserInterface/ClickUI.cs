@@ -14,7 +14,7 @@ namespace MonoDragons.Core.UserInterface
 
         private List<ClickUIBranch> _branches = new List<ClickUIBranch> { new ClickUIBranch("Base", 0) };
         
-        private float Scale => CurrentDisplay.Display.Scale;
+        private float Scale => CurrentDisplay.Scale;
         
         private ClickableUIElement _current = None;
         private bool _wasClicked;
@@ -90,8 +90,8 @@ namespace MonoDragons.Core.UserInterface
 
         private bool MouseIsOutOfGame(MouseState mouse)
         {
-            return mouse.Position.X < 0 || mouse.Position.X > CurrentDisplay.Display.GameWidth 
-                || mouse.Position.Y < 0 || mouse.Position.Y > CurrentDisplay.Display.GameHeight;
+            return mouse.Position.X < 0 || mouse.Position.X > CurrentDisplay.GameWidth 
+                || mouse.Position.Y < 0 || mouse.Position.Y > CurrentDisplay.GameHeight;
         }
 
         private void OnPressed()

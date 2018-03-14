@@ -60,8 +60,8 @@ namespace MonoDragons.Core.Engine
         {
             _spriteBatch.Draw(Resources.Load<Texture2D>(imageName), ScaleRectangle(new Rectangle(
                     new Point(
-                        anchor.AnchorFromLeft ? anchor.HorizontalOffset : (int)Math.Round(CurrentDisplay.Display.GameWidth / CurrentDisplay.Display.Scale - anchor.HorizontalOffset),
-                        anchor.AnchorFromTop ? anchor.VerticalOffset : (int)Math.Round(CurrentDisplay.Display.GameHeight / CurrentDisplay.Display.Scale - anchor.VerticalOffset)),
+                        anchor.AnchorFromLeft ? anchor.HorizontalOffset : (int)Math.Round(CurrentDisplay.GameWidth / CurrentDisplay.Scale - anchor.HorizontalOffset),
+                        anchor.AnchorFromTop ? anchor.VerticalOffset : (int)Math.Round(CurrentDisplay.GameHeight / CurrentDisplay.Scale - anchor.VerticalOffset)),
                     size.ToPoint())),
                 Color.White);
         }
@@ -116,7 +116,7 @@ namespace MonoDragons.Core.Engine
 
         private static Point ScalePoint(Vector2 vector)
         {
-            return new Point((int)Math.Round(vector.X * CurrentDisplay.Display.Scale), (int)Math.Round(vector.Y * CurrentDisplay.Display.Scale));
+            return new Point((int)Math.Round(vector.X * CurrentDisplay.Scale), (int)Math.Round(vector.Y * CurrentDisplay.Scale));
         }
 
         private static Point ScalePoint(Point point)

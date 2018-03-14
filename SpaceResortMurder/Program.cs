@@ -58,6 +58,7 @@ namespace SpaceResortMurder
         private static void InitFonts()
         {
             DefaultFont.Name = UiFonts.Body;
+            DefaultFont.AvailableScales = new float[] { 0.5f, 0.75f };
             DefaultFont.Color = UiStyle.TextBlack;
         }
 

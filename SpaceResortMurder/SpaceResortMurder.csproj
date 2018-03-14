@@ -560,7 +560,15 @@
     <None Include="Content\Cursors\PacmanGhost.ani">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Content\Fonts\BodyFont-0.5.spritefont" />
+    <None Include="Content\Fonts\BodyFont-0.5.xnb" />
+    <None Include="Content\Fonts\BodyFont-0.75.spritefont" />
+    <None Include="Content\Fonts\BodyFont-0.75.xnb" />
     <None Include="Content\Fonts\BodyFont.xnb" />
+    <None Include="Content\Fonts\HeaderFont-0.5.spritefont" />
+    <None Include="Content\Fonts\HeaderFont-0.5.xnb" />
+    <None Include="Content\Fonts\HeaderFont-0.75.spritefont" />
+    <None Include="Content\Fonts\HeaderFont-0.75.xnb" />
     <None Include="Content\Fonts\HeaderFont.spritefont" />
     <None Include="Content\Fonts\HeaderFont.xnb" />
   </ItemGroup>
