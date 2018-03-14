@@ -6,12 +6,13 @@ using MonoDragons.Core.Inputs;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Text;
 using MonoDragons.Core.UserInterface;
+using SpaceResortMurder.Dialogues;
 using SpaceResortMurder.MouseX;
 using SpaceResortMurder.State;
 
-namespace SpaceResortMurder.Dialogues
+namespace SpaceResortMurder.Clues
 {
-    public class Reader
+    public class ClueDisplayReader
     {
         private readonly MouseIsClicked _mouseIsClicked = new MouseIsClicked();
         private readonly Queue<string> _lines;
@@ -20,14 +21,14 @@ namespace SpaceResortMurder.Dialogues
         private readonly ImageBox _box;
         private readonly Transform2 _chatBoxTransform;
 
-        public Reader(string[] linesToBeRead, Action onFinished)
+        public ClueDisplayReader(string[] linesToBeRead, Action onFinished)
         {
-            _chatBox = new ChatBox("", 840, DefaultFont.Font, CurrentOptions.MillisPerTextCharacter, 32);
+            _chatBox = new ChatBox("", 840, DefaultFont.Font, CurrentOptions.MillisPerTextCharacter, 32) { SoundsEnabled = false };
             _chatBoxTransform = new Transform2(new Vector2(120, 912));
             _lines = new Queue<string>(linesToBeRead);
             _onFinished = onFinished;
             Input.On(Control.A, Advance);
-            _box = new ImageBox { Transform = new Transform2(new Size2(1920, 1080)), Image = "Convo/ChatBox" };
+            _box = new ImageBox { Transform = new Transform2(new Vector2(0, 0), new Size2(1920, 1080)), Image = "Convo/ChatBox" };
             _chatBox.ShowMessage(_lines.Dequeue());
         }
 

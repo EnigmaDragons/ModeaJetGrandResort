@@ -8,13 +8,13 @@ using MonoDragons.Core.Common;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
-using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Dialogues
 {
     public class ChatBox : IVisual, IAutomaton
     {
-        public const int FONTSLINESPACING = -1;
+        public const int FontLineSpacing = -1;
+
         private readonly int _maxLineWidth;
         private readonly SpriteFont _spriteFont;
         private readonly double _millisToCharacter;
@@ -23,10 +23,12 @@ namespace SpaceResortMurder.Dialogues
         private string _messageToDisplay;
         private long _totalMessageTime;
 
-        public ChatBox(string message, int maxLineWidth, SpriteFont spriteFont, double millisToCharacter = 35, int lineSpacing = FONTSLINESPACING)
+        public bool SoundsEnabled { get; set; } = true;
+
+        public ChatBox(string message, int maxLineWidth, SpriteFont spriteFont, double millisToCharacter = 35, int lineSpacing = FontLineSpacing)
         {
             _millisToCharacter = millisToCharacter;
-            _lineSpacing = lineSpacing == FONTSLINESPACING ? spriteFont.LineSpacing : lineSpacing;
+            _lineSpacing = lineSpacing == FontLineSpacing ? spriteFont.LineSpacing : lineSpacing;
             _spriteFont = spriteFont;
             _maxLineWidth = maxLineWidth;
             _currentlyDisplayedMessage = "";
@@ -58,7 +60,7 @@ namespace SpaceResortMurder.Dialogues
             var length = _millisToCharacter != 0 ? (int)((double)_totalMessageTime / (double)_millisToCharacter): int.MaxValue;
             length = _messageToDisplay.Length < length ? _messageToDisplay.Length : length;
             _currentlyDisplayedMessage = _messageToDisplay.Substring(0, length);
-            if (length > previousLength)
+            if (SoundsEnabled && length > previousLength)
                 Audio.PlaySound(length % 19 == 0 ? "talkblip-low" : "talkblip", 0.05f);
         }
 
@@ -66,7 +68,6 @@ namespace SpaceResortMurder.Dialogues
         {
             _currentlyDisplayedMessage.Split('\n').ForEachIndex((l, i)
                 => UI.DrawText(l, new Vector2(parentTransform.Location.X, parentTransform.Location.Y + i * _lineSpacing ) , Color.White));
-            //UI.DrawText(_currentlyDisplayedMessage, parentTransform.Location, Color.White);
         }
 
         private string WrapText(string text)

@@ -58,6 +58,7 @@
     <Compile Include="Clues\DockingBay\RaymondsShip.cs" />
     <Compile Include="Clues\RaymondsSpaceCraft\ShipsLogs.cs" />
     <Compile Include="Clues\RaymondsSpaceCraft\T71EnergyBlaster.cs" />
+    <Compile Include="Clues\ClueDisplayReader.cs" />
     <Compile Include="Deductions\CauseOfDeath\ChokedBySomeone.cs" />
     <Compile Include="Deductions\CauseOfDeath\LaunchedIntoSpaceFromTheGarbageAirlock.cs" />
     <Compile Include="Deductions\CauseOfDeath\PoisonNeedles.cs" />
@@ -394,6 +395,9 @@
     <Content Include="Content\Music\Pondering.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Placeholder\Clock-Closeup.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Placeholder\Clock.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -482,6 +486,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\BackButtonRed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\ClueBox.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\Copyright.png">

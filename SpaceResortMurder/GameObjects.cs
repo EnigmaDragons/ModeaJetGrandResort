@@ -14,17 +14,23 @@ namespace SpaceResortMurder
     {
         private static bool _hasInit = false;
 
-        public static AppDataJsonIo IO { get; } = new AppDataJsonIo("ModeaJet Grand Resort");
-        public static Dilemmas Dilemmas { get; } = new Dilemmas();
-        public static Hud Hud { get; } = new Hud();
-        public static Characters Characters { get; } = new Characters();
-        public static Locations Locations { get; } = new Locations(); 
-        public static Objectives Objectives { get; } = new Objectives();
-        public static Resolutions Resolutions { get; } = new Resolutions();
+        public static AppDataJsonIo IO { get; }
+        public static Dilemmas Dilemmas { get; }
+        public static Hud Hud { get; }
+        public static Characters Characters { get; }
+        public static Locations Locations { get; }
+        public static Objectives Objectives { get; }
+        public static Resolutions Resolutions { get; } 
 
         static GameObjects()
         {
-
+            IO = new AppDataJsonIo("ModeaJet Grand Resort");
+            Dilemmas = new Dilemmas();
+            Hud = new Hud();
+            Characters = new Characters();
+            Locations = new Locations();
+            Objectives = new Objectives();
+            Resolutions = new Resolutions();
         }
 
         public static void InitIfNeeded()

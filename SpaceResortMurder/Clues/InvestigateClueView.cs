@@ -1,19 +1,19 @@
 ﻿using System;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
-using SpaceResortMurder.Dialogues;
+using MonoDragons.Core.UserInterface;
 
 namespace SpaceResortMurder.Clues
 {
     public sealed class InvestigateClueView : IVisualAutomaton
     {
         private readonly Clue _clue;
-        private readonly Reader _reader;
+        private readonly ClueDisplayReader _reader;
 
         public InvestigateClueView(Clue clue, Action onFinished)
         {
             _clue = clue;
-            _reader = new Reader(clue.InvestigationLines, onFinished);
+            _reader = new ClueDisplayReader(clue.InvestigationLines, onFinished);
         }
 
         public void Update(TimeSpan delta)
@@ -23,7 +23,8 @@ namespace SpaceResortMurder.Clues
 
         public void Draw(Transform2 parentTransform)
         {
-            _clue.FacingImage.Draw(parentTransform);
+            UI.Darken();
+            _clue.Draw(parentTransform);
             _reader.Draw();
         }
     }
