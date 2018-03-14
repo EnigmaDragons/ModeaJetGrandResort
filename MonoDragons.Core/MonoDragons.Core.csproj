@@ -154,6 +154,7 @@
     <Compile Include="Text\DefaultFont.cs" />
     <Compile Include="UserInterface\ImageButton.cs" />
     <Compile Include="UserInterface\NoneClickableUIElement.cs" />
+    <Compile Include="UserInterface\Nothing.cs" />
     <Compile Include="UserInterface\OffsetClickableUIElement.cs" />
     <Compile Include="UserInterface\ScreenClickable.cs" />
     <Compile Include="UserInterface\ScrollableElements.cs" />

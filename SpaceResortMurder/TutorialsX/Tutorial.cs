@@ -49,7 +49,7 @@ namespace SpaceResortMurder.TutorialsX
 
         private bool ShouldShowTutorial()
         {
-            return !CurrentGameState.Instance.HasViewedItem(_name);
+            return !CurrentGameState.Instance.HasViewedItem(_name) && TutorialIsUnlocked;
         }
 
         private void End()
