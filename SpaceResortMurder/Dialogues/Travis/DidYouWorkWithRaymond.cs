@@ -1,7 +1,4 @@
-﻿using SpaceResortMurder.Dialogues.Warren;
-using SpaceResortMurder.State;
-
-namespace SpaceResortMurder.Dialogues.Travis
+﻿namespace SpaceResortMurder.Dialogues.Travis
 {
     public class DidYouWorkWithRaymond : Dialogue
     {
@@ -9,7 +6,7 @@ namespace SpaceResortMurder.Dialogues.Travis
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(MeetingWarren));
+            return true;
         }
     }
 }

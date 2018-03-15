@@ -48,7 +48,6 @@
     <Compile Include="Clues\Clue.cs" />
     <Compile Include="Clues\DockingBay\GarbageAirlock.cs" />
     <Compile Include="Clues\DockingBay\MeleenasShip.cs" />
-    <Compile Include="Clues\DockingBay\PoliceCruiser.cs" />
     <Compile Include="Clues\InvestigateClueView.cs" />
     <Compile Include="Clues\MeleenasSpaceCraft\EncryptedDataStick.cs" />
     <Compile Include="Clues\MeleenasSpaceCraft\HackingRig.cs" />
@@ -105,6 +104,7 @@
     <Compile Include="Deductions\ZaidsResortForBetaTesting\ZaidsResortDeclined.cs" />
     <Compile Include="DeveloperCheatController.cs" />
     <Compile Include="Dialogues\DialogueElement.cs" />
+    <Compile Include="Dialogues\Meleena\WhoAreYou.cs" />
     <Compile Include="Dialogues\ScanDataReader.cs" />
     <Compile Include="Dialogues\ConversationView.cs" />
     <Compile Include="Dialogues\DialogueMemoriesScene.cs" />
@@ -117,13 +117,11 @@
     <Compile Include="Dialogues\Meleena\CareToShowTheDirtYouCollected.cs" />
     <Compile Include="Dialogues\Meleena\CorporateFreelancersCantNormallyAffordPersonalSpaceCrafts.cs" />
     <Compile Include="Dialogues\Meleena\HereIsTheSearchOrder.cs" />
-    <Compile Include="Dialogues\Meleena\ImOnlyInvestigatingTheMurder.cs" />
     <Compile Include="Dialogues\Meleena\MeleenaHeardRaymondsVoice.cs" />
     <Compile Include="Dialogues\Meleena\WontTurnYouInIfYouUnencryptThisDrive.cs" />
     <Compile Include="Dialogues\Meleena\MeleenasAccount.cs" />
     <Compile Include="Dialogues\Meleena\ObstructionOfJusticeWillAddToYourPrisonTime.cs" />
     <Compile Include="Dialogues\Meleena\SearchYourCraftForEvidence.cs" />
-    <Compile Include="Dialogues\Meleena\WhatIsACorporateFreelancerDoingHere.cs" />
     <Compile Include="Dialogues\Meleena\YouAreAHacker.cs" />
     <Compile Include="Dialogues\Meleena\YouBrokeIntoRaymondsShip.cs" />
     <Compile Include="Dialogues\Meleena\YouNeedToUnencryptThisDataStick.cs" />
@@ -141,12 +139,12 @@
     <Compile Include="Dialogues\Travis\YourBrotherWasKilled.cs" />
     <Compile Include="Dialogues\Warren\AnytimeUpTilNow.cs" />
     <Compile Include="Dialogues\Warren\BetweenSevenAMToEightPM.cs" />
+    <Compile Include="Dialogues\Warren\DetainedMeleena.cs" />
     <Compile Include="Dialogues\Warren\NeedASearchOrder.cs" />
     <Compile Include="Dialogues\Warren\PettyTheftAt12.cs" />
     <Compile Include="Dialogues\Warren\WarrenIntroduction.cs" />
     <Compile Include="Dialogues\Warren\WeHaveUntilMidnight.cs" />
     <Compile Include="Dialogues\Zaid\DidRaymondApproveYourResort.cs" />
-    <Compile Include="Dialogues\Warren\MeetingWarren.cs" />
     <Compile Include="Dialogues\Reader.cs" />
     <Compile Include="Dialogues\Zaid\DidYouReleaseTheGarbage.cs" />
     <Compile Include="Dialogues\Zaid\WhySoFewPeopleAtTheResort.cs" />

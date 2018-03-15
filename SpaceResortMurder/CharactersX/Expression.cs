@@ -4,5 +4,7 @@
     {
         Default,
         Angry,
+        Happy,
+        Neutral,
     }
 }

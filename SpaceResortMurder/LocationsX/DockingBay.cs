@@ -12,7 +12,6 @@ namespace SpaceResortMurder.LocationsX
             {
                 new RaymondsShip(),
                 new MeleenasShip(),
-                new PoliceCruiser(),
                 new GarbageAirlock(),
             }, 
             new List<IPathway>

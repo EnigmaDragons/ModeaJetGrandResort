@@ -2,6 +2,7 @@
 using MonoDragons.Core.PhysicsEngine;
 using SpaceResortMurder.Dialogues.Warren;
 using SpaceResortMurder.LocationsX;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.CharactersX
 {
@@ -13,13 +14,14 @@ namespace SpaceResortMurder.CharactersX
             new AnytimeUpTilNow(),
             new BetweenSevenAMToEightPM(),
             new WeHaveUntilMidnight(),
-
-            new MeetingWarren(),
+            new DetainedMeleena(),
             new NeedASearchOrder()) {}
 
         public override string WhereAreYou()
         {
-            return nameof(PoliceCruiserInterior);
+            return CurrentGameState.IsThinking(nameof(BetweenSevenAMToEightPM)) 
+                ? nameof(DockingBay) 
+                : nameof(PoliceCruiserInterior);
         }
 
         public override Transform2 WhereAreYouStanding()

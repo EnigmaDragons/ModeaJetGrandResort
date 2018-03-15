@@ -1,7 +1,4 @@
-﻿using SpaceResortMurder.Dialogues.Warren;
-using SpaceResortMurder.State;
-
-namespace SpaceResortMurder.Deductions
+﻿namespace SpaceResortMurder.Deductions
 {
     public class MeleenaHackedTheDoor : Deduction
     {
@@ -9,7 +6,7 @@ namespace SpaceResortMurder.Deductions
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(MeetingWarren));
+            return true;
         }
     }
 }

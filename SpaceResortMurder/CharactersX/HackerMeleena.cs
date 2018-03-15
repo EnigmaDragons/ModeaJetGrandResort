@@ -1,18 +1,20 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
+using SpaceResortMurder.Clues.RaymondsSpaceCraft;
 using SpaceResortMurder.Dialogues.Meleena;
 using SpaceResortMurder.LocationsX;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.CharactersX
 {
     public class HackerMeleena : Character
     {
         public HackerMeleena() : base(nameof(HackerMeleena), new Size2(480, 1128),
+            new WhoAreYou(),
             new MeleenasAccount(),
-            new WhatIsACorporateFreelancerDoingHere(),
             new CorporateFreelancersCantNormallyAffordPersonalSpaceCrafts(),
             new SearchYourCraftForEvidence(),
-            new ImOnlyInvestigatingTheMurder(),
+
             new HereIsTheSearchOrder(),
             new YouBrokeIntoRaymondsShip(),
             new CareToShowTheDirtYouCollected(),
@@ -24,7 +26,9 @@ namespace SpaceResortMurder.CharactersX
 
         public override string WhereAreYou()
         {
-            return nameof(Lobby);
+            return CurrentGameState.IsThinking(nameof(RaymondsCorpse))
+                ? nameof(DockingBay)
+                : nameof(MeleenasShipInterior);
         }
 
         public override Transform2 WhereAreYouStanding()

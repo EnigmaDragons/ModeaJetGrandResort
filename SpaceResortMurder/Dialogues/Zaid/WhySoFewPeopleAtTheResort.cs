@@ -1,7 +1,4 @@
-﻿using SpaceResortMurder.Dialogues.Warren;
-using SpaceResortMurder.State;
-
-namespace SpaceResortMurder.Dialogues.Zaid
+﻿namespace SpaceResortMurder.Dialogues.Zaid
 {
     public class WhySoFewPeopleAtTheResort : Dialogue
     {
@@ -9,7 +6,7 @@ namespace SpaceResortMurder.Dialogues.Zaid
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(MeetingWarren));
+            return true;
         }
     }
 }
