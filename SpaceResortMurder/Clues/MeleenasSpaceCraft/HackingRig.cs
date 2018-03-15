@@ -6,9 +6,9 @@ namespace SpaceResortMurder.Clues.MeleenasSpaceCraft
     public class HackingRig : Clue
     {
         public HackingRig() : base(
-            "Placeholder/HackerRig", 
-            new Transform2(new Vector2(965, 229), new Size2(235, 194)), 
-            new Size2(470, 388), 
+            "Clues/HackingRig", 
+            new Transform2(new Vector2(550, 465), new Size2(260, 179)), 
+            new Size2(479, 330), 
             nameof(HackingRig)) {}
     }
 }

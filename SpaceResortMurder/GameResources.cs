@@ -47,6 +47,7 @@ namespace SpaceResortMurder
 
         public static void TestAllSymbols()
         {
+            _scanInfo.Values.ForEach(s => TestSymbols(s));
             _clues.Values.ForEach(l => l.ForEach(s => TestSymbols(s)));
             _dilemmaOrDeductionText.Values.ForEach(s => TestSymbols(s));
             _objectiveNames.Values.ForEach(s => TestSymbols(s));
@@ -69,6 +70,11 @@ namespace SpaceResortMurder
                     // The first capture is the whole value not a value caught by the capture zone
                     if (!capture.Value.Contains("\\") && !_symbols.ContainsKey(capture.Value))
                         throw new NotImplementedException("A dilemma or deduction uses unimplemented symbol \"" + capture + "\"");
+        }
+
+        public static string GetScanInfo(string character)
+        {
+            return ReplaceSymbols(_scanInfo[character]);
         }
 
         public static string GetCharacterName(string character)
@@ -138,6 +144,14 @@ namespace SpaceResortMurder
                     builder.Append(text[i]);
             return builder.ToString();
         }
+
+        private static DictionaryWithDefault<string, string> _scanInfo = new DictionaryWithDefault<string, string>("This scan is not implemented")
+        {
+            { nameof(OfficerWarren),
+                "Officer Warren, weighs 199 lb, no augments. \n" +
+                "Once found guilty of petty theft at the age of 12. \n" +
+                "Worked in the investigative department of Outer Planet Police for 17 years."}
+        };
 
         private static DictionaryWithDefault<string, string> _characterNames = new DictionaryWithDefault<string, string>("Unnamed Character") {
             { nameof(OfficerWarren), "Warren, Officer" },
@@ -245,18 +259,9 @@ namespace SpaceResortMurder
                 "Introduction.",
                 new DialogueElement[] {
                     new DialogueElement(true, "Hello there \\Player\\. This is your fist time powering up so I better get you up to speed."),
-                    new DialogueElement(false, "I'm Officer Warren, and you are an android detective."),
+                    new DialogueElement(true, "I'm Officer Warren, and you are an android detective."),
                     new DialogueElement(true, "You have the unique capability to be able to rapidly search up records of people and places and percieve things I can't."),
-                    new DialogueElement(false, Expression.Angry, "Go ahead and look me up."),
-                }
-            ) },
-            { nameof(OfficerWarren), new DialogueSequence(
-                "Introduction.",
-                new DialogueElement[] {
-                    new DialogueElement(true, "Loading..."),
-                    new DialogueElement(true, "Officer Warren, weighs 199 lb, no augments."),
-                    new DialogueElement(true, "Once found guilty of petty theft at the age of 12."),
-                    new DialogueElement(true, "Worked in the investigative department of Outer Planet Police for 17 years."),
+                    new DialogueElement(true, "Go ahead and look me up."),
                 }
             ) },
             { nameof(PettyTheftAt12), new DialogueSequence(

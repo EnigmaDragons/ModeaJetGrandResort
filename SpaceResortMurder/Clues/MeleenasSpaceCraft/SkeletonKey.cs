@@ -5,9 +5,11 @@ namespace SpaceResortMurder.Clues.MeleenasSpaceCraft
 {
     public class SkeletonKey : Clue
     {
-        public SkeletonKey() : base("Placeholder/SkeletonKey", 
-            new Transform2(new Vector2(300, 790), new Size2(100, 100)), 
-            new Size2(300, 300), 
+        public SkeletonKey() : base(
+            "Clues/SkeletonKey-Small",
+            "Clues/SkeletonKey",
+            new Transform2(new Vector2(440, 980), new Size2(101, 48)), 
+            new Size2(499, 237), 
             nameof(SkeletonKey)) {}
     }
 }

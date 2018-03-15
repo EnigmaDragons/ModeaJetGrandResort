@@ -74,7 +74,7 @@ namespace SpaceResortMurder.CharactersX
                     new Size2(UI.OfScreenWidth(0.96f) - UI.OfScreenWidth(0.66f), 86))
             };
         }
-        
+
         public IReadOnlyList<Dialogue> GetNewDialogs()
         {
             return _dialogs.Where(x => x.IsActive() && x.IsNew).ToList();
@@ -100,7 +100,7 @@ namespace SpaceResortMurder.CharactersX
             if (GetNewDialogs().Count != 0)
                 _newDialogIcon.Draw(new Transform2(WhereAreYouStanding().Location));
         }
-        
+
         public abstract string WhereAreYou();
         public abstract Transform2 WhereAreYouStanding();
     }

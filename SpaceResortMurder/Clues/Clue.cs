@@ -43,7 +43,7 @@ namespace SpaceResortMurder.Clues
 
         public VisualClickableUIElement CreateButton(Action onClick)
         {
-            return new ExpandingImageButton(_roomImage, _roomImage, _roomImage, _position, _position.Size / 8, () =>
+            return new ExpandingImageButton(_roomImage, _roomImage, _roomImage, _position, _position.Size / 6, () =>
             {
                 if (!CurrentGameState.IsThinking(_clueId))
                     Event.Publish(new ThoughtGained(_clueId));

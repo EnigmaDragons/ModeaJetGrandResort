@@ -42,6 +42,7 @@
     <StartupObject>MonoDragons.Core.Demo</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Animations\SinglePositionTraverseAnimation.cs" />
     <Compile Include="AudioSystem\Audio.cs" />
     <Compile Include="AudioSystem\AudioPlayer.cs" />
     <Compile Include="AudioSystem\PlayOnce.cs" />

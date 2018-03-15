@@ -105,6 +105,7 @@
     <Compile Include="Deductions\ZaidsResortForBetaTesting\ZaidsResortDeclined.cs" />
     <Compile Include="DeveloperCheatController.cs" />
     <Compile Include="Dialogues\DialogueElement.cs" />
+    <Compile Include="Dialogues\ScanDataReader.cs" />
     <Compile Include="Dialogues\ConversationView.cs" />
     <Compile Include="Dialogues\DialogueMemoriesScene.cs" />
     <Compile Include="Dialogues\ChatBox.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Dialogues\RaymondsClone\MeetingRaymondsClone.cs" />
     <Compile Include="Dialogues\RaymondsClone\MeleenaIdentifiedYourVoice.cs" />
     <Compile Include="Dialogues\RaymondsClone\YourLookALikeIsDead.cs" />
+    <Compile Include="Dialogues\ScanView.cs" />
     <Compile Include="Dialogues\Travis\DidYouWorkWithRaymond.cs" />
     <Compile Include="Dialogues\Travis\InvestigateYourCloningMachine.cs" />
     <Compile Include="Dialogues\Travis\TravissAccount.cs" />
@@ -312,6 +314,21 @@
     <Content Include="Content\Clues\Clock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Clues\DataStick-Small.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Clues\DataStick.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Clues\HackingRig.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Clues\SkeletonKey-Small.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Clues\SkeletonKey.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Convo\ChatBox.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -325,6 +342,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Convo\NameLabel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Convo\ScanButton-Hover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Convo\ScanButton-Press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Convo\ScanButton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Convo\ScanDataView.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Convo\ScanLine.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Icons\Conversations-Hover.png">
@@ -526,6 +558,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sounds\NewObjective.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sounds\Scanning.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\BackButton-Hover.png">
