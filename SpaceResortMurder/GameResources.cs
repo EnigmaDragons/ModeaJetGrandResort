@@ -93,7 +93,7 @@ namespace SpaceResortMurder
             return _clues[dialogOrClue].Select(ReplaceSymbols).ToArray();
         }
 
-        public static string GetDilemmaOrDeductionText(string dilemmaOrDeduction)
+        public static string GetPonderText(string dilemmaOrDeduction)
         {
             return ReplaceSymbols(_dilemmaOrDeductionText[dilemmaOrDeduction]);
         }

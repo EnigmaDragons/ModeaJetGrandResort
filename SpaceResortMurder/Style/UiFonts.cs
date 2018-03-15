@@ -1,4 +1,5 @@
-﻿using MonoDragons.Core.Text;
+﻿using Microsoft.Xna.Framework;
+using MonoDragons.Core.Text;
 
 namespace SpaceResortMurder.Style
 {
@@ -10,7 +11,7 @@ namespace SpaceResortMurder.Style
         public static void Init()
         {
             DefaultFont.Name = Body;
-            DefaultFont.Color = UiStyle.TextBlack;
+            DefaultFont.Color = Color.White;
         }
     }
 }

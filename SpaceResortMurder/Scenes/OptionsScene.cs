@@ -22,7 +22,7 @@ namespace SpaceResortMurder.Scenes
         protected override void OnInit()
         {
             _headerText = UiLabels.HeaderLabel("Options", Color.White);
-            Add(UiButtons.Back(new Vector2(7, UI.OfScreenHeight(1.0f) - 166), () => Scene.NavigateTo(CurrentGameState.CurrentLocation)));
+            Add(UiButtons.Back(() => Scene.NavigateTo(CurrentGameState.CurrentLocation)));
 
             _startingY = UI.OfScreenHeight(0.15f);
             AddGameplayOptions();

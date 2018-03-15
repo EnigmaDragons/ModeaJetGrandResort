@@ -26,7 +26,7 @@ namespace SpaceResortMurder.DilemmasX
 
         protected Dilemma(Vector2 position, string dilemma, params Deduction[] deductions)
         {
-            _transform = new Transform2(position, new Size2(432, 144));
+            _transform = new Transform2(position, new Size2(405, 135));
             _dilemma = dilemma;
             _deductions = deductions;
         }
@@ -39,13 +39,13 @@ namespace SpaceResortMurder.DilemmasX
                     new Size2(_transform.Size.Width, 110))));
             _newDilemma = new ImageBox
             {
-                Transform = new Transform2(new Vector2(_transform.Location.X + 10, _transform.Location.Y + 10), new Size2(43, 43)),
+                Transform = new Transform2(new Vector2(_transform.Location.X + 10, _transform.Location.Y + 10), new Size2(36, 36)),
                 Image = "UI/NewRedIconBorderless"
             };
             _newDeductions = new ImageBox
             {
-                Transform = new Transform2(new Vector2(_transform.Location.X + _transform.Size.Width - 58, _transform.Location.Y + 7), new Size2(53, 53)),
-                Image = "UI/NewDeductionIcon"
+                Transform = new Transform2(new Vector2(_transform.Location.X + _transform.Size.Width - 58, _transform.Location.Y + 7), new Size2(36, 36)),
+                Image = "Pondering/NewDeductionIcon"
             };
         }
 
@@ -56,10 +56,10 @@ namespace SpaceResortMurder.DilemmasX
                 {
                     if (!CurrentGameState.HasViewedItem(_dilemma))
                         Event.Publish(new ItemViewed(_dilemma));
-                    Scene.NavigateTo(new DeductionScene(GameResources.GetDilemmaOrDeductionText(_dilemma), _deductions.Where(x => x.IsActive()).ToList()));
+                    Scene.NavigateTo(new DeductionScene(GameResources.GetPonderText(_dilemma), _deductions.Where(x => x.IsActive()).ToList()));
                 },
-                GameResources.GetDilemmaOrDeductionText(_dilemma),
-                "UI/DilemmaCard", "UI/DilemmaCard-Hover", "UI/DilemmaCard-Press");
+                GameResources.GetPonderText(_dilemma),
+                "Pondering/DilemmaCard", "Pondering/DilemmaCard-Hover", "Pondering/DilemmaCard-Press");
         }
 
         public abstract bool IsActive();

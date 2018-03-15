@@ -8,6 +8,11 @@ namespace SpaceResortMurder.Style
 {
     public static class UiButtons
     {
+        public static Size2 PonderingSize()
+        {
+            return new Size2(330, 135);
+        }
+
         public static ImageTextButton Menu(string text, Vector2 position, Action onClick)
         {
             return new ImageTextButton(new Rectangle(position.ToPoint(), new Point(360, 75)), onClick, text,
@@ -22,17 +27,10 @@ namespace SpaceResortMurder.Style
                 { TextColor = Color.Black, OnPress = PlayMenuButtonSound };
         }
 
-        public static VisualClickableUIElement Back(Vector2 position, Action onClick)
+        public static VisualClickableUIElement Back(Action onClick)
         {
             return new ImageButton("UI/BackButton", "UI/BackButton-Hover", "UI/BackButton-Press",
-                new Transform2(new Rectangle(position.ToPoint(), new Point(158, 158))), onClick)
-                    { OnPress = PlayMenuButtonSound };
-        }
-
-        public static VisualClickableUIElement BackRed(Vector2 position, Action onClick)
-        {
-            return new ImageButton("UI/BackButtonRed", "UI/BackButtonRed-Hover", "UI/BackButtonRed-Press",
-                new Transform2(new Rectangle(position.ToPoint(), new Point(158, 158))), onClick)
+                new Transform2(new Rectangle(new Point(6, UI.OfScreenHeight(1) - 138), new Point(132, 132))), onClick)
                     { OnPress = PlayMenuButtonSound };
         }
 

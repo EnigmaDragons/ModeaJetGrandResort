@@ -24,11 +24,11 @@ namespace SpaceResortMurder.Deductions
 
         protected override void OnInit()
         {
-            Add(UiButtons.Back(new Vector2(7, UI.OfScreenHeight(1.0f) - 166), () => Scene.NavigateTo(GameResources.DilemmasSceneName)));
-            _header = UiLabels.HeaderLabel(_dilemmaDescription, Color.White);
+            Add(UiButtons.Back(() => Scene.NavigateTo(GameResources.DilemmasSceneName)));
+            _header = UiLabels.FullWidthHeaderLabel(_dilemmaDescription, Color.White);
             _deductions.ForEachIndex((d, i) =>
             {
-                var position = new Vector2(960 + (-(468 * (_deductions.Count - 1) / 2) - (432 / 2) + ((468) * i)), 468);
+                var position = Position(i);
                 var button = d.CreateButton(position);
                 AddUi(button);
                 AddVisual(button);
@@ -37,14 +37,25 @@ namespace SpaceResortMurder.Deductions
             });
         }
 
+        private Vector2 Position(int index)
+        {
+            var yOff = _deductions.Count > 3 ? UI.OfScreenHeight(0.09f) : 0;
+            var row = index / 3;
+            var y = UI.OfScreenHeight(row * 0.18f + 0.50f) - 66 - yOff;
+            var column = index % 3;
+            var x = UI.OfScreenWidth(column * 0.28f + 0.22f) - 165;
+
+            return new Vector2(x, y);
+        }
+
         protected override void DrawBackground()
         {
-            UI.DrawCentered("UI/PonderingBgHr");
+            UI.DrawCentered("Pondering/PonderingBgHr");
         }
 
         protected override void DrawForeground()
         {
-            UI.FillScreen("UI/ScreenOverlay");
+            UI.FillScreen("Pondering/PonderingOverlay");
             _header.Draw();
         }
     }

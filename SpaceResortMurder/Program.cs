@@ -63,7 +63,7 @@ namespace SpaceResortMurder
         {
             DefaultFont.Name = UiFonts.Body;
             DefaultFont.AvailableScales = new float[] { 0.5f, 0.75f };
-            DefaultFont.Color = UiStyle.TextBlack;
+            DefaultFont.Color = Color.White;
         }
 
         private static IScene SetupScene()
