@@ -9,7 +9,7 @@ namespace SpaceResortMurder.Clues.PoliceSpaceCraft
         public Clock(Transform2 sceneTransform) : base(
             "Clues/Clock-Alt",
             sceneTransform,
-            new Size2(550, 550),
+            new Size2(330, 330),
             nameof(Clock))
         {
             IsActive = () => CurrentGameState.IsThinking(nameof(PettyTheftAt12));

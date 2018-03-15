@@ -8,9 +8,9 @@ namespace SpaceResortMurder.Clues.MeleenasSpaceCraft
     public class DataStick : Clue
     {
         public DataStick() : base(
-            "Placeholder/datastick", 
-            new Transform2(new Vector2(800, 800), new Size2(100, 50)), 
-            new Size2(400, 200), 
+            "Clues/DataStick", 
+            new Transform2(new Vector2(1180, 850), new Size2(138, 86)), 
+            new Size2(528, 330), 
             nameof(DataStick))
         {
             IsActive = () => !(CurrentGameState.IsThinking(nameof(CareToShowTheDirtYouCollected))
