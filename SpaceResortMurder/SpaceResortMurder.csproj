@@ -102,6 +102,7 @@
     <Compile Include="Deductions\ZaidsResortForBetaTesting\ZaidsResortAccepted.cs" />
     <Compile Include="Deductions\ZaidsResortForBetaTesting\ZaidsResortDeclined.cs" />
     <Compile Include="DeveloperCheatController.cs" />
+    <Compile Include="Dialogues\ConversationView.cs" />
     <Compile Include="Dialogues\DialogueMemoriesScene.cs" />
     <Compile Include="Dialogues\ChatBox.cs" />
     <Compile Include="CharactersX\Character.cs" />
@@ -228,6 +229,8 @@
     <Compile Include="State\StateChanged.cs" />
     <Compile Include="State\ThoughtGained.cs" />
     <Compile Include="State\ThoughtLost.cs" />
+    <Compile Include="Style\IJamView.cs" />
+    <Compile Include="Style\NoSubView.cs" />
     <Compile Include="Style\UiButtons.cs" />
     <Compile Include="Style\UiFonts.cs" />
     <Compile Include="Style\UiLabels.cs" />
