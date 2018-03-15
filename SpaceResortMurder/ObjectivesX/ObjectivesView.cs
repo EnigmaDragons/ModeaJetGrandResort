@@ -16,13 +16,14 @@ namespace SpaceResortMurder.ObjectivesX
     {
         private readonly ObjectivesTutorial _tutorial = new ObjectivesTutorial();
         private IReadOnlyList<Objective> _active = new List<Objective>();
+        private bool _shouldUpdate;
 
         public ClickableUIElement TutorialButton => _tutorial.Button;
 
         public void Init()
         {
             _active = GameObjects.Objectives.GetActiveObjectives();
-            Event.Subscribe(EventSubscription.Create<StateChanged>(_ => UpdateObjectives(), this));
+            Event.Subscribe(EventSubscription.Create<StateChanged>(_ => _shouldUpdate = true, this));
         }
 
         private readonly ImageBox _card = new ImageBox
@@ -54,6 +55,9 @@ namespace SpaceResortMurder.ObjectivesX
         public void Update(TimeSpan delta)
         {
             _tutorial.Update(delta);
+
+            if (_shouldUpdate)
+                UpdateObjectives();
         }
 
         private void UpdateObjectives()
@@ -66,6 +70,7 @@ namespace SpaceResortMurder.ObjectivesX
                 Audio.PlaySound("NewObjective");
 
             _active = newActive;
+            _shouldUpdate = false;
         }
     }
 }

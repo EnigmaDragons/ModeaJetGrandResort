@@ -401,7 +401,17 @@
     <Content Include="Content\Locations\hotelroom_environment.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Locations\Meleenas_Spacecraft_interior.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Locations\PoliceCruiserBg.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Locations\Raymonds_spacecraft_interior.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Locations\Researcher_Travis_Cloning_Room.PNG" />
+    <Content Include="Content\Locations\TitleScreenBg.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Music\Credits.mp3">

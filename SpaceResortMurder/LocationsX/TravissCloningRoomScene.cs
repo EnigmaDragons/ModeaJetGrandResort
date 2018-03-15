@@ -1,10 +1,11 @@
-﻿using MonoDragons.Core.UserInterface;
-
+﻿
 namespace SpaceResortMurder.LocationsX
 {
     public class TravissCloningRoomScene : LocationScene
     {
-        public TravissCloningRoomScene() : base(GameObjects.Locations[nameof(TravissCloningRoom)], "Placeholder/CloningRoom") {}
+        public TravissCloningRoomScene() : base(
+            GameObjects.Locations[nameof(TravissCloningRoom)], 
+            "Locations/Researcher_Travis_Cloning_Room") {}
 
         protected override void OnInit() {}
     }

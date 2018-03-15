@@ -1,11 +1,12 @@
 ﻿using MonoDragons.Core.AudioSystem;
-using MonoDragons.Core.UserInterface;
 
 namespace SpaceResortMurder.LocationsX
 {
     public class MeleenasShipInteriorScene : LocationScene
     {
-        public MeleenasShipInteriorScene() : base(GameObjects.Locations[nameof(MeleenasShipInterior)], "Placeholder/MeleenasSpaceCraft") {}
+        public MeleenasShipInteriorScene() : base(
+            GameObjects.Locations[nameof(MeleenasShipInterior)], 
+            "Locations/Meleenas_Spacecraft_interior") {}
 
         protected override void OnInit()
         {
