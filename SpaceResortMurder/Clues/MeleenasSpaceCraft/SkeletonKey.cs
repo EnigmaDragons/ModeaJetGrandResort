@@ -7,9 +7,8 @@ namespace SpaceResortMurder.Clues.MeleenasSpaceCraft
     {
         public SkeletonKey() : base(
             "Clues/SkeletonKey-Small",
-            "Clues/SkeletonKey",
-            new Transform2(new Vector2(440, 980), new Size2(101, 48)), 
-            new Size2(499, 237), 
+            new Transform2(new Vector2(1740, 865), new Size2(154, 104)), 
+            new Size2(415, 280), 
             nameof(SkeletonKey)) {}
     }
 }
