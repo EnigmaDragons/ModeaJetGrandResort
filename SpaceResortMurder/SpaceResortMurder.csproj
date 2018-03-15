@@ -38,8 +38,10 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CharactersX\Expression.cs" />
     <Compile Include="CharactersX\HackerMeleena.cs" />
     <Compile Include="CharactersX\Characters.cs" />
+    <Compile Include="CharactersX\Player.cs" />
     <Compile Include="CharactersX\RaymondsClone.cs" />
     <Compile Include="CharactersX\ResearcherTravis.cs" />
     <Compile Include="Clues\CloningRoom\CloningChamber.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="Deductions\ZaidsResortForBetaTesting\ZaidsResortAccepted.cs" />
     <Compile Include="Deductions\ZaidsResortForBetaTesting\ZaidsResortDeclined.cs" />
     <Compile Include="DeveloperCheatController.cs" />
+    <Compile Include="Dialogues\DialogueElement.cs" />
     <Compile Include="Dialogues\ConversationView.cs" />
     <Compile Include="Dialogues\DialogueMemoriesScene.cs" />
     <Compile Include="Dialogues\ChatBox.cs" />
@@ -109,6 +112,7 @@
     <Compile Include="CharactersX\OfficerWarren.cs" />
     <Compile Include="CharactersX\ResortManagerZaid.cs" />
     <Compile Include="Dialogues\Dialogue.cs" />
+    <Compile Include="Dialogues\DialogueSequence.cs" />
     <Compile Include="Dialogues\Meleena\CareToShowTheDirtYouCollected.cs" />
     <Compile Include="Dialogues\Meleena\CorporateFreelancersCantNormallyAffordPersonalSpaceCrafts.cs" />
     <Compile Include="Dialogues\Meleena\HereIsTheSearchOrder.cs" />
@@ -270,6 +274,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\characters\main_character_happy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\characters\placeholder.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\characters\policeman.png">

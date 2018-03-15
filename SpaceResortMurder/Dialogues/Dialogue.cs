@@ -22,23 +22,24 @@ namespace SpaceResortMurder.Dialogues
 
         public abstract bool IsActive();
 
-        public void StartImmediateDialog(Action<string[]> onStart)
+        public void StartImmediateDialog(Action<DialogueElement[]> onStart)
         {
             Event.Publish(new DialogMemoryGained(Dialog, CurrentGameState.CurrentLocationImage));
             Event.Publish(new ThoughtGained(Dialog));
-            onStart(GameResources.GetDialogueLines(Dialog));
+            onStart(GameResources.GetDialogueSequence(Dialog).Elements);
         }
 
-        public VisualClickableUIElement CreateButton(Action<string[]> onClick, int i, int count)
+        public VisualClickableUIElement CreateButton(Action<DialogueElement[]> onClick, int i, int count)
         {
             var buttonWidth = 1380;
             var xOff = -684;
             var xInc = 67;
             var yInc = 92;
-            var xPos = Math.Max(i * xInc + xOff,(int) DefaultFont.ScaledFontSet.MeasureString(GameResources.GetDialogueOpener(Dialog)).X - buttonWidth + 165);
+            var xPos = Math.Max(i * xInc + xOff,(int) DefaultFont.ScaledFontSet.MeasureString(
+                GameResources.GetDialogueSequence(Dialog).Opener).X - buttonWidth + 165);
             var yPos = 400 + i * yInc;
             var t = new Transform2(new Vector2(xPos, yPos), new Size2(buttonWidth, 64)).ToRectangle();
-            return new ImageTextButton(t, GetOnClick(onClick), GameResources.GetDialogueOpener(Dialog),
+            return new ImageTextButton(t, GetOnClick(onClick), GameResources.GetDialogueSequence(Dialog).Opener,
                 "Convo/DialogueButton", "Convo/DialogueButton-Hover", "Convo/DialogueButton-Press")
             {
                 TextColor = Color.White,
@@ -47,16 +48,16 @@ namespace SpaceResortMurder.Dialogues
             };
         }
 
-        private Action GetOnClick(Action<string[]> onClick)
+        private Action GetOnClick(Action<DialogueElement[]> onClick)
         {
             return IsNew
                 ? (() =>
                     {
                         Event.Publish(new DialogMemoryGained(Dialog, CurrentGameState.CurrentLocationImage));
                         Event.Publish(new ThoughtGained(Dialog));
-                        onClick(GameResources.GetDialogueLines(Dialog));
+                        onClick(GameResources.GetDialogueSequence(Dialog).Elements);
                     })
-                : (Action)(() => onClick(GameResources.GetDialogueLines(Dialog)));
+                : (Action)(() => onClick(GameResources.GetDialogueSequence(Dialog).Elements));
         }
     }
 }

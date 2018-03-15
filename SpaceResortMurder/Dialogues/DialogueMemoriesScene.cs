@@ -23,9 +23,17 @@ namespace SpaceResortMurder.Dialogues
         private List<IVisual> _characterOptions;
         private List<IVisual> _dialogOptions = new List<IVisual>();
         private string _locationMemory;
+        private IVisual _personImage;
+        private IVisual _playerImage;
+        private Player _player = new Player();
+        private ClickableUIElement _dialogueAdvancer;
+        private bool _isCharacterTalking;
+        private IVisual _personName;
+        private IEnumerator<DialogueElement> _elements;
 
         public void Init()
         {
+            _dialogueAdvancer = new ScreenClickable(AdvanceChatVisuals);
             _clickUI = new ClickUI();
             _clickUI.Add(GameObjects.Hud.HudBranch);
             _personMemoriesBranch = new ClickUIBranch("People", 1);
@@ -56,14 +64,32 @@ namespace SpaceResortMurder.Dialogues
             }
         }
 
-        private void RememberDialog(string dialog, string[] lines)
+        private void RememberDialog(string dialog, DialogueElement[] elements)
         {
+            _personName = _selectedPerson.CreateChatNameBox();
+            _elements = ((IEnumerable<DialogueElement>)elements).GetEnumerator();
             _locationMemory = CurrentGameState.RememberLocation(dialog);
             _clickUI.Remove(_dialogMemoriesBranch);
             _clickUI.Remove(_personMemoriesBranch);
             _clickUI.Remove(GameObjects.Hud.HudBranch);
-            _reader = new Reader(lines, EndMemory);
+            _clickUI.Add(_dialogueAdvancer);
+            _personImage = _selectedPerson.GetFacingImage();
+            _playerImage = _player.GetImage();
+            _reader = new Reader(elements.Select(e => e.Line).ToArray(), EndMemory);
             _isInTheMiddleOfDialog = true;
+            AdvanceChatVisuals();
+        }
+
+        private void AdvanceChatVisuals()
+        {
+            if (_elements.MoveNext())
+            {
+                _isCharacterTalking = _elements.Current.IsCharacterTalking;
+                if (_isCharacterTalking)
+                    _personImage = _selectedPerson.CreateFacingImage(_elements.Current.Expression);
+                else
+                    _playerImage = _player.GetImage(_elements.Current.Expression);
+            }
         }
 
         private void EndMemory()
@@ -72,6 +98,7 @@ namespace SpaceResortMurder.Dialogues
             _clickUI.Add(GameObjects.Hud.HudBranch);
             _clickUI.Add(_personMemoriesBranch);
             _clickUI.Add(_dialogMemoriesBranch);
+            _clickUI.Remove(_dialogueAdvancer);
         }
 
         public void Draw()
@@ -79,8 +106,12 @@ namespace SpaceResortMurder.Dialogues
             if (_isInTheMiddleOfDialog)
             {
                 UI.FillScreen(_locationMemory);
-                _selectedPerson.DrawTalking();
+                if (_isCharacterTalking)
+                    _personImage.Draw();
+                else
+                    _playerImage.Draw();
                 _reader.Draw();
+                _personName.Draw();
             }
             else
             {

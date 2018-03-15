@@ -7,7 +7,7 @@ namespace SpaceResortMurder.CharactersX
 {
     public class OfficerWarren : Character
     {
-        public OfficerWarren() : base(nameof(OfficerWarren), "Warren, Officer", "Characters/policeman", new Size2(480, 1128), 
+        public OfficerWarren() : base(nameof(OfficerWarren), new Size2(480, 1128), 
             new WarrenIntroduction(),
             new PettyTheftAt12(),
             new AnytimeUpTilNow(),
