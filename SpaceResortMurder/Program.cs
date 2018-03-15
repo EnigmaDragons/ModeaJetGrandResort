@@ -18,6 +18,7 @@ using SpaceResortMurder.Scenes;
 using SpaceResortMurder.State;
 using SpaceResortMurder.Style;
 using System;
+using System.Diagnostics;
 
 namespace SpaceResortMurder
 {
@@ -26,8 +27,11 @@ namespace SpaceResortMurder
         [STAThread]
         private static void Main()
         {
-            using (var game = Perf.Time("Startup", () => CreateGame("Main Menu")))
-                game.Run();
+            HandleExceptions(() =>
+            {
+                using (var game = Perf.Time("Startup", () => CreateGame("Main Menu")))
+                    game.Run();
+            });
         }
 
         private static Game CreateGame(string startingScene)
@@ -103,6 +107,19 @@ namespace SpaceResortMurder
                 { Keys.Z, Control.A },
                 { Keys.X, Control.B }
             });
+        }
+
+        private static void HandleExceptions(Action action)
+        {
+            try
+            {
+                action();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                Environment.Exit(-1);
+            }
         }
     }
 }

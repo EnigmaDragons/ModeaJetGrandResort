@@ -24,7 +24,7 @@ namespace SpaceResortMurder.Pathways
 
         public VisualClickableUIElement CreateButton(Action<string> showNonTraversibleDialogue)
         {
-            return new ExpandingImageButton(_image, _image, _image, _placement, _placement.Size * 0.1f,
+            return new ExpandingImageButton(_image, _image, _image, _placement, _placement.Size * 0.2f,
                 () =>
                 {
                     if (IsTraversible())
