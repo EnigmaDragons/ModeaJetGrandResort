@@ -9,7 +9,7 @@ namespace SpaceResortMurder.Dialogues.Travis
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(UnencryptedDataStick));
+            return CurrentGameState.IsThinking(nameof(UnencryptedDataDrive));
         }
     }
 }

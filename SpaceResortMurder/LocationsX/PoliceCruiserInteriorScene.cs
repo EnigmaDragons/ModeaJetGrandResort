@@ -3,7 +3,7 @@ namespace SpaceResortMurder.LocationsX
 {
     public class PoliceCruiserInteriorScene : LocationScene
     {
-        public PoliceCruiserInteriorScene() : base(GameObjects.Locations[nameof(PoliceCruiserInterior)], "Locations/PoliceCruiserBg") {}
+        public PoliceCruiserInteriorScene() : base(GameObjects.Locations[nameof(PoliceCruiserInterior)], "Locations/PoliceCruiserPainted") {}
 
         protected override void OnInit() {}
     }

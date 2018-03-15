@@ -50,7 +50,7 @@
     <Compile Include="Clues\DockingBay\MeleenasShip.cs" />
     <Compile Include="Clues\DockingBay\PoliceCruiser.cs" />
     <Compile Include="Clues\InvestigateClueView.cs" />
-    <Compile Include="Clues\MeleenasSpaceCraft\DataStick.cs" />
+    <Compile Include="Clues\MeleenasSpaceCraft\EncryptedDataStick.cs" />
     <Compile Include="Clues\MeleenasSpaceCraft\HackingRig.cs" />
     <Compile Include="Clues\MeleenasSpaceCraft\SkeletonKey.cs" />
     <Compile Include="Clues\MeleenasSpaceCraft\UnencryptedDateStick.cs" />
@@ -200,11 +200,12 @@
     <Compile Include="Pathways\DockingBayToMeleenasShip.cs" />
     <Compile Include="Pathways\DockingBayToPoliceCruiser.cs" />
     <Compile Include="Pathways\DockingBayToRaymondsShip.cs" />
+    <Compile Include="Pathways\IPathway.cs" />
     <Compile Include="Pathways\LobbyToCloningRoom.cs" />
     <Compile Include="Pathways\LobbyToDockingBay.cs" />
     <Compile Include="Pathways\LobbyToVacantRoom.cs" />
     <Compile Include="Pathways\MeleenasShipToDockingBay.cs" />
-    <Compile Include="Pathways\Pathway.cs" />
+    <Compile Include="Pathways\ExpandingImagePathway.cs" />
     <Compile Include="Pathways\PoliceCruiserToDockingBay.cs" />
     <Compile Include="Pathways\RaymondsShipToDockingBay.cs" />
     <Compile Include="Pathways\VacantRoomToLobby.cs" />
@@ -314,19 +315,16 @@
     <Content Include="Content\Clues\Clock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Clues\DataStick-Small.png">
+    <Content Include="Content\Clues\DataDecrypted-Small.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Clues\DataStick.png">
+    <Content Include="Content\Clues\DataEncrypted-Small.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Clues\HackingRig.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Clues\SkeletonKey-Small.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\SkeletonKey.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Convo\ChatBox.png">
@@ -450,6 +448,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Locations\Meleenas_Spacecraft_interior.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Locations\meleenas_spaceship_painted.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Locations\PoliceCruiserPainted.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Locations\PoliceCruiserBg.jpg">
@@ -579,6 +583,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sounds\Scanning.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Traverse\TraverseArrowR-Hover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Traverse\TraverseArrowR-Press.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Traverse\TraverseArrowR.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\BackButton-Hover.png">

@@ -215,10 +215,10 @@ namespace SpaceResortMurder
             #endregion
 
             #region Meleena's Ship Interior
-            { nameof(DataStick), new string[] {
+            { nameof(EncryptedDataStick), new string[] {
                 "This data stick might have something valuable on it, But it's encrypted.",
             } },
-            { nameof(UnencryptedDataStick), new string[] {
+            { nameof(UnencryptedDataDrive), new string[] {
                 "The data stick contains Raymond's files about a recent cloning experiment gone wrong.",
                 "The experiment made much more perfect clones signifigantly faster than any known method.",
                 "It used needles to extract key matter for replication.",

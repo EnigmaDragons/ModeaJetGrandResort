@@ -1,20 +1,33 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
 using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.Scenes;
+using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.LocationsX;
 
 namespace SpaceResortMurder.Pathways
 {
-    public class MeleenasShipToDockingBay : Pathway
+    public class MeleenasShipToDockingBay : IPathway
     {
-        public MeleenasShipToDockingBay() : base(
-            nameof(MeleenasShipToDockingBay),
-            "Placeholder/Door",
-            new Transform2(new Vector2(0, 0), new Size2(350, 348)),
-            nameof(DockingBay)) {}
+        private readonly Transform2 _transform;
+        private readonly string _destination;
 
-        public override bool IsTraversible()
+        public MeleenasShipToDockingBay(Transform2 transform)
         {
-            return true;
+            _transform = transform;
+            _destination = nameof(DockingBay);
+        }
+
+        public bool IsTraversible => true;
+
+        public VisualClickableUIElement CreateButton(Action<string> showNonTraversibleDialogue)
+        {
+            return new ImageButton("Traverse/TraverseArrowR", "Traverse/TraverseArrowR-Hover", "Traverse/TraverseArrowR-Press", _transform, () =>
+            {
+                if (IsTraversible)
+                    Scene.NavigateTo(_destination);
+                else
+                    showNonTraversibleDialogue(GetType().Name);
+            });
         }
     }
 }

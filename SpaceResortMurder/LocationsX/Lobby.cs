@@ -7,7 +7,7 @@ namespace SpaceResortMurder.LocationsX
     public class Lobby : Location
     {
         public Lobby() : base(nameof(Lobby), "Lobby", new List<Clue>(), 
-            new List<Pathway>
+            new List<IPathway>
             {
                 new LobbyToDockingBay(),
                 new LobbyToCloningRoom(),

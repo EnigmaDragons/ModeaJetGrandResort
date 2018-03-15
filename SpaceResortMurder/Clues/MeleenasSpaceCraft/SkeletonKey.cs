@@ -1,13 +1,12 @@
-﻿using Microsoft.Xna.Framework;
-using MonoDragons.Core.PhysicsEngine;
+﻿using MonoDragons.Core.PhysicsEngine;
 
 namespace SpaceResortMurder.Clues.MeleenasSpaceCraft
 {
     public class SkeletonKey : Clue
     {
-        public SkeletonKey() : base(
+        public SkeletonKey(Transform2 t) : base(
             "Clues/SkeletonKey-Small",
-            new Transform2(new Vector2(1740, 865), new Size2(154, 104)), 
+            t, 
             new Size2(415, 280), 
             nameof(SkeletonKey)) {}
     }

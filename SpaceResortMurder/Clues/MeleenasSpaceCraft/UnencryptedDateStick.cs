@@ -5,13 +5,13 @@ using SpaceResortMurder.Dialogues.Meleena;
 
 namespace SpaceResortMurder.Clues.MeleenasSpaceCraft
 {
-    public class UnencryptedDataStick : Clue
+    public class UnencryptedDataDrive : Clue
     {
-        public UnencryptedDataStick() : base(
-            "Placeholder/datastick",
-            new Transform2(new Vector2(800, 800), new Size2(100, 50)),
-            new Size2(400, 200),
-            nameof(UnencryptedDataStick))
+        public UnencryptedDataDrive() : base(
+            "Clues/DataDecrypted-Small",
+            new Transform2(new Vector2(1000, 880), new Size2(216, 180)),
+            new Size2(396, 330),
+            nameof(UnencryptedDataDrive))
         {
             IsActive = () => CurrentGameState.IsThinking(nameof(CareToShowTheDirtYouCollected))
                 || CurrentGameState.IsThinking(nameof(ObstructionOfJusticeWillAddToYourPrisonTime))

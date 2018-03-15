@@ -5,7 +5,7 @@ using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Pathways
 {
-    public class PoliceCruiserToDockingBay : Pathway
+    public class PoliceCruiserToDockingBay : ExpandingImagePathway
     {
         public PoliceCruiserToDockingBay(Transform2 transform) : base(
             nameof(PoliceCruiserToDockingBay), 
@@ -13,9 +13,6 @@ namespace SpaceResortMurder.Pathways
             transform, 
             nameof(DockingBay)) {}
 
-        public override bool IsTraversible()
-        {
-            return CurrentGameState.IsThinking(nameof(BetweenSevenAMToEightPM));
-        }
+        public override bool IsTraversible => CurrentGameState.IsThinking(nameof(BetweenSevenAMToEightPM));
     }
 }

@@ -12,7 +12,7 @@ namespace SpaceResortMurder.ObjectivesX
         {
             return CurrentGameState.IsThinking(nameof(MeleenasShip))
                 && !(CurrentGameState.IsThinking(nameof(HackingRig))
-                    || CurrentGameState.IsThinking(nameof(DataStick))
+                    || CurrentGameState.IsThinking(nameof(EncryptedDataStick))
                     || CurrentGameState.IsThinking(nameof(SkeletonKey)));
         }
     }

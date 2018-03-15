@@ -15,7 +15,7 @@ namespace SpaceResortMurder.LocationsX
                 new PoliceCruiser(),
                 new GarbageAirlock(),
             }, 
-            new List<Pathway>
+            new List<IPathway>
             {
                 new DockingBayToLobby(),
                 new DockingBayToRaymondsShip(),
