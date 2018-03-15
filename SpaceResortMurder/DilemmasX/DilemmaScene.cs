@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.AudioSystem;
 using MonoDragons.Core.Common;
-using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.Engine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Scenes;
@@ -12,20 +12,17 @@ namespace SpaceResortMurder.DilemmasX
 {
     public sealed class DilemmaScene : JamScene
     {
+        private IVisual _header;
+
         protected override void OnInit()
         {
             Audio.PlayMusic("Pondering", 0.37f );
+            _header = UiLabels.HeaderLabel("Current Investigation", Color.White);
+
             Add(UiButtons.Back(new Vector2(7, UI.OfScreenHeight(1.0f) - 166), () => Scene.NavigateTo(CurrentGameState.CurrentLocation)));
             if(GameObjects.Dilemmas.HasTheory)
                 Add(UiButtons.MenuRed("Resolve", new Vector2(UI.OfScreenWidth(0.5f) - 144, 840), () => Scene.NavigateTo(GameResources.ResolutionSceneName)));
-            AddVisual(new Label
-            {
-                Transform = new Transform2(new Vector2(192, 34), new Size2(1200, 96)),
-                BackgroundColor = Color.Transparent,
-                Text = "Current Investigation",
-                TextColor = UiStyle.TextGreen,
-                Font = UiFonts.Header
-            });
+
             GameObjects.Dilemmas.GetActiveDilemmas().ForEach(d =>
             {
                 d.GetVisuals().ForEach(v => AddVisual(v));
@@ -42,6 +39,7 @@ namespace SpaceResortMurder.DilemmasX
         protected override void DrawForeground()
         {
             UI.FillScreen("UI/ScreenOverlay");
+            _header.Draw();
         }
     }
 }
