@@ -121,17 +121,6 @@ namespace SpaceResortMurder.LocationsX
             _locationNameLabel.Draw();
         }
 
-        private void AutoStartConversationIfApplicable()
-        {
-            if (!_peopleHere.Any(p => p.IsImmediatelyTalking()))
-                return;
-
-            var person = _peopleHere.First(p => p.IsImmediatelyTalking());
-            StopLoitering(Mode.Conversation);
-            TalkTo(person);
-            person.StartImmediatelyTalking(HaveDialog);
-        }
-
         private void InitLocation()
         {
             if (!CurrentGameState.HasViewedItem(_location.Value))
@@ -182,6 +171,16 @@ namespace SpaceResortMurder.LocationsX
             Input.ClearTransientBindings();
             Input.On(Control.Select, () => { if (!_isInTheMiddleOfDialog) Scene.NavigateTo(GameResources.OptionsSceneName); });
             Input.On(Control.X, () => { if (!_isInTheMiddleOfDialog) Scene.NavigateTo(GameResources.DilemmasSceneName); });
+        }
+
+        private void AutoStartConversationIfApplicable()
+        {
+            if (!_peopleHere.Any(p => p.IsImmediatelyTalking()))
+                return;
+
+            var person = _peopleHere.First(p => p.IsImmediatelyTalking());
+            TalkTo(person);
+            person.StartImmediatelyTalking(HaveDialog);
         }
 
         private void AddClue(Clue clue)

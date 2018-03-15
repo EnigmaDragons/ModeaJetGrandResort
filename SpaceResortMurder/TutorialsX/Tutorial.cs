@@ -20,7 +20,7 @@ namespace SpaceResortMurder.TutorialsX
 
         protected Tutorial(string name)
         {
-            Button = new ScreenClickable(End);
+            Button = new ScreenClickable(End) { IsEnabled = false } ;
             _name = name;
         }
 
