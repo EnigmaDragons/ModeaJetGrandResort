@@ -1,11 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.Common;
-using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Scenes;
 using SpaceResortMurder.Style;
 using System.Collections.Generic;
+using MonoDragons.Core.Engine;
 
 namespace SpaceResortMurder.Deductions
 {
@@ -13,6 +13,8 @@ namespace SpaceResortMurder.Deductions
     {
         private readonly IReadOnlyList<Deduction> _deductions;
         private readonly string _dilemmaDescription;
+
+        private IVisual _header;
 
         public DeductionScene(string dilemma, IReadOnlyList<Deduction> deductions)
         {
@@ -22,15 +24,8 @@ namespace SpaceResortMurder.Deductions
 
         protected override void OnInit()
         {
-            Add(UiButtons.Back(new Vector2(6, UI.OfScreenHeight(1.0f) - 138), () => Scene.NavigateTo(GameResources.DilemmasSceneName)));
-            AddVisual(new Label
-            {
-                Transform = new Transform2(new Vector2(336, 34), new Size2(600, 96)),
-                BackgroundColor = Color.Transparent,
-                Text = _dilemmaDescription,
-                TextColor = UiStyle.TextGreen,
-                Font = UiFonts.Header
-            });
+            Add(UiButtons.Back(new Vector2(7, UI.OfScreenHeight(1.0f) - 166), () => Scene.NavigateTo(GameResources.DilemmasSceneName)));
+            _header = UiLabels.HeaderLabel(_dilemmaDescription, Color.White);
             _deductions.ForEachIndex((d, i) =>
             {
                 var position = new Vector2(960 + (-(468 * (_deductions.Count - 1) / 2) - (432 / 2) + ((468) * i)), 468);
@@ -50,6 +45,7 @@ namespace SpaceResortMurder.Deductions
         protected override void DrawForeground()
         {
             UI.FillScreen("UI/ScreenOverlay");
+            _header.Draw();
         }
     }
 }
