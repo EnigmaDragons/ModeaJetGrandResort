@@ -117,6 +117,7 @@ namespace SpaceResortMurder
             }
             catch (Exception e)
             {
+                Debug.WriteLine(e.ToString());
                 Debug.WriteLine(e.Message);
                 Environment.Exit(-1);
             }

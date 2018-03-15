@@ -12,18 +12,18 @@ namespace SpaceResortMurder.CharactersX
     {
         private readonly List<Dialogue> _dialogs;
         private readonly Size2 _size;
-        private readonly string _displayName;
         private ImageBox _facingImage;
         private ImageBox _newDialogIcon;
         private ImageLabel _convoNameBox;
 
         public string Value { get; }
+        public string DisplayName { get; }
         public string Image { get; }
 
         protected Character(string character, string displayName, string image, Size2 size, params Dialogue[] dialogues)
         {
             Value = character;
-            _displayName = displayName;
+            DisplayName = displayName;
             Image = image;
             _dialogs = dialogues.ToList();
             _size = size;
@@ -43,7 +43,7 @@ namespace SpaceResortMurder.CharactersX
             };
             _convoNameBox = new ImageLabel(new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 960), new Size2(1680, 86)), "Convo/NameLabel")
             {
-                Text = _displayName,
+                Text = DisplayName,
                 TextColor = Color.White,
                 TextTransform = new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 960),
                     new Size2(UI.OfScreenWidth(0.96f) - UI.OfScreenWidth(0.66f), 86))
@@ -53,7 +53,7 @@ namespace SpaceResortMurder.CharactersX
         public VisualClickableUIElement CreateButton(Action<Character> onClick, int i, int count)
         {
             return new ImageTextButton(new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 120 + i * 120), new Size2(1680, 86)),
-                () => onClick(this), _displayName,
+                () => onClick(this), DisplayName,
                 "Convo/NameLabel", "Convo/NameLabel", "Convo/NameLabel")
             {
                 TextColor = Color.White,
