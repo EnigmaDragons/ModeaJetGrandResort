@@ -24,7 +24,7 @@ namespace SpaceResortMurder.Dialogues
 
         public void StartImmediateDialog(Action<string[]> onStart)
         {
-            Event.Publish(new ItemViewed(Dialog));
+            Event.Publish(new DialogMemoryGained(Dialog, CurrentGameState.CurrentLocationImage));
             Event.Publish(new ThoughtGained(Dialog));
             onStart(GameResources.GetDialogueLines(Dialog));
         }
