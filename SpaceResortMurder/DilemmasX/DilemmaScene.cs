@@ -17,9 +17,9 @@ namespace SpaceResortMurder.DilemmasX
         protected override void OnInit()
         {
             Audio.PlayMusic("Pondering", 0.37f );
-            _header = UiLabels.HeaderLabel("Current Investigation", Color.White);
+            _header = UiLabels.FullWidthHeaderLabel("Current Investigation", Color.White);
 
-            Add(UiButtons.Back(new Vector2(7, UI.OfScreenHeight(1.0f) - 166), () => Scene.NavigateTo(CurrentGameState.CurrentLocation)));
+            Add(UiButtons.Back(() => Scene.NavigateTo(CurrentGameState.CurrentLocation)));
             if(GameObjects.Dilemmas.HasTheory)
                 Add(UiButtons.MenuRed("Resolve", new Vector2(UI.OfScreenWidth(0.5f) - 144, 840), () => Scene.NavigateTo(GameResources.ResolutionSceneName)));
 
@@ -33,12 +33,12 @@ namespace SpaceResortMurder.DilemmasX
 
         protected override void DrawBackground()
         {
-            UI.DrawCentered("UI/PonderingBgHr");
+            UI.DrawCentered("Pondering/PonderingBgHr");
         }
 
         protected override void DrawForeground()
         {
-            UI.FillScreen("UI/ScreenOverlay");
+            UI.FillScreen("Pondering/PonderingOverlay");
             _header.Draw();
         }
     }

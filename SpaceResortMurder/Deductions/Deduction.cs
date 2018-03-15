@@ -6,6 +6,7 @@ using MonoDragons.Core.UserInterface;
 using System;
 using MonoDragons.Core.Engine;
 using SpaceResortMurder.State;
+using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.Deductions
 {
@@ -32,20 +33,20 @@ namespace SpaceResortMurder.Deductions
 
         public IVisual CreateConclusion()
         {
-            return new ImageLabel(_conclusionTransform, "UI/SelectedDeduction")
+            return new ImageLabel(_conclusionTransform, "Pondering/SelectedDeduction")
             {
-                Text = GameResources.GetDilemmaOrDeductionText(_thought)
+                Text = GameResources.GetPonderText(_thought)
             };
         }
 
         public VisualClickableUIElement CreateButton(Vector2 position)
         {
-            var button = new ImageTextButton(new Rectangle((int)position.X, (int)position.Y, 432, 144), () =>
+            var button = new ImageTextButton(new Transform2(position, UiButtons.PonderingSize()), () =>
             {
                 _clearPriorDeduction();
                 Event.Publish(new ThoughtGained(_thought));
                 Scene.NavigateTo("Dilemmas");
-            }, GameResources.GetDilemmaOrDeductionText(_thought), "UI/DilemmaCard", "UI/DilemmaCard-Hover", "UI/DilemmaCard-Press");
+            }, GameResources.GetPonderText(_thought), "Pondering/DilemmaCard", "Pondering/DilemmaCard-Hover", "Pondering/DilemmaCard-Press");
             button.OnEnter = () =>
             {
                 if (!CurrentGameState.HasViewedItem(_thought))

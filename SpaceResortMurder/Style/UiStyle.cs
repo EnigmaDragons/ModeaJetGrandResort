@@ -5,7 +5,6 @@ namespace SpaceResortMurder.Style
 {
     public static class UiStyle
     {
-        public static Color TextBlack => Color.Black;
         public static Color TextGreen = new Color(37, 185, 99);
         public static Color TextLightRed = new Color(213, 98, 78);
         public static Color TextPurple = new Color(100, 0, 100);
