@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
+using SpaceResortMurder.Clues.RaymondsSpaceCraft;
 using SpaceResortMurder.LocationsX;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Pathways
 {
@@ -14,7 +16,10 @@ namespace SpaceResortMurder.Pathways
 
         public override bool IsTraversible()
         {
-            return true;
+            return CurrentGameState.IsThinking(nameof(RaymondsCorpse))
+                && CurrentGameState.IsThinking(nameof(ShipsLogs))
+                && CurrentGameState.IsThinking(nameof(RaymondsPad))
+                && CurrentGameState.IsThinking(nameof(T71EnergyBlaster));
         }
     }
 }

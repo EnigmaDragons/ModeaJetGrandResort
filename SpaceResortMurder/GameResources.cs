@@ -24,6 +24,7 @@ using SpaceResortMurder.State;
 using System.Text;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Windows.Forms.VisualStyles;
 using SpaceResortMurder.CharactersX;
 using SpaceResortMurder.Clues.PoliceSpaceCraft;
 using SpaceResortMurder.Deductions.ClonesDesign;
@@ -148,14 +149,25 @@ namespace SpaceResortMurder
         private static DictionaryWithDefault<string, string> _scanInfo = new DictionaryWithDefault<string, string>("This scan is not implemented")
         {
             { nameof(OfficerWarren),
-                "Officer Warren, weighs 199 lb, no augments. \n" +
-                "Once found guilty of petty theft at the age of 12. \n" +
-                "Worked in the investigative department of Outer Planet Police for 17 years."}
+                "Name: Warren Alexander \n" + 
+                "Weight: 199 lbs \n" + 
+                "Augments: None \n" +
+                "Criminal Record: Found guilty of petty theft at the age of 12 \n" +
+                "Occupation: OPID (Outer Planet Investigative Department), 17 years"
+            },
+            { nameof(HackerMeleena),
+                "Name: Meleena Ka'lick \n" +
+                "Weight: 116 lbs \n" + 
+                "Augments: CyberDeck, it's used to jack into cyberspace \n" +
+                "Criminal Record: Clean \n" + 
+                "Occupation: Corporate Freelancer, 9 years \n" + 
+                "Red Flags: Extremely limited records, possible alias or record cleaning"
+            }
         };
 
         private static DictionaryWithDefault<string, string> _characterNames = new DictionaryWithDefault<string, string>("Unnamed Character") {
             { nameof(OfficerWarren), "Warren, Officer" },
-            { nameof(HackerMeleena), "Meleena Ka'lick, Corporate Freelancer" },
+            { nameof(HackerMeleena), "\\Meleena\\" },
             { nameof(RaymondsClone), "Raymond, CEO of Human Perfect" },
             { nameof(ResearcherTravis), "Travis Falcon, Clone Researcher" },
             { nameof(ResortManagerZaid), "Zaid Ahuja, Resort Manager" },
@@ -172,45 +184,42 @@ namespace SpaceResortMurder
         private static DictionaryWithDefault<string, string[]> _clues = new DictionaryWithDefault<string, string[]>(new string[] { "This clue has not been implemented" }) {
             #region Docking Bay
             { nameof(RaymondsShip), new string[] {
-                "The ship is a Regal Glider an expensive personal craft.",
-                "It is registered under the name of Raymond Soule.",
-                "CEO of Human Perfect.",
-                "There is a blast mark that comes from a T-71 Energy Blaster",
-                "The door control has also been hacked to stay unlocked."
+                "The ship is a Regal Glider an expensive personal craft, registered to a Raymond Soule.",
+                "There is a T71 Energy Blaster blast mark on the exterior it is still fairly hot and must have been fired within the last 2 hours.",
+                "The door control has all its ICE disabled and has been jacked to remain unlocked."
             } },
             { nameof(MeleenasShip), new string[] {
-                "The ship is heavily modded, it is registered to a Meleena Ka'lick.",
-                "She is a corporate freelancer",
-                "Meleena must be pretty wealthy to own her own space craft."
-            } },
-            { nameof(PoliceCruiser), new string[] {
-                "I don't think my ship relates to this murder."
+                "The ship is a heavily modded Corbin Cruiser, it's registered to a Meleena Ka'lick.",
+                "Meleena Ka'lick is a corporate freelancer. Where does she get the money to purchase her own space craft?",
             } },
             { nameof(GarbageAirlock), new string[] {
-                "This is a garbage airlock that releases trash into space.",
-                "This was clearly used today."
+                "A garbage airlock that releases trash into space. It shows signs of recent use.",
             } },
             #endregion
 
             #region Raymond's Ship Interior
             { nameof(RaymondsCorpse), new string[] {
                 "Raymond died of asphyxiation.",
-                "His body is ballooned up to twice his normal size, his tongue and eyes have boiled. Conclusion he spent time in space without a suit.",
-                "He has bruising around his neck from someone trying to choke him with their arm prior to his exposure to space.",
+                "His body is ballooned up to twice his normal size, his tongue and eyes have boiled. These injuries match the profile of being in space without a suit.",
+                "There is also bruising present around his neck from someone trying to choke him with their arm prior to his exposure to space.",
                 "He has 13 recent wide needle punctures.",
             } },
             { nameof(ShipsLogs), new string[] {
-                "These logs might help me narrow down a time line.",
-                $"The ship launched at 7:05 \nThe space hatch was opened at 7:10 \nThe space hatch closed at 7:20 \nThe ship landed at 7:25",
+                "Ship's logs from today.",
+                $"The ship landed at 7:00 AM \n" + 
+                "The ship launched at 7:05 PM \n" + 
+                "The space hatch was opened at 7:10 PM \n" + 
+                "The space hatch closed at 7:20 PM \n" + 
+                "The ship landed at 7:25 PM",
             } },
             { nameof(T71EnergyBlaster), new string[] {
-                $"This is a T-71 Energy Blaster. It is registered to Raymond Soule.",
-                "It possess a security feature that ensures the weilder's DNA matches Raymond Soule before you can fire.",
+                "A T-71 Energy Blaster. It is registered to Raymond Soule.",
+                "It possesses a security feature that ensures the weilder's DNA matches the owner before you can fire.",
             } },
             { nameof(RaymondsPad), new string[] {
-                "This is Raymond's personal pad.",
-                "There is a list of resorts on here with Zaid's being one of them. A bunch of the resorts including Zaid's have been crossed out.",
-                "This pad was last used at 7:50 to send a message approving Zaid's resort for beta-testing a new resort clone.",
+                "Raymond's personal pad.",
+                "There is a list of resorts on here with ModeaJet Grand Resort being one of them, but it is among the crossed off ones.",
+                "This pad was used at 7:50 PM to send a message aproving ModeoJet Grand Resort to be the beta-tester for a new resort clone.",
             } },
             #endregion
 
@@ -256,63 +265,50 @@ namespace SpaceResortMurder
             new DialogueSequence("This dialogue is not implemented", new DialogueElement(true, "This dialogue is not implemented"))) {
             #region Warren
             { nameof(WarrenIntroduction), new DialogueSequence(
-                "Introduction.",
+                "Who are you?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Hello there \\Player\\. This is your fist time powering up so I better get you up to speed."),
-                    new DialogueElement(false, "I'm Officer Warren, and you are an android detective."),
-                    new DialogueElement(true, "You have the unique capability to be able to rapidly search up records of people and places and percieve things I can't."),
-                    new DialogueElement(true, "Go ahead and look me up."),
-                }
-            ) },
+                    new DialogueElement(true, "Hello there \\Player\\. This is your fist time powering up so I guess I better get you up to speed."),
+                    new DialogueElement(true, "I'm Officer Warren, and YOU are an android detective."),
+                    new DialogueElement(false, "..."), 
+                    new DialogueElement(true, "Lookie here, you got the schnazy ability to scan people and spot those little details I can't."),
+                    new DialogueElement(true, "Go ahead and try it out on me."),
+            } ) },
             { nameof(PettyTheftAt12), new DialogueSequence(
-                "Petty theft at 12.",
+                "You've commited petty theft at the age of 12.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "You have got the hang of scanning, it's especially important when you are going toe to toe with someone with augments."),
-                    new DialogueElement(true, "Directly before powering you on I got a call about the murder of Raymond Soule."),
-                    new DialogueElement(true, "He is the CEO of the cloning company Human Perfect."),
-                    new DialogueElement(true, "He arrived alive at ModeaJet Grand Resort at 7:00 AM this morning, but was found dead today in his ship."),
-                    new DialogueElement(true, "Look around and tell me what can you infer from that."),
-                }
-            ) },
+                    new DialogueElement(true, "What did I tell you, isn't scanning pretty fancy. Alright now to get to what's at hand."),
+                    new DialogueElement(true, "Right before powering you up I got pinged about a corp exec murder. The victim is Raymond Soule, the CEO of the cloning company Human Perfect."),
+                    new DialogueElement(true, "Mr.Soule arrived intact at ModeaJet Grand Resort at around 7:00 AM this morning, but was found dead today in his ship."),
+                    new DialogueElement(true, "Lookie around this ship and tell me what can figure from that."),
+                    new DialogueElement(false, "Not telling me is inefficient."), 
+            } ) },
             { nameof(AnytimeUpTilNow), new DialogueSequence(
-                "The murder take place anytime up until now.",
+                "The murder took place anytime up until now.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Not quite with it yet I see."),
-                    new DialogueElement(true, "No worries I said that he arrived at the resort at 7 AM alive."),
+                    new DialogueElement(true, "You don't have that quite right. No worries though, I said that he arrived at the resort at 7 AM intact."),
                 }
             ) },
             { nameof(BetweenSevenAMToEightPM), new DialogueSequence(
                 "The murder must have taken place between 7 AM and 8 PM.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Precisely! Looks like we're ready to get started. Let's start investigating Raymond's craft."),
-                }
-            ) },
+                    new DialogueElement(true, "Exactly! Looks like we're ready to get started. Let's start investigating Raymond's craft."),
+            } ) },
             { nameof(WeHaveUntilMidnight), new DialogueSequence(
                 "We have until midnight, it's best if we hurry.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "What are you talking about?!"),
-                    new DialogueElement(true, "Booting up for the first must be brutal."),
-                }
-            ) },
-
-            { nameof(MeetingWarren), new DialogueSequence(
-                "Incident details",
+                    new DialogueElement(true, "Man thats not even close! Powering up the first time must be a hell of a ride."),
+            } ) },
+            { nameof(DetainedMeleena), new DialogueSequence(
+                "Where did she come from?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Finally you made it!"),
-                    new DialogueElement(true, "The victim is Raymond Soule, the CEO of the lead cloning company Human Perfect."),
-                    new DialogueElement(true, "He was found dead inside his personal space craft at 8 PM."),
-                    new DialogueElement(true, "The only people present in the space resort according to the resort manager were."),
-                    new DialogueElement(true, "On your left Zaid the resort manager, he was the one that called in about the incident."),
-                    new DialogueElement(true, "In the middle we have a lead reasearcher at Human Perfect Travis Falcon."),
-                    new DialogueElement(true, "And on the right Meleena Ke'lick, her file says she is a corporate freelancer. But currently she is not employed by any company."),
-                }
-            ) },
+                    new DialogueElement(true, "She left that modded craft, and she is pretty close to the crime scene. I have detained her to stay with me, so you can question her."),
+            } ) },
             { nameof(NeedASearchOrder), new DialogueSequence(
                 "I need a search order for Meleena's craft.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "I am way ahead of you, I sent out a request as soon as I got here. Here is your search order."),
-                }
-            ) },
+                    new DialogueElement(true, "I'll submit a request and in these high profile corp CEO cases, I'm sure we will get a reply soon."),
+                    new DialogueElement(true, "In the meantime, you will just have to turn over a new stone elsewhere."), 
+            } ) },
             #endregion
 
             #region Zaid
@@ -361,39 +357,36 @@ namespace SpaceResortMurder
             #endregion
 
             #region Meleena
+            { nameof(WhoAreYou), new DialogueSequence(
+                "Who are you?",
+                new DialogueElement[] {
+                new DialogueElement(true, "It's fraggin rude not to introduce yourself first android!"),
+                new DialogueElement(false, "My name is \\Player\\."),
+                new DialogueElement(true, "Alright roid, I'm Meleena Ka'lick, a corporate freelancer on vacation, satisfied?"), 
+                new DialogueElement(false, "Yes."), 
+            } ) },
             { nameof(MeleenasAccount), new DialogueSequence(
-                "Please give my your account of today up until being brought by Officer Warren.",
+                "Give me your account from this morning until night.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "I take some kind of crime has been commited."), 
-                    new DialogueElement(true, "I have been in my room relaxing and taking calls all day, I don't know anything."),
-                }
-            ) },
-            { nameof(WhatIsACorporateFreelancerDoingHere), new DialogueSequence(
-                "Why are you visiting this resort?",
-                new DialogueElement[] {
-                    new DialogueElement(true, "Between jobs I like to get some rest and relaxation."),
-                }
-            ) },
+                    new DialogueElement(true, "Did you leave your manners in the recharger roid?"),
+                    new DialogueElement(false, "No, but I don't think it's necessary to utilize them with you."), 
+                    new DialogueElement(true, "Fraggin roids. Alright since awaking in meat-space, I have been relaxing in my room and craft all day."),
+                    new DialogueElement(true, "And before you ask I have seen nothing out of the ordinary cept you."), 
+            } ) },
             { nameof(CorporateFreelancersCantNormallyAffordPersonalSpaceCrafts), new DialogueSequence(
-                "Corporate freelancers can't normally afford to own a space craft.",
+                "Corporate freelancers can't normally purchase their own craft.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "I'm a research specialist, tasked with gather invaluable market date."),
-                    new DialogueElement(true, "You'd be surprised how well one gets paid when they are as good as me."),
-                }
-            ) },
+                    new DialogueElement(true, "Beats your pig-rig over there."), 
+                    new DialogueElement(true, "I'm a data specialist, tasked with gathering invaluable paydata. You'd be surprised how well those corp execs pay for my info."),
+            } ) },
             { nameof(SearchYourCraftForEvidence), new DialogueSequence(
-                "We are going to need to check your craft for evidence.",
+                "Your craft is at the crime scene, I'm going to have to search it for evidence.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "You are going to need a search order for that!"),
-                }
-            ) },
-            { nameof(ImOnlyInvestigatingTheMurder), new DialogueSequence(
-                "I'm only investigating the murder, I don't care what other illegal activities you are up to.",
-                new DialogueElement[] {
-                    new DialogueElement(true, "You could probably get your search order anyway."),
-                    new DialogueElement(true, "Alright I'm trusting you. I have unlocked my craft."),
-                }
-            ) },
+                    new DialogueElement(true, "Drek! Gotta a search order for that?"),
+            } ) },
+
+
+
             { nameof(HereIsTheSearchOrder), new DialogueSequence(
                 "Here is the search order for your ship. You can open it or we can force entry.",
                 new DialogueElement[] {
@@ -630,7 +623,10 @@ namespace SpaceResortMurder
         };
 
         private static DictionaryWithDefault<string, string> _pathwayText = new DictionaryWithDefault<string, string>("This pathway should not be stopping you"){
-            { nameof(PoliceCruiserToDockingBay), "I am not ready yet." }
+            { nameof(PoliceCruiserToDockingBay), "I am not ready yet" },
+            { nameof(DockingBayToLobby), "I need to investigate the crime scene first" },
+            { nameof(DockingBayToPoliceCruiser), "I need to investigate the crime scene first" },
+            { nameof(RaymondsShipToDockingBay), "I am not finished investigating here" },
         };
 
         private static Dictionary<string, Func<string>> _symbols = new Dictionary<string, Func<string>> {
@@ -647,6 +643,11 @@ namespace SpaceResortMurder
             { "Player",
                 () => "Zavix"
             },
+            { "Meleena",
+                () => CurrentGameState.IsThinking(nameof(HackerMeleena)) || CurrentGameState.IsThinking(nameof(WhoAreYou)) 
+                    ? "Meleena Ke'lick, Corporate Freelancer" 
+                    : "???"
+            }
         };
     }
 }

@@ -9,8 +9,7 @@ namespace SpaceResortMurder.Dialogues.Warren
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(SearchYourCraftForEvidence)) 
-                && !CurrentGameState.IsThinking(nameof(ImOnlyInvestigatingTheMurder));
+            return CurrentGameState.IsThinking(nameof(SearchYourCraftForEvidence));
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace SpaceResortMurder.Dialogues.Meleena
 {
-    public class MeleenasAccount : Dialogue
+    public class WhoAreYou : Dialogue
     {
-        public MeleenasAccount() : base(nameof(MeleenasAccount)) {}
+        public WhoAreYou() : base(nameof(WhoAreYou)) {}
 
         public override bool IsActive()
         {

@@ -1,7 +1,4 @@
-﻿using SpaceResortMurder.Dialogues.Warren;
-using SpaceResortMurder.State;
-
-namespace SpaceResortMurder.Deductions.LaunchedTheShip
+﻿namespace SpaceResortMurder.Deductions.LaunchedTheShip
 {
     public class TravisLaunchedTheShip : Deduction
     {
@@ -9,7 +6,7 @@ namespace SpaceResortMurder.Deductions.LaunchedTheShip
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(MeetingWarren));
+            return true;
         }
     }
 }
