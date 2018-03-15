@@ -7,15 +7,23 @@ using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 using System.Linq;
+using MonoDragons.Core.EventSystem;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.ObjectivesX
 {
     public sealed class ObjectivesView : IVisualAutomaton
     {
-        private bool _intialized;
         private readonly ObjectivesTutorial _tutorial = new ObjectivesTutorial();
-
         private IReadOnlyList<Objective> _active = new List<Objective>();
+
+        public ClickableUIElement TutorialButton => _tutorial.Button;
+
+        public void Init()
+        {
+            _active = GameObjects.Objectives.GetActiveObjectives();
+            Event.Subscribe(EventSubscription.Create<StateChanged>(_ => UpdateObjectives(), this));
+        }
 
         private readonly ImageBox _card = new ImageBox
         {
@@ -46,8 +54,10 @@ namespace SpaceResortMurder.ObjectivesX
         public void Update(TimeSpan delta)
         {
             _tutorial.Update(delta);
-            InitIfNeeded();
+        }
 
+        private void UpdateObjectives()
+        {
             var newActive = GameObjects.Objectives.GetActiveObjectives();
             if (_active.Count == newActive.Count && _active.SequenceEqual(newActive))
                 return;
@@ -56,15 +66,6 @@ namespace SpaceResortMurder.ObjectivesX
                 Audio.PlaySound("NewObjective");
 
             _active = newActive;
-        }
-
-        private void InitIfNeeded()
-        {
-            if (_intialized)
-                return;
-
-            _active = GameObjects.Objectives.GetActiveObjectives();
-            _intialized = true;
         }
     }
 }

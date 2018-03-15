@@ -4,13 +4,8 @@ namespace SpaceResortMurder.LocationsX
 {
     public class TravissCloningRoomScene : LocationScene
     {
-        public TravissCloningRoomScene() : base(GameObjects.Locations[nameof(TravissCloningRoom)]) {}
+        public TravissCloningRoomScene() : base(GameObjects.Locations[nameof(TravissCloningRoom)], "Placeholder/CloningRoom") {}
 
         protected override void OnInit() {}
-
-        protected override void DrawBackground()
-        {
-            UI.FillScreen("Placeholder/CloningRoom");
-        }
     }
 }

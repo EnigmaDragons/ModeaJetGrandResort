@@ -3,10 +3,17 @@
     public static class CurrentGameState
     {
         private static GameState _value { get; set; }
+
         public static string CurrentLocation
         {
             get => _value.CurrentLocation;
             set => _value.CurrentLocation = value;
+        }
+
+        public static string CurrentLocationImage
+        {
+            get => _value.CurrentLocationImage;
+            set => _value.CurrentLocationImage = value;
         }
 
         static CurrentGameState()
@@ -29,6 +36,11 @@
             return _value.IsThinking(thought);
         }
         
+        public static string RememberLocation(string dialog)
+        {
+            return _value.RememberLocation(dialog);
+        }
+
         public static void Load()
         {
             _value = GameObjects.IO.HasSave("save")

@@ -212,6 +212,7 @@
     <Compile Include="LocationsX\LocationScene.cs" />
     <Compile Include="State\CurrentGameState.cs" />
     <Compile Include="State\CurrentOptions.cs" />
+    <Compile Include="State\DialogMemoryGained.cs" />
     <Compile Include="State\Options.cs" />
     <Compile Include="State\ItemViewed.cs" />
     <Compile Include="DilemmasX\Dilemma.cs" />
@@ -224,6 +225,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenes\Logo.cs" />
+    <Compile Include="State\StateChanged.cs" />
     <Compile Include="State\ThoughtGained.cs" />
     <Compile Include="State\ThoughtLost.cs" />
     <Compile Include="Style\UiButtons.cs" />
