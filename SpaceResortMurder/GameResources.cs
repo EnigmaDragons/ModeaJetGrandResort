@@ -259,7 +259,7 @@ namespace SpaceResortMurder
                 "Introduction.",
                 new DialogueElement[] {
                     new DialogueElement(true, "Hello there \\Player\\. This is your fist time powering up so I better get you up to speed."),
-                    new DialogueElement(true, "I'm Officer Warren, and you are an android detective."),
+                    new DialogueElement(false, "I'm Officer Warren, and you are an android detective."),
                     new DialogueElement(true, "You have the unique capability to be able to rapidly search up records of people and places and percieve things I can't."),
                     new DialogueElement(true, "Go ahead and look me up."),
                 }

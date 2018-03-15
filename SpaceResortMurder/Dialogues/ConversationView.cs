@@ -67,8 +67,6 @@ namespace SpaceResortMurder.Dialogues
 
         public void Draw(Transform2 parentTransform)
         {
-            if (_isPresentingToUser)
-                _reader.Draw();
             if(_shouldShowDialogueControls)
                 DrawConversationControls(parentTransform);
             if (_isPresentingToUser)
@@ -77,14 +75,16 @@ namespace SpaceResortMurder.Dialogues
                     _personImage.Draw();
                 else
                     _playerImage.Draw();
+                _reader.Draw();
             }
             else
             {
                 _person.FacingImage.Draw();
+                _subView.Draw(parentTransform);
             }
 
             _personName.Draw();
-            _subView.Draw(parentTransform);
+            
         }
 
         private void DrawConversationControls(Transform2 parentTransform)
@@ -114,6 +114,7 @@ namespace SpaceResortMurder.Dialogues
         private void StartDialogue(DialogueElement[] elements)
         {
             ClickUiBranch.ClearElements();
+            ClickUiBranch.Remove(_subView.ClickUiBranch);
             ClickUiBranch.Add(new ScreenClickable(AdvanceChatVisuals));
             _elements = ((IEnumerable<DialogueElement>)elements).GetEnumerator();
             _reader = new Reader(elements.Select(l => l.Line).ToArray(), InitDialogueOptions);
