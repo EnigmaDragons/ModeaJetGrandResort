@@ -58,59 +58,38 @@ namespace SpaceResortMurder
             }
         }
 
-        private static string[] _notImplementedClueLines = new string[] { "This clue hasn't been implemented" };
         public static string[] GetClueLines(string dialogOrClue)
         {
-            if (_clues.ContainsKey(dialogOrClue))
-                return _clues[dialogOrClue].Select(ReplaceSymbols).ToArray();
-            return _notImplementedClueLines;
+            return _clues[dialogOrClue].Select(ReplaceSymbols).ToArray();
         }
 
-        private const string _notImplementedDilemmaOrDeductionText = "This dilemma or deduction hasn't been implemented";
         public static string GetDilemmaOrDeductionText(string dilemmaOrDeduction)
         {
-            if (_dilemmaOrDeductionText.ContainsKey(dilemmaOrDeduction))
-                return ReplaceSymbols(_dilemmaOrDeductionText[dilemmaOrDeduction]);
-            return _notImplementedDilemmaOrDeductionText;
+            return ReplaceSymbols(_dilemmaOrDeductionText[dilemmaOrDeduction]);
         }
 
-        private const string _notImplementedObjectiveText = "This objective hasn't been implemented";
         public static string GetObjectiveName(string objective)
         {
-            if (_objectiveTexts.ContainsKey(objective))
-                return ReplaceSymbols(_objectiveTexts[objective]);
-            return _notImplementedObjectiveText;
+            return ReplaceSymbols(_objectiveTexts[objective]);
         }
 
-        private const string _notImplementedDialogueText = "This dialog hasn't been implemented";
         public static string GetDialogueOpener(string dialog)
         {
-            if (_dialogues.ContainsKey(dialog))
-                return ReplaceSymbols(_dialogues[dialog].Item1);
-            return _notImplementedDialogueText;
+            return ReplaceSymbols(_dialogues[dialog].Item1);
         }
-        private static string[] _notImplementedDialogueLines = new string[] { "This dialog hasn't been implemented" };
         public static string[] GetDialogueLines(string dialog)
         {
-            if (_dialogues.ContainsKey(dialog))
-                return _dialogues[dialog].Item2.Select(ReplaceSymbols).ToArray();
-            return _notImplementedDialogueLines;
+            return _dialogues[dialog].Item2.Select(ReplaceSymbols).ToArray();
         }
 
-        private const string _notImplementedResolution = "This resolution hasn't been implemented";
         public static string GetResolutionText(string resolution)
         {
-            if (_resolutionText.ContainsKey(resolution))
-                return ReplaceSymbols(_resolutionText[resolution].ToCharArray());
-            return _notImplementedResolution;
+            return ReplaceSymbols(_resolutionQuestionsText[resolution].ToCharArray());
         }
 
-        private const string _notImplementedPathway = "This pathway hasn't been implemented";
         public static string GetPathwayText(string pathway)
         {
-            if (_pathwayText.ContainsKey(pathway))
-                return ReplaceSymbols(_pathwayText[pathway]);
-            return _notImplementedPathway;
+            return ReplaceSymbols(_pathwayText[pathway]);
         }
 
         private static string ReplaceSymbols(string text)
@@ -139,7 +118,7 @@ namespace SpaceResortMurder
             return builder.ToString();
         }
         
-        private static Dictionary<string, string[]> _clues = new Dictionary<string, string[]> {
+        private static DictionaryWithDefault<string, string[]> _clues = new DictionaryWithDefault<string, string[]>(new string[] { "This clue has not been implemented" }) {
             #region Docking Bay
             { nameof(RaymondsShip), new string[] {
                 "The ship is a Regal Glider an expensive personal craft.",
@@ -222,7 +201,7 @@ namespace SpaceResortMurder
             #endregion
         };
 
-        private static Dictionary<string, Tuple<string, string[]>> _dialogues = new Dictionary<string, Tuple<string, string[]>> {
+        private static DictionaryWithDefault<string, Tuple<string, string[]>> _dialogues = new DictionaryWithDefault<string, Tuple<string, string[]>>(new Tuple<string, string[]>("This dialogue is not implemented", new string[] { "This dialogue is not implemented" })) {
             #region Warren
             { nameof(WarrenIntroduction), new Tuple<string, string[]>(
                 "Introduction.",
@@ -528,7 +507,7 @@ namespace SpaceResortMurder
             #endregion
         };
 
-        private static Dictionary<string, string> _dilemmaOrDeductionText = new Dictionary<string, string> {
+        private static DictionaryWithDefault<string, string> _dilemmaOrDeductionText = new DictionaryWithDefault<string, string>("This dilemma or deduction is not implemented") {
             { nameof(WhoWasTheMurderer), "Who killed \\Raymond\\?" },
             { nameof(ZaidWasTheCulprit), "Zaid" },
             { nameof(MeleenaWasTheCulprit), "Meleena" },
@@ -594,8 +573,7 @@ namespace SpaceResortMurder
             { nameof(PerfectedDesign), "No, the new cloning process was perfected." }
         };
 
-        private static Dictionary<string, string> _objectiveTexts = new Dictionary<string, string>
-        {
+        private static DictionaryWithDefault<string, string> _objectiveTexts = new DictionaryWithDefault<string, string>("This objective is not implemented") {
             { nameof(LookAroundForClues), "Look around this ship for clues." },
             { nameof(AnswerADilemma), "Answer a dilemma located in the top right corner." },
             { nameof(InvestigateRaymondsDeadBody), "Investigate Raymond's Ship" },
@@ -604,13 +582,11 @@ namespace SpaceResortMurder
             { nameof(CheckWhatsOnMeleenasDataStick), "Decrypt Meleena's Data Stick" },
         };
 
-        private static Dictionary<string, string> _resolutionText = new Dictionary<string, string>
-        {
+        private static DictionaryWithDefault<string, string> _resolutionQuestionsText = new DictionaryWithDefault<string, string>("This option is not implemented") {
             { nameof(IAmLeaving), "I am leaving" }
         };
 
-        private static Dictionary<string, string> _pathwayText = new Dictionary<string, string>
-        {
+        private static DictionaryWithDefault<string, string> _pathwayText = new DictionaryWithDefault<string, string>("This pathway should not be stopping you") {
             { nameof(PoliceCruiserToDockingBay), "I am not ready yet." }
         };
 

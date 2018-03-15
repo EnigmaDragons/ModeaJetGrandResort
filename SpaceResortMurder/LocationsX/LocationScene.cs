@@ -15,7 +15,6 @@ using SpaceResortMurder.Style;
 using SpaceResortMurder.State;
 using MonoDragons.Core.EventSystem;
 using SpaceResortMurder.ObjectivesX;
-using SpaceResortMurder.Pathways;
 
 namespace SpaceResortMurder.LocationsX
 {
