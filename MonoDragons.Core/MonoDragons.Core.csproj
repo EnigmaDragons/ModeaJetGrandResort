@@ -42,6 +42,9 @@
     <StartupObject>MonoDragons.Core.Demo</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Animations\HorizontalFlyInAnimation.cs" />
+    <Compile Include="Animations\IAnimation.cs" />
+    <Compile Include="Animations\WithOffset.cs" />
     <Compile Include="Animations\SinglePositionTraverseAnimation.cs" />
     <Compile Include="AudioSystem\Audio.cs" />
     <Compile Include="AudioSystem\AudioPlayer.cs" />

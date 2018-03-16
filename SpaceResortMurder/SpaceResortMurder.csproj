@@ -61,6 +61,8 @@
     <Compile Include="Clues\RaymondsSpaceCraft\ShipsLogs.cs" />
     <Compile Include="Clues\VacantRoom\T71EnergyBlaster.cs" />
     <Compile Include="Clues\ClueDisplayReader.cs" />
+    <Compile Include="Credits\BasicJamCreditSegment.cs" />
+    <Compile Include="Credits\TimCredit.cs" />
     <Compile Include="Deductions\CauseOfDeath\ChokedBySomeone.cs" />
     <Compile Include="Deductions\CauseOfDeath\LaunchedIntoSpaceFromTheGarbageAirlock.cs" />
     <Compile Include="Deductions\CauseOfDeath\PoisonNeedles.cs" />
@@ -236,7 +238,7 @@
     <Compile Include="Scenes\OptionsScene.cs" />
     <Compile Include="DilemmasX\Dilemmas.cs" />
     <Compile Include="State\GameState.cs" />
-    <Compile Include="Scenes\CreditsScene.cs" />
+    <Compile Include="Credits\CreditsScene.cs" />
     <Compile Include="DilemmasX\DilemmaScene.cs" />
     <Compile Include="Scenes\MainMenuScene.cs" />
     <Compile Include="Program.cs" />

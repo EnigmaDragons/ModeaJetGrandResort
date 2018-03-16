@@ -5,29 +5,31 @@ using MonoDragons.Core.PhysicsEngine;
 
 namespace MonoDragons.Core.Animations
 {
-    public sealed class SinglePositionTraverseAnimation : IVisualAutomaton
+    public sealed class SinglePositionTraverseAnimation : IAnimation
     {
         private readonly IVisual _visual;
         private readonly Vector2 _moveBy;
         private readonly TimeSpan _movementDuration;
-        private readonly Action _onFinished;
         private readonly TimeSpan _totalDuration;
 
         private bool _started;
+        private Action _onFinished;
         private TimeSpan _elapsed = TimeSpan.Zero;
         private Vector2 _currentPosition;
 
-        public SinglePositionTraverseAnimation(IVisual visual, Vector2 moveBy, TimeSpan movementDuration, TimeSpan stayDuration, Action onFinished)
+        public SinglePositionTraverseAnimation(IVisual visual, Vector2 moveBy, TimeSpan movementDuration, TimeSpan stayDuration)
         {
             _visual = visual;
             _moveBy = moveBy;
             _movementDuration = movementDuration;
-            _onFinished = onFinished;
             _totalDuration = _movementDuration + stayDuration;
         }
 
-        public void Start()
+        public void Start(Action onFinished)
         {
+            if (_started) return;
+
+            _onFinished = onFinished;
             _started = true;
         }
 
