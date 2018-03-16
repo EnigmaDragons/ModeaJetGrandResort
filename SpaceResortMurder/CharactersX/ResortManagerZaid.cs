@@ -7,7 +7,7 @@ namespace SpaceResortMurder.CharactersX
 {
     public class ResortManagerZaid : Character
     {
-        public ResortManagerZaid() : base(nameof(ResortManagerZaid), new Size2(480, 1128),
+        public ResortManagerZaid() : base(nameof(ResortManagerZaid), new Size2(399, 937),
             new WhoAreYouZaid(),
             new WhoIsStayingAtYourResort(),
             new WhySoFewPeopleAtTheResort(),
