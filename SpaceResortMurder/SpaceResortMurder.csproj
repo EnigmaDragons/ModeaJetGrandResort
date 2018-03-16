@@ -62,7 +62,7 @@
     <Compile Include="Clues\VacantRoom\T71EnergyBlaster.cs" />
     <Compile Include="Clues\ClueDisplayReader.cs" />
     <Compile Include="Credits\BasicJamCreditSegment.cs" />
-    <Compile Include="Credits\TimCredit.cs" />
+    <Compile Include="Credits\CreditSegments.cs" />
     <Compile Include="Deductions\CauseOfDeath\ChokedBySomeone.cs" />
     <Compile Include="Deductions\CauseOfDeath\LaunchedIntoSpaceFromTheGarbageAirlock.cs" />
     <Compile Include="Deductions\CauseOfDeath\PoisonNeedles.cs" />

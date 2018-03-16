@@ -57,6 +57,7 @@
     <Compile Include="Demo.cs" />
     <Compile Include="Development\Perf.cs" />
     <Compile Include="EngimaDragons\OilLogoScene.cs" />
+    <Compile Include="Engine\TimerTask.cs" />
     <Compile Include="Text\ScaledSpriteFontSet.cs" />
     <Compile Include="UserInterface\Anchor.cs" />
     <Compile Include="Engine\IControl.cs" />
