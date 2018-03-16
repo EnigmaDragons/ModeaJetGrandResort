@@ -1,4 +1,5 @@
-﻿using SpaceResortMurder.Dialogues.Meleena;
+﻿using SpaceResortMurder.Clues.MeleenasSpaceCraft;
+using SpaceResortMurder.Dialogues.Meleena;
 using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.ObjectivesX
@@ -7,8 +8,8 @@ namespace SpaceResortMurder.ObjectivesX
     {
         public CheckWhatsOnMeleenasDataDrive() : base(nameof(CheckWhatsOnMeleenasDataDrive)) {}
 
-        public override bool IsActive() => (CurrentGameState.IsThinking(nameof(CareToShowTheDirtYouCollected))
-                || CurrentGameState.IsThinking(nameof(ObstructionOfJusticeWillAddToYourPrisonTime))
-                || CurrentGameState.IsThinking(nameof(WontTurnYouInIfYouUnencryptThisDrive)));
+        public override bool IsActive() => (CurrentGameState.IsThinking(nameof(IWontReportDataRaven))
+                || CurrentGameState.IsThinking(nameof(DeckersMakeTheWorldWorse)))
+            && !CurrentGameState.IsThinking(nameof(UnencryptedDataDrive));
     }
 }

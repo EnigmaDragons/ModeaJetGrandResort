@@ -24,7 +24,6 @@ using SpaceResortMurder.State;
 using System.Text;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Windows.Forms.VisualStyles;
 using SpaceResortMurder.CharactersX;
 using SpaceResortMurder.Clues.PoliceSpaceCraft;
 using SpaceResortMurder.Deductions.ClonesDesign;
@@ -246,11 +245,9 @@ namespace SpaceResortMurder
                 "I detect this data drive was used recently, but it's encrypted.",
             } },
             { nameof(UnencryptedDataDrive), new string[] {
-                "The data stick contains Raymond's files about a recent cloning experiment gone wrong.",
-                "The experiment made much more perfect clones signifigantly faster than any known method.",
-                "It used needles to extract key matter for replication.",
-                "The experiment turned deadly when all the clones tried to kill their look a likes",
-                "It was a massacre. The researcher overseeing the project and paid for it with his life was Bernard Falcon.",
+                "The data drive contains Raymond's files about a recent cloning experiment gone wrong.",
+                "The experiment was supposed to make perfect clones. It used needles to extract key matter for replication.",
+                "The experiment turned deadly when all the clones tried to kill their look a likes. It was a massacre. The researcher Bernard Falcon was overseeing the project and paid for it with his life.",
                 "Raymond Soule covered up the massacre by staging a terroist attack that supposedly killed the people.",
             } },
             { nameof(SkeletonKey), new string[] {
@@ -378,12 +375,27 @@ namespace SpaceResortMurder
                     new DialogueElement(true, "This is jacked! The OPID don't give a frag about privacy."),
             } ) },
             { nameof(YouAreAHacker), new DialogueSequence(
-                "You are not a corporate freelancer and this is not a retreat.",
+                "\"Data Raven\" you are rather infamous, What are you really doing here?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "You're right, I was hired to find dirt on Human Perfect."),
-                    new DialogueElement(true, "CEO's don't take time off to small time resorts. But that means that something fishy is up and an easy to access to the CEO's data. \nEasy mark."),
-                }
-            ) },
+                    new DialogueElement(true, "Drek!"),
+                    new DialogueElement(true, "The chip-truth is I got word that Raymond Soule was visiting this small time resort. CEO's don't take time off to small time resorts."), 
+                    new DialogueElement(true, "I knew there was gonna be easy paydata for someone who has their own craft. I didn't Derezz Raymond."),
+                    new DialogueElement(true, "\\Player\\ I only use my decking to fight corp corruption and don't you think it would be useful if you had a decker in your pocket for future investigations. Please don't include \"Data Raven\" in your report."),
+            } ) },
+            { nameof(IWontReportDataRaven), new DialogueSequence(
+                "I won't report data raven.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "You won't regret this roid!"),
+                    new DialogueElement(false, "Could you give me the encryption key for the data drive you recently used."),
+                    new DialogueElement(true, "Anything for my new chummer. It's got some valuable paydata."), 
+            } ) },
+            { nameof(DeckersMakeTheWorldWorse), new DialogueSequence(
+                "\"Data Raven\" needs to answer for her crimes.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "Drek!"),
+                    new DialogueElement(false, "If you don't want your charges to get even worse, you will give me the encryption key for your data drive."),
+                    new DialogueElement(true, "Fraggin bioroid badges are incapable of being human! You can have the data drive it's not even fraggin useful to your case."),
+            } ) },
 
 
             { nameof(YouBrokeIntoRaymondsShip), new DialogueSequence(
@@ -399,38 +411,12 @@ namespace SpaceResortMurder
                     new DialogueElement(true, "As soon as he left I booked it."),
                 }
             ) },
-            { nameof(CareToShowTheDirtYouCollected), new DialogueSequence(
-                "This data stick shows signs of recent use, care to give me the encryption key?",
-                new DialogueElement[] {
-                    new DialogueElement(true, "There is some juicy pieces of dirt on Human Perfect and the shady Mr.Soule."),
-                    new DialogueElement(true, "Here is your encryption key."),
-                }
-            ) },
-            { nameof(YouNeedToUnencryptThisDataStick), new DialogueSequence(
-                "The data stick on your craft has evidence, give me the encryption key.",
-                new DialogueElement[] {
-                    new DialogueElement(true, "Oh that's so sad, I lost the encryption key, and it would take the best AIs 290 years to crack. So good luck!"),
-                }
-            ) },
-            { nameof(WontTurnYouInIfYouUnencryptThisDrive), new DialogueSequence(
-                "I don't have to report your career choices, if you can give me the encryption for the drive.",
-                new DialogueElement[] {
-                    new DialogueElement(true, "Now you're talking, I hope I'm right about you being honest."),
-                }
-            ) },
-            { nameof(ObstructionOfJusticeWillAddToYourPrisonTime), new DialogueSequence(
-                "Obstruction of justice will only extend your prison time.",
-                new DialogueElement[] {
-                    new DialogueElement(true, "YOU WANT IT SO BAD! WELL FINE, IT'S NOT EVEN USEFUL FOR YOUR CASE!"),
-                }
-            ) },
             { nameof(MeleenaHeardRaymondsVoice), new DialogueSequence(
                 "Whom Meleena Heard.",
                 new DialogueElement[] {
                     new DialogueElement(true, "I have something private to tell you."),
                     new DialogueElement(true, "He is the one I heard on the ship. Raymond's voice was definitely the voice I heard."),
-                }
-            ) },
+            } ) },
             #endregion
 
             #region Zaid
@@ -516,8 +502,19 @@ namespace SpaceResortMurder
                     new DialogueElement(true, "This is an experimental cloning device capable of making more accurate clones than ever before."),
                     new DialogueElement(true, "It uses 13 needles on the target, to extract different kinds of material to synthesize."),
                     new DialogueElement(true, "Then we map out a target's brain, while the clones body is being formed. The last step is forming the new brain and seal up the clone."), 
-                    new DialogueElement(true, "Naturally this process has not yet been approved for commercial use, but with the amount of influence Human Perfect wields, I have no doubt it will be soon."), 
+                    new DialogueElement(true, "Now I know it's illegal to use unapproved cloning devices on humans, but Raymond demanded it or I would be fired and my reputation dragged through the mud. I had no choice."), 
+                    new DialogueElement(true, "Will you spare me from the judgment, of Raymond's wrong doing."), 
             } ) },
+            { nameof(WontTurnYouInForRaymondsAction), new DialogueSequence(
+                "You shouldn't pay for Raymond's crimes.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "I'm glad you you are a just bioroid."),
+                } ) },
+            { nameof(YouAreStillResposible), new DialogueSequence(
+                "You are still responsible for agreeing to do it.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "... how unfortunate."),
+                } ) },
             { nameof(TravissAccount), new DialogueSequence(
                 "Give me your full account of today's events?",
                 new DialogueElement[] {
@@ -547,26 +544,22 @@ namespace SpaceResortMurder
                     new DialogueElement(true, "Interesting, that's very suspicious."),
                     new DialogueElement(true, "Raymond's clone is lying the process does not leave a mark on it's user, if he has bruises they came from somewhere else."),
             } ) },
-
-
             { nameof(YourBrotherWasKilled), new DialogueSequence(
                 "Your brother died in a cloning experiment and Raymond covered it up.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "So you think this would be my motive for murder?"),
-                    new DialogueElement(true, "Well it's even worse than a cover up, my brother told Raymond the experiment wasn't ready."),
-                    new DialogueElement(true, "But Raymond wasn't willing to delay it, he rushed it in an unsafe manner."),
-                    new DialogueElement(true, "How is that for a strong motive, although you will find the evidence doesn't support me being the murder."),
+                    new DialogueElement(true, "... So you think this would be my motive for murder?"),
+                    new DialogueElement(false, "It's a strong motive."), 
+                    new DialogueElement(true, "Well since I didn't commit the murder, I'll make that motive even stronger."),
+                    new DialogueElement(true, "My brother told Raymond the experiment wasn't ready, But Raymond wasn't willing to delay it, he rushed it ignoring all safety percautions."),
                 }
             ) },
             { nameof(ViolentExperimentalResearch), new DialogueSequence(
                 "The technique used by this cloning chamber is the same one used in the incident that killed your brother.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Even though the experiment resulted in a massacre, it did produce results and we were able to perfect it with out the lethal flaw."),
-                    new DialogueElement(true, "This is the same method without that flaw."),
-
-
-                }
-            ) },
+                    new DialogueElement(true, "Ah so now you think I would make a clone that would attempt to kill Raymond?"),
+                    new DialogueElement(true, "Well sorry to disappoint, but even though the experiment resulted in a massacre, it did produce results and we were able to perfect the technique."),
+                    new DialogueElement(true, "This is the same method, but without that fatal flaw."),
+            } ) },
             #endregion
 
             #region Raymond's Clone
@@ -589,6 +582,12 @@ namespace SpaceResortMurder
             } ) },
             { nameof(Bruises), new DialogueSequence(
                 "You have quite a few recent bruises on you.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "Yes bruises..."),
+                    new DialogueElement(true, "When the needles take matter from you in the new cloning process, it leaves bruises."),
+            } ) },
+            { nameof(RaymondSaysTheCloningDoesNotGiveBruises), new DialogueSequence(
+                "Raymond said that cloning does not give bruises.",
                 new DialogueElement[] {
                     new DialogueElement(true, "Yes bruises..."),
                     new DialogueElement(true, "When the needles take matter from you in the new cloning process, it leaves bruises."),

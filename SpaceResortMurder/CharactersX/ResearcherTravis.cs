@@ -2,7 +2,6 @@
 using MonoDragons.Core.PhysicsEngine;
 using SpaceResortMurder.Dialogues.Travis;
 using SpaceResortMurder.LocationsX;
-using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.CharactersX
 {
@@ -17,9 +16,10 @@ namespace SpaceResortMurder.CharactersX
             new CloningMalfunction(),
             new PowerBatteryArm(),
             new MatterRemovalBruises(),
-
             new YourBrotherWasKilled(),
-            new ViolentExperimentalResearch()) {}
+            new ViolentExperimentalResearch(),
+            new WontTurnYouInForRaymondsAction(),
+            new YouAreStillResposible()) {}
 
         public override string WhereAreYou()
         {

@@ -11,9 +11,8 @@ namespace SpaceResortMurder.ObjectivesX
         public override bool IsActive()
         {
             return CurrentGameState.IsThinking(nameof(EncryptedDataDrive))
-                && !(CurrentGameState.IsThinking(nameof(CareToShowTheDirtYouCollected))
-                    || CurrentGameState.IsThinking(nameof(ObstructionOfJusticeWillAddToYourPrisonTime))
-                    || CurrentGameState.IsThinking(nameof(WontTurnYouInIfYouUnencryptThisDrive)));
+                && !(CurrentGameState.IsThinking(nameof(IWontReportDataRaven))
+                     || CurrentGameState.IsThinking(nameof(DeckersMakeTheWorldWorse)));
         }
     }
 }

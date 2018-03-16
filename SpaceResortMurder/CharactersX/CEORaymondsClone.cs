@@ -13,6 +13,7 @@ namespace SpaceResortMurder.CharactersX
             new WhyKeepCloneSecret(),
             new ElectricDischarge(),
             new Bruises(),
+            new RaymondSaysTheCloningDoesNotGiveBruises(),
 
             new MeetingRaymondsClone(),
             new YourLookALikeIsDead(),

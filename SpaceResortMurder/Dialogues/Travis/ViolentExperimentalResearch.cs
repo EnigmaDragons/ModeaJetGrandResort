@@ -1,5 +1,4 @@
-﻿using SpaceResortMurder.Clues.CloningRoom;
-using SpaceResortMurder.Clues.MeleenasSpaceCraft;
+﻿using SpaceResortMurder.Clues.MeleenasSpaceCraft;
 using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Dialogues.Travis
@@ -10,8 +9,10 @@ namespace SpaceResortMurder.Dialogues.Travis
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(CloningChamber))
-                   && CurrentGameState.IsThinking(nameof(UnencryptedDataDrive));
+            return (CurrentGameState.IsThinking(nameof(YouAreStillResposible))
+                    || CurrentGameState.IsThinking(nameof(WontTurnYouInForRaymondsAction)))
+                && CurrentGameState.IsThinking(nameof(UnencryptedDataDrive))
+                && CurrentGameState.IsThinking(nameof(YourBrotherWasKilled));
         }
     }
 }

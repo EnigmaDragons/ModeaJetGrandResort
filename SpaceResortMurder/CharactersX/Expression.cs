@@ -6,5 +6,6 @@
         Angry,
         Happy,
         Thinking,
+        Fear,
     }
 }
