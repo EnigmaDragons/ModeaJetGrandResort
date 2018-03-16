@@ -130,6 +130,7 @@
     <Compile Include="Text\EnumExtensions.cs" />
     <Compile Include="Text\WrappingText.cs" />
     <Compile Include="UserInterface\ExpandingImageButton.cs" />
+    <Compile Include="UserInterface\TintedImageBox.cs" />
     <Compile Include="UserInterface\KeyboardTyping.cs" />
     <Compile Include="UserInterface\Layouts\ConcreteDefinition.cs" />
     <Compile Include="UserInterface\Layouts\Definition.cs" />

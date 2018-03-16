@@ -41,7 +41,8 @@
     <Compile Include="CharactersX\Expression.cs" />
     <Compile Include="CharactersX\HackerMeleena.cs" />
     <Compile Include="CharactersX\Characters.cs" />
-    <Compile Include="CharactersX\PlayerCharacter.cs" />
+    <Compile Include="CharactersX\CharacterView.cs" />
+    <Compile Include="CharactersX\PlayerCharacterView.cs" />
     <Compile Include="CharactersX\RaymondsClone.cs" />
     <Compile Include="CharactersX\ResearcherTravis.cs" />
     <Compile Include="Clues\CloningRoom\CloningChamber.cs" />

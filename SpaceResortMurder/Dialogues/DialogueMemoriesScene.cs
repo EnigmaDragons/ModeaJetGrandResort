@@ -24,7 +24,7 @@ namespace SpaceResortMurder.Dialogues
         private List<IVisual> _dialogOptions = new List<IVisual>();
         private string _locationMemory;
         private IVisual _personImage;
-        private readonly PlayerCharacter _player = new PlayerCharacter();
+        private PlayerCharacterView _player;
         private ClickableUIElement _dialogueAdvancer;
         private bool _isCharacterTalking;
         private IVisual _personName;
@@ -32,6 +32,7 @@ namespace SpaceResortMurder.Dialogues
 
         public void Init()
         {
+            _player = new PlayerCharacterView(() => !_isInTheMiddleOfDialog);
             _dialogueAdvancer = new ScreenClickable(AdvanceChatVisuals);
             _clickUI = new ClickUI();
             _clickUI.Add(GameObjects.Hud.HudBranch);
@@ -72,7 +73,7 @@ namespace SpaceResortMurder.Dialogues
             _clickUI.Remove(_personMemoriesBranch);
             _clickUI.Remove(GameObjects.Hud.HudBranch);
             _clickUI.Add(_dialogueAdvancer);
-            _personImage = _selectedPerson.GetFacingImage();
+            _personImage = _selectedPerson.FacingImage;
             _reader = new Reader(elements.Select(e => e.Line).ToArray(), EndMemory);
             _isInTheMiddleOfDialog = true;
             AdvanceChatVisuals();
@@ -82,7 +83,7 @@ namespace SpaceResortMurder.Dialogues
         {
             if (_elements.MoveNext())
             {
-                _player.Update(_elements.Current);
+                _player.UpdateDialogue(_elements.Current);
                 _isCharacterTalking = _elements.Current.IsCharacterTalking;
                 if (_isCharacterTalking)
                     _personImage = _selectedPerson.CreateFacingImage(_elements.Current.Expression);

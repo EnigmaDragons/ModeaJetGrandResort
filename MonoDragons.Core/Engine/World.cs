@@ -51,6 +51,11 @@ namespace MonoDragons.Core.Engine
             Draw(imageName, transform.ToRectangle());
         }
 
+        public static void Draw(string imageName, Transform2 transform, Color tint)
+        {
+            _spriteBatch.Draw(Resources.Load<Texture2D>(imageName), ScaleRectangle(transform.ToRectangle()), tint);
+        }
+
         public static void Draw(string imageName, Rectangle rectPostion)
         {
             _spriteBatch.Draw(Resources.Load<Texture2D>(imageName), ScaleRectangle(rectPostion), Color.White);
