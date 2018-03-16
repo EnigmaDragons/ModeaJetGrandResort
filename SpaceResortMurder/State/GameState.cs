@@ -5,7 +5,7 @@ using System;
 
 namespace SpaceResortMurder.State
 {
-    public class GameState
+    public class GameState : IDisposable
     {
         [JsonProperty]
         private readonly Dictionary<string, string> _memories = new Dictionary<string, string>();
@@ -48,6 +48,11 @@ namespace SpaceResortMurder.State
         {
             action();
             Event.Publish(new StateChanged());
+        }
+
+        public void Dispose()
+        {
+            Event.Unsubscribe(this);
         }
     }
 }

@@ -14,9 +14,6 @@ namespace SpaceResortMurder.CharactersX
         private readonly List<Dialogue> _dialogs;
         private ImageBox _newDialogIcon;
 
-        // TODO: Remove
-        public IVisual FacingImage { get; private set; }
-
         public Size2 FacingSize { get; }
         public string Image { get; }
         public string Value { get; }
@@ -31,7 +28,6 @@ namespace SpaceResortMurder.CharactersX
 
         public void Init()
         {
-            FacingImage = CreateFacingImage(Expression.Default);
             _newDialogIcon = new ImageBox
             {
                 Transform = new Transform2(new Vector2(WhereAreYouStanding().Size.Width - 60, -24), new Size2(43, 43)),

@@ -73,7 +73,7 @@ namespace SpaceResortMurder.Dialogues
             _clickUI.Remove(_personMemoriesBranch);
             _clickUI.Remove(GameObjects.Hud.HudBranch);
             _clickUI.Add(_dialogueAdvancer);
-            _personImage = _selectedPerson.FacingImage;
+            _personImage = _selectedPerson.CreateFacingImage(Expression.Default);
             _reader = new Reader(elements.Select(e => e.Line).ToArray(), EndMemory);
             _isInTheMiddleOfDialog = true;
             AdvanceChatVisuals();

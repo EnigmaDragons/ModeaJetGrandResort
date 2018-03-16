@@ -23,11 +23,13 @@
 
         public static void Reset()
         {
+            Value.Dispose();
             Value = new GameState();
         }
 
         public static void Load(string saveName)
         {
+            Value.Dispose();
             Value = GameObjects.IO.Load<GameState>(saveName);
         }
 
