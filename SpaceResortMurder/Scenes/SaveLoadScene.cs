@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.Common;
 using MonoDragons.Core.Engine;
+using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.State;
@@ -44,6 +45,18 @@ namespace SpaceResortMurder.Scenes
                 UiButtons.Menu("", new Vector2(960 + 50, 400), () => SelectSaveSlot(2), () => _mode == Mode.Save || _isSaveSlotUsed[2]),
                 UiButtons.Menu("", new Vector2(960 + 360 + 150, 400), () => SelectSaveSlot(3), () => _mode == Mode.Save || _isSaveSlotUsed[3])
             };
+            if (GameObjects.IO.HasSave("Save 0"))
+                AddVisual(new ImageBox(){ Transform = new Transform2(new Vector2(960 - 720 - 150 + 20, 475), new Size2(320, 180)),
+                    Image = GameObjects.IO.Load<GameState>("Save 0").CurrentLocationImage});
+            if (GameObjects.IO.HasSave("Save 1"))
+                AddVisual(new ImageBox() { Transform = new Transform2(new Vector2(960 - 360 - 50 + 20, 475), new Size2(320, 180)),
+                    Image = GameObjects.IO.Load<GameState>("Save 1").CurrentLocationImage });
+            if (GameObjects.IO.HasSave("Save 2"))
+                AddVisual(new ImageBox() { Transform = new Transform2(new Vector2(960 + 50 + 20, 475), new Size2(320, 180)),
+                    Image = GameObjects.IO.Load<GameState>("Save 2").CurrentLocationImage });
+            if (GameObjects.IO.HasSave("Save 3"))
+                AddVisual(new ImageBox() { Transform = new Transform2(new Vector2(960 + 360 + 150 + 20, 475), new Size2(320, 180)),
+                    Image = GameObjects.IO.Load<GameState>("Save 3").CurrentLocationImage });
             ChangeMode(_savingEnabled ? Mode.Save: Mode.Load);
             if (_savingEnabled)
                 Add(UiButtons.Menu("Save", new Vector2(380, 100), () => ChangeMode(Mode.Save)));
