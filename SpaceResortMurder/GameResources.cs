@@ -10,7 +10,6 @@ using SpaceResortMurder.Deductions.CauseOfDeath;
 using SpaceResortMurder.Deductions.MeleenasAccountValidity;
 using SpaceResortMurder.Deductions.TheCulpritsMotive;
 using SpaceResortMurder.Deductions.TheMurdererWas;
-using SpaceResortMurder.Deductions.VictimsIdentity;
 using SpaceResortMurder.Deductions.ZaidsResortForBetaTesting;
 using SpaceResortMurder.Dialogues.Meleena;
 using SpaceResortMurder.Dialogues.RaymondsClone;
@@ -690,9 +689,7 @@ namespace SpaceResortMurder
             { nameof(MeleenaKilledHimBecauseHeIsEvil), "Meleena had discovered that he covered up a massacre within his company" },
             { nameof(RaymondsCloneWasDesignedToKillForRevenge), "Travis blames Raymond for the death of his brother, so he made a murderous clone" },
             { nameof(RaymondsCloneWasDesignedToKillAndThenControlHumanPerfectByProxy), "Travis wanted to control Human Perfect, so he made a clone to replace Raymond" },
-            { nameof(RaymondWasDefendingHimself), "Raymond was attacked by the murderous clone and defended himself." },
             { nameof(RevengeForHisBrothersDeath), "Travis blames Raymond for the death of his brother." },
-            { nameof(ToFrameRaymondAndMakeHimLookLikeAClone), "Travis blamed Raymond for his brothers death, so he wanted to imprison and humiliate Raymond" },
             { nameof(ToReplaceRaymondAsCEO), "Raymond's clone wasn't satisfied pretending to be the CEO. He decided he was going to replace Raymond." },
             { nameof(ToSaveHisResort), "Zaid needed his resort to be accepted for resort clones beta-testing" },
 

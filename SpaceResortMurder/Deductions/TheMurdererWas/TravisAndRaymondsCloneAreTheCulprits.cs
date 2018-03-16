@@ -1,5 +1,4 @@
 ﻿using SpaceResortMurder.Deductions.ClonesDesign;
-using SpaceResortMurder.Deductions.VictimsIdentity;
 using SpaceResortMurder.Dialogues.Travis;
 using SpaceResortMurder.State;
 
@@ -11,8 +10,7 @@ namespace SpaceResortMurder.Deductions.TheMurdererWas
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(TheVictimIsRaymond)) 
-                && CurrentGameState.IsThinking(nameof(ViolentExperimentalResearch))
+            return CurrentGameState.IsThinking(nameof(ViolentExperimentalResearch))
                 && CurrentGameState.IsThinking(nameof(DesignedToKill));
         }
     }

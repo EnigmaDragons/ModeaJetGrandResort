@@ -85,11 +85,9 @@
     <Compile Include="Deductions\HackedTheDoor\ZaidHackedTheDoor.cs" />
     <Compile Include="Deductions\HackedTheDoor\TravisHackedTheDoor.cs" />
     <Compile Include="Deductions\TheCulpritsMotive\RaymondsCloneWasDesignedToKillAndThenControlHumanPerfectByProxy.cs" />
-    <Compile Include="Deductions\TheCulpritsMotive\ToFrameRaymondAndMakeHimLookLikeAClone.cs" />
     <Compile Include="Deductions\TheCulpritsMotive\MeleenaGotCaught.cs" />
     <Compile Include="Deductions\TheCulpritsMotive\MeleenaKilledHimBecauseHeIsEvil.cs" />
     <Compile Include="Deductions\TheCulpritsMotive\RaymondsCloneWasDesignedToKillForRevenge.cs" />
-    <Compile Include="Deductions\TheCulpritsMotive\RaymondWasDefendingHimself.cs" />
     <Compile Include="Deductions\TheCulpritsMotive\RevengeForHisBrothersDeath.cs" />
     <Compile Include="Deductions\TheCulpritsMotive\ToReplaceRaymondAsCEO.cs" />
     <Compile Include="Deductions\TheCulpritsMotive\ToSaveHisResort.cs" />

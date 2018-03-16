@@ -11,7 +11,6 @@ namespace SpaceResortMurder.DilemmasX
             new WhoWasTheMurderer(),
             new WhatWasTheCauseOfDeath(),
             new WhatWasTheCulpritsMotive(),
-            new WhoIsTheVictim(),
         };
 
         private List<Dilemma> _dilemmas = new List<Dilemma>

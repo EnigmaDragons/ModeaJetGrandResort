@@ -1,7 +1,6 @@
 ﻿using MonoDragons.Core.EventSystem;
 using Newtonsoft.Json;
 using System.Collections.Generic;
-using SpaceResortMurder.Deductions.VictimsIdentity;
 using System;
 
 namespace SpaceResortMurder.State
@@ -12,15 +11,9 @@ namespace SpaceResortMurder.State
         private readonly Dictionary<string, string> _memories = new Dictionary<string, string>();
 
         [JsonProperty]
-        private readonly HashSet<string> _viewedItems = new HashSet<string>
-        {
-            nameof(TheVictimIsRaymond)
-        };
+        private readonly HashSet<string> _viewedItems = new HashSet<string>();
         [JsonProperty]
-        private readonly HashSet<string> _thoughts = new HashSet<string>
-        {
-            nameof(TheVictimIsRaymond)
-        };
+        private readonly HashSet<string> _thoughts = new HashSet<string>();
         public string CurrentLocation { get; set; } = GameResources.MainMenuSceneName;
         public string CurrentLocationImage { get; set; } = "";
 

@@ -11,9 +11,7 @@ namespace SpaceResortMurder.DilemmasX.CoreDilemmas
             new MeleenaGotCaught(),
             new MeleenaKilledHimBecauseHeIsEvil(),
             new RaymondsCloneWasDesignedToKillForRevenge(),
-            new RaymondWasDefendingHimself(),
             new RevengeForHisBrothersDeath(),
-            new ToFrameRaymondAndMakeHimLookLikeAClone(),
             new ToReplaceRaymondAsCEO(),
             new ToSaveHisResort(),
             new RaymondsCloneWasDesignedToKillAndThenControlHumanPerfectByProxy()) {}
