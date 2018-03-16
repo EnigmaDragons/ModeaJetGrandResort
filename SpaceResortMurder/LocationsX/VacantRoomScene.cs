@@ -1,4 +1,4 @@
-﻿using MonoDragons.Core.UserInterface;
+﻿using MonoDragons.Core.AudioSystem;
 
 namespace SpaceResortMurder.LocationsX
 {
@@ -6,6 +6,9 @@ namespace SpaceResortMurder.LocationsX
     {
         public VacantRoomScene() : base(GameObjects.Locations[nameof(VacantRoom)]) {}
 
-        protected override void OnInit() {}
+        protected override void OnInit()
+        {
+            Audio.PlayMusic("VacantRoom");
+        }
     }
 }
