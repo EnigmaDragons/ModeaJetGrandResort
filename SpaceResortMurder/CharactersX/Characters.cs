@@ -11,7 +11,7 @@ namespace SpaceResortMurder.CharactersX
             new ResortManagerZaid(),
             new ResearcherTravis(),
             new HackerMeleena(),
-            new RaymondsClone(),
+            new CEORaymondsClone(),
         };
 
         public void Init()

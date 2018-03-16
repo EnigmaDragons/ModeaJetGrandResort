@@ -14,6 +14,9 @@ namespace SpaceResortMurder.CharactersX
             new ExplainTheCloningMachine(),
             new TravissAccount(),
             new WhereIsYourClone(),
+            new CloningMalfunction(),
+            new PowerBatteryArm(),
+            new MatterRemovalBruises(),
 
             new YourBrotherWasKilled(),
             new ViolentExperimentalResearch()) {}

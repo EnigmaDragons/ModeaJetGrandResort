@@ -16,9 +16,11 @@ namespace SpaceResortMurder.ObjectivesX
             _objectives.Add(new GoFindOutTheManagersAccount());
             _objectives.Add(new QuestionTravis());
             _objectives.Add(new FindRaymondsClone());
+            _objectives.Add(new GetRaymondsCloneToAdmitHesAClone());
+            _objectives.Add(new CheckWithWarrenForASearchOrder());
 
-            _objectives.Add(new GetAnEncryptionKeyForMeleenasDataStick());
-            _objectives.Add(new CheckWhatsOnMeleenasDataStick());
+            _objectives.Add(new GetAnEncryptionKeyForMeleenasDataDrive());
+            _objectives.Add(new CheckWhatsOnMeleenasDataDrive());
         }
 
         public IReadOnlyList<Objective> GetActiveObjectives()

@@ -1,4 +1,5 @@
-﻿using SpaceResortMurder.Dialogues.Zaid;
+﻿using SpaceResortMurder.Dialogues.Travis;
+using SpaceResortMurder.Dialogues.Zaid;
 using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.ObjectivesX
@@ -9,7 +10,8 @@ namespace SpaceResortMurder.ObjectivesX
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(WhoIsStayingAtYourResort));
+            return CurrentGameState.IsThinking(nameof(WhoIsStayingAtYourResort))
+                && !CurrentGameState.IsThinking(nameof(DidYouWorkWithRaymond));
         }
     }
 }

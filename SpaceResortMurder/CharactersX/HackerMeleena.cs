@@ -15,6 +15,7 @@ namespace SpaceResortMurder.CharactersX
             new CorporateFreelancersCantNormallyAffordPersonalSpaceCrafts(),
             new SearchYourCraftForEvidence(),
             new YouHaveARatherCleanRecord(),
+            new YouAreAHacker(),
 
             new HereIsTheSearchOrder(),
             new YouBrokeIntoRaymondsShip(),
@@ -22,8 +23,7 @@ namespace SpaceResortMurder.CharactersX
             new YouNeedToUnencryptThisDataStick(),
             new ObstructionOfJusticeWillAddToYourPrisonTime(),
             new WontTurnYouInIfYouUnencryptThisDrive(),
-            new MeleenaHeardRaymondsVoice(),
-            new YouAreAHacker()) {}
+            new MeleenaHeardRaymondsVoice()) {}
 
         public override string WhereAreYou()
         {
