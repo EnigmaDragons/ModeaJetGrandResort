@@ -32,6 +32,7 @@ namespace SpaceResortMurder.LocationsX
         private ObjectivesView _objectives;
         private Character _talkingTo;
         private ClickUIBranch _investigateRoomBranch;
+        private ImageButton[] _peopleImageButtons;
 
         private IJamView _subview;
         
@@ -122,11 +123,11 @@ namespace SpaceResortMurder.LocationsX
             _clickUi.Add(_tutorialBranch);
 
             _peopleHere = GameObjects.Characters.GetPeopleAt(_location.Value);
-            _peopleHere
+            _peopleImageButtons = _peopleHere
                 .Select(x => new ImageButton(x.Image, x.Image, x.Image, x.WhereAreYouStanding(),
                     () => TalkTo(x),
-                    () => x != _talkingTo))
-                .ForEach(AddToRoom);
+                    () => x != _talkingTo)).ToArray();
+            _peopleImageButtons.ForEach(AddToRoom);
         }
 
         private void InitInputs()
@@ -184,6 +185,7 @@ namespace SpaceResortMurder.LocationsX
 
         private void StartLoitering()
         {
+            _peopleImageButtons.ForEachIndex((b, i) => b.TooltipText = GameResources.GetCharacterName(_peopleHere[i].Value));
             _subview = new NoSubView();
             _clickUi.Clear();
             _isPresentingToUser = false;
