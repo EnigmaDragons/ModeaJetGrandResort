@@ -264,11 +264,6 @@ namespace SpaceResortMurder
             #endregion
         };
 
-            "We used a new process, that makes more perfect clones, much faster than any known method.",
-            "13 needles take sample matter from key places as the brain is scanned.",
-            "It then rapidly replicates the matter to form the clone.",
-            "This new process has not yet been approved for commercial use."
-
         private static DictionaryWithDefault<string, DialogueSequence> _dialogues = new DictionaryWithDefault<string, DialogueSequence>(
             new DialogueSequence("This dialogue is not implemented", new DialogueElement(true, "This dialogue is not implemented"))) {
             #region Warren
@@ -520,8 +515,15 @@ namespace SpaceResortMurder
                 new DialogueElement[] {
                     new DialogueElement(true, "Even though the experiment resulted in a massacre, it did produce results and we were able to perfect it with out the lethal flaw."),
                     new DialogueElement(true, "This is the same method without that flaw."),
+
+
                 }
             ) },
+
+            /*            "We used a new process, that makes more perfect clones, much faster than any known method.",
+            "13 needles take sample matter from key places as the brain is scanned.",
+            "It then rapidly replicates the matter to form the clone.",
+            "This new process has not yet been approved for commercial use."*/
             #endregion
 
             #region Raymond's Clone
