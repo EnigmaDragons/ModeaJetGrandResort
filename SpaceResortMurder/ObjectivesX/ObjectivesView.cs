@@ -9,6 +9,7 @@ using MonoDragons.Core.UserInterface;
 using System.Linq;
 using MonoDragons.Core.EventSystem;
 using SpaceResortMurder.State;
+using MonoDragons.Core.Text;
 
 namespace SpaceResortMurder.ObjectivesX
 {
@@ -46,7 +47,9 @@ namespace SpaceResortMurder.ObjectivesX
 
         private void Draw(Objective o, int index)
         {
-            var t = new Transform2(new Vector2(UI.OfScreenWidth(0.64f), UI.OfScreenHeight(0.90f) - index * 80));
+            var t = new Transform2(new Vector2(
+                Math.Min(UI.OfScreenWidth(0.64f), 1920 - DefaultFont.Value.MeasureString(o.GetObjectiveText()).X - 100),
+                UI.OfScreenHeight(0.90f) - index * 80));
             _card.Draw(t);
             o.ShortDescription.Draw(t);
             _magnifyIcon.Draw(t);

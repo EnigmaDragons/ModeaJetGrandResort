@@ -35,7 +35,7 @@ namespace SpaceResortMurder.Dialogues
             var xOff = -684;
             var xInc = 67;
             var yInc = 92;
-            var xPos = Math.Max(i * xInc + xOff,(int) DefaultFont.ScaledFontSet.MeasureString(
+            var xPos = Math.Max(i * xInc + xOff,(int) DefaultFont.Value.MeasureString(
                 GameResources.GetDialogueSequence(Dialog).Opener).X - buttonWidth + 165);
             var yPos = 520 + i * yInc;
             var t = new Transform2(new Vector2(xPos, yPos), new Size2(buttonWidth, 64)).ToRectangle();
