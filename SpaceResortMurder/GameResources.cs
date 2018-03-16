@@ -675,7 +675,6 @@ namespace SpaceResortMurder
             { nameof(DockingBayToLobby), "I need to investigate the crime scene first" },
             { nameof(DockingBayToPoliceCruiser), "I need to investigate the crime scene first" },
             { nameof(RaymondsShipToDockingBay), "I am not finished investigating here" },
-            { nameof() }
         };
 
         private static Dictionary<string, Func<string>> _symbols = new Dictionary<string, Func<string>> {
