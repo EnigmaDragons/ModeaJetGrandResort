@@ -28,7 +28,7 @@ namespace SpaceResortMurder.Pathways
                 if (IsTraversible)
                     Scene.NavigateTo(_destination);
                 else
-                    showNonTraversibleDialogue(GetType().Name);
+                    showNonTraversibleDialogue(GameResources.GetPathwayText(GetType().Name));
             }) { TooltipText = "To Docking Bay" };
         }
     }
