@@ -16,15 +16,16 @@ namespace SpaceResortMurder.Dialogues
         private readonly Action _onFinished;
 
         private DialogueReader _reader;
-        private IVisual _personImage;
-        private IVisual _personName;
-        private bool _isCharacterTalking;
         private VisualClickableUIElement _endConversationButton;
         private List<IVisual> _dialogueOptions = new List<IVisual>();
-        private readonly PlayerCharacter _player = new PlayerCharacter();
+        
+        private PlayerCharacterView _playerView;
+        private CharacterView _characterView;
+
         private IJamView _subView;
         private bool _isPresentingToUser;
         private bool _shouldShowDialogueControls;
+        private Action<DialogueElement> _onNextDialogueElement;
 
         public ClickUIBranch ClickUiBranch { get; } = new ClickUIBranch("Conversation", 1);
 
@@ -36,7 +37,7 @@ namespace SpaceResortMurder.Dialogues
 
         public void Init()
         {
-            _subView = new ScanView(_person, DisableDialogueControls, InitDialogueOptions);
+            _subView = new ScanView(_person, DisableDialogueControls, InitDialogueOptions, () => !_isPresentingToUser);
             _subView.Init();
             _endConversationButton = new ImageTextButton(new Transform2(new Rectangle(-684, 960, 1380, 77)), _onFinished,
                 "Thanks for your help.",
@@ -47,8 +48,13 @@ namespace SpaceResortMurder.Dialogues
                 TextAlignment = HorizontalAlignment.Left
             };
             
-            _personName = _person.CreateChatNameBox();
-            _personImage = _person.GetFacingImage();
+            _characterView = new CharacterView(_person, () => _shouldShowDialogueControls);
+            _playerView = new PlayerCharacterView(() => _shouldShowDialogueControls);
+
+            _onNextDialogueElement = x => {
+                _characterView.UpdateDialogue(x);
+                _playerView.UpdateDialogue(x);
+            };
 
             if (_person.IsImmediatelyTalking())
                 _person.StartImmediatelyTalking(StartDialogue);
@@ -58,6 +64,8 @@ namespace SpaceResortMurder.Dialogues
 
         public void Update(TimeSpan delta)
         {
+            _playerView.Update(delta);
+            _characterView.Update(delta);
             _subView.Update(delta);
             if (_isPresentingToUser)
                 _reader.Update(delta);
@@ -65,9 +73,8 @@ namespace SpaceResortMurder.Dialogues
 
         public void Draw(Transform2 parentTransform)
         {
-            _player.Draw();
-            _personImage.Draw();
-            _personName.Draw();
+            _playerView.Draw(parentTransform);
+            _characterView.Draw(parentTransform);
 
             if (_shouldShowDialogueControls)
                 DrawConversationControls(parentTransform);
@@ -75,9 +82,7 @@ namespace SpaceResortMurder.Dialogues
             if (_isPresentingToUser)
                 _reader.Draw();
 
-            // TODO: Kill this
-            if (!_isPresentingToUser)
-                _subView.Draw(parentTransform);
+            _subView.Draw(parentTransform);
         }
 
         private void DrawConversationControls(Transform2 parentTransform)
@@ -91,7 +96,6 @@ namespace SpaceResortMurder.Dialogues
             _isPresentingToUser = false;
             _shouldShowDialogueControls = true;
             ClickUiBranch.Clear();
-            _personName = _person.CreateChatNameBox();
             var newDialogueChoices = new List<IVisual>();
             _person.GetNewDialogs().ForEachIndex((x, i) =>
             {
@@ -107,17 +111,9 @@ namespace SpaceResortMurder.Dialogues
         private void StartDialogue(DialogueElement[] elements)
         {
             ClickUiBranch.Clear();
-            _reader = new DialogueReader(elements, InitDialogueOptions, AdvanceChatVisuals);
+            _reader = new DialogueReader(elements, InitDialogueOptions, _onNextDialogueElement);
             DisableDialogueControls();
             _isPresentingToUser = true;
-        }
-
-        private void AdvanceChatVisuals(DialogueElement element)
-        {
-            _player.Update(element);
-            _isCharacterTalking = element.IsCharacterTalking;
-            if (_isCharacterTalking)
-                _personImage = _person.CreateFacingImage(element.Expression);
         }
 
         private void DisableDialogueControls()

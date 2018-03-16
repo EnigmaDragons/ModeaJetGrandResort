@@ -17,6 +17,7 @@ namespace SpaceResortMurder.Dialogues
         private readonly Character _person;
         private readonly Action _onStarted;
         private readonly Action _onFinished;
+        private readonly Func<bool> _scanningIsAllowed;
 
         private IVisual _nameDataLabel;
         private ImageTextButton _startScanButton;
@@ -27,11 +28,12 @@ namespace SpaceResortMurder.Dialogues
 
         public ClickUIBranch ClickUiBranch { get; } = new ClickUIBranch("Scan", 2);
 
-        public ScanView(Character person, Action onStarted, Action onFinished)
+        public ScanView(Character person, Action onStarted, Action onFinished, Func<bool> scanningIsAllowed)
         {
             _person = person;
             _onStarted = onStarted;
             _onFinished = onFinished;
+            _scanningIsAllowed = scanningIsAllowed;
         }
 
         public void Init()
@@ -59,6 +61,9 @@ namespace SpaceResortMurder.Dialogues
 
         public void Update(TimeSpan delta)
         {
+            if (!_scanningIsAllowed())
+                return;
+
             _scanAnimation.Update(delta);
             if (_isShowingScanData)
                 _reader.Update(delta);
@@ -66,6 +71,9 @@ namespace SpaceResortMurder.Dialogues
 
         public void Draw(Transform2 parentTransform)
         {
+            if (!_scanningIsAllowed())
+                return;
+
             _scanAnimation.Draw(parentTransform);
             if (!_startedScanning)
                 _startScanButton.Draw(parentTransform);
