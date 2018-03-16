@@ -6,7 +6,7 @@
 
         public override bool IsActive()
         {
-            throw new System.NotImplementedException();
+            return false;
         }
     }
 }
