@@ -4,13 +4,13 @@ using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.ObjectivesX
 {
-    public class GetAnEncryptionKeyForMeleenasDataStick : Objective
+    public class GetAnEncryptionKeyForMeleenasDataDrive : Objective
     {
-        public GetAnEncryptionKeyForMeleenasDataStick() : base(nameof(GetAnEncryptionKeyForMeleenasDataStick)) {}
+        public GetAnEncryptionKeyForMeleenasDataDrive() : base(nameof(GetAnEncryptionKeyForMeleenasDataDrive)) {}
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(EncryptedDataStick))
+            return CurrentGameState.IsThinking(nameof(EncryptedDataDrive))
                 && !(CurrentGameState.IsThinking(nameof(CareToShowTheDirtYouCollected))
                     || CurrentGameState.IsThinking(nameof(ObstructionOfJusticeWillAddToYourPrisonTime))
                     || CurrentGameState.IsThinking(nameof(WontTurnYouInIfYouUnencryptThisDrive)));

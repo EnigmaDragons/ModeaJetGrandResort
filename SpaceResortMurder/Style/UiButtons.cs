@@ -17,21 +17,21 @@ namespace SpaceResortMurder.Style
         {
             return new ImageTextButton(new Rectangle(position.ToPoint(), new Point(360, 75)), onClick, text,
                     "UI/PixelButton", "UI/PixelButton-Hover", "UI/PixelButton-Press")
-                {TextColor = Color.Black, OnPress = PlayMenuButtonSound };
+                { OnPress = PlayMenuButtonSound };
         }
 
         public static ImageTextButton Menu(string text, Vector2 position, Action onClick, Func<bool> isVisible)
         {
             return new ImageTextButton(new Transform2(position, new Size2(360, 75)), onClick, text,
                     "UI/PixelButton", "UI/PixelButton-Hover", "UI/PixelButton-Press", isVisible)
-                { TextColor = Color.Black, OnPress = PlayMenuButtonSound };
+                { OnPress = PlayMenuButtonSound };
         }
 
         public static VisualClickableUIElement MenuRed(string text, Vector2 position, Action onClick)
         {
             return new ImageTextButton(new Rectangle(position.ToPoint(), new Point(360, 75)), onClick, text,
                     "UI/PixelButtonRed", "UI/PixelButtonRed-Hover", "UI/PixelButtonRed-Press")
-                { TextColor = Color.Black, OnPress = PlayMenuButtonSound };
+                { OnPress = PlayMenuButtonSound };
         }
 
         public static VisualClickableUIElement Back(Action onClick)

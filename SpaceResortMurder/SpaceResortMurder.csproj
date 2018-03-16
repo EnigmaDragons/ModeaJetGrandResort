@@ -41,16 +41,16 @@
     <Compile Include="CharactersX\Expression.cs" />
     <Compile Include="CharactersX\HackerMeleena.cs" />
     <Compile Include="CharactersX\Characters.cs" />
+    <Compile Include="CharactersX\CEORaymondsClone.cs" />
     <Compile Include="CharactersX\CharacterView.cs" />
     <Compile Include="CharactersX\PlayerCharacterView.cs" />
-    <Compile Include="CharactersX\RaymondsClone.cs" />
     <Compile Include="CharactersX\ResearcherTravis.cs" />
     <Compile Include="Clues\CloningRoom\CloningChamber.cs" />
     <Compile Include="Clues\Clue.cs" />
     <Compile Include="Clues\DockingBay\GarbageAirlock.cs" />
     <Compile Include="Clues\DockingBay\MeleenasShip.cs" />
     <Compile Include="Clues\InvestigateClueView.cs" />
-    <Compile Include="Clues\MeleenasSpaceCraft\EncryptedDataStick.cs" />
+    <Compile Include="Clues\MeleenasSpaceCraft\EncryptedDataDrive.cs" />
     <Compile Include="Clues\MeleenasSpaceCraft\HackingRig.cs" />
     <Compile Include="Clues\MeleenasSpaceCraft\SkeletonKey.cs" />
     <Compile Include="Clues\MeleenasSpaceCraft\UnencryptedDateStick.cs" />
@@ -61,6 +61,8 @@
     <Compile Include="Clues\RaymondsSpaceCraft\ShipsLogs.cs" />
     <Compile Include="Clues\VacantRoom\T71EnergyBlaster.cs" />
     <Compile Include="Clues\ClueDisplayReader.cs" />
+    <Compile Include="Credits\BasicJamCreditSegment.cs" />
+    <Compile Include="Credits\CreditSegments.cs" />
     <Compile Include="Deductions\CauseOfDeath\ChokedBySomeone.cs" />
     <Compile Include="Deductions\CauseOfDeath\LaunchedIntoSpaceFromTheGarbageAirlock.cs" />
     <Compile Include="Deductions\CauseOfDeath\PoisonNeedles.cs" />
@@ -108,6 +110,10 @@
     <Compile Include="Dialogues\DialogueReader.cs" />
     <Compile Include="Dialogues\Meleena\WhoAreYou.cs" />
     <Compile Include="Dialogues\Meleena\YouHaveARatherCleanRecord.cs" />
+    <Compile Include="Dialogues\RaymondsClone\Bruises.cs" />
+    <Compile Include="Dialogues\RaymondsClone\ElectricDischarge.cs" />
+    <Compile Include="Dialogues\RaymondsClone\FoundYouRaymondsClone.cs" />
+    <Compile Include="Dialogues\RaymondsClone\WhyKeepCloneSecret.cs" />
     <Compile Include="Dialogues\ScanDataReader.cs" />
     <Compile Include="Dialogues\ConversationView.cs" />
     <Compile Include="Dialogues\DialogueMemoriesScene.cs" />
@@ -134,8 +140,11 @@
     <Compile Include="Dialogues\RaymondsClone\MeleenaIdentifiedYourVoice.cs" />
     <Compile Include="Dialogues\RaymondsClone\YourLookALikeIsDead.cs" />
     <Compile Include="Dialogues\ScanView.cs" />
+    <Compile Include="Dialogues\Travis\CloningMalfunction.cs" />
     <Compile Include="Dialogues\Travis\DidYouWorkWithRaymond.cs" />
     <Compile Include="Dialogues\Travis\ExplainTheCloningMachine.cs" />
+    <Compile Include="Dialogues\Travis\MatterRemovalBruises.cs" />
+    <Compile Include="Dialogues\Travis\PowerBatteryArm.cs" />
     <Compile Include="Dialogues\Travis\TravissAccount.cs" />
     <Compile Include="Dialogues\Travis\ViolentExperimentalResearch.cs" />
     <Compile Include="Dialogues\Travis\WhereIsYourClone.cs" />
@@ -144,6 +153,7 @@
     <Compile Include="Dialogues\Warren\AnytimeUpTilNow.cs" />
     <Compile Include="Dialogues\Warren\BetweenSevenAMToEightPM.cs" />
     <Compile Include="Dialogues\Warren\DetainedMeleena.cs" />
+    <Compile Include="Dialogues\Warren\IsTheSearchOrderReady.cs" />
     <Compile Include="Dialogues\Warren\NeedASearchOrder.cs" />
     <Compile Include="Dialogues\Warren\PettyTheftAt12.cs" />
     <Compile Include="Dialogues\Warren\WarrenIntroduction.cs" />
@@ -192,9 +202,11 @@
     <Compile Include="LocationsX\VacantRoomScene.cs" />
     <Compile Include="MouseX\MouseIsClicked.cs" />
     <Compile Include="ObjectivesX\AnswerADilemma.cs" />
-    <Compile Include="ObjectivesX\CheckWhatsOnMeleenasDataStick.cs" />
+    <Compile Include="ObjectivesX\CheckWhatsOnMeleenasDataDrive.cs" />
+    <Compile Include="ObjectivesX\CheckWithWarrenForASearchOrder.cs" />
     <Compile Include="ObjectivesX\FindRaymondsClone.cs" />
-    <Compile Include="ObjectivesX\GetAnEncryptionKeyForMeleenasDataStick.cs" />
+    <Compile Include="ObjectivesX\GetAnEncryptionKeyForMeleenasDataDrive.cs" />
+    <Compile Include="ObjectivesX\GetRaymondsCloneToAdmitHesAClone.cs" />
     <Compile Include="ObjectivesX\GoFindOutTheManagersAccount.cs" />
     <Compile Include="ObjectivesX\InvestigateMeleenasCraft.cs" />
     <Compile Include="ObjectivesX\InvestigateRaymondsShip.cs" />
@@ -236,7 +248,7 @@
     <Compile Include="Scenes\OptionsScene.cs" />
     <Compile Include="DilemmasX\Dilemmas.cs" />
     <Compile Include="State\GameState.cs" />
-    <Compile Include="Scenes\CreditsScene.cs" />
+    <Compile Include="Credits\CreditsScene.cs" />
     <Compile Include="DilemmasX\DilemmaScene.cs" />
     <Compile Include="Scenes\MainMenuScene.cs" />
     <Compile Include="Program.cs" />
@@ -595,6 +607,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sounds\Scanning.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Traverse\PoliceCruiserDoor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Traverse\TraverseArrowR-Hover.png">

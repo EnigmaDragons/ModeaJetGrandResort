@@ -15,7 +15,8 @@ namespace SpaceResortMurder.CharactersX
             new BetweenSevenAMToEightPM(),
             new WeHaveUntilMidnight(),
             new DetainedMeleena(),
-            new NeedASearchOrder()) {}
+            new NeedASearchOrder(),
+            new IsTheSearchOrderReady()) {}
 
         public override string WhereAreYou()
         {

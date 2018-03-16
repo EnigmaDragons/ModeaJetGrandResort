@@ -54,8 +54,7 @@ namespace SpaceResortMurder.Dialogues
                     Transform = new Transform2(new Vector2(1200, 400), new Size2(450, 5))
                 }, new Vector2(0, 530),
                 TimeSpan.FromMilliseconds(1300),
-                TimeSpan.FromMilliseconds(0),
-                ShowScanData);
+                TimeSpan.FromMilliseconds(0));
             ClickUiBranch.Add(_startScanButton);
         }
 
@@ -89,7 +88,7 @@ namespace SpaceResortMurder.Dialogues
             _onStarted();
             Event.Publish(new ThoughtGained(_person.Value));
             Audio.PlaySound("Scanning", 0.3f);
-            _scanAnimation.Start();
+            _scanAnimation.Start(ShowScanData);
             _startedScanning = true;
         }
 

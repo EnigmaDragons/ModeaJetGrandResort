@@ -172,18 +172,25 @@ namespace SpaceResortMurder
                 "Occupation: ModeaJet Resort Manager, 2 years"
             },
             { nameof(ResearcherTravis),
-                "Name: Travis Falcon \n" +
-                "Condition: Recent Xetope use, Xetope is an expensive legal smart drug, that increases a users focus \n" +
-                "Augments: Power Conductor Arm, is an expensive arm used as a portable power source \n" +
+                "Name: Travis Falcon \n" + 
+                "Condition: Recent Xetope use, Xetope is an expensive legal smart drug, that increases a users focus \n" + 
+                "Augments: Power Battery Arm, is an expensive arm used as a portable power source \n" + 
                 "Criminal Record: Human Perfect's researcher division is currently being investigated for human experimentation \n" +
                 "Occupation: Human Perfect Lead Researcher, 13 years"
-            }
+            },
+            { nameof(CEORaymondsClone),
+                "Name: Raymond Soule \n" +
+                "Condition: Recent bruising, a burn mark from an electric discharge \n" +
+                "Augments: Tracking Explosive Chip, Embedded in the skull, it both tracks and acts as a means to kill the person remotely \n" +
+                "Criminal Record: Raymond Soule is being investigated for illagel human experimentation at his company Human First \n" +
+                "Occupation: CEO of Human Perfect, 21 years"
+            },
         };
 
         private static DictionaryWithDefault<string, string> _characterNames = new DictionaryWithDefault<string, string>("Unnamed Character") {
             { nameof(OfficerWarren), "Warren, Officer" },
             { nameof(HackerMeleena), "\\Meleena\\" },
-            { nameof(RaymondsClone), "Raymond, CEO of Human Perfect" },
+            { nameof(CEORaymondsClone), "Raymond's Clone, CEO of Human Perfect" },
             { nameof(ResearcherTravis), "Travis Falcon, Clone Researcher" },
             { nameof(ResortManagerZaid), "Zaid Ahuja, Resort Manager" },
         };
@@ -191,7 +198,7 @@ namespace SpaceResortMurder
         private static DictionaryWithDefault<string, string> _characterExpressions = new DictionaryWithDefault<string, string>("characters/placeholder") {
             { nameof(OfficerWarren) + " " + Expression.Default, "characters/policeman" },
             { nameof(HackerMeleena) + " " + Expression.Default, "characters/hacker_corporate_spy" },
-            { nameof(RaymondsClone) + " " + Expression.Default, "characters/random_npc_01" },
+            { nameof(CEORaymondsClone) + " " + Expression.Default, "characters/random_npc_01" },
             { nameof(ResearcherTravis) + " " + Expression.Default, "characters/scientist_guy" },
             { nameof(ResortManagerZaid) + " " + Expression.Default, "Characters/resort_manager_colored" },
         };
@@ -235,8 +242,8 @@ namespace SpaceResortMurder
             #endregion
 
             #region Meleena's Ship Interior
-            { nameof(EncryptedDataStick), new string[] {
-                "This data stick might have something valuable on it, But it's encrypted.",
+            { nameof(EncryptedDataDrive), new string[] {
+                "I detect this data drive was used recently, but it's encrypted.",
             } },
             { nameof(UnencryptedDataDrive), new string[] {
                 "The data stick contains Raymond's files about a recent cloning experiment gone wrong.",
@@ -247,11 +254,11 @@ namespace SpaceResortMurder
                 "Raymond Soule covered up the massacre by staging a terroist attack that supposedly killed the people.",
             } },
             { nameof(SkeletonKey), new string[] {
-                "These special skeleton keys are designed to overload unsecure door locks in a matter of nanoseconds.",
+                "This is known as a skeleton key device. These special skeleton keys are used to disable ICE on most doors in a matter of nanoseconds.",
             } },
             { nameof(HackingRig), new string[] {
-                "This is a hacker rig used by \"Data Raven\".",
-                "\"Data Raven\" is responsible for numerous cases of information leaking about corporate corruption",
+                "This is computer was recently used with a cyberdeck, using the alias \"Data Raven\".",
+                "\"Data Raven\" is an infamous decker that is responsible for numerous leaks of corp data exposing corruption.",
             } },
             #endregion
 
@@ -324,6 +331,12 @@ namespace SpaceResortMurder
                     new DialogueElement(true, "I'll submit a request for Ms.Ka'lick's craft. Thankfully this is a high profile corp CEO case, so I'm sure we will get a reply soon."),
                     new DialogueElement(true, "In the meantime, You should make sure to get the statement from the hotel manager."),
             } ) },
+            { nameof(IsTheSearchOrderReady), new DialogueSequence(
+                "Do we have the search order now?",
+                new DialogueElement[] {
+                    new DialogueElement(true, "Got it right here. I'm sure the case will be cracked wide open when we get in there."),
+                    new DialogueElement(false, "That's very improbable."),
+                } ) },
             #endregion
 
             #region Meleena
@@ -359,14 +372,20 @@ namespace SpaceResortMurder
                 new DialogueElement[] {
                     new DialogueElement(true, Expression.Happy, "Goody-two-shoes Meleena that's me."),
             } ) },
-
-
             { nameof(HereIsTheSearchOrder), new DialogueSequence(
-                "Here is the search order for your ship. You can open it or we can force entry.",
+                "Here is the search order for your ship.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "You piece of junk, go on and destroy any shred of privacy us citizens have."),
+                    new DialogueElement(true, "This is jacked! The OPID don't give a frag about privacy."),
+            } ) },
+            { nameof(YouAreAHacker), new DialogueSequence(
+                "You are not a corporate freelancer and this is not a retreat.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "You're right, I was hired to find dirt on Human Perfect."),
+                    new DialogueElement(true, "CEO's don't take time off to small time resorts. But that means that something fishy is up and an easy to access to the CEO's data. \nEasy mark."),
                 }
             ) },
+
+
             { nameof(YouBrokeIntoRaymondsShip), new DialogueSequence(
                 "You broke into Raymond's craft with this skeleton key.",
                 new DialogueElement[] {
@@ -410,13 +429,6 @@ namespace SpaceResortMurder
                 new DialogueElement[] {
                     new DialogueElement(true, "I have something private to tell you."),
                     new DialogueElement(true, "He is the one I heard on the ship. Raymond's voice was definitely the voice I heard."),
-                }
-            ) },
-            { nameof(YouAreAHacker), new DialogueSequence(
-                "You are not a corporate freelancer and this is not a retreat.",
-                new DialogueElement[] {
-                    new DialogueElement(true, "You're right, I was hired to find dirt on Human Perfect."),
-                    new DialogueElement(true, "CEO's don't take time off to small time resorts. But that means that something fishy is up and an easy to access to the CEO's data. \nEasy mark."),
                 }
             ) },
             #endregion
@@ -517,8 +529,24 @@ namespace SpaceResortMurder
             { nameof(WhereIsYourClone), new DialogueSequence(
                 "Where is Raymond's clone?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Let's have a look, I had a tracking device embedded in him upon creation. He is located in vacant hotel room 2B."),
-                } ) },
+                    new DialogueElement(true, "Let's have a look, I had a tracking device embedded in him upon creation. Interesting he is chilling in Raymond's room."),
+            } ) },
+            { nameof(CloningMalfunction), new DialogueSequence(
+                "Raymond's clone claims that there was a malfunction when cloning that caused an electric discharge?",
+                new DialogueElement[] {
+                    new DialogueElement(true, "... Yes there was an electrical discharge that hit the clone."),
+            } ) },
+            { nameof(PowerBatteryArm), new DialogueSequence(
+                "What do you use your Power Battery Arm for?",
+                new DialogueElement[] {
+                    new DialogueElement(true, "... I use it as a portable power source. In this paticular instance I used some of the energy from it to power the cloning device."),
+            } ) },
+            { nameof(MatterRemovalBruises), new DialogueSequence(
+                "Raymond's clone claims that the needles removing matter causes bruises?",
+                new DialogueElement[] {
+                    new DialogueElement(true, "Interesting, that's very suspicious."),
+                    new DialogueElement(true, "Raymond's clone is lying the process does not leave a mark on it's user, if he has bruises they came from somewhere else."),
+            } ) },
 
 
             { nameof(YourBrotherWasKilled), new DialogueSequence(
@@ -542,6 +570,31 @@ namespace SpaceResortMurder
             #endregion
 
             #region Raymond's Clone
+            { nameof(FoundYouRaymondsClone), new DialogueSequence(
+                "I have discover you Raymond's clone.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "I'm not a clone! I'll excuse your mistake this time. I sent my clone to sleep on my ship that one we don't run the risk of having both of us discovered at the same time."),
+            } ) },
+            { nameof(WhyKeepCloneSecret), new DialogueSequence(
+                "Why are you trying to keep your clone a secret.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "I have become far too busy in my CEO resposibilities, but I'll be much more capable to handle them if I have 2 of me. But I'll lost influence if they find out I'm using a clone to do that."),
+            } ) },
+            { nameof(ElectricDischarge), new DialogueSequence(
+                "Where exactly does that recent electrical burn come from.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "Ah yes..."),
+                    new DialogueElement(true, "Well you see..."),
+                    new DialogueElement(true, "The cloning process had a malfunction and I was hit with an electrical discharge."), 
+            } ) },
+            { nameof(Bruises), new DialogueSequence(
+                "You have quite a few recent bruises on you.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "Yes bruises..."),
+                    new DialogueElement(true, "When the needles take matter from you in the new cloning process, it leaves bruises."),
+            } ) },
+
+
             { nameof(MeetingRaymondsClone), new DialogueSequence(
                 "Meeting Raymond",
                 new DialogueElement[] {
@@ -583,8 +636,7 @@ namespace SpaceResortMurder
                     new DialogueElement(true, "When I had gained back my senses, I saw the clones body floating in space with a bunch of garbage"),
                     new DialogueElement(true, "I got in my ship to save him, but when I brought him aboard the ship he was dead."),
                     new DialogueElement(true, "I didn't want to be blamed for the murder so I landed the ship and ran away."),
-                }
-            ) },
+            } ) },
             #endregion
         };
 
@@ -662,9 +714,10 @@ namespace SpaceResortMurder
             { nameof(GoFindOutTheManagersAccount), "Get the resort manager's account" },
             { nameof(QuestionTravis), "Meet Travis Falcon" },
             { nameof(FindRaymondsClone), "Find Raymond's clone" },
+            { nameof(CheckWithWarrenForASearchOrder), "Check with Warren about the search order." },
 
-            { nameof(GetAnEncryptionKeyForMeleenasDataStick), "Get Meleena's Data Encryption Key" },
-            { nameof(CheckWhatsOnMeleenasDataStick), "Decrypt Meleena's Data Stick" },
+            { nameof(GetAnEncryptionKeyForMeleenasDataDrive), "Get Meleena's Data Encryption Key" },
+            { nameof(CheckWhatsOnMeleenasDataDrive), "Decrypt Meleena's Data Stick" },
         };
 
         private static DictionaryWithDefault<string, string> _resolutionQuestionsText = new DictionaryWithDefault<string, string>("This option is not implemented") {
@@ -676,6 +729,8 @@ namespace SpaceResortMurder
             { nameof(DockingBayToLobby), "I need to investigate the crime scene first" },
             { nameof(DockingBayToPoliceCruiser), "I need to investigate the crime scene first" },
             { nameof(RaymondsShipToDockingBay), "I am not finished investigating here" },
+            { nameof(DockingBayToMeleenasShip), "I need the owner to unlock it for me" },
+            { nameof(MeleenasShipToDockingBay), "I am not finished investigating here" }
         };
 
         private static Dictionary<string, Func<string>> _symbols = new Dictionary<string, Func<string>> {
@@ -693,9 +748,14 @@ namespace SpaceResortMurder
                 () => "Zavix"
             },
             { "Meleena",
-                () => CurrentGameState.IsThinking(nameof(HackerMeleena)) || CurrentGameState.IsThinking(nameof(WhoAreYou))
-                    ? "Meleena Ke'lick, Corporate Freelancer"
-                    : "???"
+                () =>
+                {
+                    if (CurrentGameState.IsThinking(nameof(HackingRig)))
+                        return "Meleena Ka'lick, Decker";
+                    if (CurrentGameState.IsThinking(nameof(HackerMeleena)) || CurrentGameState.IsThinking(nameof(WhoAreYou)))
+                        return "Meleena Ke'lick, Corporate Freelancer";
+                    return "???";
+                }
             }
         };
     }
