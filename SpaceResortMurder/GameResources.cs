@@ -45,6 +45,7 @@ namespace SpaceResortMurder
         public const string DialogueMemoriesScene = "Dialogue Memories";
         public const string ResolutionSceneName = "Resolution";
         public const string EndingSceneName = "Ending";
+        public const string SaveLoadSceneName = "SaveLoad";
 
         public static void TestAllSymbols()
         {

@@ -225,6 +225,7 @@
     <Compile Include="Scenes\JamScene.cs" />
     <Compile Include="Deductions\DeductionScene.cs" />
     <Compile Include="LocationsX\LocationScene.cs" />
+    <Compile Include="Scenes\SaveLoadScene.cs" />
     <Compile Include="State\CurrentGameState.cs" />
     <Compile Include="State\CurrentOptions.cs" />
     <Compile Include="State\DialogMemoryGained.cs" />
