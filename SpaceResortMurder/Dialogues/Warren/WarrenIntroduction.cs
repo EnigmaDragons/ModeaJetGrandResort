@@ -2,7 +2,7 @@
 {
     public class WarrenIntroduction : Dialogue
     {
-        public WarrenIntroduction() : base(nameof(WarrenIntroduction)) { }
+        public WarrenIntroduction() : base(nameof(WarrenIntroduction)) { IsExclusive = true; }
 
         public override bool IsActive()
         {

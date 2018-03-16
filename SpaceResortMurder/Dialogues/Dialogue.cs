@@ -14,6 +14,7 @@ namespace SpaceResortMurder.Dialogues
 
         public bool IsNew => !CurrentGameState.HasViewedItem(Dialog);
         public bool AutoPlay { get; protected set; } = false;
+        protected bool IsExclusive { private get; set; } = false;
 
         protected Dialogue(string dialog)
         {
@@ -40,7 +41,9 @@ namespace SpaceResortMurder.Dialogues
             var yPos = 520 + i * yInc;
             var t = new Transform2(new Vector2(xPos, yPos), new Size2(buttonWidth, 64)).ToRectangle();
             return new ImageTextButton(t, GetOnClick(onClick), GameResources.GetDialogueSequence(Dialog).Opener,
-                "Convo/DialogueButton", "Convo/DialogueButton-Hover", "Convo/DialogueButton-Press")
+                IsExclusive ? "Convo/ExclusiveDialogueButton" : "Convo/DialogueButton",
+                IsExclusive ? "Convo/ExclusiveDialogueButton-Hover" : "Convo/DialogueButton-Hover",
+                IsExclusive ? "Convo/ExclusiveDialogueButton-Press" : "Convo/DialogueButton-Press")
             {
                 TextColor = Color.White,
                 TextTransform = new Transform2(new Vector2(50, yPos), Rotation2.Default, new Size2(buttonWidth - xPos, 64), 1.0f),
