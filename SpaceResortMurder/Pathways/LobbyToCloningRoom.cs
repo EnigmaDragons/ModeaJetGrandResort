@@ -13,7 +13,7 @@ namespace SpaceResortMurder.Pathways
             "Placeholder/Door",
             new Transform2(new Vector2(350, 0), new Size2(350, 348)),
             nameof(TravissCloningRoom),
-            "") {}
+            "To Travis's Room") {}
 
         public override bool IsTraversible => CurrentGameState.IsThinking(nameof(WhoIsStayingAtYourResort));
     }

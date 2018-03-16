@@ -9,6 +9,6 @@ namespace SpaceResortMurder.Clues.MeleenasSpaceCraft
             t, 
             new Size2(415, 280), 
             nameof(SkeletonKey),
-            "") {}
+            "Skeleton Key") {}
     }
 }

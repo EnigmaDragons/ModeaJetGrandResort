@@ -13,7 +13,7 @@ namespace SpaceResortMurder.Pathways
             "Placeholder/door", 
             new Transform2(new Vector2(1050, 0), new Size2(350, 348)), 
             nameof(PoliceCruiserInterior),
-            "") {}
+            "To Police Craft") {}
 
         public override bool IsTraversible => CurrentGameState.IsThinking(nameof(RaymondsCorpse));
     }

@@ -10,6 +10,6 @@ namespace SpaceResortMurder.Clues.DockingBay
             new Transform2(new Vector2(1000, 500), new Size2(290, 140)), 
             new Size2(580, 280), 
             nameof(MeleenasShip),
-            "") {}
+            "Modded Craft") {}
     }
 }

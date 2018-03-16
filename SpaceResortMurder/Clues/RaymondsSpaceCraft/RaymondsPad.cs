@@ -10,6 +10,6 @@ namespace SpaceResortMurder.Clues.RaymondsSpaceCraft
             new Transform2(new Vector2(600, 250), new Size2(50, 50)), 
             new Size2(200, 200), 
             nameof(RaymondsPad),
-            "") {}
+            "Pad") {}
     }
 }
