@@ -11,7 +11,8 @@ namespace SpaceResortMurder.Pathways
             nameof(PoliceCruiserToDockingBay), 
             "Placeholder/TravelArrow", 
             transform, 
-            nameof(DockingBay)) {}
+            nameof(DockingBay),
+            "") {}
 
         public override bool IsTraversible => CurrentGameState.IsThinking(nameof(BetweenSevenAMToEightPM));
     }

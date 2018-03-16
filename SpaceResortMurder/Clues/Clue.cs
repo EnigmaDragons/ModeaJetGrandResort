@@ -11,6 +11,7 @@ namespace SpaceResortMurder.Clues
     public abstract class Clue : IVisual
     {
         private readonly string _clueId;
+        private readonly string _tooltip;
         private readonly string _roomImage;
         private readonly string _closeUpImage;
         private readonly Transform2 _position;
@@ -21,11 +22,12 @@ namespace SpaceResortMurder.Clues
         public Func<bool> IsActive { get; protected set; }
         protected Func<bool> IsVisible { private get; set; }
 
-        protected Clue(string roomImage, Transform2 position, Size2 zoomInSize, string clueId)
-            : this(roomImage, roomImage, position, zoomInSize, clueId) { }
+        protected Clue(string roomImage, Transform2 position, Size2 zoomInSize, string clueId, string tooltip)
+            : this(roomImage, roomImage, position, zoomInSize, clueId, tooltip) { }
 
-        protected Clue(string roomImage, string closeUpImage, Transform2 position, Size2 zoomInSize, string clueId)
+        protected Clue(string roomImage, string closeUpImage, Transform2 position, Size2 zoomInSize, string clueId, string tooltip)
         {
+            _tooltip = tooltip;
             IsActive = () => true;
             IsVisible = () => true;
             _roomImage = roomImage;
@@ -49,7 +51,7 @@ namespace SpaceResortMurder.Clues
                     Event.Publish(new ThoughtGained(_clueId));
                 onClick();
             }, IsVisible)
-            { HoveredCursor = Cursors.Interactive, TooltipText = GameResources.GetClueTooltip(_clueId) };
+            { HoveredCursor = Cursors.Interactive, TooltipText = _tooltip };
         }
 
         public void Draw(Transform2 parentTransform)

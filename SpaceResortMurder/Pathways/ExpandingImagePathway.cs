@@ -11,9 +11,11 @@ namespace SpaceResortMurder.Pathways
         private readonly Transform2 _transform;
         private readonly string _location;
         private readonly string _pathway;
+        private readonly string _tooltip;
 
-        protected ExpandingImagePathway(string pathway, string image, Transform2 transform, string location)
+        protected ExpandingImagePathway(string pathway, string image, Transform2 transform, string location, string tooltip)
         {
+            _tooltip = tooltip;
             _image = image;
             _transform = transform;
             _location = location;
@@ -30,8 +32,8 @@ namespace SpaceResortMurder.Pathways
                     if (IsTraversible)
                         Scene.NavigateTo(_location);
                     else
-                        showNonTraversibleDialogue(GameResources.GetPathwayNotTraversibleText(_pathway));
-                }) { TooltipText = GameResources.GetPathwayTooltip(_pathway) };
+                        showNonTraversibleDialogue(GameResources.GetPathwayText(_pathway));
+                }) { TooltipText = _tooltip };
         }
     }
 }

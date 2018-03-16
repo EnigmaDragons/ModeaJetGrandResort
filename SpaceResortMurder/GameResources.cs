@@ -50,11 +50,7 @@ namespace SpaceResortMurder
         public static void TestAllSymbols()
         {
             _scanInfo.Values.ForEach(s => TestSymbols(s));
-            _clues.Values.ForEach(l =>
-            {
-                TestSymbols(l.Item1);
-                l.Item2.ForEach(s => TestSymbols(s));
-            });
+            _clues.Values.ForEach(l => l.ForEach(s => TestSymbols(s)));
             _dilemmaOrDeductionText.Values.ForEach(s => TestSymbols(s));
             _objectiveTexts.Values.ForEach(s => TestSymbols(s));
             _dialogues.Values.ForEach(d =>
@@ -63,11 +59,7 @@ namespace SpaceResortMurder
                 d.Elements.ForEach(s => TestSymbols(s.Line));
             });
             _resolutionQuestionsText.Values.ForEach(s => TestSymbols(s));
-            _pathwayTexts.Values.ForEach(s =>
-            {
-                TestSymbols(s.Item1);
-                TestSymbols(s.Item2);
-            });
+            _pathwayText.Values.ForEach(s => TestSymbols(s));
         }
 
         private static void TestSymbols(string stringWithSymbols)
@@ -97,14 +89,9 @@ namespace SpaceResortMurder
             return _characterExpressions[character + " " + expression];
         }
 
-        public static string GetClueTooltip(string clue)
+        public static string[] GetClueLines(string dialogOrClue)
         {
-            return ReplaceSymbols(_clues[clue].Item1);
-        }
-
-        public static string[] GetClueLines(string clue)
-        {
-            return _clues[clue].Item2.Select(ReplaceSymbols).ToArray();
+            return _clues[dialogOrClue].Select(ReplaceSymbols).ToArray();
         }
 
         public static string GetPonderText(string dilemmaOrDeduction)
@@ -129,14 +116,9 @@ namespace SpaceResortMurder
             return ReplaceSymbols(_resolutionQuestionsText[resolution].ToCharArray());
         }
 
-        public static string GetPathwayTooltip(string pathway)
+        public static string GetPathwayText(string pathway)
         {
-            return ReplaceSymbols(_pathwayTexts[pathway].Item1);
-        }
-
-        public static string GetPathwayNotTraversibleText(string pathway)
-        {
-            return ReplaceSymbols(_pathwayTexts[pathway].Item2);
+            return ReplaceSymbols(_pathwayText[pathway]);
         }
 
         private static string ReplaceSymbols(string text)
@@ -168,31 +150,31 @@ namespace SpaceResortMurder
         private static DictionaryWithDefault<string, string> _scanInfo = new DictionaryWithDefault<string, string>("This scan is not implemented")
         {
             { nameof(OfficerWarren),
-                "Name: Warren Alexander \n" + 
-                "Condition: Normal \n" + 
+                "Name: Warren Alexander \n" +
+                "Condition: Normal \n" +
                 "Augments: None \n" +
                 "Criminal Record: Found guilty of petty theft at the age of 12 \n" +
                 "Occupation: OPID (Outer Planet Investigative Department), 17 years"
             },
             { nameof(HackerMeleena),
                 "Name: Meleena Ka'lick \n" +
-                "Condition: Heightened pulse, Poor balance (May have recently exited cyberspace) \n" + 
+                "Condition: Heightened pulse, Poor balance (May have recently exited cyberspace) \n" +
                 "Augments: CyberDeck, it's used to jack into cyberspace \n" +
-                "Criminal Record: Clean \n" + 
-                "Occupation: Corporate Freelancer, 9 years \n" + 
+                "Criminal Record: Clean \n" +
+                "Occupation: Corporate Freelancer, 9 years \n" +
                 "Red Flags: Extremely limited records, possible alias or record cleaning"
             },
             { nameof(ResortManagerZaid),
                 "Name: Zaid Ahuji \n" +
-                "Condition: Normal \n" + 
+                "Condition: Normal \n" +
                 "Augments: None \n" +
-                "Criminal Record: Accused but not convicted of illegally selling customer data \n" + 
-                "Occupation: ModeaJet Resort Manager, 2 years" 
+                "Criminal Record: Accused but not convicted of illegally selling customer data \n" +
+                "Occupation: ModeaJet Resort Manager, 2 years"
             },
             { nameof(ResearcherTravis),
-                "Name: Travis Falcon \n" + 
-                "Condition: Recent Xetope use, Xetope is an expensive legal smart drug, that increases a users focus \n" + 
-                "Augments: Power Conductor Arm, is an expensive arm used as a portable power source \n" + 
+                "Name: Travis Falcon \n" +
+                "Condition: Recent Xetope use, Xetope is an expensive legal smart drug, that increases a users focus \n" +
+                "Augments: Power Conductor Arm, is an expensive arm used as a portable power source \n" +
                 "Criminal Record: Human Perfect's researcher division is currently being investigated for human experimentation \n" +
                 "Occupation: Human Perfect Lead Researcher, 13 years"
             }
@@ -214,82 +196,82 @@ namespace SpaceResortMurder
             { nameof(ResortManagerZaid) + " " + Expression.Default, "Characters/resort_manager_colored" },
         };
 
-        private static DictionaryWithDefault<string, Tuple<string, string[]>> _clues = new DictionaryWithDefault<string, Tuple<string, string[]>>(new Tuple<string, string[]>("A thing you can investigate", new string[] { "This clue has not been implemented" })) {
+        private static DictionaryWithDefault<string, string[]> _clues = new DictionaryWithDefault<string, string[]>(new string[] { "This clue has not been implemented" }) {
             #region Docking Bay
-            { nameof(RaymondsShip), new Tuple<string, string[]>("", new string[] {
+            { nameof(RaymondsShip), new string[] {
                 "The ship is a Regal Glider an expensive personal craft, registered to a Raymond Soule.",
                 "There is a T71 Energy Blaster blast mark on the exterior it is still fairly hot and must have been fired within the last 2 hours.",
                 "The door control has all its ICE disabled and has been jacked to remain unlocked."
-            }) },
-            { nameof(MeleenasShip), new Tuple<string, string[]>("", new string[] {
+            } },
+            { nameof(MeleenasShip), new string[] {
                 "The ship is a heavily modded Corbin Cruiser, it's registered to a Meleena Ka'lick.",
                 "Meleena Ka'lick is a corporate freelancer. Where does she get the money to purchase her own space craft?",
-            }) },
-            { nameof(GarbageAirlock), new Tuple<string, string[]>("", new string[] {
+            } },
+            { nameof(GarbageAirlock), new string[] {
                 "A garbage airlock that releases trash into space. It shows signs of recent use.",
-            }) },
+            } },
             #endregion
 
             #region Raymond's Ship Interior
-            { nameof(RaymondsCorpse), new Tuple<string, string[]>("", new string[] {
+            { nameof(RaymondsCorpse), new string[] {
                 "Raymond died of asphyxiation.",
                 "His body is ballooned up to twice his normal size, his tongue and eyes have boiled. These injuries match the profile of being in space without a suit.",
                 "There is also bruising present around his neck from someone trying to choke him with their arm prior to his exposure to space.",
                 "He has 13 recent wide needle punctures.",
-            }) },
-            { nameof(ShipsLogs), new Tuple<string, string[]>("", new string[] {
+            } },
+            { nameof(ShipsLogs), new string[] {
                 "Ship's logs from today.",
-                $"The ship landed at 7:00 AM \n" + 
-                "The ship launched at 7:05 PM \n" + 
-                "The space hatch was opened at 7:10 PM \n" + 
-                "The space hatch closed at 7:20 PM \n" + 
+                $"The ship landed at 7:00 AM \n" +
+                "The ship launched at 7:05 PM \n" +
+                "The space hatch was opened at 7:10 PM \n" +
+                "The space hatch closed at 7:20 PM \n" +
                 "The ship landed at 7:25 PM",
-            }) },
-            { nameof(RaymondsPad), new Tuple<string, string[]>("", new string[] {
+            } },
+            { nameof(RaymondsPad), new string[] {
                 "Raymond's personal pad.",
                 "There is a list of resorts on here with ModeaJet Grand Resort being one of them, but it is among the crossed off ones.",
                 "This pad was used at 7:50 PM to send a message aproving ModeoJet Grand Resort to be the beta-tester for a new resort clone.",
-            }) },
+            } },
             #endregion
 
             #region Meleena's Ship Interior
-            { nameof(EncryptedDataStick), new Tuple<string, string[]>("", new string[] {
+            { nameof(EncryptedDataStick), new string[] {
                 "This data stick might have something valuable on it, But it's encrypted.",
-            }) },
-            { nameof(UnencryptedDataDrive), new Tuple<string, string[]>("", new string[] {
+            } },
+            { nameof(UnencryptedDataDrive), new string[] {
                 "The data stick contains Raymond's files about a recent cloning experiment gone wrong.",
                 "The experiment made much more perfect clones signifigantly faster than any known method.",
                 "It used needles to extract key matter for replication.",
                 "The experiment turned deadly when all the clones tried to kill their look a likes",
                 "It was a massacre. The researcher overseeing the project and paid for it with his life was Bernard Falcon.",
                 "Raymond Soule covered up the massacre by staging a terroist attack that supposedly killed the people.",
-            }) },
-            { nameof(SkeletonKey), new Tuple<string, string[]>("", new string[] {
+            } },
+            { nameof(SkeletonKey), new string[] {
                 "These special skeleton keys are designed to overload unsecure door locks in a matter of nanoseconds.",
-            }) },
-            { nameof(HackingRig), new Tuple<string, string[]>("", new string[] {
+            } },
+            { nameof(HackingRig), new string[] {
                 "This is a hacker rig used by \"Data Raven\".",
                 "\"Data Raven\" is responsible for numerous cases of information leaking about corporate corruption",
-            }) },
+            } },
             #endregion
 
             #region Travis's Cloning Room
-            { nameof(CloningChamber), new Tuple<string, string[]>("", new string[] {
+            { nameof(CloningChamber), new string[] {
                 "This machine is similiar to a known cloning devices, but it seems to have a lot of strange modifications to it."
-            }) },
+            } },
             #endregion
 
             #region Police Cruiser
-            { nameof(Clock), new Tuple<string, string[]>("Clock", new string[] {
+            { nameof(Clock), new string[] {
                 "The time reads 8:02 PM"
-            }) },
+            } },
             #endregion
 
             #region Vacant Room
-            { nameof(T71EnergyBlaster), new Tuple<string, string[]>("", new string[] {
+            { nameof(T71EnergyBlaster), new string[] {
                 "A T-71 Energy Blaster. It is registered to Raymond Soule.",
                 "It possesses a security feature that ensures the weilder's DNA matches the owner before you can fire.",
-            }) },
+            } },
             #endregion
         };
 
@@ -301,7 +283,7 @@ namespace SpaceResortMurder
                 new DialogueElement[] {
                     new DialogueElement(true, "Hello there \\Player\\. This is your fist time powering up so I guess I better get you up to speed."),
                     new DialogueElement(true, "I'm Officer Warren, and YOU are a bioroid detective."),
-                    new DialogueElement(false, "..."), 
+                    new DialogueElement(false, "..."),
                     new DialogueElement(true, "Lookie here, you got the schnazy ability to scan people and spot those little details I can't."),
                     new DialogueElement(true, "Go ahead and try it out on me."),
             } ) },
@@ -309,11 +291,11 @@ namespace SpaceResortMurder
                 "You've commited petty theft at the age of 12.",
                 new DialogueElement[] {
                     new DialogueElement(true, "What did I tell you, isn't scanning pretty fancy. Alright now to get to what's at hand."),
-                    new DialogueElement(true, "Right before powering you up I got pinged by the manager at ModeaJet Grand Resort about a corp exec murder."), 
+                    new DialogueElement(true, "Right before powering you up I got pinged by the manager at ModeaJet Grand Resort about a corp exec murder."),
                     new DialogueElement(true, "The victim is Raymond Soule, the CEO of the cloning company Human Perfect."),
                     new DialogueElement(true, "Mr.Soule arrived intact at ModeaJet Grand Resort at around 7:00 AM this morning, but was found dead today in his ship."),
                     new DialogueElement(true, "Lookie around this ship and tell me what can figure from that."),
-                    new DialogueElement(false, "Not telling me is inefficient."), 
+                    new DialogueElement(false, "Not telling me is inefficient."),
             } ) },
             { nameof(AnytimeUpTilNow), new DialogueSequence(
                 "The murder took place anytime up until now.",
@@ -340,7 +322,7 @@ namespace SpaceResortMurder
                 "I need a search order for Meleena's craft.",
                 new DialogueElement[] {
                     new DialogueElement(true, "I'll submit a request for Ms.Ka'lick's craft. Thankfully this is a high profile corp CEO case, so I'm sure we will get a reply soon."),
-                    new DialogueElement(true, "In the meantime, You should make sure to get the statement from the hotel manager."), 
+                    new DialogueElement(true, "In the meantime, You should make sure to get the statement from the hotel manager."),
             } ) },
             #endregion
 
@@ -443,10 +425,10 @@ namespace SpaceResortMurder
             { nameof(WhoAreYouZaid), new DialogueSequence(
                 "You manage this resort?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "I'm Zaid Ahuji, manager of this grand resort. I assume you will be wanting a room while you stay here and investigate the er... incident."), 
+                    new DialogueElement(true, "I'm Zaid Ahuji, manager of this grand resort. I assume you will be wanting a room while you stay here and investigate the er... incident."),
                     new DialogueElement(true, "It comes with a state of the art recharger, for one such as yourself."),
                     new DialogueElement(false, "I believe I can close this case before the night is over."),
-                    new DialogueElement(true, "Of course! Given someone of your er... skill I'm sure. Though if it stumps you for the night don't hesitate to ask for a room."), 
+                    new DialogueElement(true, "Of course! Given someone of your er... skill I'm sure. Though if it stumps you for the night don't hesitate to ask for a room."),
             } ) },
             { nameof(ZaidsAccount), new DialogueSequence(
                 "Please tell me as detailed as you can remember what you can recall up until you pinged us?",
@@ -487,7 +469,7 @@ namespace SpaceResortMurder
                     new DialogueElement(true, "Yes, He said he quite liked the place."),
             } ) },
 
-            
+
             { nameof(YouWereNotAcceptedForBetaTesting), new DialogueSequence(
                 "You were not accepted for beta testing, I found a list of resorts and yours was crossed off?",
                 new DialogueElement[] {
@@ -504,15 +486,15 @@ namespace SpaceResortMurder
                 "What is your relationship with the Raymond Soule?",
                 new DialogueElement[] {
                     new DialogueElement(true, "You are a brand new detective bioroid, I hear when your kind is new that you are more prone to error. It's caused by a lack of synaptic connections which are what allow humans to connect pieces of data together."),
-                    new DialogueElement(false, "Are you claiming I have a wrong assumption."), 
+                    new DialogueElement(false, "Are you claiming I have a wrong assumption."),
                     new DialogueElement(true, "... No just an observation. Given your prescence it is probable there was a death."),
-                    new DialogueElement(false, "..."), 
-                    new DialogueElement(true, "My relationship with Raymond Soule is that of employee and employer."), 
+                    new DialogueElement(false, "..."),
+                    new DialogueElement(true, "My relationship with Raymond Soule is that of employee and employer."),
             } ) },
             { nameof(WhyIsTravisAtTheResort), new DialogueSequence(
                 "Why did Raymond Soule bring you to this resort?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "..."), 
+                    new DialogueElement(true, "..."),
                     new DialogueElement(true, "I was brought by Raymond for the purpose of secretly forming a clone of him. This resort was chosen as it has no surveillance."),
             } ) },
             { nameof(ExplainTheCloningMachine), new DialogueSequence(
@@ -521,13 +503,13 @@ namespace SpaceResortMurder
                     new DialogueElement(true, "Of course, it wouldn't be located in any public database that you have access to."),
                     new DialogueElement(true, "This is an experimental cloning device capable of making more accurate clones than ever before."),
                     new DialogueElement(true, "It uses 13 needles on the target, to extract different kinds of material to synthesize."),
-                    new DialogueElement(true, "Then we map out a target's brain, while the clones body is being formed. The last step is forming the new brain and seal up the clone."), 
-                    new DialogueElement(true, "Naturally this process has not yet been approved for commercial use, but with the amount of influence Human Perfect wields, I have no doubt it will be soon."), 
+                    new DialogueElement(true, "Then we map out a target's brain, while the clones body is being formed. The last step is forming the new brain and seal up the clone."),
+                    new DialogueElement(true, "Naturally this process has not yet been approved for commercial use, but with the amount of influence Human Perfect wields, I have no doubt it will be soon."),
             } ) },
             { nameof(TravissAccount), new DialogueSequence(
                 "Give me your full account of today's events?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Constructing your timeline bioroid? Alright I can assist you."), 
+                    new DialogueElement(true, "Constructing your timeline bioroid? Alright I can assist you."),
                     new DialogueElement(true, "Raymond's craft arrived at 7 AM, I went directly to this room and worked til 4:30 setting up the cloning device."),
                     new DialogueElement(true, "Raymond Soule joined me to begin the cloning process at 5 PM. the process was finished at 6:30. Raymond and his clone then left for the night."),
                     new DialogueElement(true, "I have remained here coordinating my research team, up until now."),
@@ -655,7 +637,7 @@ namespace SpaceResortMurder
             { nameof(WasZaidsResortAcceptedAsABetaTester), "Was Zaid's resort accepted for the beta testing program?" },
             { nameof(ZaidsResortAccepted), "His resort was accepted, because of the message on Raymond's pad." },
             { nameof(ZaidsResortDeclined), "His resort was declined, Zaid's resort was crossed off." },
-            
+
             { nameof(WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip), "Was Meleena honest in what happened on Raymond's ship." },
             { nameof(MeleenaWasHonest), "Yes" },
             { nameof(MeleenaIsLying), "No, Something about her testimony is off." },
@@ -689,11 +671,11 @@ namespace SpaceResortMurder
             { nameof(IAmLeaving), "I am leaving" }
         };
 
-        private static DictionaryWithDefault<string, Tuple<string, string>> _pathwayTexts = new DictionaryWithDefault<string, Tuple<string, string>>(new Tuple<string, string>("This pathway leads somewhere", "This pathway should not be stopping you")){
-            { nameof(PoliceCruiserToDockingBay), new Tuple<string, string>("a", "I am not ready yet") },
-            { nameof(DockingBayToLobby), new Tuple<string, string>("b", "I need to investigate the crime scene first") },
-            { nameof(DockingBayToPoliceCruiser), new Tuple<string, string>("c", "I need to investigate the crime scene first") },
-            { nameof(RaymondsShipToDockingBay), new Tuple<string, string>("d", "I am not finished investigating here") },
+        private static DictionaryWithDefault<string, string> _pathwayText = new DictionaryWithDefault<string, string>("This pathway should not be stopping you"){
+            { nameof(PoliceCruiserToDockingBay), "I am not ready yet" },
+            { nameof(DockingBayToLobby), "I need to investigate the crime scene first" },
+            { nameof(DockingBayToPoliceCruiser), "I need to investigate the crime scene first" },
+            { nameof(RaymondsShipToDockingBay), "I am not finished investigating here" },
         };
 
         private static Dictionary<string, Func<string>> _symbols = new Dictionary<string, Func<string>> {
@@ -711,8 +693,8 @@ namespace SpaceResortMurder
                 () => "Zavix"
             },
             { "Meleena",
-                () => CurrentGameState.IsThinking(nameof(HackerMeleena)) || CurrentGameState.IsThinking(nameof(WhoAreYou)) 
-                    ? "Meleena Ke'lick, Corporate Freelancer" 
+                () => CurrentGameState.IsThinking(nameof(HackerMeleena)) || CurrentGameState.IsThinking(nameof(WhoAreYou))
+                    ? "Meleena Ke'lick, Corporate Freelancer"
                     : "???"
             }
         };

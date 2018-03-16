@@ -11,7 +11,8 @@ namespace SpaceResortMurder.Clues.MeleenasSpaceCraft
             "Clues/DataDecrypted-Small",
             new Transform2(new Vector2(1000, 880), new Size2(216, 180)),
             new Size2(396, 330),
-            nameof(UnencryptedDataDrive))
+            nameof(UnencryptedDataDrive),
+            "")
         {
             IsActive = () => CurrentGameState.IsThinking(nameof(CareToShowTheDirtYouCollected))
                 || CurrentGameState.IsThinking(nameof(ObstructionOfJusticeWillAddToYourPrisonTime))

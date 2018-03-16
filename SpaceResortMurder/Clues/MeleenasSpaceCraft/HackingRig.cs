@@ -8,6 +8,7 @@ namespace SpaceResortMurder.Clues.MeleenasSpaceCraft
             "Clues/HackingRig", 
             transform, 
             new Size2(331, 331), 
-            nameof(HackingRig)) {}
+            nameof(HackingRig),
+            "") {}
     }
 }
