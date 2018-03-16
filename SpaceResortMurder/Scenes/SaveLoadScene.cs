@@ -42,7 +42,8 @@ namespace SpaceResortMurder.Scenes
                     var save = GameObjects.IO.Load<GameState>("Save " + i);
                     Add(new ImageBox() { Transform = new Transform2(new Vector2(Width(i) + 20, 510), new Size2(320, 180)),
                         Image = save.CurrentLocationImage });
-                    Add(new Label() { Transform = new Transform2(new Vector2(Width(i)+ 20, 475), new Size2(320, 35)), Text = save.PlayerName, BackgroundColor = new Color(134, 56, 134) });
+                    Add(new Label() { Transform = new Transform2(new Vector2(Width(i)+ 20, 475), new Size2(320, 35)), Text = save.PlayerName,
+                        BackgroundColor = new Color(134, 56, 134) });
                 }
             }
             ChangeMode(_savingEnabled ? Mode.Save: Mode.Load);
