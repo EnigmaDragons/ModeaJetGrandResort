@@ -133,11 +133,11 @@
     <Compile Include="Dialogues\RaymondsClone\YourLookALikeIsDead.cs" />
     <Compile Include="Dialogues\ScanView.cs" />
     <Compile Include="Dialogues\Travis\DidYouWorkWithRaymond.cs" />
-    <Compile Include="Dialogues\Travis\InvestigateYourCloningMachine.cs" />
+    <Compile Include="Dialogues\Travis\ExplainTheCloningMachine.cs" />
     <Compile Include="Dialogues\Travis\TravissAccount.cs" />
     <Compile Include="Dialogues\Travis\ViolentExperimentalResearch.cs" />
+    <Compile Include="Dialogues\Travis\WhereIsYourClone.cs" />
     <Compile Include="Dialogues\Travis\WhyIsTravisAtTheResort.cs" />
-    <Compile Include="Dialogues\Travis\YouAreTravisFalcon.cs" />
     <Compile Include="Dialogues\Travis\YourBrotherWasKilled.cs" />
     <Compile Include="Dialogues\Warren\AnytimeUpTilNow.cs" />
     <Compile Include="Dialogues\Warren\BetweenSevenAMToEightPM.cs" />
@@ -191,6 +191,7 @@
     <Compile Include="MouseX\MouseIsClicked.cs" />
     <Compile Include="ObjectivesX\AnswerADilemma.cs" />
     <Compile Include="ObjectivesX\CheckWhatsOnMeleenasDataStick.cs" />
+    <Compile Include="ObjectivesX\FindRaymondsClone.cs" />
     <Compile Include="ObjectivesX\GetAnEncryptionKeyForMeleenasDataStick.cs" />
     <Compile Include="ObjectivesX\GoFindOutTheManagersAccount.cs" />
     <Compile Include="ObjectivesX\InvestigateMeleenasCraft.cs" />

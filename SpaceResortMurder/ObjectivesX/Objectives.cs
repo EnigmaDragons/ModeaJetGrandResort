@@ -14,6 +14,8 @@ namespace SpaceResortMurder.ObjectivesX
             _objectives.Add(new InvestigateRaymondsShip());
             _objectives.Add(new InvestigateMeleenasCraft());
             _objectives.Add(new GoFindOutTheManagersAccount());
+            _objectives.Add(new QuestionTravis());
+            _objectives.Add(new FindRaymondsClone());
 
             _objectives.Add(new GetAnEncryptionKeyForMeleenasDataStick());
             _objectives.Add(new CheckWhatsOnMeleenasDataStick());

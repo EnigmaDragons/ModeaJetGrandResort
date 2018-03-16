@@ -5,6 +5,6 @@
         Default,
         Angry,
         Happy,
-        Neutral,
+        Thinking,
     }
 }
