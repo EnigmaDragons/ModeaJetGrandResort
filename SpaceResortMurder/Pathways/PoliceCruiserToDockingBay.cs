@@ -1,18 +1,35 @@
-﻿using MonoDragons.Core.PhysicsEngine;
+﻿using System;
+using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.Scenes;
+using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Dialogues.Warren;
 using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Pathways
 {
-    public class PoliceCruiserToDockingBay : ExpandingImagePathway
+    public sealed class PoliceCruiserToDockingBay : IPathway
     {
-        public PoliceCruiserToDockingBay(Transform2 transform) : base(
-            nameof(PoliceCruiserToDockingBay), 
-            "Placeholder/TravelArrow", 
-            transform, 
-            nameof(DockingBay)) {}
+        private readonly Transform2 _transform;
+        private readonly string _destination;
 
-        public override bool IsTraversible => CurrentGameState.IsThinking(nameof(BetweenSevenAMToEightPM));
+        public PoliceCruiserToDockingBay(Transform2 transform)
+        {
+            _transform = transform;
+            _destination = nameof(DockingBay);
+        }
+
+        public bool IsTraversible => CurrentGameState.IsThinking(nameof(BetweenSevenAMToEightPM));
+
+        public VisualClickableUIElement CreateButton(Action<string> showNonTraversibleDialogue)
+        {
+            return new ImageButton("Images/None", "Traverse/PoliceCruiserDoor", "Traverse/PoliceCruiserDoor", _transform, () =>
+            {
+                if (IsTraversible)
+                    Scene.NavigateTo(_destination);
+                else
+                    showNonTraversibleDialogue(GetType().Name);
+            });
+        }
     }
 }
