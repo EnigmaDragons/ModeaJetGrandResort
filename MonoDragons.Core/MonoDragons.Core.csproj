@@ -55,6 +55,7 @@
     <Compile Include="Development\Perf.cs" />
     <Compile Include="EngimaDragons\OilLogoScene.cs" />
     <Compile Include="Text\ScaledSpriteFontSet.cs" />
+    <Compile Include="UserInterface\ActiveElementChanged.cs" />
     <Compile Include="UserInterface\Anchor.cs" />
     <Compile Include="Engine\IControl.cs" />
     <Compile Include="Engine\ISpatialVisual.cs" />

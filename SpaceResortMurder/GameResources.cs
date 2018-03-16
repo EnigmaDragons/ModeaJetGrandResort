@@ -50,7 +50,11 @@ namespace SpaceResortMurder
         public static void TestAllSymbols()
         {
             _scanInfo.Values.ForEach(s => TestSymbols(s));
-            _clues.Values.ForEach(l => l.ForEach(s => TestSymbols(s)));
+            _clues.Values.ForEach(l =>
+            {
+                TestSymbols(l.Item1);
+                l.Item2.ForEach(s => TestSymbols(s));
+            });
             _dilemmaOrDeductionText.Values.ForEach(s => TestSymbols(s));
             _objectiveTexts.Values.ForEach(s => TestSymbols(s));
             _dialogues.Values.ForEach(d =>
@@ -59,7 +63,11 @@ namespace SpaceResortMurder
                 d.Elements.ForEach(s => TestSymbols(s.Line));
             });
             _resolutionQuestionsText.Values.ForEach(s => TestSymbols(s));
-            _pathwayText.Values.ForEach(s => TestSymbols(s));
+            _pathwayTexts.Values.ForEach(s =>
+            {
+                TestSymbols(s.Item1);
+                TestSymbols(s.Item2);
+            });
         }
 
         private static void TestSymbols(string stringWithSymbols)
@@ -89,9 +97,14 @@ namespace SpaceResortMurder
             return _characterExpressions[character + " " + expression];
         }
 
-        public static string[] GetClueLines(string dialogOrClue)
+        public static string GetClueTooltip(string clue)
         {
-            return _clues[dialogOrClue].Select(ReplaceSymbols).ToArray();
+            return ReplaceSymbols(_clues[clue].Item1);
+        }
+
+        public static string[] GetClueLines(string clue)
+        {
+            return _clues[clue].Item2.Select(ReplaceSymbols).ToArray();
         }
 
         public static string GetPonderText(string dilemmaOrDeduction)
@@ -116,9 +129,14 @@ namespace SpaceResortMurder
             return ReplaceSymbols(_resolutionQuestionsText[resolution].ToCharArray());
         }
 
-        public static string GetPathwayText(string pathway)
+        public static string GetPathwayTooltip(string pathway)
         {
-            return ReplaceSymbols(_pathwayText[pathway]);
+            return ReplaceSymbols(_pathwayTexts[pathway].Item1);
+        }
+
+        public static string GetPathwayNotTraversibleText(string pathway)
+        {
+            return ReplaceSymbols(_pathwayTexts[pathway].Item2);
         }
 
         private static string ReplaceSymbols(string text)
@@ -196,82 +214,82 @@ namespace SpaceResortMurder
             { nameof(ResortManagerZaid) + " " + Expression.Default, "Characters/resort_manager_colored" },
         };
 
-        private static DictionaryWithDefault<string, string[]> _clues = new DictionaryWithDefault<string, string[]>(new string[] { "This clue has not been implemented" }) {
+        private static DictionaryWithDefault<string, Tuple<string, string[]>> _clues = new DictionaryWithDefault<string, Tuple<string, string[]>>(new Tuple<string, string[]>("A thing you can investigate", new string[] { "This clue has not been implemented" })) {
             #region Docking Bay
-            { nameof(RaymondsShip), new string[] {
+            { nameof(RaymondsShip), new Tuple<string, string[]>("", new string[] {
                 "The ship is a Regal Glider an expensive personal craft, registered to a Raymond Soule.",
                 "There is a T71 Energy Blaster blast mark on the exterior it is still fairly hot and must have been fired within the last 2 hours.",
                 "The door control has all its ICE disabled and has been jacked to remain unlocked."
-            } },
-            { nameof(MeleenasShip), new string[] {
+            }) },
+            { nameof(MeleenasShip), new Tuple<string, string[]>("", new string[] {
                 "The ship is a heavily modded Corbin Cruiser, it's registered to a Meleena Ka'lick.",
                 "Meleena Ka'lick is a corporate freelancer. Where does she get the money to purchase her own space craft?",
-            } },
-            { nameof(GarbageAirlock), new string[] {
+            }) },
+            { nameof(GarbageAirlock), new Tuple<string, string[]>("", new string[] {
                 "A garbage airlock that releases trash into space. It shows signs of recent use.",
-            } },
+            }) },
             #endregion
 
             #region Raymond's Ship Interior
-            { nameof(RaymondsCorpse), new string[] {
+            { nameof(RaymondsCorpse), new Tuple<string, string[]>("", new string[] {
                 "Raymond died of asphyxiation.",
                 "His body is ballooned up to twice his normal size, his tongue and eyes have boiled. These injuries match the profile of being in space without a suit.",
                 "There is also bruising present around his neck from someone trying to choke him with their arm prior to his exposure to space.",
                 "He has 13 recent wide needle punctures.",
-            } },
-            { nameof(ShipsLogs), new string[] {
+            }) },
+            { nameof(ShipsLogs), new Tuple<string, string[]>("", new string[] {
                 "Ship's logs from today.",
                 $"The ship landed at 7:00 AM \n" + 
                 "The ship launched at 7:05 PM \n" + 
                 "The space hatch was opened at 7:10 PM \n" + 
                 "The space hatch closed at 7:20 PM \n" + 
                 "The ship landed at 7:25 PM",
-            } },
-            { nameof(RaymondsPad), new string[] {
+            }) },
+            { nameof(RaymondsPad), new Tuple<string, string[]>("", new string[] {
                 "Raymond's personal pad.",
                 "There is a list of resorts on here with ModeaJet Grand Resort being one of them, but it is among the crossed off ones.",
                 "This pad was used at 7:50 PM to send a message aproving ModeoJet Grand Resort to be the beta-tester for a new resort clone.",
-            } },
+            }) },
             #endregion
 
             #region Meleena's Ship Interior
-            { nameof(EncryptedDataStick), new string[] {
+            { nameof(EncryptedDataStick), new Tuple<string, string[]>("", new string[] {
                 "This data stick might have something valuable on it, But it's encrypted.",
-            } },
-            { nameof(UnencryptedDataDrive), new string[] {
+            }) },
+            { nameof(UnencryptedDataDrive), new Tuple<string, string[]>("", new string[] {
                 "The data stick contains Raymond's files about a recent cloning experiment gone wrong.",
                 "The experiment made much more perfect clones signifigantly faster than any known method.",
                 "It used needles to extract key matter for replication.",
                 "The experiment turned deadly when all the clones tried to kill their look a likes",
                 "It was a massacre. The researcher overseeing the project and paid for it with his life was Bernard Falcon.",
                 "Raymond Soule covered up the massacre by staging a terroist attack that supposedly killed the people.",
-            } },
-            { nameof(SkeletonKey), new string[] {
+            }) },
+            { nameof(SkeletonKey), new Tuple<string, string[]>("", new string[] {
                 "These special skeleton keys are designed to overload unsecure door locks in a matter of nanoseconds.",
-            } },
-            { nameof(HackingRig), new string[] {
+            }) },
+            { nameof(HackingRig), new Tuple<string, string[]>("", new string[] {
                 "This is a hacker rig used by \"Data Raven\".",
                 "\"Data Raven\" is responsible for numerous cases of information leaking about corporate corruption",
-            } },
+            }) },
             #endregion
 
             #region Travis's Cloning Room
-            { nameof(CloningChamber), new string[] {
+            { nameof(CloningChamber), new Tuple<string, string[]>("", new string[] {
                 "This machine is similiar to a known cloning devices, but it seems to have a lot of strange modifications to it."
-            } },
+            }) },
             #endregion
 
             #region Police Cruiser
-            { nameof(Clock), new string[] {
+            { nameof(Clock), new Tuple<string, string[]>("Clock", new string[] {
                 "The time reads 8:02 PM"
-            } },
+            }) },
             #endregion
 
             #region Vacant Room
-            { nameof(T71EnergyBlaster), new string[] {
+            { nameof(T71EnergyBlaster), new Tuple<string, string[]>("", new string[] {
                 "A T-71 Energy Blaster. It is registered to Raymond Soule.",
                 "It possesses a security feature that ensures the weilder's DNA matches the owner before you can fire.",
-            } },
+            }) },
             #endregion
         };
 
@@ -671,11 +689,11 @@ namespace SpaceResortMurder
             { nameof(IAmLeaving), "I am leaving" }
         };
 
-        private static DictionaryWithDefault<string, string> _pathwayText = new DictionaryWithDefault<string, string>("This pathway should not be stopping you"){
-            { nameof(PoliceCruiserToDockingBay), "I am not ready yet" },
-            { nameof(DockingBayToLobby), "I need to investigate the crime scene first" },
-            { nameof(DockingBayToPoliceCruiser), "I need to investigate the crime scene first" },
-            { nameof(RaymondsShipToDockingBay), "I am not finished investigating here" },
+        private static DictionaryWithDefault<string, Tuple<string, string>> _pathwayTexts = new DictionaryWithDefault<string, Tuple<string, string>>(new Tuple<string, string>("This pathway leads somewhere", "This pathway should not be stopping you")){
+            { nameof(PoliceCruiserToDockingBay), new Tuple<string, string>("a", "I am not ready yet") },
+            { nameof(DockingBayToLobby), new Tuple<string, string>("b", "I need to investigate the crime scene first") },
+            { nameof(DockingBayToPoliceCruiser), new Tuple<string, string>("c", "I need to investigate the crime scene first") },
+            { nameof(RaymondsShipToDockingBay), new Tuple<string, string>("d", "I am not finished investigating here") },
         };
 
         private static Dictionary<string, Func<string>> _symbols = new Dictionary<string, Func<string>> {

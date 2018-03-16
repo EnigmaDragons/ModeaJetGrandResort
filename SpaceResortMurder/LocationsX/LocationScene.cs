@@ -161,10 +161,10 @@ namespace SpaceResortMurder.LocationsX
             Push(new InvestigateClueView(clue, StartLoitering));
         }
 
-        private void ShowCantNavigate(string pathway)
+        private void ShowCantNavigate(string pathwayNotTraversibleText)
         {
             StopLoitering();
-            _reader = new Reader(new[] { GameResources.GetPathwayText(pathway) }, StartLoitering);
+            _reader = new Reader(new[] { pathwayNotTraversibleText }, StartLoitering);
             _isPresentingToUser = true;
         }
 

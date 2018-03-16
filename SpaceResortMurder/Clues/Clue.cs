@@ -49,7 +49,7 @@ namespace SpaceResortMurder.Clues
                     Event.Publish(new ThoughtGained(_clueId));
                 onClick();
             }, IsVisible)
-            { HoveredCursor = Cursors.Interactive };
+            { HoveredCursor = Cursors.Interactive, TooltipText = GameResources.GetClueTooltip(_clueId) };
         }
 
         public void Draw(Transform2 parentTransform)

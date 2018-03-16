@@ -30,8 +30,8 @@ namespace SpaceResortMurder.Pathways
                     if (IsTraversible)
                         Scene.NavigateTo(_location);
                     else
-                        showNonTraversibleDialogue(_pathway);
-                });
+                        showNonTraversibleDialogue(GameResources.GetPathwayNotTraversibleText(_pathway));
+                }) { TooltipText = GameResources.GetPathwayTooltip(_pathway) };
         }
     }
 }
