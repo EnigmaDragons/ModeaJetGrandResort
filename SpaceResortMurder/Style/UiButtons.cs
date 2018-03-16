@@ -48,11 +48,11 @@ namespace SpaceResortMurder.Style
                 { OnPress = PlayMenuButtonSound };
         }
 
-        public static VisualClickableUIElement Icon(Vector2 position, string name, Action onClick)
+        public static VisualClickableUIElement Icon(Vector2 position, string name, Action onClick, string tooltip)
         {
             return new ExpandingImageButton(name, $"{name}-Hover", $"{name}-Press",
                 new Transform2(new Rectangle(position.ToPoint(), new Point(72, 72))), new Size2(6, 6), onClick)
-                    { OnPress = PlayMenuButtonSound };
+                    { OnPress = PlayMenuButtonSound, TooltipText = tooltip };
         }
 
         private static void PlayMenuButtonSound()

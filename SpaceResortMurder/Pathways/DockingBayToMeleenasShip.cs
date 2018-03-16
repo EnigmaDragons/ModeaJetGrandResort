@@ -11,7 +11,7 @@ namespace SpaceResortMurder.Pathways
             "Placeholder/Door",
             new Transform2(new Vector2(700, 0), new Size2(350, 348)),
             nameof(MeleenasShipInterior),
-            "") {}
+            "To Modded Craft") {}
 
         public override bool IsTraversible =>  false;
     }

@@ -10,6 +10,6 @@ namespace SpaceResortMurder.Clues.RaymondsSpaceCraft
             new Transform2(new Vector2(900, 200), new Size2(219, 120)), 
             new Size2(292, 160), 
             nameof(RaymondsCorpse),
-            "") {}
+            "Raymond's Corpse") {}
     }
 }

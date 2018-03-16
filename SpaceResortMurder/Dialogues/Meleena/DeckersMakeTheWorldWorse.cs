@@ -1,4 +1,6 @@
-﻿namespace SpaceResortMurder.Dialogues.Meleena
+﻿using SpaceResortMurder.State;
+
+namespace SpaceResortMurder.Dialogues.Meleena
 {
     public class DeckersMakeTheWorldWorse : Dialogue
     {
@@ -6,7 +8,7 @@
 
         public override bool IsActive()
         {
-            return false;
+            return CurrentGameState.IsThinking(nameof(YouAreAHacker));
         }
     }
 }

@@ -48,7 +48,7 @@ namespace SpaceResortMurder.CharactersX
                 TextColor = Color.White,
                 TextTransform = new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 120 + i * 120),
                     new Size2(UI.OfScreenWidth(0.96f) - UI.OfScreenWidth(0.66f), 86)),
-                TextAlignment = HorizontalAlignment.Left
+                TextAlignment = HorizontalAlignment.Left,
             };
         }
 

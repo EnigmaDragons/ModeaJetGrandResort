@@ -27,7 +27,7 @@ namespace SpaceResortMurder.Pathways
                     Scene.NavigateTo(_destination);
                 else
                     showNonTraversibleDialogue(GetType().Name);
-            });
+            }) { TooltipText = "To Docking Bay" };
         }
     }
 }

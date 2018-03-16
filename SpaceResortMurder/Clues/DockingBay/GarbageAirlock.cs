@@ -10,6 +10,6 @@ namespace SpaceResortMurder.Clues.DockingBay
             new Transform2(new Vector2(0, 540), new Size2(648, 360)), 
             new Size2(486, 270), 
             nameof(GarbageAirlock),
-            "") {}
+            "Airlock") {}
     }
 }

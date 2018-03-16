@@ -6,6 +6,7 @@ using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
 using System.Linq;
 using MonoDragons.Core.Engine;
+using MonoDragons.Core.EventSystem;
 using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.HudX
@@ -30,10 +31,10 @@ namespace SpaceResortMurder.HudX
             };
 
             _clickables = new List<VisualClickableUIElement>();
-            AddIconButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Icons/Dilemmas");
-            AddIconButton(() => Scene.NavigateTo(GameResources.DialogueMemoriesScene), "Icons/Conversations");
-            AddIconButton(() => Scene.NavigateTo(GameResources.OptionsSceneName), "Icons/Options");
-            AddIconButton(() => Scene.NavigateTo(GameResources.MainMenuSceneName), "Icons/ExitToMenu");
+            AddIconButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Icons/Dilemmas", "Dilemmas");
+            AddIconButton(() => Scene.NavigateTo(GameResources.DialogueMemoriesScene), "Icons/Conversations", "Conversations");
+            AddIconButton(() => Scene.NavigateTo(GameResources.OptionsSceneName), "Icons/Options", "Options");
+            AddIconButton(() => Scene.NavigateTo(GameResources.MainMenuSceneName), "Icons/ExitToMenu", "Main Menu");
             HudBranch = new ClickUIBranch("HUD", 2);
             _clickables.ForEach(x => HudBranch.Add(x));
             _newIcon = new ImageBox
@@ -41,6 +42,8 @@ namespace SpaceResortMurder.HudX
                 Transform = new Transform2(new Size2(43, 43)),
                 Image = "UI/NewRedIconBorderless"
             };
+
+            Event.SubscribeForever(EventSubscription.Create<ActiveElementChanged>(x => _tooltipLabel.Text = x.NewElement.TooltipText, this));
         }
 
         public void Draw(Transform2 parentTransform)
@@ -56,9 +59,9 @@ namespace SpaceResortMurder.HudX
                 _newIcon.Draw(new Transform2(GetIndicatorLocation(0)));
         }
 
-        private void AddIconButton(Action onClick, string name)
+        private void AddIconButton(Action onClick, string name, string tooltip)
         {
-            _clickables.Add(UiButtons.Icon(new Vector2(1920 - 102, 12 + _clickables.Count * 106), name, onClick));
+            _clickables.Add(UiButtons.Icon(new Vector2(1920 - 102, 12 + _clickables.Count * 106), name, onClick, tooltip));
         }
 
         private Vector2 GetIndicatorLocation(int index)

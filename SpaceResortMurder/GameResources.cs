@@ -589,8 +589,7 @@ namespace SpaceResortMurder
             { nameof(RaymondSaysTheCloningDoesNotGiveBruises), new DialogueSequence(
                 "Raymond said that cloning does not give bruises.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Yes bruises..."),
-                    new DialogueElement(true, "When the needles take matter from you in the new cloning process, it leaves bruises."),
+                    new DialogueElement(true, "Travis is lying."),
             } ) },
 
 
