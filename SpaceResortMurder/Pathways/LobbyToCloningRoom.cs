@@ -12,7 +12,8 @@ namespace SpaceResortMurder.Pathways
             nameof(LobbyToCloningRoom),
             "Placeholder/Door",
             new Transform2(new Vector2(350, 0), new Size2(350, 348)),
-            nameof(TravissCloningRoom)) {}
+            nameof(TravissCloningRoom),
+            "") {}
 
         public override bool IsTraversible => CurrentGameState.IsThinking(nameof(WhoIsStayingAtYourResort));
     }

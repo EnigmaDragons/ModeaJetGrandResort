@@ -36,8 +36,11 @@ namespace MonoDragons.Core.UserInterface
         public Rectangle Area { get; }
         public Rectangle TotalArea { get; private set; } 
 
+        public string TooltipText { get; set; }
+
         protected ClickableUIElement(Rectangle area, bool isEnabled = true, float scale = 1)
         {
+            TooltipText = "";
             Area = new Rectangle((int)Math.Round(area.X * scale), (int)Math.Round(area.Y * scale),
                 (int)Math.Round(area.Width * scale), (int)Math.Round(area.Height * scale));
             Scale = scale;

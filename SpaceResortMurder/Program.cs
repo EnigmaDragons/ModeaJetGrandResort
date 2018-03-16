@@ -19,6 +19,7 @@ using SpaceResortMurder.State;
 using SpaceResortMurder.Style;
 using System;
 using System.Diagnostics;
+using SpaceResortMurder.Credits;
 
 namespace SpaceResortMurder
 {

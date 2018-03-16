@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using MonoDragons.Core.Engine;
 using System.Linq;
 using MonoDragons.Core.Render;
+using MonoDragons.Core.EventSystem;
 
 namespace MonoDragons.Core.UserInterface
 {
@@ -60,6 +61,7 @@ namespace MonoDragons.Core.UserInterface
                 b.Unsubscribe(subscribeAction);
                 if (b.IsCurrentElement(_current) && _current.IsHovered)
                 {
+                    Event.Publish(new ActiveElementChanged(_current));
                     _current.OnExitted();
                     _current.IsHovered = false;
                 }
@@ -123,6 +125,7 @@ namespace MonoDragons.Core.UserInterface
                 _current.OnExitted();
                 _current.IsHovered = false;
             }
+            Event.Publish(new ActiveElementChanged(_current.IsHovered ? _current : None, newElement));
             _wasClicked = false;
             _current = newElement;
             _current.OnEntered();
@@ -159,7 +162,10 @@ namespace MonoDragons.Core.UserInterface
         public void Dispose()
         {
             if (_current.IsHovered)
+            {
                 _current.OnExitted();
+                Event.Publish(new ActiveElementChanged(_current));
+            }
             _current = None;
         }
     }

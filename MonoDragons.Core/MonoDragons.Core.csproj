@@ -42,6 +42,9 @@
     <StartupObject>MonoDragons.Core.Demo</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Animations\HorizontalFlyInAnimation.cs" />
+    <Compile Include="Animations\IAnimation.cs" />
+    <Compile Include="Animations\WithOffset.cs" />
     <Compile Include="Animations\SinglePositionTraverseAnimation.cs" />
     <Compile Include="AudioSystem\Audio.cs" />
     <Compile Include="AudioSystem\AudioPlayer.cs" />
@@ -54,7 +57,9 @@
     <Compile Include="Demo.cs" />
     <Compile Include="Development\Perf.cs" />
     <Compile Include="EngimaDragons\OilLogoScene.cs" />
+    <Compile Include="Engine\TimerTask.cs" />
     <Compile Include="Text\ScaledSpriteFontSet.cs" />
+    <Compile Include="UserInterface\ActiveElementChanged.cs" />
     <Compile Include="UserInterface\Anchor.cs" />
     <Compile Include="Engine\IControl.cs" />
     <Compile Include="Engine\ISpatialVisual.cs" />

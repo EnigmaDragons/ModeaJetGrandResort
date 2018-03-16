@@ -9,6 +9,7 @@ namespace SpaceResortMurder.Clues.RaymondsSpaceCraft
             "Placeholder/ShipsLogs", 
             new Transform2(new Vector2(100, 400), new Size2(156, 89)), 
             new Size2(312, 178), 
-            nameof(ShipsLogs)) {}
+            nameof(ShipsLogs),
+            "") {}
     }
 }
