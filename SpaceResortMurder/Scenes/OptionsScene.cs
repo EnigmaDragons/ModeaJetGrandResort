@@ -37,7 +37,7 @@ namespace SpaceResortMurder.Scenes
             Add(UiLabels.Option("Resets", new Vector2(XPos(0.5f), Height(0, rowY))));
             Add(UiButtons.Menu("Reset Options", new Vector2(XPos(0.40f), Height(1, rowY)),
                 () => CurrentOptions.UpdateDisplay(x => CurrentOptions.Reset())));
-            Add(UiButtons.Menu("Delete Save", new Vector2(XPos(0.60f), Height(1, rowY)), () => CurrentGameState.Reset()));
+            Add(UiButtons.Menu("Save/Load", new Vector2(XPos(0.60f), Height(1, rowY)), () => Scene.NavigateTo(GameResources.SaveLoadSceneName)));
         }
 
         private void AddGameplayOptions()
