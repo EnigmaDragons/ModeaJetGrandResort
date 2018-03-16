@@ -6,9 +6,14 @@ using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.CharactersX
 {
-    public class RaymondsClone : Character
+    public class CEORaymondsClone : Character
     {
-        public RaymondsClone() : base(nameof(RaymondsClone), new Size2(480, 1128), 
+        public CEORaymondsClone() : base(nameof(CEORaymondsClone), new Size2(480, 1128), 
+            new FoundYouRaymondsClone(),
+            new WhyKeepCloneSecret(),
+            new ElectricDischarge(),
+            new Bruises(),
+
             new MeetingRaymondsClone(),
             new YourLookALikeIsDead(),
             new GoToTheLobby(),

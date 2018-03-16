@@ -3,9 +3,9 @@ using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.ObjectivesX
 {
-    public class CheckWhatsOnMeleenasDataStick : Objective
+    public class CheckWhatsOnMeleenasDataDrive : Objective
     {
-        public CheckWhatsOnMeleenasDataStick() : base(nameof(CheckWhatsOnMeleenasDataStick)) {}
+        public CheckWhatsOnMeleenasDataDrive() : base(nameof(CheckWhatsOnMeleenasDataDrive)) {}
 
         public override bool IsActive() => (CurrentGameState.IsThinking(nameof(CareToShowTheDirtYouCollected))
                 || CurrentGameState.IsThinking(nameof(ObstructionOfJusticeWillAddToYourPrisonTime))
