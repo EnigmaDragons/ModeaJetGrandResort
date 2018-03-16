@@ -104,6 +104,12 @@ namespace MonoDragons.Core.UserInterface
             subscriberActions.Remove(actions);
         }
 
+        public void Clear()
+        {
+             ClearElements();
+            _subBranches.Clear();
+        }
+
         public void ClearElements()
         {
             if (_currentElement.IsHovered)

@@ -41,7 +41,7 @@
     <Compile Include="CharactersX\Expression.cs" />
     <Compile Include="CharactersX\HackerMeleena.cs" />
     <Compile Include="CharactersX\Characters.cs" />
-    <Compile Include="CharactersX\Player.cs" />
+    <Compile Include="CharactersX\PlayerCharacter.cs" />
     <Compile Include="CharactersX\RaymondsClone.cs" />
     <Compile Include="CharactersX\ResearcherTravis.cs" />
     <Compile Include="Clues\CloningRoom\CloningChamber.cs" />
@@ -104,6 +104,7 @@
     <Compile Include="Deductions\ZaidsResortForBetaTesting\ZaidsResortDeclined.cs" />
     <Compile Include="DeveloperCheatController.cs" />
     <Compile Include="Dialogues\DialogueElement.cs" />
+    <Compile Include="Dialogues\DialogueReader.cs" />
     <Compile Include="Dialogues\Meleena\WhoAreYou.cs" />
     <Compile Include="Dialogues\Meleena\YouHaveARatherCleanRecord.cs" />
     <Compile Include="Dialogues\ScanDataReader.cs" />
