@@ -16,7 +16,6 @@ namespace SpaceResortMurder.Pathways
 
         public override bool IsTraversible => CurrentGameState.IsThinking(nameof(RaymondsCorpse))
                 && CurrentGameState.IsThinking(nameof(ShipsLogs))
-                && CurrentGameState.IsThinking(nameof(RaymondsPad))
-                && CurrentGameState.IsThinking(nameof(T71EnergyBlaster));
+                && CurrentGameState.IsThinking(nameof(RaymondsPad));
     }
 }

@@ -14,6 +14,7 @@ namespace SpaceResortMurder.CharactersX
             new MeleenasAccount(),
             new CorporateFreelancersCantNormallyAffordPersonalSpaceCrafts(),
             new SearchYourCraftForEvidence(),
+            new YouHaveARatherCleanRecord(),
 
             new HereIsTheSearchOrder(),
             new YouBrokeIntoRaymondsShip(),

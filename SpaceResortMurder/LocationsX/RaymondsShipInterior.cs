@@ -13,7 +13,6 @@ namespace SpaceResortMurder.LocationsX
                 new RaymondsCorpse(),
                 new RaymondsPad(),
                 new ShipsLogs(),
-                new T71EnergyBlaster(),
             }, 
             new List<IPathway> { new RaymondsShipToDockingBay() }) {}
     }

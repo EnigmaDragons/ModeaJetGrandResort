@@ -1,4 +1,6 @@
-﻿namespace SpaceResortMurder.Dialogues.Zaid
+﻿using SpaceResortMurder.State;
+
+namespace SpaceResortMurder.Dialogues.Zaid
 {
     public class WhyWasRaymondHere : Dialogue
     {
@@ -6,7 +8,7 @@
 
         public override bool IsActive()
         {
-            return true;
+            return CurrentGameState.IsThinking(nameof(WhoIsStayingAtYourResort));
         }
     }
 }

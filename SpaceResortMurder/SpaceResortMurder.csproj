@@ -58,7 +58,7 @@
     <Compile Include="Clues\RaymondsSpaceCraft\RaymondsPad.cs" />
     <Compile Include="Clues\DockingBay\RaymondsShip.cs" />
     <Compile Include="Clues\RaymondsSpaceCraft\ShipsLogs.cs" />
-    <Compile Include="Clues\RaymondsSpaceCraft\T71EnergyBlaster.cs" />
+    <Compile Include="Clues\VacantRoom\T71EnergyBlaster.cs" />
     <Compile Include="Clues\ClueDisplayReader.cs" />
     <Compile Include="Deductions\CauseOfDeath\ChokedBySomeone.cs" />
     <Compile Include="Deductions\CauseOfDeath\LaunchedIntoSpaceFromTheGarbageAirlock.cs" />
@@ -105,6 +105,7 @@
     <Compile Include="DeveloperCheatController.cs" />
     <Compile Include="Dialogues\DialogueElement.cs" />
     <Compile Include="Dialogues\Meleena\WhoAreYou.cs" />
+    <Compile Include="Dialogues\Meleena\YouHaveARatherCleanRecord.cs" />
     <Compile Include="Dialogues\ScanDataReader.cs" />
     <Compile Include="Dialogues\ConversationView.cs" />
     <Compile Include="Dialogues\DialogueMemoriesScene.cs" />
@@ -132,9 +133,10 @@
     <Compile Include="Dialogues\RaymondsClone\YourLookALikeIsDead.cs" />
     <Compile Include="Dialogues\ScanView.cs" />
     <Compile Include="Dialogues\Travis\DidYouWorkWithRaymond.cs" />
-    <Compile Include="Dialogues\Travis\InvestigateYourCloningMachine.cs" />
+    <Compile Include="Dialogues\Travis\ExplainTheCloningMachine.cs" />
     <Compile Include="Dialogues\Travis\TravissAccount.cs" />
     <Compile Include="Dialogues\Travis\ViolentExperimentalResearch.cs" />
+    <Compile Include="Dialogues\Travis\WhereIsYourClone.cs" />
     <Compile Include="Dialogues\Travis\WhyIsTravisAtTheResort.cs" />
     <Compile Include="Dialogues\Travis\YourBrotherWasKilled.cs" />
     <Compile Include="Dialogues\Warren\AnytimeUpTilNow.cs" />
@@ -147,6 +149,9 @@
     <Compile Include="Dialogues\Zaid\DidRaymondApproveYourResort.cs" />
     <Compile Include="Dialogues\Reader.cs" />
     <Compile Include="Dialogues\Zaid\DidYouReleaseTheGarbage.cs" />
+    <Compile Include="Dialogues\Zaid\DoYouHaveAnyCamerasAtYourResort.cs" />
+    <Compile Include="Dialogues\Zaid\WhoAreYouZaid.cs" />
+    <Compile Include="Dialogues\Zaid\WhoIsStayingAtYourResort.cs" />
     <Compile Include="Dialogues\Zaid\WhySoFewPeopleAtTheResort.cs" />
     <Compile Include="Dialogues\Zaid\WhyWasRaymondHere.cs" />
     <Compile Include="Dialogues\Zaid\YouWereNotAcceptedForBetaTesting.cs" />
@@ -186,13 +191,16 @@
     <Compile Include="MouseX\MouseIsClicked.cs" />
     <Compile Include="ObjectivesX\AnswerADilemma.cs" />
     <Compile Include="ObjectivesX\CheckWhatsOnMeleenasDataStick.cs" />
+    <Compile Include="ObjectivesX\FindRaymondsClone.cs" />
     <Compile Include="ObjectivesX\GetAnEncryptionKeyForMeleenasDataStick.cs" />
+    <Compile Include="ObjectivesX\GoFindOutTheManagersAccount.cs" />
     <Compile Include="ObjectivesX\InvestigateMeleenasCraft.cs" />
-    <Compile Include="ObjectivesX\InvestigateRaymondsDeadBody.cs" />
+    <Compile Include="ObjectivesX\InvestigateRaymondsShip.cs" />
     <Compile Include="ObjectivesX\LookAroundForClues.cs" />
     <Compile Include="ObjectivesX\Objective.cs" />
     <Compile Include="ObjectivesX\Objectives.cs" />
     <Compile Include="ObjectivesX\ObjectivesView.cs" />
+    <Compile Include="ObjectivesX\QuestionTravis.cs" />
     <Compile Include="Pathways\CloningRoomToLobby.cs" />
     <Compile Include="Pathways\DockingBayToLobby.cs" />
     <Compile Include="Pathways\DockingBayToMeleenasShip.cs" />

@@ -150,18 +150,32 @@ namespace SpaceResortMurder
         {
             { nameof(OfficerWarren),
                 "Name: Warren Alexander \n" + 
-                "Weight: 199 lbs \n" + 
+                "Condition: Normal \n" + 
                 "Augments: None \n" +
                 "Criminal Record: Found guilty of petty theft at the age of 12 \n" +
                 "Occupation: OPID (Outer Planet Investigative Department), 17 years"
             },
             { nameof(HackerMeleena),
                 "Name: Meleena Ka'lick \n" +
-                "Weight: 116 lbs \n" + 
+                "Condition: Heightened pulse, Poor balance (May have recently exited cyberspace) \n" + 
                 "Augments: CyberDeck, it's used to jack into cyberspace \n" +
                 "Criminal Record: Clean \n" + 
                 "Occupation: Corporate Freelancer, 9 years \n" + 
                 "Red Flags: Extremely limited records, possible alias or record cleaning"
+            },
+            { nameof(ResortManagerZaid),
+                "Name: Zaid Ahuji \n" +
+                "Condition: Normal \n" + 
+                "Augments: None \n" +
+                "Criminal Record: Accused but not convicted of illegally selling customer data \n" + 
+                "Occupation: ModeaJet Resort Manager, 2 years" 
+            },
+            { nameof(ResearcherTravis),
+                "Name: Travis Falcon \n" + 
+                "Condition: Recent Xetope use, Xetope is an expensive legal smart drug, that increases a users focus \n" + 
+                "Augments: Power Conductor Arm, is an expensive arm used as a portable power source \n" + 
+                "Criminal Record: Human Perfect's researcher division is currently being investigated for human experimentation \n" +
+                "Occupation: Human Perfect Lead Researcher, 13 years"
             }
         };
 
@@ -212,10 +226,6 @@ namespace SpaceResortMurder
                 "The space hatch closed at 7:20 PM \n" + 
                 "The ship landed at 7:25 PM",
             } },
-            { nameof(T71EnergyBlaster), new string[] {
-                "A T-71 Energy Blaster. It is registered to Raymond Soule.",
-                "It possesses a security feature that ensures the weilder's DNA matches the owner before you can fire.",
-            } },
             { nameof(RaymondsPad), new string[] {
                 "Raymond's personal pad.",
                 "There is a list of resorts on here with ModeaJet Grand Resort being one of them, but it is among the crossed off ones.",
@@ -246,17 +256,20 @@ namespace SpaceResortMurder
 
             #region Travis's Cloning Room
             { nameof(CloningChamber), new string[] {
-                "This machine is where the person getting cloned lies.",
-                "We used a new process, that makes more perfect clones, much faster than any known method.",
-                "13 needles take sample matter from key places as the brain is scanned.",
-                "It then rapidly replicates the matter to form the clone.",
-                "This new process has not yet been approved for commercial use."
+                "This machine is similiar to a known cloning devices, but it seems to have a lot of strange modifications to it."
             } },
             #endregion
 
             #region Police Cruiser
             { nameof(Clock), new string[] {
                 "The time reads 8:02 PM"
+            } },
+            #endregion
+
+            #region Vacant Room
+            { nameof(T71EnergyBlaster), new string[] {
+                "A T-71 Energy Blaster. It is registered to Raymond Soule.",
+                "It possesses a security feature that ensures the weilder's DNA matches the owner before you can fire.",
             } },
             #endregion
         };
@@ -268,7 +281,7 @@ namespace SpaceResortMurder
                 "Who are you?",
                 new DialogueElement[] {
                     new DialogueElement(true, "Hello there \\Player\\. This is your fist time powering up so I guess I better get you up to speed."),
-                    new DialogueElement(true, "I'm Officer Warren, and YOU are an android detective."),
+                    new DialogueElement(true, "I'm Officer Warren, and YOU are a bioroid detective."),
                     new DialogueElement(false, "..."), 
                     new DialogueElement(true, "Lookie here, you got the schnazy ability to scan people and spot those little details I can't."),
                     new DialogueElement(true, "Go ahead and try it out on me."),
@@ -277,7 +290,8 @@ namespace SpaceResortMurder
                 "You've commited petty theft at the age of 12.",
                 new DialogueElement[] {
                     new DialogueElement(true, "What did I tell you, isn't scanning pretty fancy. Alright now to get to what's at hand."),
-                    new DialogueElement(true, "Right before powering you up I got pinged about a corp exec murder. The victim is Raymond Soule, the CEO of the cloning company Human Perfect."),
+                    new DialogueElement(true, "Right before powering you up I got pinged by the manager at ModeaJet Grand Resort about a corp exec murder."), 
+                    new DialogueElement(true, "The victim is Raymond Soule, the CEO of the cloning company Human Perfect."),
                     new DialogueElement(true, "Mr.Soule arrived intact at ModeaJet Grand Resort at around 7:00 AM this morning, but was found dead today in his ship."),
                     new DialogueElement(true, "Lookie around this ship and tell me what can figure from that."),
                     new DialogueElement(false, "Not telling me is inefficient."), 
@@ -306,77 +320,32 @@ namespace SpaceResortMurder
             { nameof(NeedASearchOrder), new DialogueSequence(
                 "I need a search order for Meleena's craft.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "I'll submit a request and in these high profile corp CEO cases, I'm sure we will get a reply soon."),
-                    new DialogueElement(true, "In the meantime, you will just have to turn over a new stone elsewhere."), 
+                    new DialogueElement(true, "I'll submit a request for Ms.Ka'lick's craft. Thankfully this is a high profile corp CEO case, so I'm sure we will get a reply soon."),
+                    new DialogueElement(true, "In the meantime, You should make sure to get the statement from the hotel manager."), 
             } ) },
-            #endregion
-
-            #region Zaid
-            { nameof(WhyWasRaymondHere), new DialogueSequence(
-                "Why was Raymond visiting your resort?",
-                new DialogueElement[] {
-                    new DialogueElement(true, "Raymond was considering my resort for beta-testing Human Perfect's new clones specifically tailored for resorts."),
-                }
-            ) },
-            { nameof(DidRaymondApproveYourResort), new DialogueSequence(
-                "Did Raymond decide your resort was a good fit?",
-                new DialogueElement[] {
-                    new DialogueElement(true, "My resort is terrific, of course he did."),
-                }
-            ) },
-            { nameof(DidYouReleaseTheGarbage), new DialogueSequence(
-                "I noticed that the garbage airlock was recently used, was that you?",
-                new DialogueElement[] {
-                    new DialogueElement(true, "No I thought it was strange the garbage airlock was empty."),
-                }
-            ) },
-            { nameof(WhySoFewPeopleAtTheResort), new DialogueSequence(
-                "Your resort seems to be lacking in occupants?",
-                new DialogueElement[] {
-                    new DialogueElement(true, "It's been a rough year. Nothing I can't fix with a little effort."),
-                }
-            ) },
-            { nameof(ZaidsAccount), new DialogueSequence(
-                "Please tell me as detailed as you can remember what you can recall?",
-                new DialogueElement[] {
-                    new DialogueElement(true, "I was staying in my room when I got a notification that Raymond's ship was leaving."),
-                    new DialogueElement(true, "I didn't find that odd until 20 minutes after it left, Raymond's ship was landing."),
-                    new DialogueElement(true, "I headed over to the docking bay. That's where I saw Raymond's ship was open."),
-                    new DialogueElement(true, "Upon coming over I saw Raymond's dead body and then immidiately called you."),
-                }
-            ) },
-            { nameof(YouWereNotAcceptedForBetaTesting), new DialogueSequence(
-                "You were not accepted for beta testing, I found a list of resorts and yours was crossed off?",
-                new DialogueElement[] {
-                    new DialogueElement(true, "But what about the message Raymond sent!"),
-                    new DialogueElement(true, "Oh wait I shouldn't know about that..."),
-                    new DialogueElement(true, "Alright truth is when I found Raymond's body I sent the message on his pad."),
-                    new DialogueElement(true, "I needed this, to keep my place running, But I didn't kill him."),
-                }
-            ) },
             #endregion
 
             #region Meleena
             { nameof(WhoAreYou), new DialogueSequence(
                 "Who are you?",
                 new DialogueElement[] {
-                new DialogueElement(true, "It's fraggin rude not to introduce yourself first android!"),
+                new DialogueElement(true, "It's fraggin rude not to introduce yourself first bioroid!"),
                 new DialogueElement(false, "My name is \\Player\\."),
-                new DialogueElement(true, "Alright roid, I'm Meleena Ka'lick, a corporate freelancer on vacation, satisfied?"), 
-                new DialogueElement(false, "Yes."), 
+                new DialogueElement(true, "Alright roid, I'm Meleena Ka'lick, a corporate freelancer on vacation, satisfied?"),
+                new DialogueElement(false, "Yes."),
             } ) },
             { nameof(MeleenasAccount), new DialogueSequence(
                 "Give me your account from this morning until night.",
                 new DialogueElement[] {
                     new DialogueElement(true, "Did you leave your manners in the recharger roid?"),
-                    new DialogueElement(false, "No, but I don't think it's necessary to utilize them with you."), 
+                    new DialogueElement(false, "No, but I don't think it's necessary to utilize them with you."),
                     new DialogueElement(true, "Fraggin roids. Alright since awaking in meat-space, I have been relaxing in my room and craft all day."),
-                    new DialogueElement(true, "And before you ask I have seen nothing out of the ordinary cept you."), 
+                    new DialogueElement(true, "And before you ask I have seen nothing out of the ordinary cept you."),
             } ) },
             { nameof(CorporateFreelancersCantNormallyAffordPersonalSpaceCrafts), new DialogueSequence(
                 "Corporate freelancers can't normally purchase their own craft.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Beats your pig-rig over there."), 
+                    new DialogueElement(true, "Beats your pig-rig over there."),
                     new DialogueElement(true, "I'm a data specialist, tasked with gathering invaluable paydata. You'd be surprised how well those corp execs pay for my info."),
             } ) },
             { nameof(SearchYourCraftForEvidence), new DialogueSequence(
@@ -384,7 +353,11 @@ namespace SpaceResortMurder
                 new DialogueElement[] {
                     new DialogueElement(true, "Drek! Gotta a search order for that?"),
             } ) },
-
+            { nameof(YouHaveARatherCleanRecord), new DialogueSequence(
+                "Your record is squeaky clean and rather small.",
+                new DialogueElement[] {
+                    new DialogueElement(true, Expression.Happy, "Goody-two-shoes Meleena that's me."),
+            } ) },
 
 
             { nameof(HereIsTheSearchOrder), new DialogueSequence(
@@ -447,37 +420,106 @@ namespace SpaceResortMurder
             ) },
             #endregion
 
+            #region Zaid
+            { nameof(WhoAreYouZaid), new DialogueSequence(
+                "You manage this resort?",
+                new DialogueElement[] {
+                    new DialogueElement(true, "I'm Zaid Ahuji, manager of this grand resort. I assume you will be wanting a room while you stay here and investigate the er... incident."), 
+                    new DialogueElement(true, "It comes with a state of the art recharger, for one such as yourself."),
+                    new DialogueElement(false, "I believe I can close this case before the night is over."),
+                    new DialogueElement(true, "Of course! Given someone of your er... skill I'm sure. Though if it stumps you for the night don't hesitate to ask for a room."), 
+            } ) },
+            { nameof(ZaidsAccount), new DialogueSequence(
+                "Please tell me as detailed as you can remember what you can recall up until you pinged us?",
+                new DialogueElement[] {
+                    new DialogueElement(true, "Right away! I was staying here in the lobby er... when I see a notification that Raymond's ship was leaving."),
+                    new DialogueElement(true, "I didn't find that odd but 20 minutes later Raymond's ship was returning."),
+                    new DialogueElement(true, "I headed over to the docking bay. That's where I saw er... Raymond's ship was open."),
+                    new DialogueElement(true, "Upon coming over I saw Raymond's er... figure and then immidiately called you."),
+            } ) },
+            { nameof(WhoIsStayingAtYourResort), new DialogueSequence(
+                "Tell me who is currently staying at your resort?",
+                new DialogueElement[] {
+                    new DialogueElement(true, "Right away! Meleena Ke'lick who arrived in her own ship. Travis Falcon a colleague of Raymond Soule. And the now deceased Raymond Soule."),
+            } ) },
+            { nameof(WhySoFewPeopleAtTheResort), new DialogueSequence(
+                "Your resort seems to be lacking in occupants?",
+                new DialogueElement[] {
+                    new DialogueElement(true, "Ever since the reports of me allegedly selling customer data. It's been hard to rebuild my reputation."),
+            } ) },
+            { nameof(WhyWasRaymondHere), new DialogueSequence(
+                "Why was Raymond Soule visiting your resort?",
+                new DialogueElement[] {
+                    new DialogueElement(true, "Raymond was going to let me test a new line of resort clones. Which would greatly increase popularity."),
+            } ) },
+            { nameof(DoYouHaveAnyCamerasAtYourResort), new DialogueSequence(
+                "Do you have any surveillance that would be useful to my investigation?",
+                new DialogueElement[] {
+                    new DialogueElement(true, "After reports of me allegedly selling customer data. I had to remove all my cameras to put customers at ease."),
+            } ) },
+            { nameof(DidYouReleaseTheGarbage), new DialogueSequence(
+                "I noticed that the garbage airlock was recently used, was that you?",
+                new DialogueElement[] {
+                    new DialogueElement(true, "No I thought it was strange the garbage airlock was empty."),
+            } ) },
+            { nameof(DidRaymondApproveYourResort), new DialogueSequence(
+                "Did Raymond decide to let your resort test the resort clones?",
+                new DialogueElement[] {
+                    new DialogueElement(true, "Yes, He said he quite liked the place."),
+            } ) },
+
+            
+            { nameof(YouWereNotAcceptedForBetaTesting), new DialogueSequence(
+                "You were not accepted for beta testing, I found a list of resorts and yours was crossed off?",
+                new DialogueElement[] {
+                    new DialogueElement(true, "But what about the message Raymond sent!"),
+                    new DialogueElement(true, "Oh wait I shouldn't know about that..."),
+                    new DialogueElement(true, "Alright truth is when I found Raymond's body I sent the message on his pad."),
+                    new DialogueElement(true, "I needed this, to keep my place running, But I didn't kill him."),
+                }
+            ) },
+            #endregion
+
             #region Travis
             { nameof(DidYouWorkWithRaymond), new DialogueSequence(
-                "Do you work with Raymond at Human Perfect?",
+                "What is your relationship with the Raymond Soule?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Not directly, but I'm a researcher working under him in R/D."),
-                }
-            ) },
+                    new DialogueElement(true, "You are a brand new detective bioroid, I hear when your kind is new that you are more prone to error. It's caused by a lack of synaptic connections which are what allow humans to connect pieces of data together."),
+                    new DialogueElement(false, "Are you claiming I have a wrong assumption."), 
+                    new DialogueElement(true, "... No just an observation. Given your prescence it is probable there was a death."),
+                    new DialogueElement(false, "..."), 
+                    new DialogueElement(true, "My relationship with Raymond Soule is that of employee and employer."), 
+            } ) },
             { nameof(WhyIsTravisAtTheResort), new DialogueSequence(
-                "Why are you present at this space resort?",
+                "Why did Raymond Soule bring you to this resort?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "I was brought by Raymond to secretly make him his clone."),
-                    new DialogueElement(true, "Speaking of which I don't see Raymond's clone present."),
-                    new DialogueElement(true, "I am tracking his location to a vacant resort room with a tracking chip embedded when I created him."),
-                }
-            ) },
+                    new DialogueElement(true, "..."), 
+                    new DialogueElement(true, "I was brought by Raymond for the purpose of secretly forming a clone of him. This resort was chosen as it has no surveillance."),
+            } ) },
+            { nameof(ExplainTheCloningMachine), new DialogueSequence(
+                "This is not a normal cloning device.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "Of course, it wouldn't be located in any public database that you have access to."),
+                    new DialogueElement(true, "This is an experimental cloning device capable of making more accurate clones than ever before."),
+                    new DialogueElement(true, "It uses 13 needles on the target, to extract different kinds of material to synthesize."),
+                    new DialogueElement(true, "Then we map out a target's brain, while the clones body is being formed. The last step is forming the new brain and seal up the clone."), 
+                    new DialogueElement(true, "Naturally this process has not yet been approved for commercial use, but with the amount of influence Human Perfect wields, I have no doubt it will be soon."), 
+            } ) },
             { nameof(TravissAccount), new DialogueSequence(
-                "Tell me everything leading up to now?",
+                "Give me your full account of today's events?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "I'm still curious what kind of crime was commited."),
-                    new DialogueElement(true, "Well I can say that I begun cloning Raymond at 5 PM, and that the process was finished at about 6:30"),
-                    new DialogueElement(true, "Then Raymond and his newly formed clone took off."),
-                    new DialogueElement(true, "A few hours later Officer Warren knocked at my door and escorted me to the lobby"),
-                }
-            ) },
-            { nameof(InvestigateYourCloningMachine), new DialogueSequence(
-                "I'm going to need to investigate your cloning machine.",
+                    new DialogueElement(true, "Constructing your timeline bioroid? Alright I can assist you."), 
+                    new DialogueElement(true, "Raymond's craft arrived at 7 AM, I went directly to this room and worked til 4:30 setting up the cloning device."),
+                    new DialogueElement(true, "Raymond Soule joined me to begin the cloning process at 5 PM. the process was finished at 6:30. Raymond and his clone then left for the night."),
+                    new DialogueElement(true, "I have remained here coordinating my research team, up until now."),
+            } ) },
+            { nameof(WhereIsYourClone), new DialogueSequence(
+                "Where is Raymond's clone?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Of course, but first you have to sign a non-disclosure agreement to not divulge any of the methods used by the machine to perform the cloning."),
-                    new DialogueElement(true, "I will be waiting for you at my room so that I can explain it to you."),
-                }
-            ) },
+                    new DialogueElement(true, "Let's have a look, I had a tracking device embedded in him upon creation. He is located in vacant hotel room 2B."),
+                } ) },
+
+
             { nameof(YourBrotherWasKilled), new DialogueSequence(
                 "Your brother died in a cloning experiment and Raymond covered it up.",
                 new DialogueElement[] {
@@ -492,6 +534,8 @@ namespace SpaceResortMurder
                 new DialogueElement[] {
                     new DialogueElement(true, "Even though the experiment resulted in a massacre, it did produce results and we were able to perfect it with out the lethal flaw."),
                     new DialogueElement(true, "This is the same method without that flaw."),
+
+
                 }
             ) },
             #endregion
@@ -612,8 +656,12 @@ namespace SpaceResortMurder
         private static DictionaryWithDefault<string, string> _objectiveNames = new DictionaryWithDefault<string, string>("This objective is not implemented") {
             { nameof(LookAroundForClues), "Look around this ship for clues." },
             { nameof(AnswerADilemma), "Answer a dilemma located in the top right corner." },
-            { nameof(InvestigateRaymondsDeadBody), "Investigate Raymond's Ship" },
-            { nameof(InvestigateMeleenasCraft), "Investigate Meleena's Craft" },
+            { nameof(InvestigateRaymondsShip), "Investigate the crime scene on Raymond's craft" },
+            { nameof(InvestigateMeleenasCraft), "Investigate Meleena's craft" },
+            { nameof(GoFindOutTheManagersAccount), "Get the resort manager's account" },
+            { nameof(QuestionTravis), "Meet Travis Falcon" },
+            { nameof(FindRaymondsClone), "Find Raymond's clone" },
+
             { nameof(GetAnEncryptionKeyForMeleenasDataStick), "Get Meleena's Data Encryption Key" },
             { nameof(CheckWhatsOnMeleenasDataStick), "Decrypt Meleena's Data Stick" },
         };

@@ -2,9 +2,9 @@
 
 namespace SpaceResortMurder.Dialogues.Travis
 {
-    public class InvestigateYourCloningMachine : Dialogue
+    public class WhereIsYourClone : Dialogue
     {
-        public InvestigateYourCloningMachine() : base(nameof(InvestigateYourCloningMachine)) {}
+        public WhereIsYourClone() : base(nameof(WhereIsYourClone)) {}
 
         public override bool IsActive()
         {
