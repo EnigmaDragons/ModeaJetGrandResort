@@ -23,7 +23,7 @@ namespace SpaceResortMurder.Dialogues
 
         public DialogueReader(IEnumerable<DialogueElement> lines, Action onFinished, Action<DialogueElement> onAdvance)
         {
-            _chatBox = new ChatBox("", 840, DefaultFont.ScaledFontSet.DefaultFont, CurrentOptions.MillisPerTextCharacter, 32);
+            _chatBox = new ChatBox("", 840, DefaultFont.Value, CurrentOptions.MillisPerTextCharacter, 32);
             _chatBoxTransform = new Transform2(new Vector2(120, 912));
             _lines = new Queue<DialogueElement>(lines);
             _onFinished = onFinished;

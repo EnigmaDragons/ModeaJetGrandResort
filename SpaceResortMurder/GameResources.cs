@@ -51,7 +51,7 @@ namespace SpaceResortMurder
             _scanInfo.Values.ForEach(s => TestSymbols(s));
             _clues.Values.ForEach(l => l.ForEach(s => TestSymbols(s)));
             _dilemmaOrDeductionText.Values.ForEach(s => TestSymbols(s));
-            _objectiveNames.Values.ForEach(s => TestSymbols(s));
+            _objectiveTexts.Values.ForEach(s => TestSymbols(s));
             _dialogues.Values.ForEach(d =>
             {
                 TestSymbols(d.Opener);
@@ -98,9 +98,9 @@ namespace SpaceResortMurder
             return ReplaceSymbols(_dilemmaOrDeductionText[dilemmaOrDeduction]);
         }
 
-        public static string GetObjectiveName(string objective)
+        public static string GetObjectiveText(string objective)
         {
-            return ReplaceSymbols(_objectiveNames[objective]);
+            return ReplaceSymbols(_objectiveTexts[objective]);
         }
 
         public static DialogueSequence GetDialogueSequence(string dialog)
@@ -653,7 +653,7 @@ namespace SpaceResortMurder
             { nameof(PerfectedDesign), "No, the new cloning process was perfected." }
         };
 
-        private static DictionaryWithDefault<string, string> _objectiveNames = new DictionaryWithDefault<string, string>("This objective is not implemented") {
+        private static DictionaryWithDefault<string, string> _objectiveTexts = new DictionaryWithDefault<string, string>("This objective is not implemented") {
             { nameof(LookAroundForClues), "Look around this ship for clues." },
             { nameof(AnswerADilemma), "Answer a dilemma located in the top right corner." },
             { nameof(InvestigateRaymondsShip), "Investigate the crime scene on Raymond's craft" },

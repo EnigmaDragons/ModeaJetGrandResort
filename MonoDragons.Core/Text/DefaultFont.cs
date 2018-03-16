@@ -8,7 +8,8 @@ namespace MonoDragons.Core.Text
 {
     public static class DefaultFont
     {
-        public static ScaledSpriteFontSet ScaledFontSet { get; set; }
+        public static ScaledSpriteFontSet ScaledFontSet { internal get; set; }
+        public static SpriteFont Value => ScaledFontSet.DefaultFont;
 
         public static string Name { get; set; } = "Fonts/Audiowide";
         public static Color Color { get; set; } = Color.White;
