@@ -9,6 +9,8 @@ namespace SpaceResortMurder.CharactersX
     public class ResearcherTravis : Character
     {
         public ResearcherTravis() : base(nameof(ResearcherTravis), new Size2(480, 1128),
+            new YouAreTravisFalcon(),
+
             new WhyIsTravisAtTheResort(),
             new DidYouWorkWithRaymond(),
             new TravissAccount(),

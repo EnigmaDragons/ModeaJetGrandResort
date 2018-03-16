@@ -14,7 +14,7 @@ namespace SpaceResortMurder.Pathways
 
         public override bool IsTraversible()
         {
-            return true;
+            return false;
         }
     }
 }
