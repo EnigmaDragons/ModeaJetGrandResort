@@ -9,6 +9,6 @@ namespace SpaceResortMurder.LocationsX
     {
         public TravissCloningRoom() : base(nameof(TravissCloningRoom), "Travis's Cloning Room", 
             new List<Clue> { new CloningChamber() }, 
-            new List<Pathway> { new CloningRoomToLobby() }) {}
+            new List<IPathway> { new CloningRoomToLobby() }) {}
     }
 }

@@ -4,7 +4,7 @@ using SpaceResortMurder.LocationsX;
 
 namespace SpaceResortMurder.Pathways
 {
-    public class LobbyToVacantRoom : Pathway
+    public class LobbyToVacantRoom : ExpandingImagePathway
     {
         public LobbyToVacantRoom() : base(
             nameof(LobbyToVacantRoom),
@@ -12,9 +12,6 @@ namespace SpaceResortMurder.Pathways
             new Transform2(new Vector2(700, 0), new Size2(350, 348)),
             nameof(VacantRoom)) {}
 
-        public override bool IsTraversible()
-        {
-            return false;
-        }
+        public override bool IsTraversible => true;
     }
 }

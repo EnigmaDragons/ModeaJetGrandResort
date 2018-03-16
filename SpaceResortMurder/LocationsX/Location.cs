@@ -9,9 +9,9 @@ namespace SpaceResortMurder.LocationsX
         public string Value { get; }
         public string Name { get; }
         public List<Clue> Clues { get; }
-        public List<Pathway> Pathways { get; }
+        public List<IPathway> Pathways { get; }
 
-        protected Location(string location, string name, List<Clue> clues, List<Pathway> pathways)
+        protected Location(string location, string name, List<Clue> clues, List<IPathway> pathways)
         {
             Value = location;
             Name = name;

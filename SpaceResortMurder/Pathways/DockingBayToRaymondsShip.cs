@@ -4,7 +4,7 @@ using SpaceResortMurder.LocationsX;
 
 namespace SpaceResortMurder.Pathways
 {
-    public class DockingBayToRaymondsShip : Pathway
+    public class DockingBayToRaymondsShip : ExpandingImagePathway
     {
         public DockingBayToRaymondsShip() : base(
             nameof(DockingBayToRaymondsShip),
@@ -12,9 +12,6 @@ namespace SpaceResortMurder.Pathways
             new Transform2(new Vector2(350, 0), new Size2(350, 348)),
             nameof(RaymondsShipInterior)) {}
 
-        public override bool IsTraversible()
-        {
-            return true;
-        }
+        public override bool IsTraversible => true;
     }
 }

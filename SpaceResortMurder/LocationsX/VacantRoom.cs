@@ -9,6 +9,6 @@ namespace SpaceResortMurder.LocationsX
     {
         public VacantRoom() : base(nameof(VacantRoom), "Vacant Resort Room", 
             new List<Clue> { new T71EnergyBlaster() }, 
-            new List<Pathway> { new VacantRoomToLobby() }) {}
+            new List<IPathway> { new VacantRoomToLobby() }) {}
     }
 }

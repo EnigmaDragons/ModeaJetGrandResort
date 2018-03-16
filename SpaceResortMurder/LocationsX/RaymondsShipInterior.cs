@@ -14,6 +14,6 @@ namespace SpaceResortMurder.LocationsX
                 new RaymondsPad(),
                 new ShipsLogs(),
             }, 
-            new List<Pathway> { new RaymondsShipToDockingBay() }) {}
+            new List<IPathway> { new RaymondsShipToDockingBay() }) {}
     }
 }

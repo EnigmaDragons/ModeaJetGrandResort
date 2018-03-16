@@ -14,7 +14,7 @@ namespace SpaceResortMurder.LocationsX
             {
                 new Clock(new Transform2(new Vector2(1300, 300), new Size2(180, 180)))
             }, 
-            new List<Pathway>
+            new List<IPathway>
             {
                 new PoliceCruiserToDockingBay(new Transform2(new Vector2(750, 270), new Size2(203, 292)))
             }) {}

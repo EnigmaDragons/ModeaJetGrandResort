@@ -6,7 +6,7 @@ using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Pathways
 {
-    public class DockingBayToLobby : Pathway
+    public class DockingBayToLobby : ExpandingImagePathway
     {
         public DockingBayToLobby() : base(
             nameof(DockingBayToLobby), 
@@ -14,9 +14,6 @@ namespace SpaceResortMurder.Pathways
             new Transform2(new Vector2(0, 0), new Size2(350, 348)), 
             nameof(Lobby)) {}
 
-        public override bool IsTraversible()
-        {
-            return CurrentGameState.IsThinking(nameof(RaymondsCorpse));
-        }
+        public override bool IsTraversible =>  CurrentGameState.IsThinking(nameof(RaymondsCorpse));
     }
 }
