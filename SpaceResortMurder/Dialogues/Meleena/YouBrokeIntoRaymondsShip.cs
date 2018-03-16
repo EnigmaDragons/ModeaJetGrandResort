@@ -10,8 +10,9 @@ namespace SpaceResortMurder.Dialogues.Meleena
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(SkeletonKey))
-                   && CurrentGameState.IsThinking(nameof(MeleenaHackedTheDoor));
+            return CurrentGameState.IsThinking(nameof(MeleenaHackedTheDoor)) 
+                && CurrentGameState.IsThinking(nameof(SkeletonKey)) 
+                && CurrentGameState.IsThinking(nameof(YouAreAHacker));
         }
     }
 }

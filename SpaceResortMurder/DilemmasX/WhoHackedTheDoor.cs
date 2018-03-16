@@ -10,9 +10,7 @@ namespace SpaceResortMurder.DilemmasX
         public WhoHackedTheDoor() : base(new Vector2(990, 558), nameof(WhoHackedTheDoor), 
             new ZaidHackedTheDoor(),
             new TravisHackedTheDoor(),
-            new MeleenaHackedTheDoor())
-        {
-        }
+            new MeleenaHackedTheDoor()) {}
 
         public override bool IsActive()
         {

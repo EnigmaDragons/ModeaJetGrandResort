@@ -9,7 +9,7 @@ namespace SpaceResortMurder.Dialogues.RaymondsClone
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(RaymondsCorpse));
+            return false;
         }
     }
 }

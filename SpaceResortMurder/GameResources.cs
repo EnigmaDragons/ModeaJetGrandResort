@@ -369,6 +369,11 @@ namespace SpaceResortMurder
                 new DialogueElement[] {
                     new DialogueElement(true, Expression.Happy, "Goody-two-shoes Meleena that's me."),
             } ) },
+            { nameof(ProveIt), new DialogueSequence(
+                "You are the closest, you must have hacked the door on Raymond's craft.",
+                new DialogueElement[] {
+                    new DialogueElement(true, Expression.Angry, "Just cause I'm data specialist doesn't mean I'm a decker."),
+            } ) },
             { nameof(HereIsTheSearchOrder), new DialogueSequence(
                 "Here is the search order for your ship.",
                 new DialogueElement[] {
@@ -396,26 +401,16 @@ namespace SpaceResortMurder
                     new DialogueElement(false, "If you don't want your charges to get even worse, you will give me the encryption key for your data drive."),
                     new DialogueElement(true, "Fraggin bioroid badges are incapable of being human! You can have the data drive it's not even fraggin useful to your case."),
             } ) },
-
-
             { nameof(YouBrokeIntoRaymondsShip), new DialogueSequence(
-                "You broke into Raymond's craft with this skeleton key.",
+                "You broke into Raymond's craft with your skeleton key.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Alright I broke into his ship to find dirt on Human Perfect."),
-                    new DialogueElement(true, "Just when I was going to leave, I felt the blast of something shoot the ship."),
-                    new DialogueElement(true, "I quickly hid in a storage container and then quite some time later a male with a deep voice came in muttering to himself."),
-                    new DialogueElement(true, "He took off with the ship. Shortly after he opened up the space hatch, and left."),
-                    new DialogueElement(true, "I was curious so i peeked out of my hiding spot in time to see Raymond's corpse dropped into the ship."),
-                    new DialogueElement(true, "Startled I quickly sealed my container again. Before the man returned into the ship."),
-                    new DialogueElement(true, "He quickly landed the ship while cursing and took off out of the ship."),
-                    new DialogueElement(true, "As soon as he left I booked it."),
-                }
-            ) },
-            { nameof(MeleenaHeardRaymondsVoice), new DialogueSequence(
-                "Whom Meleena Heard.",
-                new DialogueElement[] {
-                    new DialogueElement(true, "I have something private to tell you."),
-                    new DialogueElement(true, "He is the one I heard on the ship. Raymond's voice was definitely the voice I heard."),
+                    new DialogueElement(true, "Drek! Listen badge, I'll give you the chip-truth."),
+                    new DialogueElement(true, "I fragged his ICE to find paydata in his craft. I was going to run, but I felt a blast on the side of his craft."),
+                    new DialogueElement(true, "I hid myself and waited. Right when my patience was wearin thin, Raymond comes in muttering to himself, launchs the ship, opens the hatch and pops out."),
+                    new DialogueElement(true, "He immediately launchs the craft and then opens the space hatch."),
+                    new DialogueElement(true, "I heard a loud thud which in retrospect must have come from Raymond's fried body being dumped on the ground."),
+                    new DialogueElement(true, "The meat in the ship wasn't muttering, so I don't know who it was that landed the ship, got out, and left."),
+                    new DialogueElement(true, "As soon as he left I floored it outta there."),
             } ) },
             #endregion
 
@@ -466,17 +461,38 @@ namespace SpaceResortMurder
                 new DialogueElement[] {
                     new DialogueElement(true, "Yes, He said he quite liked the place."),
             } ) },
-
-
-            { nameof(YouWereNotAcceptedForBetaTesting), new DialogueSequence(
-                "You were not accepted for beta testing, I found a list of resorts and yours was crossed off?",
+            { nameof(WillYourAcceptanceBePutIntoQuestion), new DialogueSequence(
+                "Now that Raymond is dead will your acceptance for the resort clones be revoked?",
                 new DialogueElement[] {
+                    new DialogueElement(true, "No, I'm quite confident they will still follow his decision."),
+            } ) },
+            { nameof(YouWereNotAcceptedForBetaTesting), new DialogueSequence(
+                "ModeaJet Grand Resort was not accepted for the resort clone beta testing.",
+                new DialogueElement[] {
+                    new DialogueElement(false, "I found a list of resorts and yours was crossed off."), 
                     new DialogueElement(true, "But what about the message Raymond sent!"),
-                    new DialogueElement(true, "Oh wait I shouldn't know about that..."),
-                    new DialogueElement(true, "Alright truth is when I found Raymond's body I sent the message on his pad."),
-                    new DialogueElement(true, "I needed this, to keep my place running, But I didn't kill him."),
-                }
-            ) },
+                    new DialogueElement(false, "How would you know about that, as it was sent at 7:50 PM"), 
+                    new DialogueElement(true, "..."),
+                    new DialogueElement(false, "You should tell me what really happened."), 
+                    new DialogueElement(true, "Alright when I found Raymond's body, I er... sent the message on his pad."),
+                    new DialogueElement(true, "I was wrongly accused of illegally selling customer's data. It wasn't fair my Resort went from thriving to this. I am in debt with the wrong people. I needed to pay ModeaJet."),
+                    new DialogueElement(true, "Please don't tell anyone that Raymond didn't send that message or I'm doomed."), 
+            } ) },
+            { nameof(IWontSealYourFate), new DialogueSequence(
+                "I won't be the one to seal your fate, it will stay off my report.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "Thank you so much! God bless you!"),
+            } ) },
+            { nameof(YouBroughtThisOnYourself), new DialogueSequence(
+                "Your own poor decisions lead you to these consequences.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "No... no... what am I going to do?"),
+            } ) },
+            { nameof(ZaidYouHackedRaymondsDoor), new DialogueSequence(
+                "When you went to check out Raymond's ship the door was still closed and you hacked it.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "I didn't I swear. I wouldn't be running a resort if I was a decker."),
+            } ) },
             #endregion
 
             #region Travis
@@ -560,6 +576,13 @@ namespace SpaceResortMurder
                     new DialogueElement(true, "Well sorry to disappoint, but even though the experiment resulted in a massacre, it did produce results and we were able to perfect the technique."),
                     new DialogueElement(true, "This is the same method, but without that fatal flaw."),
             } ) },
+            { nameof(TravisYouHackedRaymondsCraft), new DialogueSequence(
+                "You were the one that hacked Raymond's craft.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "Do you tell that to everyone hoping to get a response?"),
+                    new DialogueElement(false, "..."),
+                    new DialogueElement(true, "Don't waste my time without a reason."), 
+                } ) },
             #endregion
 
             #region Raymond's Clone
@@ -639,11 +662,21 @@ namespace SpaceResortMurder
         };
 
         private static DictionaryWithDefault<string, string> _dilemmaOrDeductionText = new DictionaryWithDefault<string, string>("This dilemma or deduction is not implemented") {
-            { nameof(WhoWasTheMurderer), "Who killed \\Raymond\\?" },
+            { nameof(WasZaidsResortAcceptedAsABetaTester), "Was ModeaJet Grand Resort accepted for the resort clone testing?" },
+            { nameof(ZaidsResortAccepted), "His resort was accepted, because of the message on Raymond's pad." },
+            { nameof(ZaidsResortDeclined), "His resort was declined, ModeaJet Grand Resort was crossed off." },
+
+            { nameof(WhoHackedTheDoor), "Who hacked the door on Raymond's craft?" },
+            { nameof(MeleenaHackedTheDoor), "Meleena" },
+            { nameof(TravisHackedTheDoor), "Travis" },
+            { nameof(ZaidHackedTheDoor), "Zaid" },
+
+
+            { nameof(WhoWasTheMurderer), "Who killed Raymond Soule?" },
             { nameof(ZaidWasTheCulprit), "Zaid" },
             { nameof(MeleenaWasTheCulprit), "Meleena" },
             { nameof(TravisWasTheCulprit), "Travis" },
-            { nameof(RaymondsCloneWasTheCulprit), "\\NotRaymond\\" },
+            { nameof(RaymondsCloneWasTheCulprit), "Raymond Soule's Clone" },
             { nameof(TravisAndRaymondsCloneAreTheCulprits), "Travis used Raymond's Clone" },
 
             { nameof(WhatWasTheCauseOfDeath), "What was the victim's cause of death?" },
@@ -663,10 +696,6 @@ namespace SpaceResortMurder
             { nameof(ToReplaceRaymondAsCEO), "Raymond's clone wasn't satisfied pretending to be the CEO. He decided he was going to replace Raymond." },
             { nameof(ToSaveHisResort), "Zaid needed his resort to be accepted for resort clones beta-testing" },
 
-            { nameof(WhoIsTheVictim), "Who was the victim?" },
-            { nameof(TheVictimIsRaymond), "Raymond" },
-            { nameof(TheVictimIsRaymondsClone), "Raymond's Clone" },
-
             { nameof(WhatWasTheTimeFrameForTheMurder), "When did the murder take place?" },
             { nameof(FromAnytimeUntilEightPM), "It could have happened on any day or any time before 8 PM tonight" },
             { nameof(SevenAMToEightPM), "It must have happened between 7 AM and 8 PM today" },
@@ -679,15 +708,6 @@ namespace SpaceResortMurder
             { nameof(TravisShotRaymondsShip), "Travis" },
             { nameof(RaymondsCloneShotRaymondsShip), "Raymond's clone" },
 
-            { nameof(WhoHackedTheDoor), "Who hacked the door on Raymond's craft?" },
-            { nameof(MeleenaHackedTheDoor), "Meleena" },
-            { nameof(TravisHackedTheDoor), "Travis" },
-            { nameof(ZaidHackedTheDoor), "Zaid" },
-
-            { nameof(WasZaidsResortAcceptedAsABetaTester), "Was Zaid's resort accepted for the beta testing program?" },
-            { nameof(ZaidsResortAccepted), "His resort was accepted, because of the message on Raymond's pad." },
-            { nameof(ZaidsResortDeclined), "His resort was declined, Zaid's resort was crossed off." },
-
             { nameof(WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip), "Was Meleena honest in what happened on Raymond's ship." },
             { nameof(MeleenaWasHonest), "Yes" },
             { nameof(MeleenaIsLying), "No, Something about her testimony is off." },
@@ -696,8 +716,8 @@ namespace SpaceResortMurder
             { nameof(ZaidLaunchedTheShip), "Zaid" },
             { nameof(MeleenaLaunchedTheShip), "Meleena" },
             { nameof(TravisLaunchedTheShip), "Travis" },
-            { nameof(RaymondLaunchedTheShip), "\\Raymond\\ did before his death" },
-            { nameof(RaymondsCloneLaunchedTheShip), "\\NotRaymond\\" },
+            { nameof(RaymondLaunchedTheShip), "Raymond Soule did before his death" },
+            { nameof(RaymondsCloneLaunchedTheShip), "Raymond Soule's Clone" },
 
             { nameof(WasTheCloneDesignedToKill), "Was the clone designed to kill his look a like?" },
             { nameof(DesignedToKill), "Yes, Travis intentionally used a process that would create a killer clone" },
@@ -732,16 +752,6 @@ namespace SpaceResortMurder
         };
 
         private static Dictionary<string, Func<string>> _symbols = new Dictionary<string, Func<string>> {
-            { "Raymond",
-                () => CurrentGameState.IsThinking(nameof(TheVictimIsRaymondsClone))
-                    ? "Raymond's Clone"
-                    : "Raymond"
-            },
-            { "NotRaymond",
-                () => CurrentGameState.IsThinking(nameof(TheVictimIsRaymondsClone))
-                    ? "Raymond"
-                    : "Raymond's Clone"
-            },
             { "Player",
                 () => "Zavix"
             },

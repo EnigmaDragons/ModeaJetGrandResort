@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using SpaceResortMurder.Clues.RaymondsSpaceCraft;
 using SpaceResortMurder.Deductions.ZaidsResortForBetaTesting;
+using SpaceResortMurder.Dialogues.Zaid;
 using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.DilemmasX
@@ -13,7 +14,7 @@ namespace SpaceResortMurder.DilemmasX
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(RaymondsPad));
+            return CurrentGameState.IsThinking(nameof(RaymondsPad)) && CurrentGameState.IsThinking(nameof(DidRaymondApproveYourResort));
         }
     }
 }

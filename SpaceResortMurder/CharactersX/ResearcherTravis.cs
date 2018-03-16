@@ -19,7 +19,8 @@ namespace SpaceResortMurder.CharactersX
             new YourBrotherWasKilled(),
             new ViolentExperimentalResearch(),
             new WontTurnYouInForRaymondsAction(),
-            new YouAreStillResposible()) {}
+            new YouAreStillResposible(),
+            new TravisYouHackedRaymondsCraft()) {}
 
         public override string WhereAreYou()
         {

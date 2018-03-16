@@ -1,7 +1,4 @@
-﻿using SpaceResortMurder.Dialogues.RaymondsClone;
-using SpaceResortMurder.State;
-
-namespace SpaceResortMurder.Dialogues.Meleena
+﻿namespace SpaceResortMurder.Dialogues.Meleena
 {
     public class MeleenaHeardRaymondsVoice : Dialogue
     {
@@ -12,8 +9,7 @@ namespace SpaceResortMurder.Dialogues.Meleena
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(GoToTheLobby))
-                && CurrentGameState.IsThinking(nameof(YouBrokeIntoRaymondsShip));
+            return false;
         }
     }
 }

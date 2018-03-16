@@ -19,8 +19,9 @@ namespace SpaceResortMurder.CharactersX
             new HereIsTheSearchOrder(),
             new IWontReportDataRaven(),
             new DeckersMakeTheWorldWorse(),
-
+            new ProveIt(),
             new YouBrokeIntoRaymondsShip(),
+
             new MeleenaHeardRaymondsVoice()) {}
 
         public override string WhereAreYou()

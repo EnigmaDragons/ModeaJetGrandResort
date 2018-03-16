@@ -1,4 +1,8 @@
-﻿namespace SpaceResortMurder.Deductions
+﻿using SpaceResortMurder.Dialogues.Meleena;
+using SpaceResortMurder.Dialogues.Zaid;
+using SpaceResortMurder.State;
+
+namespace SpaceResortMurder.Deductions
 {
     public class TravisHackedTheDoor : Deduction
     {
@@ -6,7 +10,8 @@
 
         public override bool IsActive()
         {
-            return true;
+            return CurrentGameState.IsThinking(nameof(WhoIsStayingAtYourResort))
+                && !CurrentGameState.IsThinking(nameof(YouBrokeIntoRaymondsShip));
         }
     }
 }

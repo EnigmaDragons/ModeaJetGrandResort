@@ -1,4 +1,9 @@
-﻿namespace SpaceResortMurder.Deductions
+﻿using SpaceResortMurder.CharactersX;
+using SpaceResortMurder.Dialogues.Meleena;
+using SpaceResortMurder.Dialogues.Zaid;
+using SpaceResortMurder.State;
+
+namespace SpaceResortMurder.Deductions
 {
     public class ZaidHackedTheDoor : Deduction
     {
@@ -6,7 +11,8 @@
 
         public override bool IsActive()
         {
-            return true;
+            return (CurrentGameState.IsThinking(nameof(ResortManagerZaid)) || CurrentGameState.IsThinking(nameof(WhoAreYouZaid)))
+                && !CurrentGameState.IsThinking(nameof(YouBrokeIntoRaymondsShip));
         }
     }
 }
