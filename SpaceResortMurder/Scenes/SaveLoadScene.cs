@@ -25,38 +25,26 @@ namespace SpaceResortMurder.Scenes
 
         private bool _savingEnabled;
         private Mode _mode;
-        private ImageTextButton[] _saveSlotButtons;
-        private bool[] _isSaveSlotUsed;
+        private ImageTextButton[] _saveSlotButtons = new ImageTextButton[4];
+        private bool[] _isSaveSlotUsed = new bool[4];
 
         protected override void OnInit()
         {
             _savingEnabled = CurrentGameState.CurrentLocation != GameResources.MainMenuSceneName;
-            _isSaveSlotUsed = new bool[]
+            for(var i = 0; i < 4; i++)
             {
-                GameObjects.IO.HasSave("Save 0"),
-                GameObjects.IO.HasSave("Save 1"),
-                GameObjects.IO.HasSave("Save 2"),
-                GameObjects.IO.HasSave("Save 3")
-            };
-            _saveSlotButtons = new ImageTextButton[]
-            {
-                UiButtons.Menu("", new Vector2(960 - 720 - 150, 400), () => SelectSaveSlot(0), () => _mode == Mode.Save || _isSaveSlotUsed[0]),
-                UiButtons.Menu("", new Vector2(960 - 360 - 50, 400), () => SelectSaveSlot(1), () => _mode == Mode.Save || _isSaveSlotUsed[1]),
-                UiButtons.Menu("", new Vector2(960 + 50, 400), () => SelectSaveSlot(2), () => _mode == Mode.Save || _isSaveSlotUsed[2]),
-                UiButtons.Menu("", new Vector2(960 + 360 + 150, 400), () => SelectSaveSlot(3), () => _mode == Mode.Save || _isSaveSlotUsed[3])
-            };
-            if (GameObjects.IO.HasSave("Save 0"))
-                AddVisual(new ImageBox(){ Transform = new Transform2(new Vector2(960 - 720 - 150 + 20, 475), new Size2(320, 180)),
-                    Image = GameObjects.IO.Load<GameState>("Save 0").CurrentLocationImage});
-            if (GameObjects.IO.HasSave("Save 1"))
-                AddVisual(new ImageBox() { Transform = new Transform2(new Vector2(960 - 360 - 50 + 20, 475), new Size2(320, 180)),
-                    Image = GameObjects.IO.Load<GameState>("Save 1").CurrentLocationImage });
-            if (GameObjects.IO.HasSave("Save 2"))
-                AddVisual(new ImageBox() { Transform = new Transform2(new Vector2(960 + 50 + 20, 475), new Size2(320, 180)),
-                    Image = GameObjects.IO.Load<GameState>("Save 2").CurrentLocationImage });
-            if (GameObjects.IO.HasSave("Save 3"))
-                AddVisual(new ImageBox() { Transform = new Transform2(new Vector2(960 + 360 + 150 + 20, 475), new Size2(320, 180)),
-                    Image = GameObjects.IO.Load<GameState>("Save 3").CurrentLocationImage });
+                var savedI = i;
+                _isSaveSlotUsed[i] = GameObjects.IO.HasSave("Save " + i);
+                _saveSlotButtons[i] = UiButtons.Menu("", new Vector2(Width(i), 400), () => SelectSaveSlot(savedI),
+                    () => _mode == Mode.Save || _isSaveSlotUsed[savedI]);
+                if (_isSaveSlotUsed[i])
+                {
+                    var save = GameObjects.IO.Load<GameState>("Save " + i);
+                    Add(new ImageBox() { Transform = new Transform2(new Vector2(Width(i) + 20, 510), new Size2(320, 180)),
+                        Image = save.CurrentLocationImage });
+                    Add(new Label() { Transform = new Transform2(new Vector2(Width(i)+ 20, 475), new Size2(320, 35)), Text = save.PlayerName, BackgroundColor = new Color(134, 56, 134) });
+                }
+            }
             ChangeMode(_savingEnabled ? Mode.Save: Mode.Load);
             if (_savingEnabled)
                 Add(UiButtons.Menu("Save", new Vector2(380, 100), () => ChangeMode(Mode.Save)));
@@ -64,6 +52,11 @@ namespace SpaceResortMurder.Scenes
             Add(UiButtons.Menu("Delete", new Vector2(1180, 100), () => ChangeMode(Mode.Delete)));
             Add(UiButtons.Back(() => Scene.NavigateTo(CurrentGameState.CurrentLocation)));
             _saveSlotButtons.ForEach(b => Add(b));
+        }
+
+        private int Width(int column)
+        {
+            return 90 + 460 * column;
         }
 
         private void SelectSaveSlot(int slot)

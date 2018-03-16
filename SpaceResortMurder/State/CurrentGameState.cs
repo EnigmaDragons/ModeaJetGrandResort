@@ -15,6 +15,11 @@
             get => Value.CurrentLocationImage;
             set => Value.CurrentLocationImage = value;
         }
+        public static string PlayerName
+        {
+            get => Value.PlayerName;
+            set => Value.PlayerName = value;
+        }
 
         static CurrentGameState()
         {

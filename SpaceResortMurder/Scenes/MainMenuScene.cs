@@ -20,7 +20,7 @@ namespace SpaceResortMurder.Scenes
         {
             Audio.PlayMusic("MainTheme");
             CurrentGameState.Reset();
-            Add(UiButtons.Menu("Start Game", new Vector2(colX, Height(0)), () => Scene.NavigateTo(nameof(PoliceCruiserInterior))));
+            Add(UiButtons.Menu("Start Game", new Vector2(colX, Height(0)), () => Scene.NavigateTo(GameResources.PickNameSceneName)));
             Add(UiButtons.Menu("Continue Game", new Vector2(colX, Height(1)), () => Scene.NavigateTo(GameResources.SaveLoadSceneName)));
             Add(UiButtons.Menu("Credits", new Vector2(colX, Height(2)), () => Scene.NavigateTo(GameResources.CreditsSceneName)));
             Add(UiButtons.Menu("Options", new Vector2(colX, Height(3)), () => Scene.NavigateTo(GameResources.OptionsSceneName)));

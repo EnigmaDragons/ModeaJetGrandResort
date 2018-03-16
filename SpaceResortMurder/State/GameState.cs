@@ -14,6 +14,7 @@ namespace SpaceResortMurder.State
         private readonly HashSet<string> _viewedItems = new HashSet<string>();
         [JsonProperty]
         private readonly HashSet<string> _thoughts = new HashSet<string>();
+        public string PlayerName { get; set; } = "Player";
         public string CurrentLocation { get; set; } = GameResources.MainMenuSceneName;
         public string CurrentLocationImage { get; set; } = "";
 

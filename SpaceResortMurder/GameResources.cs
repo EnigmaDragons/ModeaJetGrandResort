@@ -44,6 +44,7 @@ namespace SpaceResortMurder
         public const string ResolutionSceneName = "Resolution";
         public const string EndingSceneName = "Ending";
         public const string SaveLoadSceneName = "SaveLoad";
+        public const string PickNameSceneName = "PickName";
 
         public static void TestAllSymbols()
         {
@@ -750,7 +751,7 @@ namespace SpaceResortMurder
 
         private static Dictionary<string, Func<string>> _symbols = new Dictionary<string, Func<string>> {
             { "Player",
-                () => "Zavix"
+                () => CurrentGameState.PlayerName
             },
             { "Meleena",
                 () =>

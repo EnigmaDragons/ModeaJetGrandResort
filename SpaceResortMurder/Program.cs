@@ -96,6 +96,7 @@ namespace SpaceResortMurder
                 { nameof(TravissCloningRoom), () => new TravissCloningRoomScene() },
                 { nameof(PoliceCruiserInterior), () => new PoliceCruiserInteriorScene() },
                 { GameResources.SaveLoadSceneName, () => new SaveLoadScene() },
+                { GameResources.PickNameSceneName, () => new PickNameScene() }
             });
         }
 

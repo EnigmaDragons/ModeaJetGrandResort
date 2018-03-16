@@ -13,8 +13,9 @@ namespace MonoDragons.Core.UserInterface
         bool[] IskeyUp;
         private bool _backspaceIsDown;
 
-        public KeyboardTyping()
+        public KeyboardTyping(string startingValue = "")
         {
+            Result = startingValue;
             InitValidKeys();
         }
 
