@@ -41,8 +41,9 @@
     <Compile Include="CharactersX\Expression.cs" />
     <Compile Include="CharactersX\HackerMeleena.cs" />
     <Compile Include="CharactersX\Characters.cs" />
-    <Compile Include="CharactersX\Player.cs" />
     <Compile Include="CharactersX\CEORaymondsClone.cs" />
+    <Compile Include="CharactersX\CharacterView.cs" />
+    <Compile Include="CharactersX\PlayerCharacterView.cs" />
     <Compile Include="CharactersX\ResearcherTravis.cs" />
     <Compile Include="Clues\CloningRoom\CloningChamber.cs" />
     <Compile Include="Clues\Clue.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Deductions\ZaidsResortForBetaTesting\ZaidsResortDeclined.cs" />
     <Compile Include="DeveloperCheatController.cs" />
     <Compile Include="Dialogues\DialogueElement.cs" />
+    <Compile Include="Dialogues\DialogueReader.cs" />
     <Compile Include="Dialogues\Meleena\WhoAreYou.cs" />
     <Compile Include="Dialogues\Meleena\YouHaveARatherCleanRecord.cs" />
     <Compile Include="Dialogues\RaymondsClone\Bruises.cs" />
@@ -234,6 +236,7 @@
     <Compile Include="Scenes\JamScene.cs" />
     <Compile Include="Deductions\DeductionScene.cs" />
     <Compile Include="LocationsX\LocationScene.cs" />
+    <Compile Include="Scenes\SaveLoadScene.cs" />
     <Compile Include="State\CurrentGameState.cs" />
     <Compile Include="State\CurrentOptions.cs" />
     <Compile Include="State\DialogMemoryGained.cs" />
@@ -502,6 +505,9 @@
     <Content Include="Content\Music\MainTheme.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Music\PoliceCruiser.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Placeholder\airlock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -599,6 +605,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sounds\Scanning.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Traverse\PoliceCruiserDoor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Traverse\TraverseArrowR-Hover.png">

@@ -24,8 +24,7 @@ namespace SpaceResortMurder.Dialogues
         private List<IVisual> _dialogOptions = new List<IVisual>();
         private string _locationMemory;
         private IVisual _personImage;
-        private IVisual _playerImage;
-        private Player _player = new Player();
+        private PlayerCharacterView _player;
         private ClickableUIElement _dialogueAdvancer;
         private bool _isCharacterTalking;
         private IVisual _personName;
@@ -33,6 +32,7 @@ namespace SpaceResortMurder.Dialogues
 
         public void Init()
         {
+            _player = new PlayerCharacterView(() => !_isInTheMiddleOfDialog);
             _dialogueAdvancer = new ScreenClickable(AdvanceChatVisuals);
             _clickUI = new ClickUI();
             _clickUI.Add(GameObjects.Hud.HudBranch);
@@ -73,8 +73,7 @@ namespace SpaceResortMurder.Dialogues
             _clickUI.Remove(_personMemoriesBranch);
             _clickUI.Remove(GameObjects.Hud.HudBranch);
             _clickUI.Add(_dialogueAdvancer);
-            _personImage = _selectedPerson.GetFacingImage();
-            _playerImage = _player.GetImage();
+            _personImage = _selectedPerson.FacingImage;
             _reader = new Reader(elements.Select(e => e.Line).ToArray(), EndMemory);
             _isInTheMiddleOfDialog = true;
             AdvanceChatVisuals();
@@ -84,11 +83,10 @@ namespace SpaceResortMurder.Dialogues
         {
             if (_elements.MoveNext())
             {
+                _player.UpdateDialogue(_elements.Current);
                 _isCharacterTalking = _elements.Current.IsCharacterTalking;
                 if (_isCharacterTalking)
                     _personImage = _selectedPerson.CreateFacingImage(_elements.Current.Expression);
-                else
-                    _playerImage = _player.GetImage(_elements.Current.Expression);
             }
         }
 
@@ -108,10 +106,9 @@ namespace SpaceResortMurder.Dialogues
                 UI.FillScreen(_locationMemory);
                 if (_isCharacterTalking)
                     _personImage.Draw();
-                else
-                    _playerImage.Draw();
-                _reader.Draw();
                 _personName.Draw();
+                _player.Draw();
+                _reader.Draw();
             }
             else
             {

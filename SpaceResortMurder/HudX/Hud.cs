@@ -14,11 +14,21 @@ namespace SpaceResortMurder.HudX
     {
         private List<VisualClickableUIElement> _clickables;
         private ImageBox _newIcon;
+        private Label _tooltipLabel;
 
         public ClickUIBranch HudBranch { get; private set; }
 
         public void Init()
         {
+            _tooltipLabel = new Label
+            {
+                Transform = new Transform2(new Vector2(1270, 124), new Size2(500, 60)),
+                BackgroundColor = Color.Transparent,
+                HorizontalAlignment = HorizontalAlignment.Right,
+                TextColor = UiStyle.TextLightPurple,
+                Text = "Set [T]ooltip Here"
+            };
+
             _clickables = new List<VisualClickableUIElement>();
             AddIconButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Icons/Dilemmas");
             AddIconButton(() => Scene.NavigateTo(GameResources.DialogueMemoriesScene), "Icons/Conversations");
@@ -36,10 +46,11 @@ namespace SpaceResortMurder.HudX
         public void Draw(Transform2 parentTransform)
         {
             _clickables.ForEach(x => x.Draw(parentTransform));
-            DrawNewIconsIfApplicable(parentTransform);
+            DrawNewIconsIfApplicable();
+            _tooltipLabel.Draw(parentTransform);
         }
         
-        private void DrawNewIconsIfApplicable(Transform2 parentTransform)
+        private void DrawNewIconsIfApplicable()
         {
             if (GameObjects.Dilemmas.GetActiveDilemmas().Any(d => d.IsNew || d.HasNewAnswers))
                 _newIcon.Draw(new Transform2(GetIndicatorLocation(0)));

@@ -29,7 +29,7 @@ namespace SpaceResortMurder
         {
             HandleExceptions(() =>
             {
-                using (var game = Perf.Time("Startup", () => CreateGame(nameof(MeleenasShipInterior))))
+                using (var game = Perf.Time("Startup", () => CreateGame("Main Menu")))
                     game.Run();
             });
         }
@@ -93,7 +93,8 @@ namespace SpaceResortMurder
                 { GameResources.EndingSceneName, () => new EndingScene() },
                 { nameof(VacantRoom), () => new VacantRoomScene() },
                 { nameof(TravissCloningRoom), () => new TravissCloningRoomScene() },
-                { nameof(PoliceCruiserInterior), () => new PoliceCruiserInteriorScene() }
+                { nameof(PoliceCruiserInterior), () => new PoliceCruiserInteriorScene() },
+                { GameResources.SaveLoadSceneName, () => new SaveLoadScene() },
             });
         }
 

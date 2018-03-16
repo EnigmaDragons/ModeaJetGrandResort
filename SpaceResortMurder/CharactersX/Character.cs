@@ -12,10 +12,12 @@ namespace SpaceResortMurder.CharactersX
     public abstract class Character
     {
         private readonly List<Dialogue> _dialogs;
-        private readonly Size2 _size;
         private ImageBox _newDialogIcon;
 
+        // TODO: Remove
         public IVisual FacingImage { get; private set; }
+
+        public Size2 FacingSize { get; }
         public string Image { get; }
         public string Value { get; }
 
@@ -24,7 +26,7 @@ namespace SpaceResortMurder.CharactersX
             Value = character;
             Image = GameResources.GetCharacterImage(Value, Expression.Default);
             _dialogs = dialogues.ToList();
-            _size = size;
+            FacingSize = size;
         }
 
         public void Init()
@@ -50,16 +52,11 @@ namespace SpaceResortMurder.CharactersX
             };
         }
 
-        public IVisual GetFacingImage()
+        public TintedImageBox CreateFacingImage(Expression expression)
         {
-            return FacingImage;
-        }
-
-        public IVisual CreateFacingImage(Expression expression)
-        {
-            return new ImageBox
+            return new TintedImageBox
             {
-                Transform = new Transform2(new Vector2(UI.OfScreenWidth(0.62f), UI.OfScreenHeight(1.0f) - (int)(_size.Height / 1.3)), _size),
+                Transform = new Transform2(new Vector2(UI.OfScreenWidth(0.62f), UI.OfScreenHeight(1.0f) - (int)(FacingSize.Height / 1.3)), FacingSize),
                 Image = GameResources.GetCharacterImage(Value, expression)
             };
         }

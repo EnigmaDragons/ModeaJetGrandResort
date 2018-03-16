@@ -19,19 +19,11 @@ namespace SpaceResortMurder.Scenes
         protected override void OnInit()
         {
             Audio.PlayMusic("MainTheme");
+            CurrentGameState.Reset();
             Add(UiButtons.Menu("Start Game", new Vector2(colX, Height(0)), () => Scene.NavigateTo(nameof(PoliceCruiserInterior))));
-            if (GameObjects.IO.HasSave("save"))
-                Add(UiButtons.Menu("Continue Game", new Vector2(colX, Height(1)), () =>
-                {
-                    CurrentGameState.Load();
-                    Scene.NavigateTo(CurrentGameState.CurrentLocation);
-                }));
+            Add(UiButtons.Menu("Continue Game", new Vector2(colX, Height(1)), () => Scene.NavigateTo(GameResources.SaveLoadSceneName)));
             Add(UiButtons.Menu("Credits", new Vector2(colX, Height(2)), () => Scene.NavigateTo(GameResources.CreditsSceneName)));
-            Add(UiButtons.Menu("Options", new Vector2(colX, Height(3)), () =>
-            {
-                CurrentGameState.CurrentLocation = "Main Menu";
-                Scene.NavigateTo(GameResources.OptionsSceneName);
-            }));
+            Add(UiButtons.Menu("Options", new Vector2(colX, Height(3)), () => Scene.NavigateTo(GameResources.OptionsSceneName)));
             Add(UiButtons.Menu("Exit Game", new Vector2(colX, Height(4)), () => CurrentGame.TheGame.Exit()));
         }
 

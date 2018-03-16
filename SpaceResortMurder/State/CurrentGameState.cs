@@ -2,50 +2,48 @@
 {
     public static class CurrentGameState
     {
-        private static GameState _value { get; set; }
+        public static GameState Value { get; private set; }
 
         public static string CurrentLocation
         {
-            get => _value.CurrentLocation;
-            set => _value.CurrentLocation = value;
+            get => Value.CurrentLocation;
+            set => Value.CurrentLocation = value;
         }
 
         public static string CurrentLocationImage
         {
-            get => _value.CurrentLocationImage;
-            set => _value.CurrentLocationImage = value;
+            get => Value.CurrentLocationImage;
+            set => Value.CurrentLocationImage = value;
         }
 
         static CurrentGameState()
         {
-            _value = new GameState();
+            Value = new GameState();
         }
 
         public static void Reset()
         {
-            _value = new GameState();
+            Value = new GameState();
+        }
+
+        public static void Load(string saveName)
+        {
+            Value = GameObjects.IO.Load<GameState>(saveName);
         }
 
         public static bool HasViewedItem(string item)
         {
-            return _value.HasViewedItem(item);
+            return Value.HasViewedItem(item);
         }
 
         public static bool IsThinking(string thought)
         {
-            return _value.IsThinking(thought);
+            return Value.IsThinking(thought);
         }
         
         public static string RememberLocation(string dialog)
         {
-            return _value.RememberLocation(dialog);
-        }
-
-        public static void Load()
-        {
-            _value = GameObjects.IO.HasSave("save")
-                ? GameObjects.IO.Load<GameState>("save")
-                : new GameState();
+            return Value.RememberLocation(dialog);
         }
     }
 }

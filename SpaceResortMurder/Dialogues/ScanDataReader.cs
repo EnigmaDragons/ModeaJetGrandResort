@@ -22,7 +22,7 @@ namespace SpaceResortMurder.Dialogues
 
         public ScanDataReader(string[] linesToBeRead, Action onFinished)
         {
-            _chatBox = new ChatBox("", 630, DefaultFont.ScaledFontSet.DefaultFont, CurrentOptions.MillisPerTextCharacter, 46) { SoundsEnabled = false };
+            _chatBox = new ChatBox("", 630, DefaultFont.Value, CurrentOptions.MillisPerTextCharacter, 46) { SoundsEnabled = false };
             _chatBoxTransform = new Transform2(new Vector2(260, 450));
             _lines = new Queue<string>(linesToBeRead);
             _onFinished = onFinished;
