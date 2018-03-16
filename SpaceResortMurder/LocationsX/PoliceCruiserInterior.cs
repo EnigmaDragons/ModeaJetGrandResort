@@ -9,7 +9,9 @@ namespace SpaceResortMurder.LocationsX
 {
     public class PoliceCruiserInterior : Location
     {
-        public PoliceCruiserInterior() : base(nameof(PoliceCruiserInterior), "Police Cruiser", 
+        public PoliceCruiserInterior() : base(nameof(PoliceCruiserInterior),
+            "Police Cruiser", 
+            "Locations/PoliceCruiserPainted",
             new List<Clue>
             {
                 new Clock(new Transform2(new Vector2(1370, 332), new Size2(140, 140)))

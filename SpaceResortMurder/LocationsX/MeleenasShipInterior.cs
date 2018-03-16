@@ -9,7 +9,9 @@ namespace SpaceResortMurder.LocationsX
 {
     public class MeleenasShipInterior : Location
     {
-        public MeleenasShipInterior() : base(nameof(MeleenasShipInterior), "Meleena's Space Craft", 
+        public MeleenasShipInterior() : base(nameof(MeleenasShipInterior), 
+            "Meleena's Space Craft",
+            "Locations/meleenas_spaceship_painted",
             new List<Clue>
             {
                 new EncryptedDataDrive(),

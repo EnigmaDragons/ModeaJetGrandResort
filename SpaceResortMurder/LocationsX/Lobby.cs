@@ -6,7 +6,8 @@ namespace SpaceResortMurder.LocationsX
 {
     public class Lobby : Location
     {
-        public Lobby() : base(nameof(Lobby), "Lobby", new List<Clue>(), 
+        public Lobby() : base(nameof(Lobby), "Lobby", "Locations/hotel_lobby_environment", 
+            new List<Clue>(),
             new List<IPathway>
             {
                 new LobbyToDockingBay(),

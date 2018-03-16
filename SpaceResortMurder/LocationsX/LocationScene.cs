@@ -41,10 +41,10 @@ namespace SpaceResortMurder.LocationsX
 
         protected abstract void OnInit();
 
-        protected LocationScene(Location location, string locationImage)
+        protected LocationScene(Location location)
         {
             _location = location;
-            _locationImage = locationImage;
+            _locationImage = location.Background;
         }
 
         public void Init()

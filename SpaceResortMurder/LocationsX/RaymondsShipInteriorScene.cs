@@ -3,8 +3,7 @@
     public class RaymondsShipInteriorScene : LocationScene
     {
         public RaymondsShipInteriorScene() : base(
-            GameObjects.Locations[nameof(RaymondsShipInterior)], 
-            "Locations/Raymonds_spacecraft_interior") {}
+            GameObjects.Locations[nameof(RaymondsShipInterior)]) {}
 
         protected override void OnInit() {}
     }

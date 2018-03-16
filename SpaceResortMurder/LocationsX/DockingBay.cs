@@ -7,7 +7,9 @@ namespace SpaceResortMurder.LocationsX
 {
     public class DockingBay : Location
     {
-        public DockingBay() : base(nameof(DockingBay), "Docking Bay", 
+        public DockingBay() : base(nameof(DockingBay), 
+            "Docking Bay", 
+            "Placeholder/DockingBay",
             new List<Clue>
             {
                 new RaymondsShip(),

@@ -4,7 +4,7 @@ namespace SpaceResortMurder.LocationsX
 {
     public sealed class DockingBayScene : LocationScene
     {
-        public DockingBayScene() : base(GameObjects.Locations[nameof(DockingBay)], "Placeholder/DockingBay") {}
+        public DockingBayScene() : base(GameObjects.Locations[nameof(DockingBay)]) {}
 
         protected override void OnInit()
         {
