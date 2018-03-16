@@ -224,6 +224,7 @@
     <Compile Include="Pathways\DockingBayToPoliceCruiser.cs" />
     <Compile Include="Pathways\DockingBayToRaymondsShip.cs" />
     <Compile Include="Pathways\IPathway.cs" />
+    <Compile Include="Pathways\LightUpPathway.cs" />
     <Compile Include="Pathways\LobbyToCloningRoom.cs" />
     <Compile Include="Pathways\LobbyToDockingBay.cs" />
     <Compile Include="Pathways\LobbyToVacantRoom.cs" />
@@ -347,6 +348,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Clues\HackingRig.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Clues\RaymondPad-Medium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Clues\RaymondsCorpse-Medium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Clues\RaymondsCorpse.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Clues\ShipsLogs-Small.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Clues\SkeletonKey-Small.png">
@@ -478,25 +491,16 @@
     <Content Include="Content\Locations\MeleenaShipBg-Mod.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Locations\MeleenaShipBg.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Locations\Meleenas_Spacecraft_interior.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\Locations\meleenas_spaceship_painted.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Locations\PoliceCruiserPainted.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Locations\PoliceCruiserBg.jpg">
+    <Content Include="Content\Locations\raymond_final_bg.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Locations\Raymonds_spacecraft_interior.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Locations\Researcher_Travis_Cloning_Room.png">
+    <Content Include="Content\Locations\researcher_room_final.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Locations\TitleScreenBg.png">
@@ -623,6 +627,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Traverse\PoliceCruiserDoor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Traverse\RaymondShuttleExit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Traverse\TraverseArrowR-Hover.png">

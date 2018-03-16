@@ -8,13 +8,15 @@ namespace SpaceResortMurder.LocationsX
     {
         public string Value { get; }
         public string Name { get; }
+        public string Background { get; }
         public List<Clue> Clues { get; }
         public List<IPathway> Pathways { get; }
 
-        protected Location(string location, string name, List<Clue> clues, List<IPathway> pathways)
+        protected Location(string location, string name, string backgroundImage, List<Clue> clues, List<IPathway> pathways)
         {
             Value = location;
             Name = name;
+            Background = backgroundImage;
             Clues = clues;
             Pathways = pathways;
         }

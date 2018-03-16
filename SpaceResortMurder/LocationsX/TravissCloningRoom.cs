@@ -7,7 +7,10 @@ namespace SpaceResortMurder.LocationsX
 {
     public class TravissCloningRoom : Location
     {
-        public TravissCloningRoom() : base(nameof(TravissCloningRoom), "Travis's Cloning Room", 
+        public TravissCloningRoom() : base(
+            nameof(TravissCloningRoom), 
+            "Travis's Cloning Room", 
+            "Locations/researcher_room_final",
             new List<Clue> { new CloningChamber() }, 
             new List<IPathway> { new CloningRoomToLobby() }) {}
     }

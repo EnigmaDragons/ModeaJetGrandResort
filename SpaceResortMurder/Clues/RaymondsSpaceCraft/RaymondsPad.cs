@@ -1,14 +1,13 @@
-﻿using Microsoft.Xna.Framework;
-using MonoDragons.Core.PhysicsEngine;
+﻿using MonoDragons.Core.PhysicsEngine;
 
 namespace SpaceResortMurder.Clues.RaymondsSpaceCraft
 {
     public class RaymondsPad : Clue
     {
-        public RaymondsPad() : base(
-            "Placeholder/Pad", 
-            new Transform2(new Vector2(600, 250), new Size2(50, 50)), 
-            new Size2(200, 200), 
+        public RaymondsPad(Transform2 transform) : base(
+            "Clues/RaymondPad-Medium", 
+            transform, 
+            new Size2(500, 330), 
             nameof(RaymondsPad),
             "Pad") {}
     }

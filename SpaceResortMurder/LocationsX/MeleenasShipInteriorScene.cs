@@ -5,8 +5,7 @@ namespace SpaceResortMurder.LocationsX
     public class MeleenasShipInteriorScene : LocationScene
     {
         public MeleenasShipInteriorScene() : base(
-            GameObjects.Locations[nameof(MeleenasShipInterior)], 
-            "Locations/meleenas_spaceship_painted") {}
+            GameObjects.Locations[nameof(MeleenasShipInterior)]) {}
 
         protected override void OnInit()
         {
