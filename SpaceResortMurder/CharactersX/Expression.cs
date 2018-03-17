@@ -7,5 +7,6 @@
         Happy,
         Thinking,
         Fear,
+        Sad,
     }
 }
