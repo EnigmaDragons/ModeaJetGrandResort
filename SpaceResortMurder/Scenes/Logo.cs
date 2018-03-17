@@ -11,7 +11,8 @@ namespace SpaceResortMurder.Scenes
     public sealed class Logo : IScene
     {
         private readonly string _nextScene;
-        
+
+        private ClickUI _clickUI;
         private bool _transitionComplete;
         private Timer _untilTransition;
 
@@ -22,7 +23,9 @@ namespace SpaceResortMurder.Scenes
 
         public void Init()
         {
-            _untilTransition = new Timer(NavigateToMainMenu, 6000);
+            _clickUI = new ClickUI();
+            _clickUI.Add(new ScreenClickable(NavigateToMainMenu));
+            _untilTransition = new Timer(NavigateToMainMenu, 8000);
             Input.ClearTransientBindings();
             Input.On(Control.Start, NavigateToMainMenu);
             Audio.PlayMusicOnce("Logo", 0.5f);
@@ -40,6 +43,7 @@ namespace SpaceResortMurder.Scenes
 
         public void Update(TimeSpan delta)
         {
+            _clickUI.Update(delta);
             _untilTransition.Update(delta);
         }
 

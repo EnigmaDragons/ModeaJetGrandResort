@@ -1,4 +1,5 @@
-﻿using SpaceResortMurder.Deductions.ClonesDesign;
+﻿using SpaceResortMurder.Deductions.BruisesCameFrom;
+using SpaceResortMurder.Deductions.ClonesDesign;
 using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Dialogues.RaymondsClone
@@ -10,7 +11,9 @@ namespace SpaceResortMurder.Dialogues.RaymondsClone
         public override bool IsActive()
         {
             return CurrentGameState.IsThinking(nameof(DesignedToKill))
-                && CurrentGameState.IsThinking(nameof(FoundYouRaymondsClone));
+                && CurrentGameState.IsThinking(nameof(FoundYouRaymondsClone))
+                && !(CurrentGameState.IsThinking(nameof(BruisesCameFromAStruggle))
+                    && CurrentGameState.IsThinking(nameof(DesignedToKill)));
         }
     }
 }

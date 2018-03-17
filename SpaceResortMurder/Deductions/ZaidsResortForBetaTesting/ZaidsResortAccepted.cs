@@ -9,7 +9,7 @@ namespace SpaceResortMurder.Deductions.ZaidsResortForBetaTesting
 
         public override bool IsActive()
         {
-            return !CurrentGameState.IsThinking(nameof(YouWereNotAcceptedForBetaTesting));
+            return CurrentGameState.IsThinking(nameof(YouWereNotAcceptedForBetaTesting));
         }
     }
 }
