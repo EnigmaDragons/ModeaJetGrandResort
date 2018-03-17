@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MonoDragons.Core.Common;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace MonoDragons.Core.Text
 {
@@ -23,7 +24,7 @@ namespace MonoDragons.Core.Text
                 return;
             var defaultFont = content.Load<SpriteFont>(Name);
             var allFonts = new Dictionary<float, SpriteFont> { { 1, defaultFont } };
-            AvailableScales.ForEach(s => allFonts.Add(s, content.Load<SpriteFont>(Name + "-" + s.ToString())));
+            AvailableScales.ForEach(s => allFonts.Add(s, content.Load<SpriteFont>(Name + "-" + s.ToString(CultureInfo.InvariantCulture))));
             ScaledFontSet = new ScaledSpriteFontSet(defaultFont, allFonts);
             if (FutureLineSpacing.HasValue)
                 ScaledFontSet.ForEach(f => f.LineSpacing = FutureLineSpacing.Value);

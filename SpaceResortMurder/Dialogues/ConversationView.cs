@@ -39,12 +39,12 @@ namespace SpaceResortMurder.Dialogues
         {
             _subView = new ScanView(_person, DisableDialogueControls, InitDialogueOptions, () => !_isPresentingToUser);
             _subView.Init();
-            _endConversationButton = new ImageTextButton(new Transform2(new Rectangle(-684, 960, 1380, 77)), _onFinished,
+            _endConversationButton = new ImageTextButton(new Transform2(new Rectangle(-684, 960, 1380, 64)), _onFinished,
                 "Thanks for your help.",
                 "Convo/DialogueButton", "Convo/DialogueButton-Hover", "Convo/DialogueButton-Press")
             {
                 TextColor = Color.White,
-                TextTransform = new Transform2(new Vector2(60, 960), new Size2(1380 - 684, 77)),
+                TextTransform = new Transform2(new Vector2(60, 960), new Size2(1380 - 684, 64)),
                 TextAlignment = HorizontalAlignment.Left
             };
             

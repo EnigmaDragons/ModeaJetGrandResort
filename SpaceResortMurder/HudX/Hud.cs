@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using MonoDragons.Core.Engine;
+using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Scenes;
 using MonoDragons.Core.UserInterface;
-using System.Linq;
-using MonoDragons.Core.Engine;
-using MonoDragons.Core.EventSystem;
 using SpaceResortMurder.Style;
-using MonoDragons.Core.Graphics;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SpaceResortMurder.HudX
 {
@@ -30,8 +29,7 @@ namespace SpaceResortMurder.HudX
                 Transform = new Transform2(new Vector2(1270, 124), new Size2(500, 60)),
                 BackgroundColor = Color.Transparent,
                 HorizontalAlignment = HorizontalAlignment.Right,
-                TextColor = UiStyle.TextLightPurple,
-                Text = "Set [T]ooltip Here"
+                TextColor = UiStyle.TextLightPurple
             };
 
             _confirmationVisuals = new List<IVisual>();
@@ -44,7 +42,7 @@ namespace SpaceResortMurder.HudX
             AddIconButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Icons/Dilemmas", "Dilemmas");
             AddIconButton(() => Scene.NavigateTo(GameResources.DialogueMemoriesScene), "Icons/Conversations", "Conversations");
             AddIconButton(() => Scene.NavigateTo(GameResources.OptionsSceneName), "Icons/Options", "Options");
-            AddIconButton(() => OpenConfirmationMenu(), "Icons/ExitToMenu", "Main Menu");
+            AddIconButton(OpenConfirmationMenu, "Icons/ExitToMenu", "Main Menu");
             HudBranch = new ClickUIBranch("HUD", 2);
             _clickables.ForEach(x => HudBranch.Add(x));
             _newIcon = new ImageBox
@@ -53,7 +51,12 @@ namespace SpaceResortMurder.HudX
                 Image = "UI/NewRedIconBorderless"
             };
 
-            Event.SubscribeForever(EventSubscription.Create<ActiveElementChanged>(x => _tooltipLabel.Text = x.NewElement.TooltipText, this));
+            Event.SubscribeForever(EventSubscription.Create<ActiveElementChanged>(UpdateTooltip, this));
+        }
+
+        private void UpdateTooltip(ActiveElementChanged e)
+        {
+            _tooltipLabel.Text = e.NewElement.TooltipText;
         }
 
         private void AddConfirmationButton(VisualClickableUIElement button)
@@ -92,7 +95,7 @@ namespace SpaceResortMurder.HudX
                 _confirmationVisuals.ForEach(x => x.Draw());
             }
         }
-        
+
         private void DrawNewIconsIfApplicable()
         {
             if (GameObjects.Dilemmas.GetActiveDilemmas().Any(d => d.IsNew || d.HasNewAnswers))

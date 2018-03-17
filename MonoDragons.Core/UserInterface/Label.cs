@@ -1,14 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
-using System;
 using Microsoft.Xna.Framework.Graphics;
 using MonoDragons.Core.Memory;
 using MonoDragons.Core.Text;
 
 namespace MonoDragons.Core.UserInterface
 {
-    public sealed class Label : IVisual, IDisposable
+    public sealed class Label : IVisual
     {
         private readonly ColoredRectangle _background = new ColoredRectangle();
         private readonly IWrapText _textWrapper;
@@ -45,11 +44,6 @@ namespace MonoDragons.Core.UserInterface
         {
             _background.Draw(parentTransform);
             UI.DrawTextAligned(Text, new Rectangle((parentTransform.Location + Transform.Location).ToPoint(), Transform.Size.ToPoint()), TextColor, Font, HorizontalAlignment);
-        }
-
-        public void Dispose()
-        {
-            _background.Dispose();
         }
     }
 }

@@ -1,17 +1,12 @@
-﻿using Microsoft.Xna.Framework;
-using MonoDragons.Core.PhysicsEngine;
+﻿using MonoDragons.Core.PhysicsEngine;
 using SpaceResortMurder.LocationsX;
 
 namespace SpaceResortMurder.Pathways
 {
-    public class CloningRoomToLobby : ExpandingImagePathway
+    public sealed class CloningRoomToLobby : TraverseArrowPathway
     {
-        public CloningRoomToLobby() : base(
-            nameof(CloningRoomToLobby),
-            "Placeholder/Door",
-            new Transform2(new Vector2(0, 0), new Size2(350, 348)),
-            nameof(Lobby),
-            "To Lobby") {}
+        public CloningRoomToLobby(Transform2 transform, string traverseArrowType)
+            : base(transform, nameof(Lobby), "To Lobby", traverseArrowType) { }
 
         public override bool IsTraversible => true;
     }

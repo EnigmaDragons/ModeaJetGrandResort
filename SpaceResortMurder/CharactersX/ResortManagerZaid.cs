@@ -7,7 +7,7 @@ namespace SpaceResortMurder.CharactersX
 {
     public class ResortManagerZaid : Character
     {
-        public ResortManagerZaid() : base(nameof(ResortManagerZaid), new Size2(480, 1128),
+        public ResortManagerZaid() : base(nameof(ResortManagerZaid), new Size2(399, 937),
             new WhoAreYouZaid(),
             new WhoIsStayingAtYourResort(),
             new WhySoFewPeopleAtTheResort(),
@@ -30,7 +30,7 @@ namespace SpaceResortMurder.CharactersX
 
         public override Transform2 WhereAreYouStanding()
         {
-            return new Transform2(new Vector2(480, 256), new Size2(240, 564));
+            return new Transform2(new Vector2(1150, 390), new Size2(170, 399));
         }
     }
 }

@@ -47,6 +47,8 @@ namespace SpaceResortMurder
         public const string SaveLoadSceneName = "SaveLoad";
         public const string PickNameSceneName = "PickName";
 
+        public const string DefaultPlayerCharacterName = "ZX3-B";
+
         public static void TestAllSymbols()
         {
             _scanInfo.Values.ForEach(s => TestSymbols(s));

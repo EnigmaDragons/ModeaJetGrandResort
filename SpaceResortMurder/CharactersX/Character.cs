@@ -59,12 +59,12 @@ namespace SpaceResortMurder.CharactersX
 
         public IVisual CreateChatNameBox()
         {
-            return new ImageLabel(new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 960), new Size2(1680, 86)), "Convo/NameLabel")
+            return new ImageLabel(new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 960), new Size2(1680, 72)), "Convo/NameLabel")
             {
                 Text = GameResources.GetCharacterName(Value),
                 TextColor = Color.White,
                 TextTransform = new Transform2(new Vector2(UI.OfScreenWidth(0.66f), 960),
-                    new Size2(UI.OfScreenWidth(0.96f) - UI.OfScreenWidth(0.66f), 86))
+                    new Size2(UI.OfScreenWidth(0.96f) - UI.OfScreenWidth(0.66f), 72))
             };
         }
 

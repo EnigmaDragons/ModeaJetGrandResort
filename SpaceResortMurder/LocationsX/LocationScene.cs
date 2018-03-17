@@ -81,7 +81,6 @@ namespace SpaceResortMurder.LocationsX
             {
                 _objectives.Draw();
                 GameObjects.Hud.Draw();
-                _peopleHere.ForEach(p => p.DrawNewIconIfApplicable());
             }
 
             if (_isPresentingToUser)

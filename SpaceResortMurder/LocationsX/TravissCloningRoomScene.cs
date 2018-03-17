@@ -1,4 +1,6 @@
 ﻿
+using MonoDragons.Core.AudioSystem;
+
 namespace SpaceResortMurder.LocationsX
 {
     public class TravissCloningRoomScene : LocationScene
@@ -6,6 +8,9 @@ namespace SpaceResortMurder.LocationsX
         public TravissCloningRoomScene() : base(
             GameObjects.Locations[nameof(TravissCloningRoom)]) {}
 
-        protected override void OnInit() {}
+        protected override void OnInit()
+        {
+            Audio.PlayMusic("CloningRoom");
+        }
     }
 }
