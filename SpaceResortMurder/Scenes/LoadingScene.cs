@@ -20,7 +20,6 @@ namespace SpaceResortMurder.Scenes
             "characters/raymond_alive",
             "characters/resort_manager_colored",
             "characters/scientist_guy",
-            "characters/random_npc_01",
         };
 
         private bool _isLoaded = false;

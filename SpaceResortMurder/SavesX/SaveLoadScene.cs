@@ -21,9 +21,7 @@ namespace SpaceResortMurder.SavesX
             _headerText = UiLabels.FullWidthHeaderLabel("Game", Color.White);
             SetMode(_savingEnabled ? SaveMode.Save : SaveMode.Load);
             if (_mode != SaveMode.Load)
-                Add(new ImageTextButton(new Transform2(new Vector2(840, 970), new Size2(240, 60)), () => SetMode(SaveMode.Load), "Load",
-                    "UI/BlueButton", "UI/BlueButton-Hover", "UI/BlueButton-Press", () => _mode != SaveMode.Load)
-                { OnPress = UiButtons.PlayMenuButtonSound });
+                Add(UiButtons.MenuSmallBlue("Load", new Vector2(840, 960), () => SetMode(SaveMode.Load), () => _mode != SaveMode.Load));
             Add(UiButtons.BackBlue(() => Scene.NavigateTo(CurrentGameState.CurrentLocation)));
 
             var positions = new[] {new Vector2(320, 200), new Vector2(1120, 200), new Vector2(320, 600), new Vector2(1120, 600),};
