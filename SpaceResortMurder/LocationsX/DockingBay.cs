@@ -14,7 +14,7 @@ namespace SpaceResortMurder.LocationsX
             "Locations/Docking_bay_final",
             new List<Clue>
             {
-                // new PoliceCruiserClue(new Transform2(new Vector2(593, 644), new Size2(501, 288));
+                new PoliceCruiserShip(new Transform2(new Vector2(593, 644), new Size2(501, 288))),
                 new RaymondsShip(new Transform2(new Vector2(1511, 405), new Size2(409, 523))),
                 new MeleenasShip(new Transform2(new Vector2(1054, 609), new Size2(451, 314))),
                 new GarbageAirlock(new Transform2(new Vector2(358, 614), new Size2(237, 182))),

@@ -48,6 +48,7 @@
     <Compile Include="Clues\CloningRoom\CloningChamber.cs" />
     <Compile Include="Clues\Clue.cs" />
     <Compile Include="Clues\DockingBay\GarbageAirlock.cs" />
+    <Compile Include="Clues\DockingBay\PoliceCruiserShip.cs" />
     <Compile Include="Clues\DockingBay\MeleenasShip.cs" />
     <Compile Include="Clues\InvestigateClueView.cs" />
     <Compile Include="Clues\MeleenasSpaceCraft\EncryptedDataDrive.cs" />
