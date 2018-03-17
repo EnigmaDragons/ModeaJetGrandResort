@@ -4,7 +4,10 @@ namespace SpaceResortMurder.Dialogues.Zaid
 {
     public class YouBroughtThisOnYourself : Dialogue
     {
-        public YouBroughtThisOnYourself() : base(nameof(YouBroughtThisOnYourself)) {}
+        public YouBroughtThisOnYourself() : base(nameof(YouBroughtThisOnYourself))
+        {
+            IsExclusive = true;
+        }
 
         public override bool IsActive()
         {

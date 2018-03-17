@@ -9,7 +9,7 @@ namespace SpaceResortMurder.Dialogues.Meleena
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(NeedASearchOrder));
+            return CurrentGameState.IsThinking(nameof(IsTheSearchOrderReady));
         }
     }
 }

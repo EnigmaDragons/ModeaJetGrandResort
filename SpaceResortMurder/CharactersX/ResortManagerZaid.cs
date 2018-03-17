@@ -20,7 +20,8 @@ namespace SpaceResortMurder.CharactersX
             new WillYourAcceptanceBePutIntoQuestion(),
             new IWontSealYourFate(),
             new YouBroughtThisOnYourself(),
-            new ZaidYouHackedRaymondsDoor()) {}
+            new ZaidYouHackedRaymondsDoor(),
+            new ZaidLaunchedTheShipToGetHisPad()) {}
 
         public override string WhereAreYou()
         {

@@ -70,7 +70,8 @@ namespace SpaceResortMurder
         {
             Assembly.GetExecutingAssembly().GetTypes()
                 .Where(x => x.Namespace.StartsWith("SpaceResortMurder.Clues.")
-                            || x.Namespace.StartsWith("SpaceResortMurder.Dialogues."))
+                            || x.Namespace.StartsWith("SpaceResortMurder.Dialogues.")
+                            || x.Namespace.StartsWith("SpaceResortMurder.CharactersX"))
                 .Select(x => x.Name)
                 .ForEach(x =>
                 {

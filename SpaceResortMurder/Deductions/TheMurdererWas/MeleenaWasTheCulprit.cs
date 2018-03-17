@@ -1,4 +1,5 @@
-﻿using SpaceResortMurder.Deductions.MeleenasAccountValidity;
+﻿using SpaceResortMurder.CharactersX;
+using SpaceResortMurder.Dialogues.Meleena;
 using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Deductions.TheMurdererWas
@@ -9,7 +10,7 @@ namespace SpaceResortMurder.Deductions.TheMurdererWas
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(MeleenaIsLying));
+            return CurrentGameState.IsThinking(nameof(WhoAreYou)) || CurrentGameState.IsThinking(nameof(HackerMeleena));
         }
     }
 }

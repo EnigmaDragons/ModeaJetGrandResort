@@ -1,4 +1,5 @@
 ﻿using SpaceResortMurder.Dialogues.Travis;
+using SpaceResortMurder.Dialogues.Zaid;
 using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Deductions.TheMurdererWas
@@ -9,7 +10,7 @@ namespace SpaceResortMurder.Deductions.TheMurdererWas
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(YourBrotherWasKilled));
+            return CurrentGameState.IsThinking(nameof(WhoIsStayingAtYourResort));
         }
     }
 }

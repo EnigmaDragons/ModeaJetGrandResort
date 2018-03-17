@@ -7,7 +7,7 @@ namespace SpaceResortMurder.DilemmasX.CoreDilemmas
 {
     public class WhatWasTheCulpritsMotive : Dilemma
     {
-        public WhatWasTheCulpritsMotive() : base(new Vector2(990, 348), nameof(WhatWasTheCulpritsMotive), 
+        public WhatWasTheCulpritsMotive() : base(new Vector2(1130, 473), nameof(WhatWasTheCulpritsMotive), 
             new MeleenaGotCaught(),
             new MeleenaKilledHimBecauseHeIsEvil(),
             new RaymondsCloneWasDesignedToKillForRevenge(),

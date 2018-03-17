@@ -4,7 +4,10 @@ namespace SpaceResortMurder.Dialogues.Travis
 {
     public class YouAreStillResposible : Dialogue
     {
-        public YouAreStillResposible() : base(nameof(YouAreStillResposible)) {}
+        public YouAreStillResposible() : base(nameof(YouAreStillResposible))
+        {
+            IsExclusive = true;
+        }
 
         public override bool IsActive()
         {

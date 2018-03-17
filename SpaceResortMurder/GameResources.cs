@@ -7,7 +7,6 @@ using SpaceResortMurder.Clues.MeleenasSpaceCraft;
 using SpaceResortMurder.Clues.RaymondsSpaceCraft;
 using SpaceResortMurder.Deductions;
 using SpaceResortMurder.Deductions.CauseOfDeath;
-using SpaceResortMurder.Deductions.MeleenasAccountValidity;
 using SpaceResortMurder.Deductions.TheCulpritsMotive;
 using SpaceResortMurder.Deductions.TheMurdererWas;
 using SpaceResortMurder.Deductions.ZaidsResortForBetaTesting;
@@ -30,6 +29,8 @@ using SpaceResortMurder.Deductions.LaunchedTheShip;
 using SpaceResortMurder.Deductions.TimeFrameForMurder;
 using SpaceResortMurder.Pathways;
 using MonoDragons.Core.Common;
+using SpaceResortMurder.Deductions.BruisesCameFrom;
+using SpaceResortMurder.Deductions.ElectricalBurnsComeFrom;
 using SpaceResortMurder.Dialogues;
 
 namespace SpaceResortMurder
@@ -300,8 +301,8 @@ namespace SpaceResortMurder
                     new DialogueElement(true, "Right before powering you up I got pinged by the manager at ModeaJet Grand Resort about a corp exec murder."),
                     new DialogueElement(true, "The victim is Raymond Soule, the CEO of the cloning company Human Perfect."),
                     new DialogueElement(true, "Mr.Soule arrived intact at ModeaJet Grand Resort at around 7:00 AM this morning, but was found dead today in his ship."),
-                    new DialogueElement(true, "Lookie around this ship and tell me what can figure from that."),
-                    new DialogueElement(false, "Not telling me is inefficient."),
+                    new DialogueElement(true, "Go look around the ship for clues but don't go touching everything you see."),
+                    new DialogueElement(true, "Can't expect any clues to come searching for you..."), 
             } ) },
             { nameof(AnytimeUpTilNow), new DialogueSequence(
                 "The murder took place anytime up until now.",
@@ -414,6 +415,17 @@ namespace SpaceResortMurder
                     new DialogueElement(true, "The meat in the ship wasn't muttering, so I don't know who it was that landed the ship, got out, and left."),
                     new DialogueElement(true, "As soon as he left I floored it outta there."),
             } ) },
+            { nameof(MeleenaYouShotTheShip), new DialogueSequence(
+                "You hacked Raymond's T71 energy blaster and shot his craft.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "What! Why the frag would I do that? I like to think of myself as sneaky."),
+            } ) },
+            { nameof(YouDidntHearAVoiceYouLaunchedTheShip), new DialogueSequence(
+                "You lied about someone else entering Raymond's ship when you were there.",
+                new DialogueElement[] {
+                    new DialogueElement(false, "You were the one who launched the ship."), 
+                    new DialogueElement(true, "Drek! Your not pinning this on me roid! I woulda zeroed the ship's logs."),
+            } ) },
             #endregion
 
             #region Zaid
@@ -426,7 +438,7 @@ namespace SpaceResortMurder
                     new DialogueElement(true, "Of course! Given someone of your er... skill I'm sure. Though if it stumps you for the night don't hesitate to ask for a room."),
             } ) },
             { nameof(ZaidsAccount), new DialogueSequence(
-                "Please tell me as detailed as you can remember what you can recall up until you pinged us?",
+                "What can you recall up until you pinged us?",
                 new DialogueElement[] {
                     new DialogueElement(true, "Right away! I was staying here in the lobby er... when I see a notification that Raymond's ship was leaving."),
                     new DialogueElement(true, "I didn't find that odd but 20 minutes later Raymond's ship was returning."),
@@ -494,6 +506,11 @@ namespace SpaceResortMurder
                 "When you went to check out Raymond's ship the door was still closed and you hacked it.",
                 new DialogueElement[] {
                     new DialogueElement(true, "I didn't I swear. I wouldn't be running a resort if I was a decker."),
+            } ) },
+            { nameof(ZaidLaunchedTheShipToGetHisPad), new DialogueSequence(
+                "You didn't just find his body. You launched his ship to retrieve his pad.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "Sorry sir, I only came to check on the ship after it had landed."),
             } ) },
             #endregion
 
@@ -578,13 +595,6 @@ namespace SpaceResortMurder
                     new DialogueElement(true, "Well sorry to disappoint, but even though the experiment resulted in a massacre, it did produce results and we were able to perfect the technique."),
                     new DialogueElement(true, "This is the same method, but without that fatal flaw."),
             } ) },
-            { nameof(TravisYouHackedRaymondsCraft), new DialogueSequence(
-                "You were the one that hacked Raymond's craft.",
-                new DialogueElement[] {
-                    new DialogueElement(true, "Do you tell that to everyone hoping to get a response?"),
-                    new DialogueElement(false, "..."),
-                    new DialogueElement(true, "Don't waste my time without a reason."), 
-                } ) },
             #endregion
 
             #region Raymond's Clone
@@ -616,63 +626,110 @@ namespace SpaceResortMurder
                 new DialogueElement[] {
                     new DialogueElement(true, "Travis is lying."),
             } ) },
-
-
-            { nameof(MeetingRaymondsClone), new DialogueSequence(
-                "Meeting Raymond",
+            { nameof(ItCouldOnlyHaveBeenUsedByYou), new DialogueSequence(
+                "The T71 Energy Blaster requires Raymond's DNA, you must have been the one to shoot it.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "You are with the police. You have got to hear me out. I had my researcher Travis make a clone of me."),
-                    new DialogueElement(true, "But when the process was done, I had a tracking chip embedded in me."),
-                    new DialogueElement(true, "Travis was trying to make me look like the clone and replace me to take control of Human Perfect."),
-                    new DialogueElement(true, "Travis could control the clone, and he made my clone try to kill me."),
-                    new DialogueElement(true, "I was chased into the docking bay where the clone tried to shoot me with my own blaster."),
-                    new DialogueElement(true, "The blaster requires my DNA to use but the clone shares my DNA."),
-                    new DialogueElement(true, "Thankfully I'm a poor shot, which makes my clone a poor shot as well."),
-                    new DialogueElement(true, "I managed to get out of there and hid myself in this room."),
-                }
-            ) },
-            { nameof(YourLookALikeIsDead), new DialogueSequence(
-                "Your stunt double is dead.",
-                new DialogueElement[] {
-                    new DialogueElement(true, "Good, that means he won't try to kill me again."),
-                }
-            ) },
-            { nameof(GoToTheLobby), new DialogueSequence(
-                "Head to the lobby, Officer Warren well ensure your safety.",
-                new DialogueElement[] {
-                    new DialogueElement(true, "Alright, I'll make sure to head on over there."),
-                }
-            ) },
-            { nameof(DidYouChokeYourClone), new DialogueSequence(
-                "When your clone tried to kill you, did you manage to get a chokehold on him?",
-                new DialogueElement[] {
+                    new DialogueElement(true, "I didn't... I lent it to my clone right after he was cloned because he was worried about assassin's on the way to the ship."), 
+                    new DialogueElement(false, "Then why is it in your room."),
                     new DialogueElement(true, "..."),
-                    new DialogueElement(true, "Yes I did, I managed to get the upper hand on him for a moment."),
-                }
-            ) },
-            { nameof(MeleenaIdentifiedYourVoice), new DialogueSequence(
-                "Meleena heard you in Raymonds space craft. When you took it for a spin.",
+                    new DialogueElement(true, "He returned it to me."), 
+            } ) },
+            { nameof(YourCloneShotYourShip), new DialogueSequence(
+                "Your other half shot your ship with the T71 energy blaster.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "..."),
-                    new DialogueElement(true, "Alright I lied, truth is when I was chased into the docking bay I got hit with a bolt of electricity that knocked out my senses as I writhed on the ground."),
-                    new DialogueElement(true, "I was watching my clone so it had to come from somewhere else."),
-                    new DialogueElement(true, "When I had gained back my senses, I saw the clones body floating in space with a bunch of garbage"),
-                    new DialogueElement(true, "I got in my ship to save him, but when I brought him aboard the ship he was dead."),
-                    new DialogueElement(true, "I didn't want to be blamed for the murder so I landed the ship and ran away."),
+                    new DialogueElement(true, "Not a problem, I'll just pay for repairs and a new paint job when I get Earth-side."),
+            } ) },
+            { nameof(YouWereDesignedToKill), new DialogueSequence(
+                "You were designed to kill your look a like.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "I was not designed, I'm Raymond Soule! I'm going to report you for treating me with such discontempt!"),
+                    new DialogueElement(false, "Then the clone was designed to kill."),
+                    new DialogueElement(true, "Well it hasn't fragging tried to kill me yet."), 
+            } ) },
+            { nameof(AnotherWitnessHeardYouOnTheShip), new DialogueSequence(
+                "A witness heard your voice aboard Raymond's craft.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "My clone has an identical voice, They probably just heard my clones voice."),
+            } ) },
+            { nameof(YourBeingRidiculous), new DialogueSequence(
+                "I know you were designed to kill and that the bruises come from a stuggle with Raymond.",
+                new DialogueElement[] {
+                    new DialogueElement(false, "If you don't start telling me the truth I will just have to accuse you."),
+                    new DialogueElement(true, "... you are right. I had a violent urge to kill him and tried to choke him. He managed to get away from me though."), 
+                    new DialogueElement(true, "I didn't choose to have the killing urge and I didn't choose to be formed as a clone. But if it's found out that I'm a clone I'll lose everything."),
+                    new DialogueElement(true, "Detective if you leave the fact that I'm a clone off of your report, Human Perfect, under my leadership, will give you a handsome reward for your assistance in bringing the would be assassin to justice."),
+            } ) },
+            { nameof(PostCloneYouShotTheShip), new DialogueSequence(
+                "Now that you're being honest, you shot the craft.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "... After our struggle I chased after Raymond with his gun, but when we got to the docking bay I came to my senses and willed myself not to shoot Raymond so I shot the ship."),
+                    new DialogueElement(true, "I lied about the electrical discharge. After shooting Raymond's ship, Raymond ran into the garbage airlock and I was hit with a bolt of electricity. That knocked me out."), 
+            } ) },
+            { nameof(PostCloneYouLaunchedTheShip), new DialogueSequence(
+                "Now tell me honestly, you were the one that launched the ship.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "I did, I saw Raymond's body floating in space among garbage. I wanted to save him so I flew my craft to him but the time I brought him into the ship he was dead."),
+            } ) },
+            { nameof(YouCanKeepYourLife), new DialogueSequence(
+                "I won't rob you of your life, and a reward is certainly deserved for catching your assassin.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "Pleasure doing business with you."),
+            } ) },
+            { nameof(YouRanYourCompanyPoorly), new DialogueSequence(
+                "I won't help you continue running your evil company.",
+                new DialogueElement[] {
+                    new DialogueElement(true, "... Maybe I can still convince people to let me run it. I'll just have to make some calls."),
             } ) },
             #endregion
         };
 
         private static DictionaryWithDefault<string, string> _dilemmaOrDeductionText = new DictionaryWithDefault<string, string>("This dilemma or deduction is not implemented") {
             { nameof(WasZaidsResortAcceptedAsABetaTester), "Was ModeaJet Grand Resort accepted for the resort clone testing?" },
-            { nameof(ZaidsResortAccepted), "His resort was accepted, because of the message on Raymond's pad." },
-            { nameof(ZaidsResortDeclined), "His resort was declined, ModeaJet Grand Resort was crossed off." },
+            { nameof(ZaidsResortAccepted), "The resort was accepted, because of the message on Raymond's pad" },
+            { nameof(ZaidsResortDeclined), "The resort was declined, ModeaJet Grand Resort was crossed off" },
+
+            { nameof(WhatWasTheTimeFrameForTheMurder), "When did the murder take place?" },
+            { nameof(FromAnytimeUntilEightPM), "It could have happened on any day or any time before 8 PM tonight" },
+            { nameof(SevenAMToEightPM), "It must have happened between 7 AM and 8 PM today" },
+            { nameof(EightPMtoMidnight), "It has to be 8 PM until midnight tonight, so we have to hurry" },
 
             { nameof(WhoHackedTheDoor), "Who hacked the door on Raymond's craft?" },
             { nameof(MeleenaHackedTheDoor), "Meleena" },
             { nameof(TravisHackedTheDoor), "Travis" },
             { nameof(ZaidHackedTheDoor), "Zaid" },
 
+            { nameof(WhereDidTheBruisesComeFrom), "How did Raymond's clone get bruised?" },
+            { nameof(MatterRemovalBruises), "The cloning process bruised him" },
+            { nameof(BruisesCameFromAStruggle), "The bruises came from a struggle" },
+
+            { nameof(WhereDidRaymondsCloneGetAnElectricalBurn), "How did Raymond's clone get an electric burn?" },
+            { nameof(ACloningMalfunction), "He recieved it when being formed from the cloning chamber" },
+            { nameof(AStunGun), "He must have been hit with a stun gun" },
+            { nameof(SomethingElse), "It must have been from something unconventional" },
+
+            { nameof(WhoLaunchedTheShip), "Who launched Raymond's craft" },
+            { nameof(ZaidLaunchedTheShip), "Zaid" },
+            { nameof(MeleenaLaunchedTheShip), "Meleena" },
+            { nameof(TravisLaunchedTheShip), "Travis" },
+            { nameof(RaymondLaunchedTheShip), "Raymond Soule did before his death" },
+            { nameof(RaymondsCloneLaunchedTheShip), "Raymond Soule's Clone" },
+            
+            { nameof(WhoShotRaymondsShip), "Who shot Raymond's ship?" },
+            { nameof(RaymondShotHisOwnShip), "Raymond" },
+            { nameof(ZaidShotRaymondsShip), "Zaid" },
+            { nameof(MeleenaShotRaymondsShip), "Meleena" },
+            { nameof(TravisShotRaymondsShip), "Travis" },
+            { nameof(RaymondsCloneShotRaymondsShip), "Raymond's clone" },
+
+            { nameof(WasTheCloneDesignedToKill), "Was the clone designed to kill his look a like?" },
+            { nameof(DesignedToKill), "Yes, Travis intentionally used a process that would create a killer clone" },
+            { nameof(PerfectedDesign), "No, the new cloning process was perfected" },
+
+            { nameof(WhatWasTheCauseOfDeath), "What was Raymond's cause of death?" },
+            { nameof(ChokedBySomeone), "The victim was choked to death prior to his exposure to space" },
+            { nameof(PushedOutOfHisShip), "The victim was pushed into space from his ship" },
+            { nameof(KilledInSpace), "The victim had his suit removed while in space" },
+            { nameof(LaunchedIntoSpaceFromTheGarbageAirlock), "The victim was launched into space from the garbage airlock" },
 
             { nameof(WhoWasTheMurderer), "Who killed Raymond Soule?" },
             { nameof(ZaidWasTheCulprit), "Zaid" },
@@ -681,47 +738,14 @@ namespace SpaceResortMurder
             { nameof(RaymondsCloneWasTheCulprit), "Raymond Soule's Clone" },
             { nameof(TravisAndRaymondsCloneAreTheCulprits), "Travis used Raymond's Clone" },
 
-            { nameof(WhatWasTheCauseOfDeath), "What was the victim's cause of death?" },
-            { nameof(ChokedBySomeone), "The victim was choked to death prior to his exposure to space" },
-            { nameof(PushedOutOfHisShip), "The victim was pushed into space from his ship" },
-            { nameof(PoisonNeedles), "The victim died from his lungs giving out due to poison needles" },
-            { nameof(LaunchedIntoSpaceFromTheGarbageAirlock), "The victim was launched into space from the garbage airlock" },
-
             { nameof(WhatWasTheCulpritsMotive), "What was the culprits motive?" },
-            { nameof(MeleenaGotCaught), "Meleena was discovered on Raymond's ship and rather than go to prison she killed him" },
+            { nameof(MeleenaGotCaught), "Meleena was discovered on Raymond's ship and choose to kill over prison" },
             { nameof(MeleenaKilledHimBecauseHeIsEvil), "Meleena had discovered that he covered up a massacre within his company" },
             { nameof(RaymondsCloneWasDesignedToKillForRevenge), "Travis blames Raymond for the death of his brother, so he made a murderous clone" },
             { nameof(RaymondsCloneWasDesignedToKillAndThenControlHumanPerfectByProxy), "Travis wanted to control Human Perfect, so he made a clone to replace Raymond" },
-            { nameof(RevengeForHisBrothersDeath), "Travis blames Raymond for the death of his brother." },
-            { nameof(ToReplaceRaymondAsCEO), "Raymond's clone wasn't satisfied pretending to be the CEO. He decided he was going to replace Raymond." },
-            { nameof(ToSaveHisResort), "Zaid needed his resort to be accepted for resort clones beta-testing" },
-
-            { nameof(WhatWasTheTimeFrameForTheMurder), "When did the murder take place?" },
-            { nameof(FromAnytimeUntilEightPM), "It could have happened on any day or any time before 8 PM tonight" },
-            { nameof(SevenAMToEightPM), "It must have happened between 7 AM and 8 PM today" },
-            { nameof(EightPMtoMidnight), "It has to be 8 PM until midnight tonight, so we have to hurry" },
-
-            { nameof(WhoShotRaymondsShip), "Who shot Raymond's ship?" },
-            { nameof(RaymondShotHisOwnShip), "Raymond" },
-            { nameof(ZaidShotRaymondsShip), "Zaid" },
-            { nameof(MeleenaShotRaymondsShip), "Meleena" },
-            { nameof(TravisShotRaymondsShip), "Travis" },
-            { nameof(RaymondsCloneShotRaymondsShip), "Raymond's clone" },
-
-            { nameof(WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip), "Was Meleena honest in what happened on Raymond's ship." },
-            { nameof(MeleenaWasHonest), "Yes" },
-            { nameof(MeleenaIsLying), "No, Something about her testimony is off." },
-
-            { nameof(WhoLaunchedTheShip), "Who launched Raymond's craft" },
-            { nameof(ZaidLaunchedTheShip), "Zaid" },
-            { nameof(MeleenaLaunchedTheShip), "Meleena" },
-            { nameof(TravisLaunchedTheShip), "Travis" },
-            { nameof(RaymondLaunchedTheShip), "Raymond Soule did before his death" },
-            { nameof(RaymondsCloneLaunchedTheShip), "Raymond Soule's Clone" },
-
-            { nameof(WasTheCloneDesignedToKill), "Was the clone designed to kill his look a like?" },
-            { nameof(DesignedToKill), "Yes, Travis intentionally used a process that would create a killer clone" },
-            { nameof(PerfectedDesign), "No, the new cloning process was perfected." }
+            { nameof(RevengeForHisBrothersDeath), "Travis blames Raymond for the death of his brother" },
+            { nameof(ToReplaceRaymondAsCEO), "Raymond's clone wasn't satisfied pretending to be the CEO. He decided he was going to replace Raymond" },
+            { nameof(ToSaveHisResort), "Zaid needed to pay off his debts, so he killed to become accepted for resort clones" },
         };
 
         private static DictionaryWithDefault<string, string> _objectiveTexts = new DictionaryWithDefault<string, string>("This objective is not implemented") {
@@ -761,7 +785,7 @@ namespace SpaceResortMurder
                     if (CurrentGameState.IsThinking(nameof(HackingRig)))
                         return "Meleena Ka'lick, Decker";
                     if (CurrentGameState.IsThinking(nameof(HackerMeleena)) || CurrentGameState.IsThinking(nameof(WhoAreYou)))
-                        return "Meleena Ke'lick, Corporate Freelancer";
+                        return "Meleena Ka'lick, Corporate Freelancer";
                     return "???";
                 }
             }

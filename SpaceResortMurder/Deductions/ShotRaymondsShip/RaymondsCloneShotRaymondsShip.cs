@@ -1,4 +1,7 @@
-﻿namespace SpaceResortMurder.Deductions
+﻿using SpaceResortMurder.Dialogues.Travis;
+using SpaceResortMurder.State;
+
+namespace SpaceResortMurder.Deductions
 {
     public class RaymondsCloneShotRaymondsShip : Deduction
     {
@@ -6,7 +9,7 @@
 
         public override bool IsActive()
         {
-            return false;
+            return CurrentGameState.IsThinking(nameof(TravissAccount));
         }
     }
 }

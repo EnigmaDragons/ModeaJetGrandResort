@@ -4,7 +4,10 @@ namespace SpaceResortMurder.Dialogues.Zaid
 {
     public class IWontSealYourFate : Dialogue
     {
-        public IWontSealYourFate() : base(nameof(IWontSealYourFate)) {}
+        public IWontSealYourFate() : base(nameof(IWontSealYourFate))
+        {
+            IsExclusive = true;
+        }
 
         public override bool IsActive()
         {

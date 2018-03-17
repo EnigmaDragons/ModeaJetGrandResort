@@ -2,6 +2,7 @@
 using MonoDragons.Core.PhysicsEngine;
 using SpaceResortMurder.Clues.RaymondsSpaceCraft;
 using SpaceResortMurder.Dialogues.Meleena;
+using SpaceResortMurder.Dialogues.Zaid;
 using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.State;
 
@@ -21,8 +22,8 @@ namespace SpaceResortMurder.CharactersX
             new DeckersMakeTheWorldWorse(),
             new ProveIt(),
             new YouBrokeIntoRaymondsShip(),
-
-            new MeleenaHeardRaymondsVoice()) {}
+            new MeleenaYouShotTheShip(),
+            new YouDidntHearAVoiceYouLaunchedTheShip()) {}
 
         public override string WhereAreYou()
         {

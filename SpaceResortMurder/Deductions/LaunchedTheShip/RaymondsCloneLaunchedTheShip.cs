@@ -1,4 +1,5 @@
 ﻿using SpaceResortMurder.Dialogues.RaymondsClone;
+using SpaceResortMurder.Dialogues.Travis;
 using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Deductions.LaunchedTheShip
@@ -9,7 +10,7 @@ namespace SpaceResortMurder.Deductions.LaunchedTheShip
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(MeetingRaymondsClone));
+            return CurrentGameState.IsThinking(nameof(TravissAccount));
         }
     }
 }
