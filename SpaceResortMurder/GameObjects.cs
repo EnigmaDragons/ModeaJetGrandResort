@@ -45,7 +45,6 @@ namespace SpaceResortMurder
             Characters = new Characters();
             Locations = new Locations();
             Objectives = new Objectives();
-            Resolutions = new Resolutions();
 #endif
             Dilemmas.Init();
             Hud.Init();
