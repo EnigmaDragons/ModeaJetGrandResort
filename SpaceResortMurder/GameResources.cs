@@ -396,7 +396,7 @@ namespace SpaceResortMurder
                     new DialogueElement(false, Expression.Default, "Who are you?"),
                     new DialogueElement(true, Expression.Angry, "It's fraggin rude not to introduce yourself first bioroid!"),
                     new DialogueElement(false, Expression.Default, "My name is \\Player\\."),
-                    new DialogueElement(true, Expression.Default, "Alright roid, I'm Meleena Ka'lick, a corporate freelancer on vacation, satisfied?"),
+                    new DialogueElement(true, Expression.Default, "Alright roid, I'm Meleena Ka'lick, a corp freelancer on vacation, satisfied?"),
                     new DialogueElement(false, Expression.Default, "Yes."),
             } ) },
             { nameof(MeleenasAccount), new DialogueSequence(
@@ -899,7 +899,7 @@ namespace SpaceResortMurder
                 () => CurrentGameState.IsThinking(nameof(RaymondsCorpse)) ? "Let's pretend Warren doesn't have a female with him." : "Why investigate murders when you can chill in the lobby."
             },
             { "PoliceCruiserToDockingBay",
-                () => CurrentGameState.IsThinking(nameof(Clock)) ? "Maybe try talking to warren again once you have a working theory for the murder timeframe." : "I should talk to Officer Warren before leaving";
+                () => CurrentGameState.IsThinking(nameof(Clock)) ? "Maybe try talking to warren again once you have a working theory for the murder timeframe." : "I should talk to Officer Warren before leaving"
             }
         };
     }
