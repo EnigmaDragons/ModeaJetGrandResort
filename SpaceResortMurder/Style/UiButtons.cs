@@ -41,6 +41,13 @@ namespace SpaceResortMurder.Style
                     { OnPress = PlayMenuButtonSound };
         }
 
+        public static VisualClickableUIElement BackBlue(Action onClick)
+        {
+            return new ImageButton("UI/BackButtonBlue", "UI/BackButtonBlue-Hover", "UI/BackButtonBlue-Press",
+                    new Transform2(new Rectangle(new Point(6, UI.OfScreenHeight(1) - 138), new Point(132, 132))), onClick)
+                { OnPress = PlayMenuButtonSound };
+        }
+
         public static VisualClickableUIElement SmallIcon(string name, Vector2 position, Action onClick)
         {
             return new ExpandingImageButton(name, $"{name}-Hover", $"{name}-Press",
@@ -55,7 +62,7 @@ namespace SpaceResortMurder.Style
                     { OnPress = PlayMenuButtonSound, TooltipText = tooltip };
         }
 
-        private static void PlayMenuButtonSound()
+        public static void PlayMenuButtonSound()
         {
             Audio.PlaySound("MenuButtonPress", 0.4f);
         }
