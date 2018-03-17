@@ -23,5 +23,10 @@ namespace SpaceResortMurder.CharactersX
         {
             return People.Where(x => x.WhereAreYou() == location).ToList();
         }
+
+        public Character GetCharacter<T>() where T : Character
+        {
+            return People.Where(p => p is T).First();
+        }
     }
 }
