@@ -1,4 +1,6 @@
-﻿using MonoDragons.Core.IO;
+﻿using Microsoft.Xna.Framework.Graphics;
+using MonoDragons.Core.IO;
+using MonoDragons.Core.Memory;
 using MonoDragons.Core.Scenes;
 using SpaceResortMurder.State;
 
@@ -28,8 +30,17 @@ namespace SpaceResortMurder.SavesX
             if (HasSave)
             {
                 var state = Io.Load<GameState>(_fileName);
-                PlayerName = state.PlayerName;
-                CoverImage = state.CurrentLocationImage;
+                try
+                {
+                    Resources.Load<Texture2D>(state.CurrentLocationImage);
+                    PlayerName = state.PlayerName;
+                    CoverImage = state.CurrentLocationImage;
+                }
+                catch
+                {
+                    HasSave = false;
+                    Io.Delete(_fileName);
+                }
             }
         }
 
