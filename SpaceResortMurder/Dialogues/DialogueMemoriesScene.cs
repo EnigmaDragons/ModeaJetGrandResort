@@ -76,7 +76,6 @@ namespace SpaceResortMurder.Dialogues
             _personImage = _selectedPerson.CreateFacingImage(Expression.Default);
             _reader = new Reader(elements.Select(e => e.Line).ToArray(), EndMemory);
             _isInTheMiddleOfDialog = true;
-            AdvanceChatVisuals();
         }
 
         private void AdvanceChatVisuals()
