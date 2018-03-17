@@ -4,22 +4,10 @@
     {
         public static GameState Value { get; private set; }
 
-        public static string CurrentLocation
-        {
-            get => Value.CurrentLocation;
-            set => Value.CurrentLocation = value;
-        }
-
-        public static string CurrentLocationImage
-        {
-            get => Value.CurrentLocationImage;
-            set => Value.CurrentLocationImage = value;
-        }
-        public static string PlayerName
-        {
-            get => Value.PlayerName;
-            set => Value.PlayerName = value;
-        }
+        public static string CurrentLocation { get => Value.CurrentLocation; set => Value.CurrentLocation = value; }
+        public static string CurrentLocationImage { get => Value.CurrentLocationImage; set => Value.CurrentLocationImage = value; }
+        public static string PlayerName { get => Value.PlayerName; set => Value.PlayerName = value; }
+        public static bool ShowObjectives { get => Value.ShowObjectives; set => Value.ShowObjectives = value; }
 
         static CurrentGameState()
         {

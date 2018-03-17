@@ -17,6 +17,7 @@ namespace SpaceResortMurder.State
         public string PlayerName { get; set; } = GameResources.DefaultPlayerCharacterName;
         public string CurrentLocation { get; set; } = GameResources.MainMenuSceneName;
         public string CurrentLocationImage { get; set; } = "";
+        public bool ShowObjectives { get; set; } = true;
 
         public GameState()
         {
