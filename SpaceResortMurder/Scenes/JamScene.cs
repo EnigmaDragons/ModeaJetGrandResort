@@ -23,7 +23,6 @@ namespace SpaceResortMurder.Scenes
 
         public void Init()
         {
-            GameObjects.InitIfNeeded();
             Input.ClearTransientBindings();
             _clickUi = new ClickUI();
             _tutorialBranch = new ClickUIBranch("Tutorial", 10);

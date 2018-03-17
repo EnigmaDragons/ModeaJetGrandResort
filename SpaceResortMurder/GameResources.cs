@@ -46,6 +46,7 @@ namespace SpaceResortMurder
         public const string EndingSceneName = "Ending";
         public const string SaveLoadSceneName = "SaveLoad";
         public const string PickNameSceneName = "PickName";
+        public const string LoadingSceneName = "Loading";
 
         public const string DefaultPlayerCharacterName = "ZX3-B";
 

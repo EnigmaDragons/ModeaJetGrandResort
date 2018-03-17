@@ -30,7 +30,8 @@ namespace SpaceResortMurder.Scenes
             var confirm = UiButtons.Menu("Confirm", new Vector2(780, 600), () =>
             {
                 CurrentGameState.PlayerName = _keyboard.Result;
-                Scene.NavigateTo(nameof(PoliceCruiserInterior));
+                CurrentGameState.CurrentLocation = nameof(PoliceCruiserInterior);
+                Scene.NavigateTo(GameResources.LoadingSceneName);
             });
             _visuals[3] = confirm;
             _clickUI.Add(confirm);

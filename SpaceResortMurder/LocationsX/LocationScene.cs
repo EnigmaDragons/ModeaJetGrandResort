@@ -49,8 +49,6 @@ namespace SpaceResortMurder.LocationsX
 
         public void Init()
         {
-            GameObjects.InitIfNeeded();
-
             InitInputs();
             InitUiElements();
             InitLocation();
