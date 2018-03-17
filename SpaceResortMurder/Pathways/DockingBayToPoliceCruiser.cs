@@ -1,19 +1,14 @@
-﻿using Microsoft.Xna.Framework;
-using MonoDragons.Core.PhysicsEngine;
+﻿using MonoDragons.Core.PhysicsEngine;
 using SpaceResortMurder.Clues.RaymondsSpaceCraft;
 using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Pathways
 {
-    public class DockingBayToPoliceCruiser : ExpandingImagePathway
+    public class DockingBayToPoliceCruiser : TraverseArrowPathway
     {
-        public DockingBayToPoliceCruiser() : base(
-            nameof(DockingBayToPoliceCruiser), 
-            "Placeholder/door", 
-            new Transform2(new Vector2(1050, 0), new Size2(350, 348)), 
-            nameof(PoliceCruiserInterior),
-            "To Police Craft") {}
+        public DockingBayToPoliceCruiser(Transform2 transform, string traverseArrowType) 
+            : base(transform, nameof(PoliceCruiserInterior), "To Police Cruiser", traverseArrowType) { }
 
         public override bool IsTraversible => CurrentGameState.IsThinking(nameof(RaymondsCorpse));
     }
