@@ -8,7 +8,7 @@ namespace SpaceResortMurder.LocationsX
 
         protected override void OnInit()
         {
-            Audio.PlayMusic("VacantRoom");
+            Audio.PlayMusic("VacantRoom", 0.72f);
         }
     }
 }

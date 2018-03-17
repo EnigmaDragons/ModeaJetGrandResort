@@ -61,7 +61,7 @@ namespace SpaceResortMurder.Dialogues
             length = _messageToDisplay.Length < length ? _messageToDisplay.Length : length;
             _currentlyDisplayedMessage = _messageToDisplay.Substring(0, length);
             if (SoundsEnabled && length > previousLength)
-                Audio.PlaySound(length % 19 == 0 ? "talkblip-low" : "talkblip", 0.05f);
+                Audio.PlaySound(length % 19 == 0 ? "talkblip-low" : "talkblip", length % 19 == 0 ? 0.055f : 0.08f);
         }
 
         public void Draw(Transform2 parentTransform)

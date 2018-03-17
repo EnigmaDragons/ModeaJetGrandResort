@@ -9,7 +9,7 @@ namespace SpaceResortMurder.LocationsX
 
         protected override void OnInit()
         {
-            Audio.PlayMusic("HackerSpaceship", 0.28f);
+            Audio.PlayMusic("HackerSpaceship", 0.52f);
         }
     }
 }

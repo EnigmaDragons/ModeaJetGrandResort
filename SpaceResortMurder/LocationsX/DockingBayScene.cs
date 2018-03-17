@@ -8,7 +8,7 @@ namespace SpaceResortMurder.LocationsX
 
         protected override void OnInit()
         {
-            Audio.PlayMusic("DockingBay", 0.20f);
+            Audio.PlayMusic("DockingBay", 0.40f);
         }
     }
 }
