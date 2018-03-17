@@ -23,17 +23,19 @@ namespace SpaceResortMurder.Scenes
         protected override void OnInit()
         {
             _playerCharacter = new PlayerCharacterView(() => true);
-            Add(UiLabels.FullWidthHeaderLabel("New Game", Color.White));
+            var header = UiLabels.FullWidthHeaderLabel("New Game", Color.White);
+            header.Transform.Location = new Vector2(header.Transform.Location.X, 158);
+            Add(header);
 
             _keyboard = new KeyboardTyping(GameResources.DefaultPlayerCharacterName);
             Add(_keyboard);
-            var yStart = 281;
+            var yStart = 331;
             Add(new Label { Text = "Character Name", Transform = new Transform2(new Vector2(758, yStart), new Size2(400, 50)) });
             Add(new ColoredRectangle { Color = Color.FromNonPremultiplied(31, 185, 219, 199), Transform = new Transform2(new Vector2(758, yStart + 60 - 2), new Size2(404, 79)) });
             _textboxLabel = new Label { Text = GameResources.DefaultPlayerCharacterName, Transform = new Transform2(new Vector2(760, yStart + 60), new Size2(400, 75)), BackgroundColor  =Color.FromNonPremultiplied(25, 75, 110, 255) };
             Add(_textboxLabel);
 
-            yStart = 561;
+            yStart = 541;
             Add(new Label { Text = "Difficulty", Transform = new Transform2(new Vector2(860, yStart), new Size2(200, 50)) });
             Add(new ColoredRectangle { Color = Color.FromNonPremultiplied(31, 185, 219, 199), Transform = new Transform2(new Vector2(758, yStart + 60 - 2), new Size2(404, 79)) });
             _shouldGuideLabel = new Label { Text = "Guide Me a Little", Transform = new Transform2(new Vector2(760, yStart + 60), new Size2(400, 75)), BackgroundColor = Color.FromNonPremultiplied(25, 75, 110, 255) };
@@ -50,7 +52,7 @@ namespace SpaceResortMurder.Scenes
             }));
 
             Input.On(Control.Start, StartGame);
-            Add(UiButtons.Menu("Begin", new Vector2(780, 980), StartGame));
+            Add(UiButtons.Menu("Begin", new Vector2(780, 900), StartGame));
         }
 
         private void StartGame()
