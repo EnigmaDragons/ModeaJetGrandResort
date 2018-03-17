@@ -8,10 +8,6 @@ using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.State;
 using SpaceResortMurder.Style;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SpaceResortMurder.Scenes
 {
@@ -25,11 +21,11 @@ namespace SpaceResortMurder.Scenes
         public void Init()
         {
             _clickUI = new ClickUI();
-            _keyboard = new KeyboardTyping("Player");
+            _keyboard = new KeyboardTyping(GameResources.DefaultPlayerCharacterName);
             _visuals = new IVisual[4];
-            _visuals[0] = new Label() { Text = "Player Name", Transform = new Transform2(new Vector2(860, 400), new Size2(200, 50)) };
-            _visuals[1] = new ColoredRectangle() { Color = Color.White, Transform = new Transform2(new Vector2(758, 498), new Size2(404, 79)) };
-            _textboxLabel = new Label() { Text = "Player", Transform = new Transform2(new Vector2(760, 500), new Size2(400, 75)), BackgroundColor = Color.Black };
+            _visuals[0] = new Label { Text = "Player Name", Transform = new Transform2(new Vector2(860, 400), new Size2(200, 50)) };
+            _visuals[1] = new ColoredRectangle { Color = Color.White, Transform = new Transform2(new Vector2(758, 498), new Size2(404, 79)) };
+            _textboxLabel = new Label { Text = GameResources.DefaultPlayerCharacterName, Transform = new Transform2(new Vector2(760, 500), new Size2(400, 75)), BackgroundColor = Color.Black };
             _visuals[2] = _textboxLabel;
             var confirm = UiButtons.Menu("Confirm", new Vector2(780, 600), () =>
             {

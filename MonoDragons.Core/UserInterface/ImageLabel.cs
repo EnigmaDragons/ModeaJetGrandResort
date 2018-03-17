@@ -5,7 +5,7 @@ using MonoDragons.Core.PhysicsEngine;
 
 namespace MonoDragons.Core.UserInterface
 {
-    public sealed class ImageLabel : IVisual, IDisposable
+    public sealed class ImageLabel : IVisual
     {
         private readonly Label _label;
         private readonly string _imageName;
@@ -41,11 +41,6 @@ namespace MonoDragons.Core.UserInterface
         private void UpdateLabelTransform()
         {
             _label.Transform = _transform + new Transform2(new Vector2(10, 0), new Size2(-20, 0));
-        }
-
-        public void Dispose()
-        {
-            _label.Dispose();
         }
     }
 }

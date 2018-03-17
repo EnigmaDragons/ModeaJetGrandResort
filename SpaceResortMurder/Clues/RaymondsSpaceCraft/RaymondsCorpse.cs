@@ -5,10 +5,10 @@ namespace SpaceResortMurder.Clues.RaymondsSpaceCraft
 {
     public class RaymondsCorpse : Clue
     {
-        public RaymondsCorpse() : base(
-            "Placeholder/RaymondsCorpse", 
-            new Transform2(new Vector2(900, 200), new Size2(219, 120)), 
-            new Size2(292, 160), 
+        public RaymondsCorpse(Transform2 transform) : base(
+            "Clues/RaymondsCorpse-Medium", 
+            transform, 
+            new Size2(488, 330), 
             nameof(RaymondsCorpse),
             "Raymond's Corpse") {}
     }

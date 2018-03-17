@@ -7,7 +7,10 @@ namespace SpaceResortMurder.LocationsX
 {
     public class VacantRoom : Location
     {
-        public VacantRoom() : base(nameof(VacantRoom), "Vacant Resort Room", 
+        public VacantRoom() : base(
+            nameof(VacantRoom), 
+            "Vacant Resort Room", 
+            "Locations/BedroomBg",
             new List<Clue> { new T71EnergyBlaster() }, 
             new List<IPathway> { new VacantRoomToLobby() }) {}
     }

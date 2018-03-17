@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
 using MonoDragons.Core.AudioSystem;
 using MonoDragons.Core.Common;
 using MonoDragons.Core.Development;
@@ -19,7 +18,10 @@ using SpaceResortMurder.State;
 using SpaceResortMurder.Style;
 using System;
 using System.Diagnostics;
+using System.Windows.Forms;
 using SpaceResortMurder.Credits;
+using Control = MonoDragons.Core.Inputs.Control;
+using Keys = Microsoft.Xna.Framework.Input.Keys;
 
 namespace SpaceResortMurder
 {
@@ -30,7 +32,7 @@ namespace SpaceResortMurder
         {
             HandleExceptions(() =>
             {
-                using (var game = Perf.Time("Startup", () => CreateGame("Main Menu")))
+                using (var game = Perf.Time("Startup", () => CreateGame("TravissCloningRoom")))
                     game.Run();
             });
         }
@@ -122,6 +124,7 @@ namespace SpaceResortMurder
             }
             catch (Exception e)
             {
+                MessageBox.Show(e.ToString(), "Fatal Error");
                 Debug.WriteLine(e.ToString());
                 Debug.WriteLine(e.Message);
                 Environment.Exit(-1);
