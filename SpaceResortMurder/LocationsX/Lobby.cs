@@ -14,9 +14,9 @@ namespace SpaceResortMurder.LocationsX
             new List<Clue>(),
             new List<IPathway>
             {
-                new LobbyToDockingBay(new Transform2(new Vector2(220, 950), new Size2(96, 96)), "GreenD"),
-                new LobbyToCloningRoom(new Transform2(new Vector2(980, 500), new Size2(96, 96)), "GreenU"),
-                new LobbyToVacantRoom(new Transform2(new Vector2(780, 500), new Size2(96, 96)), "GreenU"),
+                new LobbyToDockingBay(new Transform2(new Vector2(912, 950), new Size2(96, 96)), "GreenD"),
+                new LobbyToCloningRoom(new Transform2(new Vector2(723, 447), new Size2(376, 216))),
+                new LobbyToVacantRoom(new Transform2(new Vector2(321, 443), new Size2(161, 405))),
             })
         { }
     }
