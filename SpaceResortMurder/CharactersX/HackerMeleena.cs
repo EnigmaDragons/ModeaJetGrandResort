@@ -33,7 +33,12 @@ namespace SpaceResortMurder.CharactersX
 
         public override Transform2 WhereAreYouStanding()
         {
-            return new Transform2(new Vector2(1560, 258), new Size2(240, 564));
+            var loc = WhereAreYou();
+            if (loc.Equals(nameof(DockingBay)))
+                return new Transform2(new Vector2(470, 780), new Size2(120, 282));
+            if (loc.Equals(nameof(MeleenasShipInterior)))
+                return new Transform2(new Vector2(1200, 463), new Size2(240, 564), 0.82f);
+            return Transform2.Zero;
         }
     }
 }

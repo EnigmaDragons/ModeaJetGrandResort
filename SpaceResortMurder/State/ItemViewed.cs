@@ -8,5 +8,7 @@
         {
             Item = item;
         }
+
+        public override string ToString() => $"ItemViewed: {Item}";
     }
 }

@@ -8,6 +8,9 @@ using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.CharactersX;
 using SpaceResortMurder.Style;
 using System.Linq;
+using MonoDragons.Core.EventSystem;
+using SpaceResortMurder.State;
+using SpaceResortMurder.TutorialsX;
 
 namespace SpaceResortMurder.Dialogues
 {
@@ -16,6 +19,7 @@ namespace SpaceResortMurder.Dialogues
         private readonly Character _person;
         private readonly Action _onFinished;
 
+        private ExclusiveChoicesTutorial _tutorial;
         private DialogueReader _reader;
         private VisualClickableUIElement _endConversationButton;
         private List<IVisual> _dialogueOptions = new List<IVisual>();
@@ -38,10 +42,11 @@ namespace SpaceResortMurder.Dialogues
 
         public void Init()
         {
+            _tutorial = new ExclusiveChoicesTutorial();
             _subView = new ScanView(_person, DisableDialogueControls, InitDialogueOptions, () => !_isPresentingToUser);
             _subView.Init();
             _endConversationButton = new ImageTextButton(new Transform2(new Rectangle(-684, 960, 1380, 64)), _onFinished,
-                "Thanks for your help.",
+                "Ok, great.",
                 "Convo/DialogueButton", "Convo/DialogueButton-Hover", "Convo/DialogueButton-Press")
             {
                 TextColor = Color.White,
@@ -65,6 +70,7 @@ namespace SpaceResortMurder.Dialogues
 
         public void Update(TimeSpan delta)
         {
+            _tutorial.Update(delta);
             _playerView.Update(delta);
             _characterView.Update(delta);
             _subView.Update(delta);
@@ -84,6 +90,7 @@ namespace SpaceResortMurder.Dialogues
                 _reader.Draw();
 
             _subView.Draw(parentTransform);
+            _tutorial.Draw(parentTransform);
         }
 
         private void DrawConversationControls(Transform2 parentTransform)
@@ -103,7 +110,11 @@ namespace SpaceResortMurder.Dialogues
                 var button = x.CreateButton(StartDialogue, i, _person.GetNewDialogs().Count);
                 ClickUiBranch.Add(button);
                 newDialogueChoices.Add(button);
+                if (x.IsExclusive && !CurrentGameState.HasViewedItem(nameof(ExclusiveChoicesTutorial)))
+                    Event.Publish(new ItemViewed(GameResources.WhatAreExclusiveChoices));
             });
+
+            ClickUiBranch.Add(_tutorial.Button);
             ClickUiBranch.Add(_subView.ClickUiBranch);
             ClickUiBranch.Add(_endConversationButton);
             _dialogueOptions = newDialogueChoices;

@@ -14,7 +14,13 @@ namespace SpaceResortMurder.Scenes
     {
         private static string[] _possibleImages = new string[]
         {
-            "characters/main_character"
+            "characters/main_character",
+            "characters/hacker_corporate_spy",
+            "characters/policeman",
+            "characters/raymond_alive",
+            "characters/resort_manager_colored",
+            "characters/scientist_guy",
+            "characters/random_npc_01",
         };
 
         private bool _isLoaded = false;
@@ -24,7 +30,7 @@ namespace SpaceResortMurder.Scenes
 
         public void Init()
         {
-            _loading = new Label() { Text = "Loading...", Transform = new Transform2(new Vector2(810, 850), new Size2(300, 100)), Font = UiFonts.Header };
+            _loading = new Label() { Text = "Loading...", Transform = new Transform2(new Vector2(810, 900), new Size2(300, 100)), Font = UiFonts.Header };
             GameObjects.InitIfNeeded();
             _isLoaded = true;
         }
@@ -45,7 +51,7 @@ namespace SpaceResortMurder.Scenes
 
         public void Draw()
         {
-            UI.DrawCentered(image, 0.5f);
+            UI.DrawCenteredWithOffset(image, new Vector2(0, -100), 0.7f);
             _loading.Draw();
         }
 

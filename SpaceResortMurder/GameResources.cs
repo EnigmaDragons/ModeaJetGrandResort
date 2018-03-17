@@ -50,6 +50,8 @@ namespace SpaceResortMurder
 
         public const string DefaultPlayerCharacterName = "ZX3-B";
 
+        public const string WhatAreExclusiveChoices = nameof(WhatAreExclusiveChoices);
+
         public static void TestAllSymbols()
         {
             _scanInfo.Values.ForEach(s => TestSymbols(s));

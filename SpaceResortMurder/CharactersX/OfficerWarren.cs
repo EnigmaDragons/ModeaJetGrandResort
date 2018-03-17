@@ -27,7 +27,12 @@ namespace SpaceResortMurder.CharactersX
 
         public override Transform2 WhereAreYouStanding()
         {
-            return new Transform2(new Vector2(215, 450), Rotation2.Default, new Size2(360, 846), 0.8f);
+            var loc = WhereAreYou();
+            if (loc.Equals(nameof(PoliceCruiserInterior)))
+                return new Transform2(new Vector2(215, 450), new Size2(360, 846), 0.8f);
+            if (loc.Equals(nameof(DockingBay)))
+                return new Transform2(new Vector2(290, 750), new Size2(108, 254));
+            return Transform2.Zero;
         }
     }
 }

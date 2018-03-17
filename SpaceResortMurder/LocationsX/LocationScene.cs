@@ -23,7 +23,6 @@ namespace SpaceResortMurder.LocationsX
         private readonly List<IVisual> _visuals = new List<IVisual>();
         private readonly Location _location;
 
-        private IReadOnlyList<Character> _peopleHere;
         private readonly string _locationImage;
         private IVisual _locationNameLabel;
         private ClickUI _clickUi;
@@ -32,7 +31,6 @@ namespace SpaceResortMurder.LocationsX
         private ObjectivesView _objectives;
         private Character _talkingTo;
         private ClickUIBranch _investigateRoomBranch;
-        private ImageButton[] _peopleImageButtons;
 
         private IJamView _subview;
         
@@ -94,8 +92,9 @@ namespace SpaceResortMurder.LocationsX
 
         private void AutoStartConversationIfApplicable()
         {
-            if (_peopleHere.Any(p => p.IsImmediatelyTalking()))
-                TalkTo(_peopleHere.First(p => p.IsImmediatelyTalking()));
+            var peopleHere = GameObjects.Characters.GetPeopleAt(_location.Value);
+            if (peopleHere.Any(p => p.IsImmediatelyTalking()))
+                TalkTo(peopleHere.First(p => p.IsImmediatelyTalking()));
         }
 
         private void InitLocation()
@@ -107,6 +106,10 @@ namespace SpaceResortMurder.LocationsX
             CurrentGameState.CurrentLocationImage = _locationImage;
             _location.Clues.ForEach(AddClue);
             _location.Pathways.ForEach(x => AddToRoom(x.CreateButton(ShowCantNavigate)));
+            GameObjects.Characters.GetPeopleAt(_location.Value)
+                .Select(x => new ImageButton(x.Image, x.Image, x.Image, x.WhereAreYouStanding(),
+                    () => TalkTo(x),
+                    () => x != _talkingTo)).ToArray().ForEach(AddToRoom);
             UpdateClues();
         }
 
@@ -121,13 +124,6 @@ namespace SpaceResortMurder.LocationsX
             _tutorialBranch = new ClickUIBranch("Tutorial", 25);
             _tutorialBranch.Add(_objectives.TutorialButton);
             _clickUi.Add(_tutorialBranch);
-
-            _peopleHere = GameObjects.Characters.GetPeopleAt(_location.Value);
-            _peopleImageButtons = _peopleHere
-                .Select(x => new ImageButton(x.Image, x.Image, x.Image, x.WhereAreYouStanding(),
-                    () => TalkTo(x),
-                    () => x != _talkingTo)).ToArray();
-            _peopleImageButtons.ForEach(AddToRoom);
         }
 
         private void InitInputs()
@@ -185,7 +181,10 @@ namespace SpaceResortMurder.LocationsX
 
         private void StartLoitering()
         {
-            _peopleImageButtons.ForEachIndex((b, i) => b.TooltipText = GameResources.GetCharacterName(_peopleHere[i].Value));
+            GameObjects.Characters.GetPeopleAt(_location.Value)
+                .Select(x => new ImageButton(x.Image, x.Image, x.Image, x.WhereAreYouStanding(),
+                    () => TalkTo(x),
+                    () => x != _talkingTo)).ToArray().ForEachIndex((b, i) => b.TooltipText = GameResources.GetCharacterName(GameObjects.Characters.GetPeopleAt(_location.Value)[i].Value));
             _subview = new NoSubView();
             _clickUi.Clear();
             _isPresentingToUser = false;

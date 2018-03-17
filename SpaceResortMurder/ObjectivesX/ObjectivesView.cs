@@ -72,7 +72,7 @@ namespace SpaceResortMurder.ObjectivesX
                 return;
 
             if (newActive.Any(x => !_active.Contains(x)))
-                Audio.PlaySound("NewObjective");
+                Audio.PlaySound("NewObjective", 0.97f);
 
             _active = newActive;
             _shouldUpdate = false;

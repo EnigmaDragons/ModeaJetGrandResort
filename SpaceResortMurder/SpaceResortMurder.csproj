@@ -108,6 +108,7 @@
     <Compile Include="DeveloperCheatController.cs" />
     <Compile Include="Dialogues\DialogueElement.cs" />
     <Compile Include="Dialogues\DialogueReader.cs" />
+    <Compile Include="Dialogues\ExclusiveChoicesTutorial.cs" />
     <Compile Include="Dialogues\Meleena\DeckersMakeTheWorldWorse.cs" />
     <Compile Include="Dialogues\Meleena\IWontReportDataRaven.cs" />
     <Compile Include="Dialogues\Meleena\MeleenaYouShotTheShip.cs" />
@@ -798,9 +799,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\ObjectiveCard.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\OptionsBg.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\PixelButton-Hover.png">

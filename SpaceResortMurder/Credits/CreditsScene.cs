@@ -17,7 +17,7 @@ namespace SpaceResortMurder.Credits
         protected override void OnInit()
         {
             GameObjects.InitIfNeeded();
-            Audio.PlayMusicOnce("Credits");
+            Audio.PlayMusicOnce("Credits", 1);
             AddUi(new ScreenClickable(() => Scene.NavigateTo(GameResources.MainMenuSceneName)));
 
             AddAnimation(new EnigmaDragonsCredit());

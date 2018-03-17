@@ -87,7 +87,7 @@ namespace SpaceResortMurder.Dialogues
         {
             _onStarted();
             Event.Publish(new ThoughtGained(_person.Value));
-            Audio.PlaySound("Scanning", 0.3f);
+            Audio.PlaySound("Scanning", 0.28f);
             _scanAnimation.Start(ShowScanData);
             _startedScanning = true;
         }
