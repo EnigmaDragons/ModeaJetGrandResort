@@ -260,6 +260,7 @@ namespace SpaceResortMurder.Scenes
 
         public void Dispose()
         {
+            _clickUI.Dispose();
         }
     }
 }
