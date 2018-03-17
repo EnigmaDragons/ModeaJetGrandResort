@@ -25,7 +25,17 @@ namespace SpaceResortMurder
         static GameObjects()
         {
             IO = new AppDataJsonIo("ModeaJet Grand Resort");
+#if DEBUG
+            Dilemmas = new Dilemmas();
+            Hud = new Hud();
+            Characters = new Characters();
+            Locations = new Locations();
+            Objectives = new Objectives();
+            Resolutions = new Resolutions();
+#endif
         }
+
+
 
         public static void InitIfNeeded()
         {
@@ -34,13 +44,14 @@ namespace SpaceResortMurder
             //CurrentGame.Cursor = Cursors.Default;
             if (_hasInit)
                 return;
+#if !DEBUG
             Dilemmas = new Dilemmas();
             Hud = new Hud();
             Characters = new Characters();
             Locations = new Locations();
             Objectives = new Objectives();
             Resolutions = new Resolutions();
-
+#endif
             Dilemmas.Init();
             Hud.Init();
             Characters.Init();
