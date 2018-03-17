@@ -5,11 +5,13 @@ using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Pathways
 {
-    public sealed class LobbyToVacantRoom : TraverseArrowPathway
+    public sealed class LobbyToVacantRoom : LightUpPathway
     {
-        public LobbyToVacantRoom(Transform2 transform, string traverseArrowType)
-            : base(transform, nameof(VacantRoom), "To Raymond's Room", traverseArrowType) { }
-
         public override bool IsTraversible => CurrentGameState.IsThinking(nameof(WhereIsYourClone));
+
+        public LobbyToVacantRoom(Transform2 transform) 
+            : base(transform, nameof(VacantRoom), "Traverse/LobbyDoor1", "To Raymond's Room")
+        {
+        }
     }
 }
