@@ -1,5 +1,6 @@
 ﻿using SpaceResortMurder.Clues.MeleenasSpaceCraft;
 using SpaceResortMurder.Clues.RaymondsSpaceCraft;
+using SpaceResortMurder.Clues.VacantRoom;
 using SpaceResortMurder.Deductions;
 using SpaceResortMurder.State;
 

@@ -37,7 +37,7 @@ namespace SpaceResortMurder.CharactersX
 
         public override Transform2 WhereAreYouStanding()
         {
-            return new Transform2(new Vector2(1200, 258), new Size2(240, 564));
+            return new Transform2(new Vector2(1000, 200), new Size2(511, 1200));
         }
     }
 }
