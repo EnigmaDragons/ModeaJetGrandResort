@@ -249,7 +249,7 @@ namespace SpaceResortMurder
             } },
             { nameof(MeleenasShip), new string[] {
                 "The ship is a heavily modded Corbin Cruiser. It's registered to a Meleena Ka'lick.",
-                "Meleena Ka'lick is a corporate freelancer. Where does she get the money to purchase her own space craft?",
+                "Meleena Ka'lick is a corp freelancer. Where does she get the money to purchase her own space craft?",
             } },
             { nameof(GarbageAirlock), new string[] {
                 "A garbage airlock that releases trash into space. It shows signs of recent use.",
@@ -267,8 +267,7 @@ namespace SpaceResortMurder
                 "He has 13 recent wide-needle punctures.",
             } },
             { nameof(ShipsLogs), new string[] {
-                "Ship's logs from today",
-                $"The ship landed at 7:00 AM \n" +
+                "Ship's logs since after arriving this morning:",
                 "The ship launched at 7:05 PM \n" +
                 "The space hatch was opened at 7:10 PM \n" +
                 "The space hatch closed at 7:20 PM \n" +
@@ -277,7 +276,7 @@ namespace SpaceResortMurder
             { nameof(RaymondsPad), new string[] {
                 "Raymond's personal pad",
                 "There is a list of resorts on here with ModeaJet Grand Resort being one of them, but it is among the crossed off ones.",
-                "This pad was used at 7:50 PM to send a message aproving ModeaJet Grand Resort to be the beta-tester for a new resort clone.",
+                "This pad was used at 7:50 PM to send a message aproving ModeaJet Grand Resort to be the beta-tester for a new luxury clone.",
             } },
             #endregion
 
@@ -289,7 +288,7 @@ namespace SpaceResortMurder
                 "The data drive contains Raymond's files about a recent cloning experiment gone wrong.",
                 "The experiment was supposed to make perfect clones. It used needles to extract key matter for replication.",
                 "The experiment turned deadly when all the clones tried to kill their look-a-likes. It was a massacre. Bernard Falcon, Travis's brother, was overseeing the project and paid for it with his life.",
-                "Raymond Soule covered up the massacre by staging a terroist attack that supposedly killed the people.",
+                "Raymond Soule covered up the massacre by staging a terrorist attack that supposedly killed the people.",
             } },
             { nameof(SkeletonKey), new string[] {
                 "This is known as a skeleton key device. These special skeleton keys are used to disable ICE on most doors in a matter of nanoseconds.",
@@ -338,7 +337,7 @@ namespace SpaceResortMurder
                 new DialogueElement[] {
                     new DialogueElement(false, Expression.Default, "You've committed petty theft at the age of 12."),
                     new DialogueElement(true, Expression.Happy, "What did I tell you? Isn't scanning pretty fancy? Alright, now to get to what's at hand."),
-                    new DialogueElement(true, Expression.Default, "Right before powering you up, I got pinged by the manager at ModeaJet Grand Resort about a corporate exec murder."),
+                    new DialogueElement(true, Expression.Default, "Right before powering you up, I got pinged by the manager at ModeaJet Grand Resort about a corp exec murder."),
                     new DialogueElement(true, Expression.Default, "The victim is Raymond Soule, the CEO of the cloning company Human Perfect."),
                     new DialogueElement(true, Expression.Default, "Mr. Soule arrived intact at ModeaJet Grand Resort at around 7:00 AM this morning but was found dead this evening in his ship."),
                     new DialogueElement(true, Expression.Happy, "Go look around the ship for clues, but don't go touching everything you see."),
@@ -373,7 +372,7 @@ namespace SpaceResortMurder
                 "I need a search order for Meleena's craft.",
                 new DialogueElement[] {
                     new DialogueElement(false, Expression.Default, "I need a search order for Meleena's craft."),
-                    new DialogueElement(true, Expression.Happy, "I'll submit a request for Ms. Ka'lick's craft. Thankfully this is a high profile corporate CEO case, so I'm sure we will get a reply soon."),
+                    new DialogueElement(true, Expression.Happy, "I'll submit a request for Ms. Ka'lick's craft. Thankfully this is a high profile corp CEO case, so I'm sure we will get a reply soon."),
                     new DialogueElement(true, Expression.Default, "In the meantime, you should make sure to get the statement from the hotel manager."),
             } ) },
             { nameof(IsTheSearchOrderReady), new DialogueSequence(
@@ -399,7 +398,7 @@ namespace SpaceResortMurder
                 "Give me your account from this morning until night.",
                 new DialogueElement[] {
                     new DialogueElement(false, Expression.Default, "Give me your account from this morning until night."),
-                    new DialogueElement(true, Expression.Default, "Did you leave your manners in the recharger, Roid?"),
+                    new DialogueElement(true, Expression.Default, "Did you leave your manners in the recharger, roid?"),
                     new DialogueElement(false, Expression.Default, "No, but I don't think it's necessary to utilize them with you."),
                     new DialogueElement(true, Expression.Angry, "Fraggin' roids. Alright since awaking in meat-space, I have been relaxing in my room and craft all day."),
                     new DialogueElement(true, Expression.Default, "And before you ask, I have seen nothing out of the ordinary 'cept you."),
@@ -445,12 +444,10 @@ namespace SpaceResortMurder
                     new DialogueElement(true, Expression.Default, "\\Player\\, I only use my decking to fight corp corruption, and don't you think it would be useful if you had a decker in your pocket for future investigations? Please don't include \"Data Raven\" in your report."),
             } ) },
             { nameof(IWontReportDataRaven), new DialogueSequence(
-                "I won't report \"Data Raven\".",
+                "I won't report \"Data Raven\" and you are going to give me the endryption key for your data drive.",
                 new DialogueElement[] {
-                    new DialogueElement(false, Expression.Default, "I won't report \"Data Raven\"."),
-                    new DialogueElement(true, Expression.Happy, "You won't regret this, Roid!"),
-                    new DialogueElement(false, Expression.Default, "Could you give me the encryption key for the data drive you recently used?"),
-                    new DialogueElement(true, Expression.Happy, "Anything for my new chummer. It's got some valuable paydata."),
+                    new DialogueElement(false, Expression.Default, "I won't report \"Data Raven\" and you are going to give me the endryption key for your data drive."),
+                    new DialogueElement(true, Expression.Happy, "You won't regret this, roid! Anything for my new chummer. It's got some valuable paydata."),
             } ) },
             { nameof(DeckersMakeTheWorldWorse), new DialogueSequence(
                 "\"Data Raven\" needs to answer for her crimes.",
@@ -464,7 +461,7 @@ namespace SpaceResortMurder
                 "You broke into Raymond's craft with your skeleton key.",
                 new DialogueElement[] {
                     new DialogueElement(false, Expression.Default, "You broke into Raymond's craft with your skeleton key."),
-                    new DialogueElement(true, Expression.Fear, "Drek! Listen, Roid, I'll give you the chip-truth."),
+                    new DialogueElement(true, Expression.Fear, "Drek! Listen, roid, I'll give you the chip-truth."),
                     new DialogueElement(true, Expression.Sad, "I fragged his ICE to find paydata in his craft. I was going to run, but I felt a blast on the side of his craft."),
                     new DialogueElement(true, Expression.Default, "I hid myself and waited. Right when my patience was wearin' thin, Raymond comes in muttering to himself, launches the ship, opens the hatch and pops out."),
                     new DialogueElement(true, Expression.Default, "I heard a loud thud, which in retrospect must have come from Raymond's fried body being dumped on the ground."),
@@ -482,7 +479,7 @@ namespace SpaceResortMurder
                 new DialogueElement[] {
                     new DialogueElement(false, Expression.Angry, "You lied about someone else entering Raymond's ship when you were there."),
                     new DialogueElement(false, Expression.Thinking, "You were the one who launched the ship."),
-                    new DialogueElement(true, Expression.Angry, "Drek! Your not pinning this on me, Roid! I woulda zeroed the ship's logs."),
+                    new DialogueElement(true, Expression.Angry, "Drek! Your not pinning this on me, roid! I woulda zeroed the ship's logs."),
             } ) },
             #endregion
 
@@ -521,7 +518,7 @@ namespace SpaceResortMurder
                 "Why was Raymond Soule visiting your resort?",
                 new DialogueElement[] {
                     new DialogueElement(false, Expression.Default, "Why was Raymond Soule visiting your resort?"),
-                    new DialogueElement(true, Expression.Happy, "Raymond was going to let me test a new line of resort clones, which would greatly increase popularity."),
+                    new DialogueElement(true, Expression.Happy, "Raymond was going to let me test a new line of luxury clones, which would greatly increase popularity."),
             } ) },
             { nameof(DoYouHaveAnyCamerasAtYourResort), new DialogueSequence(
                 "Do you have any surveillance that would be useful to my investigation?",
@@ -536,21 +533,21 @@ namespace SpaceResortMurder
                     new DialogueElement(true, Expression.Thinking, "No, I thought it was um... strange the garbage airlock was empty."),
             } ) },
             { nameof(DidRaymondApproveYourResort), new DialogueSequence(
-                "Did Raymond decide to let your resort test the resort clones?",
+                "Did Raymond decide to let your resort test the luxury clones?",
                 new DialogueElement[] {
-                    new DialogueElement(false, Expression.Default, "Did Raymond decide to let your resort test the resort clones?"),
+                    new DialogueElement(false, Expression.Default, "Did Raymond decide to let your resort test the luxury clones?"),
                     new DialogueElement(true, Expression.Happy, "Yes. He said he quite liked the place."),
             } ) },
             { nameof(WillYourAcceptanceBePutIntoQuestion), new DialogueSequence(
-                "Now that Raymond is dead, will your acceptance for the resort clones be revoked?",
+                "Now that Raymond is dead, will your acceptance for the luxury clones be revoked?",
                 new DialogueElement[] {
-                    new DialogueElement(false, Expression.Default, "Now that Raymond is dead, will your acceptance for the resort clones be revoked?"),
+                    new DialogueElement(false, Expression.Default, "Now that Raymond is dead, will your acceptance for the luxury clones be revoked?"),
                     new DialogueElement(true, Expression.Happy, "No, I'm quite confident they will still follow his decision."),
             } ) },
             { nameof(YouWereNotAcceptedForBetaTesting), new DialogueSequence(
-                "ModeaJet Grand Resort was not accepted for the resort clone beta testing.",
+                "ModeaJet Grand Resort was not accepted for the luxury clone beta testing.",
                 new DialogueElement[] {
-                    new DialogueElement(false, Expression.Angry, "ModeaJet Grand Resort was not accepted for the resort clone beta testing."),
+                    new DialogueElement(false, Expression.Angry, "ModeaJet Grand Resort was not accepted for the luxury clone beta testing."),
                     new DialogueElement(false, Expression.Angry, "I found a list of resorts and yours was crossed off."),
                     new DialogueElement(true, Expression.Fear, "But, what about the message Raymond sent?!"),
                     new DialogueElement(false, Expression.Thinking, "How would you know about that, as it was sent at 7:50 PM?"),
@@ -640,12 +637,13 @@ namespace SpaceResortMurder
                 "Where is Raymond's clone?",
                 new DialogueElement[] {
                     new DialogueElement(false, Expression.Default, "Where is Raymond's clone?"),
-                    new DialogueElement(true, Expression.Happy, "Let's have a look... I had a tracking device embedded in him upon creation. Interesting... he is chilling in Raymond's room."),
+                    new DialogueElement(true, Expression.Default, "Let's have a look... I had a tracking device embedded in him upon creation."),
+                    new DialogueElement(true, Expression.Happy, "Interesting... he is chilling in Raymond's room."), 
             } ) },
             { nameof(CloningMalfunction), new DialogueSequence(
-                "Raymond's clone claims that there was a malfunction when cloning that caused an electric discharge?",
+                "Raymond's clone claims there was an electric discharge when cloning?",
                 new DialogueElement[] {
-                    new DialogueElement(false, Expression.Default, "Raymond's clone claims that there was a malfunction when cloning that caused an electric discharge?"),
+                    new DialogueElement(false, Expression.Default, "Raymond's clone claims there was an electric discharge when cloning?"),
                     new DialogueElement(true, Expression.Thinking, "... Yes, there was an electrical discharge that hit the clone."),
             } ) },
             { nameof(PowerBatteryArm), new DialogueSequence(
@@ -672,9 +670,10 @@ namespace SpaceResortMurder
                 }
             ) },
             { nameof(ViolentExperimentalResearch), new DialogueSequence(
-                "The technique used by this cloning chamber is the same one used in the incident that killed your brother.",
+                "The technique used by this cloning chamber produces lethal clones.",
                 new DialogueElement[] {
-                    new DialogueElement(false, Expression.Default, "The technique used by this cloning chamber is the same one used in the incident that killed your brother."),
+                    new DialogueElement(false, Expression.Default, "The technique used by this cloning chamber produces lethal clones."),
+                    new DialogueElement(false, Expression.Thinking, "It is the same technique used in the incident that killed your brother."), 
                     new DialogueElement(true, Expression.Thinking, "Ah, so now you think I would make a clone that would attempt to kill Raymond?"),
                     new DialogueElement(true, Expression.Default, "Well, sorry to disappoint, but even though the experiment resulted in a massacre, it did produce results and we were able to perfect the technique."),
                     new DialogueElement(true, Expression.Default, "This is the same method, but without that fatal flaw."),
@@ -750,8 +749,8 @@ namespace SpaceResortMurder
                     new DialogueElement(false, Expression.Angry, "I know you were designed to kill, and that the bruises came from a stuggle with Raymond."),
                     new DialogueElement(false, Expression.Angry, "If you don't start telling me the truth, I will be forced to accuse you."),
                     new DialogueElement(true, Expression.Fear, "... you are right. I had a violent urge to kill him and tried to choke him. He managed to get away from me though."),
-                    new DialogueElement(true, Expression.Sad, "I didn't choose to have the killing urge, and I didn't choose to be formed as a clone. But if it's found out that I am a clone, I'll lose everything."),
-                    new DialogueElement(true, Expression.Happy, "Detective, if you leave the fact that I'm a clone off of your report, Human Perfect, under my leadership, will give you a handsome reward for your assistance in bringing the would-be assassin to justice."),
+                    new DialogueElement(true, Expression.Sad, "I didn't kill him, I tried to save him, and in a way you can save the part of him that lives on in me. If I am discovered as a clone, then I'll lose everything."),
+                    new DialogueElement(true, Expression.Happy, "Detective, leave out of your report the fact that I'm a clone. Human Perfect, under my leadership, will give you a handsome reward for your assistance in bringing the would-be assassin to justice."),
             } ) },
             { nameof(PostCloneYouShotTheShip), new DialogueSequence(
                 "Now that you're being honest... you shot the craft.",
@@ -767,9 +766,9 @@ namespace SpaceResortMurder
                     new DialogueElement(true, Expression.Sad, "I did. I saw Raymond's body floating in space among garbage. I wanted to save him, so I flew my craft to him. By the time I brought him into the ship, however, he was dead."),
             } ) },
             { nameof(YouCanKeepYourLife), new DialogueSequence(
-                "I won't rob you of your life, and a reward is certainly deserved for catching your assassin.",
+                "I do deserve a reward, and I won't rob you of your life.",
                 new DialogueElement[] {
-                    new DialogueElement(false, Expression.Happy, "I won't rob you of your life, and a reward is certainly deserved for catching your assassin."),
+                    new DialogueElement(false, Expression.Happy, "I do deserve a reward, and I won't rob you of your life."),
                     new DialogueElement(true, Expression.Happy, "Pleasure doing business with you."),
             } ) },
             { nameof(YouRanYourCompanyPoorly), new DialogueSequence(
@@ -782,7 +781,7 @@ namespace SpaceResortMurder
         };
 
         private static DictionaryWithDefault<string, string> _dilemmaOrDeductionText = new DictionaryWithDefault<string, string>("This dilemma or deduction is not implemented") {
-            { nameof(WasZaidsResortAcceptedAsABetaTester), "Was ModeaJet Grand Resort accepted for the resort clone testing?" },
+            { nameof(WasZaidsResortAcceptedAsABetaTester), "Was ModeaJet Grand Resort accepted for the luxury clone testing?" },
             { nameof(ZaidsResortAccepted), "The resort was accepted, because of the message on Raymond's pad" },
             { nameof(ZaidsResortDeclined), "The resort was declined, ModeaJet Grand Resort was crossed off" },
 
@@ -797,7 +796,7 @@ namespace SpaceResortMurder
             { nameof(ZaidHackedTheDoor), "Zaid" },
 
             { nameof(WhereDidTheBruisesComeFrom), "How did Raymond's clone get bruised?" },
-            { nameof(MatterRemovalBruises), "The cloning process bruised him" },
+            { nameof(BruisesCameFromMatterRemoval), "The cloning process bruised him" },
             { nameof(BruisesCameFromAStruggle), "The bruises came from a struggle" },
 
             { nameof(WhereDidRaymondsCloneGetAnElectricalBurn), "How did Raymond's clone get an electric burn?" },
@@ -843,7 +842,7 @@ namespace SpaceResortMurder
             { nameof(RaymondsCloneWasDesignedToKillAndThenControlHumanPerfectByProxy), "Travis wanted to control Human Perfect, so he made a clone to replace Raymond" },
             { nameof(RevengeForHisBrothersDeath), "Travis blames Raymond for the death of his brother" },
             { nameof(ToReplaceRaymondAsCEO), "Raymond's clone wasn't satisfied pretending to be the CEO. He decided he was going to replace Raymond" },
-            { nameof(ToSaveHisResort), "Zaid needed to pay off his debts, so he killed to become accepted for resort clones" },
+            { nameof(ToSaveHisResort), "Zaid needed to pay off his debts, so he killed to become accepted for luxury clones" },
         };
 
         private static DictionaryWithDefault<string, string> _objectiveTexts = new DictionaryWithDefault<string, string>("This objective is not implemented") {
@@ -883,7 +882,7 @@ namespace SpaceResortMurder
                     if (CurrentGameState.IsThinking(nameof(HackingRig)))
                         return "Meleena Ka'lick, Decker";
                     if (CurrentGameState.IsThinking(nameof(HackerMeleena)) || CurrentGameState.IsThinking(nameof(WhoAreYou)))
-                        return "Meleena Ka'lick, Corporate Freelancer";
+                        return "Meleena Ka'lick, Corp Freelancer";
                     return "???";
                 }
             },
@@ -891,7 +890,7 @@ namespace SpaceResortMurder
                 () => CurrentGameState.IsThinking(nameof(RaymondsCorpse)) ? "Let's pretend Warren doesn't have a female with him." : "Why investigate murders when you can chill in the lobby?"
             },
             { "PoliceCruiserToDockingBay",
-                () => CurrentGameState.IsThinking(nameof(Clock)) ? "Maybe try talking to Warren again once you have a working theory for the murder timeframe." : "I should talk to Officer Warren before leaving."
+                () => CurrentGameState.IsThinking(nameof(Clock)) ? "Maybe try talking to Warren again once you have a working theory setup for the murder timeframe." : "I should talk to Officer Warren before leaving."
             }
         };
     }
