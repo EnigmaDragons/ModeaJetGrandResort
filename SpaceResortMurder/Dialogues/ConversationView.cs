@@ -7,6 +7,7 @@ using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.CharactersX;
 using SpaceResortMurder.Style;
+using System.Linq;
 
 namespace SpaceResortMurder.Dialogues
 {
@@ -97,7 +98,7 @@ namespace SpaceResortMurder.Dialogues
             _shouldShowDialogueControls = true;
             ClickUiBranch.Clear();
             var newDialogueChoices = new List<IVisual>();
-            _person.GetNewDialogs().ForEachIndex((x, i) =>
+            _person.GetNewDialogs().Take(4).ForEachIndex((x, i) =>
             {
                 var button = x.CreateButton(StartDialogue, i, _person.GetNewDialogs().Count);
                 ClickUiBranch.Add(button);
