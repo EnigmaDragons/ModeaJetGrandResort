@@ -1,4 +1,6 @@
 ﻿
+using MonoDragons.Core.Common;
+
 namespace SpaceResortMurder.State
 {
     public sealed class Options
@@ -9,5 +11,6 @@ namespace SpaceResortMurder.State
         public float SoundVolume { get; set; } = 0.8f;
         public double MillisPerTextCharacter { get; set; } = 40d;
         public bool TutorialsEnabled { get; set; } = true;
+        public int FakeLoadMilliseconds { get; set; } = Rng.Int(2500, 3500);
     }
 }

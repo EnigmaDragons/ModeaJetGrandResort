@@ -35,6 +35,8 @@ namespace SpaceResortMurder.Credits
         public void Start(Action onFinished)
         {
             var yStart = Rng.Int(280, 800);
+
+            _elements.Add(Rng.Bool() ? CharacterFromLeft() : CharacterFromRight());
             _elements.Add(new HorizontalFlyInAnimation(
                 new Label
                 {
@@ -49,13 +51,38 @@ namespace SpaceResortMurder.Credits
                         Transform = new Transform2(new Vector2(1920, yStart + 135), new Size2(800, 75))
                     })
                 { FromDir = HorizontalDirection.Right, ToDir = HorizontalDirection.Left });
-            var characterImage = Character.CreateFacingImage(Expression);
-            characterImage.Transform.Location = new Vector2(-500, yStart + 200);
-            characterImage.Transform.Size /= 3;
-            _elements.Add(new HorizontalFlyInAnimation(characterImage));
 
             _countdown = _elements.Count;
             _elements.ForEach(x => x.Start(() => FinishedOne(onFinished)));
+        }
+
+        private HorizontalFlyInAnimation CharacterFromLeft()
+        {
+            var characterImage = Character.CreateFacingImage(Expression);
+            characterImage.Transform.Location = new Vector2(-1200, characterImage.Transform.Location.Y);
+            return new HorizontalFlyInAnimation(characterImage)
+            {
+                ToDir = HorizontalDirection.Left,
+                Drift = 0,
+                DurationIn = TimeSpan.FromMilliseconds(100),
+                DurationWait = TimeSpan.FromMilliseconds(2300),
+                DurationOut = TimeSpan.FromMilliseconds(100)
+            };
+        }
+
+        private HorizontalFlyInAnimation CharacterFromRight()
+        {
+            var characterImage = Character.CreateFacingImage(Expression);
+            characterImage.Transform.Location = new Vector2(2620, characterImage.Transform.Location.Y);
+            return new HorizontalFlyInAnimation(characterImage)
+            {
+                FromDir = HorizontalDirection.Right,
+                ToDir = HorizontalDirection.Right,
+                Drift = 0,
+                DurationIn = TimeSpan.FromMilliseconds(100),
+                DurationWait = TimeSpan.FromMilliseconds(2300),
+                DurationOut = TimeSpan.FromMilliseconds(100)
+            };
         }
 
         private void FinishedOne(Action onFinished)

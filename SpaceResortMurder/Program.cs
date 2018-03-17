@@ -32,7 +32,7 @@ namespace SpaceResortMurder
         {
             HandleExceptions(() =>
             {
-                using (var game = Perf.Time("Startup", () => CreateGame("DockingBay")))
+                using (var game = Perf.Time("Startup", () => CreateGame(GameResources.MainMenuSceneName)))
                     game.Run();
             });
         }
@@ -57,7 +57,7 @@ namespace SpaceResortMurder
         private static void Init()
         {
             InitFonts();
-#if Debug
+#if DEBUG
             GameResources.TestAllSymbols();
 #endif
             Audio.MusicVolume = CurrentOptions.MusicVolume;
@@ -100,7 +100,8 @@ namespace SpaceResortMurder
                 { nameof(TravissCloningRoom), () => new TravissCloningRoomScene() },
                 { nameof(PoliceCruiserInterior), () => new PoliceCruiserInteriorScene() },
                 { GameResources.SaveLoadSceneName, () => new SaveLoadScene() },
-                { GameResources.PickNameSceneName, () => new PickNameScene() }
+                { GameResources.PickNameSceneName, () => new PickNameScene() },
+                { GameResources.LoadingSceneName, () => new LoadingScene() },
             });
         }
 

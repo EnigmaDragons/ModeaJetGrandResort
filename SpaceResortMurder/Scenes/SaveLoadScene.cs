@@ -68,7 +68,7 @@ namespace SpaceResortMurder.Scenes
                 Load(slot);
             else
                 Delete(slot);
-            Scene.NavigateTo(CurrentGameState.CurrentLocation);
+            Scene.NavigateTo(GameResources.LoadingSceneName);
         }
 
         private void Save(int slot)

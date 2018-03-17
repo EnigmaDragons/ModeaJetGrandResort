@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SpaceResortMurder.State;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SpaceResortMurder.ObjectivesX
@@ -25,7 +26,7 @@ namespace SpaceResortMurder.ObjectivesX
 
         public IReadOnlyList<Objective> GetActiveObjectives()
         {
-            return _objectives.Where(x => x.IsActive()).ToList();
+            return _objectives.Where(x => x.IsActive() && CurrentGameState.ShowObjectives).ToList();
         }
     }
 }

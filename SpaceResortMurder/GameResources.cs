@@ -29,6 +29,7 @@ using SpaceResortMurder.Deductions.LaunchedTheShip;
 using SpaceResortMurder.Deductions.TimeFrameForMurder;
 using SpaceResortMurder.Pathways;
 using MonoDragons.Core.Common;
+using SpaceResortMurder.Clues.VacantRoom;
 using SpaceResortMurder.Deductions.BruisesCameFrom;
 using SpaceResortMurder.Deductions.ElectricalBurnsComeFrom;
 using SpaceResortMurder.Dialogues;
@@ -46,6 +47,7 @@ namespace SpaceResortMurder
         public const string EndingSceneName = "Ending";
         public const string SaveLoadSceneName = "SaveLoad";
         public const string PickNameSceneName = "PickName";
+        public const string LoadingSceneName = "Loading";
 
         public const string DefaultPlayerCharacterName = "ZX3-B";
 

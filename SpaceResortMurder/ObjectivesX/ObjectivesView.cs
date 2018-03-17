@@ -1,20 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.AudioSystem;
 using MonoDragons.Core.Common;
 using MonoDragons.Core.Engine;
-using MonoDragons.Core.PhysicsEngine;
-using MonoDragons.Core.UserInterface;
-using System.Linq;
 using MonoDragons.Core.EventSystem;
-using SpaceResortMurder.State;
+using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Text;
+using MonoDragons.Core.UserInterface;
+using SpaceResortMurder.State;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SpaceResortMurder.ObjectivesX
 {
     public sealed class ObjectivesView : IVisualAutomaton
     {
+        private const int MaxActive = 1;
+
         private readonly ObjectivesTutorial _tutorial = new ObjectivesTutorial();
         private IReadOnlyList<Objective> _active = new List<Objective>();
         private bool _shouldUpdate;
@@ -23,7 +25,7 @@ namespace SpaceResortMurder.ObjectivesX
 
         public void Init()
         {
-            _active = GameObjects.Objectives.GetActiveObjectives();
+            _active = GameObjects.Objectives.GetActiveObjectives().Take(MaxActive).ToList();
             Event.Subscribe(EventSubscription.Create<StateChanged>(_ => _shouldUpdate = true, this));
         }
 
@@ -49,7 +51,7 @@ namespace SpaceResortMurder.ObjectivesX
         {
             var t = new Transform2(new Vector2(
                 Math.Min(UI.OfScreenWidth(0.64f), 1920 - DefaultFont.Value.MeasureString(o.GetObjectiveText()).X - 100),
-                UI.OfScreenHeight(0.90f) - index * 80));
+                UI.OfScreenHeight(0.93f) - index * 80));
             _card.Draw(t);
             o.ShortDescription.Draw(t);
             _magnifyIcon.Draw(t);
@@ -65,7 +67,7 @@ namespace SpaceResortMurder.ObjectivesX
 
         private void UpdateObjectives()
         {
-            var newActive = GameObjects.Objectives.GetActiveObjectives();
+            var newActive = GameObjects.Objectives.GetActiveObjectives().Take(MaxActive).ToList();
             if (_active.Count == newActive.Count && _active.SequenceEqual(newActive))
                 return;
 

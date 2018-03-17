@@ -43,14 +43,15 @@ namespace SpaceResortMurder.LocationsX
 
         protected LocationScene(Location location)
         {
+#if DEBUG
+            GameObjects.InitIfNeeded();
+#endif
             _location = location;
             _locationImage = location.Background;
         }
 
         public void Init()
         {
-            GameObjects.InitIfNeeded();
-
             InitInputs();
             InitUiElements();
             InitLocation();

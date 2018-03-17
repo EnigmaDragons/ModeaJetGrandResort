@@ -253,6 +253,7 @@
     <Compile Include="Scenes\JamScene.cs" />
     <Compile Include="Deductions\DeductionScene.cs" />
     <Compile Include="LocationsX\LocationScene.cs" />
+    <Compile Include="Scenes\LoadingScene.cs" />
     <Compile Include="Scenes\PickNameScene.cs" />
     <Compile Include="Scenes\SaveLoadScene.cs" />
     <Compile Include="State\CurrentGameState.cs" />
@@ -288,7 +289,7 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MonoDragons.Core\lib\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Windows.Forms" />
@@ -395,6 +396,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Clues\SkeletonKey-Small.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Clues\SmokingBlaster-Medium.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Convo\ChatBox.png">
@@ -509,9 +513,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Icons\PlusGreen.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Locations\BedroomBg.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Locations\docking_bay_final.png">
@@ -674,6 +675,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Traverse\DockingBayToLobbyDoor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Traverse\HotelRoomDoor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Traverse\PoliceCruiserDoor.png">
