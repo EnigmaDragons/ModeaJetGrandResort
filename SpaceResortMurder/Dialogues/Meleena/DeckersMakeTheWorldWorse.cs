@@ -12,7 +12,7 @@ namespace SpaceResortMurder.Dialogues.Meleena
         public override bool IsActive()
         {
             return CurrentGameState.IsThinking(nameof(YouAreAHacker))
-                && CurrentGameState.IsThinking(nameof(IWontReportDataRaven));
+                && !CurrentGameState.IsThinking(nameof(IWontReportDataRaven));
         }
     }
 }
