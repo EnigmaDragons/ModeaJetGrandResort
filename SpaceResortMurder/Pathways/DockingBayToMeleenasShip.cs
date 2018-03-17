@@ -1,19 +1,14 @@
-﻿using Microsoft.Xna.Framework;
-using MonoDragons.Core.PhysicsEngine;
+﻿using MonoDragons.Core.PhysicsEngine;
 using SpaceResortMurder.Dialogues.Meleena;
 using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Pathways
 {
-    public class DockingBayToMeleenasShip : ExpandingImagePathway
+    public sealed class DockingBayToMeleenasShip : TraverseArrowPathway
     {
-        public DockingBayToMeleenasShip() : base(
-            nameof(DockingBayToMeleenasShip),
-            "Placeholder/Door",
-            new Transform2(new Vector2(700, 0), new Size2(350, 348)),
-            nameof(MeleenasShipInterior),
-            "To Modded Craft") {}
+        public DockingBayToMeleenasShip(Transform2 transform, string traverseArrowType)
+            : base(transform, nameof(MeleenasShipInterior), "To Modded Craft", traverseArrowType) { }
 
         public override bool IsTraversible =>  CurrentGameState.IsThinking(nameof(HereIsTheSearchOrder));
     }
