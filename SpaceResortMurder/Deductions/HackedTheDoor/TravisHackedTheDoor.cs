@@ -10,8 +10,7 @@ namespace SpaceResortMurder.Deductions
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(WhoIsStayingAtYourResort))
-                && !CurrentGameState.IsThinking(nameof(YouBrokeIntoRaymondsShip));
+            return CurrentGameState.IsThinking(nameof(WhoIsStayingAtYourResort));
         }
     }
 }

@@ -11,8 +11,7 @@ namespace SpaceResortMurder.Deductions
 
         public override bool IsActive()
         {
-            return (CurrentGameState.IsThinking(nameof(ResortManagerZaid)) || CurrentGameState.IsThinking(nameof(WhoAreYouZaid)))
-                && !CurrentGameState.IsThinking(nameof(YouBrokeIntoRaymondsShip));
+            return (CurrentGameState.IsThinking(nameof(ResortManagerZaid)) || CurrentGameState.IsThinking(nameof(WhoAreYouZaid)));
         }
     }
 }
