@@ -41,18 +41,19 @@ namespace SpaceResortMurder.Deductions
 
         public VisualClickableUIElement CreateButton(Vector2 position)
         {
-            var button = new ImageTextButton(new Transform2(position, UiButtons.PonderingSize()), () =>
+            return new ImageTextButton(new Transform2(position, UiButtons.PonderingSize()), () =>
             {
                 _clearPriorDeduction();
                 Event.Publish(new ThoughtGained(_thought));
                 Scene.NavigateTo("Dilemmas");
-            }, GameResources.GetPonderText(_thought), "Pondering/DilemmaCard", "Pondering/DilemmaCard-Hover", "Pondering/DilemmaCard-Press");
-            button.OnEnter = () =>
+            }, GameResources.GetPonderText(_thought), "Pondering/DilemmaCard", "Pondering/DilemmaCard-Hover", "Pondering/DilemmaCard-Press")
             {
-                if (!CurrentGameState.HasViewedItem(_thought))
-                    Event.Publish(new ItemViewed(_thought));
+                OnEnter = () =>
+                {
+                    if (!CurrentGameState.HasViewedItem(_thought))
+                        Event.Publish(new ItemViewed(_thought));
+                }
             };
-            return button;
         }
 
         public IVisual CreateNewIndicator(Vector2 position)

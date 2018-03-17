@@ -8,7 +8,7 @@ namespace SpaceResortMurder.Clues.DockingBay
             "Clues/RaymondsShip",
             "Clues/RaymondsShip-Medium",
             transform, 
-            new Size2(251, 330), 
+            new Size2(361, 327), 
             nameof(RaymondsShip),
             "Raymond's Craft") {}
     }

@@ -13,8 +13,7 @@ namespace MonoDragons.Core.AudioSystem
 
         public AudioPlayer(int sampleRate = 44100, int channelCount = 2)
         {
-            _mixer = new MixingSampleProvider(WaveFormat.CreateIeeeFloatWaveFormat(sampleRate, channelCount));
-            _mixer.ReadFully = true;
+            _mixer = new MixingSampleProvider(WaveFormat.CreateIeeeFloatWaveFormat(sampleRate, channelCount)) { ReadFully = true };
             _player = new WaveOutEvent();
             _player.Init(_mixer);
             _player.Play();

@@ -28,6 +28,7 @@ namespace SpaceResortMurder.Scenes
             _untilTransition = new Timer(NavigateToMainMenu, 8000);
             Input.ClearTransientBindings();
             Input.On(Control.Start, NavigateToMainMenu);
+            Input.On(Control.A, NavigateToMainMenu);
             Audio.PlayMusicOnce("Logo", 1);
         }
 
