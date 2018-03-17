@@ -21,7 +21,7 @@ namespace SpaceResortMurder.LocationsX
             }, 
             new List<IPathway>
             {
-                new MeleenasShipToDockingBay(new Transform2(new Vector2(1764, 950), new Size2(96, 96)))
+                new MeleenasShipToDockingBay(new Transform2(new Vector2(40, 950), new Size2(96, 96)), "L")
             }) {}
     }
 }
