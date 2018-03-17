@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
+using SpaceResortMurder.Clues.RaymondsSpaceCraft;
 using SpaceResortMurder.LocationsX;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Pathways
 {
@@ -14,6 +16,6 @@ namespace SpaceResortMurder.Pathways
             "To Lobby")
         { }
 
-        public override bool IsTraversible => true;
+        public override bool IsTraversible => CurrentGameState.IsThinking(nameof(T71EnergyBlaster));
     }
 }

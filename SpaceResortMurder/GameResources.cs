@@ -866,12 +866,16 @@ namespace SpaceResortMurder
         };
 
         private static DictionaryWithDefault<string, string> _pathwayText = new DictionaryWithDefault<string, string>("This pathway should not be stopping you"){
-            { nameof(PoliceCruiserToDockingBay), "I am not ready yet" },
-            { nameof(DockingBayToLobby), "I need to investigate the crime scene first" },
-            { nameof(DockingBayToPoliceCruiser), "I need to investigate the crime scene first" },
-            { nameof(RaymondsShipToDockingBay), "I am not finished investigating here" },
-            { nameof(DockingBayToMeleenasShip), "I need the owner to unlock it for me" },
-            { nameof(MeleenasShipToDockingBay), "I am not finished investigating here" }
+            { nameof(CloningRoomToLobby), "I really should inspect the cloning chamber before I leave." },
+            { nameof(DockingBayToLobby), "\\DockingBayToLobby\\" },
+            { nameof(DockingBayToMeleenasShip), "I will need the owner of this craft to unlock it for me." },
+            { nameof(DockingBayToPoliceCruiser), "Who needs to investigate crime scenes when I can joyride in my cruiser." },
+            { nameof(LobbyToCloningRoom), "I love barging into random rooms for absolutely no reason." },
+            { nameof(LobbyToVacantRoom), "I'm sure to find a clue if I just wander aimlessly around for hours." },
+            { nameof(MeleenasShipToDockingBay), "Now that I did all that work to get in here, I am just gonna ignore everything in here." },
+            { nameof(PoliceCruiserToDockingBay), "I should really talk with Officer Warren before leaving." },
+            { nameof(RaymondsShipToDockingBay), "Look at all these obvious clues I'm trying to ignore." },
+            { nameof(VacantRoomToLobby), "I feel like I'm missing a smoking gun." },
         };
 
         private static Dictionary<string, Func<string>> _symbols = new Dictionary<string, Func<string>> {
@@ -887,6 +891,9 @@ namespace SpaceResortMurder
                         return "Meleena Ka'lick, Corporate Freelancer";
                     return "???";
                 }
+            },
+            { "DockingBayToLobby",
+                () => CurrentGameState.IsThinking(nameof(RaymondsCorpse)) ? "Let's pretend Warren doesn't have a female with him." : "Why investigate murders when you can chill in the lobby."
             }
         };
     }

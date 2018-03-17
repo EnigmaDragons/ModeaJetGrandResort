@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
 using SpaceResortMurder.Clues.RaymondsSpaceCraft;
+using SpaceResortMurder.Dialogues.Meleena;
 using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.State;
 
@@ -15,6 +16,6 @@ namespace SpaceResortMurder.Pathways
             nameof(Lobby),
             "To Lobby") {}
 
-        public override bool IsTraversible =>  CurrentGameState.IsThinking(nameof(RaymondsCorpse));
+        public override bool IsTraversible =>  CurrentGameState.IsThinking(nameof(RaymondsCorpse)) && CurrentGameState.IsThinking(nameof(WhoAreYou));
     }
 }
