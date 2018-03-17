@@ -192,7 +192,7 @@ namespace SpaceResortMurder
         private static DictionaryWithDefault<string, string> _characterNames = new DictionaryWithDefault<string, string>("Unnamed Character") {
             { nameof(OfficerWarren), "Warren, Officer" },
             { nameof(HackerMeleena), "\\Meleena\\" },
-            { nameof(CEORaymondsClone), "Raymond's Clone, CEO of Human Perfect" },
+            { nameof(CEORaymondsClone), "Raymond Soule's Clone" },
             { nameof(ResearcherTravis), "Travis Falcon, Clone Researcher" },
             { nameof(ResortManagerZaid), "Zaid Ahuja, Resort Manager" },
         };
