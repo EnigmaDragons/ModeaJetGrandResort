@@ -32,7 +32,7 @@ namespace SpaceResortMurder.Scenes
         private bool _isTravisArrested;
         private bool _isZaidArrested;
         private bool _isMeleenaArrested;
-        private bool _isTravisCFO;
+        private bool _isTravisCRO;
         private bool _isZaidsResortChosenForLuxuryClones;
         private bool _doesHumanPerfectGetABreakthrough;
         private int _humanPerfectScore = 0;
@@ -71,9 +71,9 @@ namespace SpaceResortMurder.Scenes
             _isTravisArrested = _wasTravisTheCulprit || CurrentGameState.IsThinking(nameof(YouAreStillResposible));
             _isZaidArrested = _wasZaidTheCulprit || CurrentGameState.IsThinking(nameof(YouBroughtThisOnYourself));
             _isMeleenaArrested = _wasMeleenaTheCulprit || CurrentGameState.IsThinking(nameof(DeckersMakeTheWorldWorse));
-            _isTravisCFO = !_wasTravisTheCulprit && !_isRaymondsCloneRunningHumanFirst;
+            _isTravisCRO = !_wasTravisTheCulprit && !_isRaymondsCloneRunningHumanFirst;
             _isZaidsResortChosenForLuxuryClones = !_isZaidArrested && !_isRaymondsCloneRunningHumanFirst;
-            _doesHumanPerfectGetABreakthrough = _isTravisCFO && !_isMeleenaArrested;
+            _doesHumanPerfectGetABreakthrough = _isTravisCRO && !_isMeleenaArrested;
         }
 
         private void GenerateWallOfText()
@@ -101,7 +101,7 @@ namespace SpaceResortMurder.Scenes
             else if (_wasZaidTheCulprit)
                 murdererLine = "Zaid Ahuja a manager of the ModeaJet Grand Resort. Zaid couldn't handle having his resort denied for testing Raymond's new luxury clones.";
             else if (_wasTravisTheCulprit)
-                murdererLine = "his Lead Researcher Travis Falcon, who recently had his brother die by a terroist attack.";
+                murdererLine = "his Lead Researcher Travis Falcon, who recently had his brother die in a terrorist attack.";
 
             if (_wasRaymondAloneTheCulprit)
             {
@@ -110,7 +110,7 @@ namespace SpaceResortMurder.Scenes
             }
             else if (_wasRaymondsCloneTheCulprit && _wasTravisTheCulprit)
             {
-                deathHeader = "Raymond Soule, CEO of Human Perfect was murdered by a killer clone designed by Lead Researcher Travis Falcon, who recently had his brother die in a terroist attack on Human Perfect.";
+                deathHeader = "Raymond Soule, CEO of Human Perfect was murdered by a killer clone designed by Lead Researcher Travis Falcon, who recently had his brother die in a terrorist attack on Human Perfect.";
                 _humanPerfectScore += -2;
             }
             else if (_isRaymondsCloneRunningHumanFirst)
@@ -169,9 +169,9 @@ namespace SpaceResortMurder.Scenes
             var luxuryClones = "REPORT THIS TO DEVS";
 
             if (_isRaymondsCloneRunningHumanFirst)
-                luxuryClones = "Raymond Soule has declared that The Amazing Raze Resort will be testing Human Perfect's newest luxury clone.";
+                luxuryClones = "Raymond Soule has chosen another resort \"The Amazing Raze Resort\" will be testing Human Perfect's newest luxury clone.";
             else if (_isZaidArrested)
-                luxuryClones = "Human Perfect has declared that The Amazing Raze Resort will be testing Human Perfect's newest luxury clone.";
+                luxuryClones = "Human Perfect has chosen another resort \"The Amazing Raze Resort\" will be testing Human Perfect's newest luxury clone.";
             else 
                 luxuryClones = "Before Raymond Soule's demise he decided ModeaJet Grand Resort would test out Human Perfect's new luxury clone.";
 
@@ -186,7 +186,7 @@ namespace SpaceResortMurder.Scenes
             _humanPerfectScore += _isMeleenaArrested ? 0 : -4;
             var meleenaConclusion = _isMeleenaArrested 
                 ? $"The infamous Data Raven was caught by {CurrentGameState.PlayerName} while investigating the death of Raymond Soule. An Impressive achievement early on in this bioroid's career." 
-                : "Cyber Terrorist Data Raven strikes again, by exposing Human Perfect's illegal human experimentation that resulted in a massacre of their own researchers. In addition Raymond Soule covered it by staging a terroist attack.";
+                : "Cyber Terrorist Data Raven strikes again, by exposing Human Perfect's illegal human experimentation that resulted in a massacre of their own researchers. In addition Raymond Soule covered it by staging a terrorist attack.";
             return meleenaConclusion + _newLines;
         }
 
@@ -202,10 +202,9 @@ namespace SpaceResortMurder.Scenes
                 dataRavenFallout = "Human Perfect tries to pin the human experiment massacre on Raymond Soule. Raymond Soule testifies to illegal corporate activities. Raymond Soule is now in witness protection as all of Human Perfect's executives are facing life sentences.";
                 _humanPerfectScore += -5;
             }
-            else if (_isTravisCFO)
+            else if (_isTravisCRO)
             {
-                dataRavenFallout =
-                    "CFO Travis Falcon speaks out against the massacre that killed his brother. He will ensure as the new CFO that all experiments will be done in a legal and more importantly a safe manner.";
+                dataRavenFallout = "CRO Travis Falcon speaks out against the massacre that killed his brother. He will ensure as the new CRO that all experiments will be done in a legal and more importantly a safe manner.";
                 _humanPerfectScore += 2;
             }
             else
@@ -221,7 +220,7 @@ namespace SpaceResortMurder.Scenes
         {
             _humanPerfectScore += _doesHumanPerfectGetABreakthrough ? 4 : 0;
             return _doesHumanPerfectGetABreakthrough
-                ? "Human Perfect releases a new cloning technique that can make far more perfect replications of the target than ever before. The implications are staggering, and all doubts from the stakeholders about their new CFO have been quelched." + _newLines
+                ? "Human Perfect releases a new cloning technique that can make far more perfect replications of the target than ever before. The implications are staggering, and all doubts from the stakeholders about their new CRO have been quelched." + _newLines
                 : "";
         }
 
@@ -247,14 +246,14 @@ namespace SpaceResortMurder.Scenes
 
         private string GenerateHumanPerfectFooter()
         {
-            if (_humanPerfectScore >= 3)
+            if (_humanPerfectScore >= 2)
                 return "Human Perfect dominates the cloning market and has began expanding into the medical market.";
-            if (_humanPerfectScore >= 0)
+            if (_humanPerfectScore >= -2)
                 return "Despite Human Perfect's recent turmoil, their stocks are on the rise.";
             if (_humanPerfectScore >= -6)
                 return "Human Perfect is no longer the leader in cloning, but they manage to hold a strong market share.";
-            if (_humanPerfectScore >= -11)
-                return "With Human Perfect's recent decline the shareholders have sold out to Mirror Mirror Corp.";
+            if (_humanPerfectScore >= -10)
+                return "With Human Perfect's recent decline the shareholders have sold out to Mirror Biotech Corp.";
             return "Human Perfect declares BANKRUPTCY!";
         }
 

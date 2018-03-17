@@ -1,7 +1,4 @@
-﻿using SpaceResortMurder.Dialogues.Zaid;
-using SpaceResortMurder.State;
-
-namespace SpaceResortMurder.Deductions.ZaidsResortForBetaTesting
+﻿namespace SpaceResortMurder.Deductions.ZaidsResortForBetaTesting
 {
     public class ZaidsResortAccepted : Deduction
     {
@@ -9,7 +6,7 @@ namespace SpaceResortMurder.Deductions.ZaidsResortForBetaTesting
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(YouWereNotAcceptedForBetaTesting));
+            return true;
         }
     }
 }
