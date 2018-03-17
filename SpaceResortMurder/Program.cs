@@ -19,6 +19,7 @@ using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 using SpaceResortMurder.Credits;
+using SpaceResortMurder.SavesX;
 using Control = MonoDragons.Core.Inputs.Control;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 
@@ -31,7 +32,7 @@ namespace SpaceResortMurder
         {
             HandleExceptions(() =>
             {
-                using (var game = Perf.Time("Startup", () => CreateGame("DockingBay")))
+                using (var game = Perf.Time("Startup", () => CreateGame("SaveLoad")))
                     game.Run();
             });
         }

@@ -6,6 +6,7 @@ using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.TutorialsX;
 using System;
 using System.Collections.Generic;
+using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.Scenes
 {
@@ -56,6 +57,13 @@ namespace SpaceResortMurder.Scenes
             _visuals.Add(t);
             _tutorialBranch.Add(t.Button);
             _automata.Add(t);
+        }
+
+        protected void AddUi(IJamView v)
+        {
+            _clickUi.Add(v.ClickUiBranch);
+            _visuals.Add(v);
+            _automata.Add(v);
         }
 
         protected void AddUi(ClickableUIElement e)

@@ -19,7 +19,7 @@ namespace SpaceResortMurder.Style
             };
         }
 
-        public static IVisual HeaderLabel(string text, Color color)
+        public static Label HeaderLabel(string text, Color color)
         {
             return new Label
             {

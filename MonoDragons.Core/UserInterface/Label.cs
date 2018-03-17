@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
 using Microsoft.Xna.Framework.Graphics;
@@ -35,6 +36,8 @@ namespace MonoDragons.Core.UserInterface
 
         public string RawText { get; set; } = "";
 
+        public Func<bool> IsVisible { get; set; } = () => true;
+
         public Label()
         {
             _textWrapper = new WrappingText(() => Resources.Load<SpriteFont>(Font), () => _background.Transform.Size.Width);
@@ -42,6 +45,9 @@ namespace MonoDragons.Core.UserInterface
 
         public void Draw(Transform2 parentTransform)
         {
+            if (!IsVisible())
+                return;
+
             _background.Draw(parentTransform);
             UI.DrawTextAligned(Text, new Rectangle((parentTransform.Location + Transform.Location).ToPoint(), Transform.Size.ToPoint()), TextColor, Font, HorizontalAlignment);
         }

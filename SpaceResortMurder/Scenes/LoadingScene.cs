@@ -41,12 +41,12 @@ namespace SpaceResortMurder.Scenes
 #if !DEBUG
             if (_timeFakeLoading.TotalMilliseconds >= CurrentOptions.FakeLoadMilliseconds)
 #endif
-                if (_isLoaded)
-                {
-                    CurrentOptions.Update(o => o.FakeLoadMilliseconds
-                        -= Rng.Int(CurrentOptions.FakeLoadMilliseconds / 20, CurrentOptions.FakeLoadMilliseconds / 10));
-                    Scene.NavigateTo(CurrentGameState.CurrentLocation);
-                }
+            if (_isLoaded)
+            {
+                CurrentOptions.Update(o => o.FakeLoadMilliseconds
+                    -= Rng.Int(CurrentOptions.FakeLoadMilliseconds / 20, CurrentOptions.FakeLoadMilliseconds / 10));
+                Scene.NavigateTo(CurrentGameState.CurrentLocation);
+            }
         }
 
         public void Draw()
