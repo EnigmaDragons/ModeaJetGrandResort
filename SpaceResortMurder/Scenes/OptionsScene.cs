@@ -35,9 +35,8 @@ namespace SpaceResortMurder.Scenes
         {
             var rowY = UI.OfScreenHeight(0.8f);
             Add(UiLabels.Option("Resets", new Vector2(XPos(0.5f), Height(0, rowY))));
-            Add(UiButtons.Menu("Reset Options", new Vector2(XPos(0.40f), Height(1, rowY)),
+            Add(UiButtons.Menu("Reset Options", new Vector2(XPos(0.50f), Height(1, rowY)),
                 () => CurrentOptions.UpdateDisplay(x => CurrentOptions.Reset())));
-            Add(UiButtons.Menu("Save/Load", new Vector2(XPos(0.60f), Height(1, rowY)), () => Scene.NavigateTo(GameResources.SaveLoadSceneName)));
         }
 
         private void AddGameplayOptions()

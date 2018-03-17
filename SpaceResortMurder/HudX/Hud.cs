@@ -42,6 +42,7 @@ namespace SpaceResortMurder.HudX
             AddIconButton(() => Scene.NavigateTo(GameResources.DilemmasSceneName), "Icons/Dilemmas", "Dilemmas");
             AddIconButton(() => Scene.NavigateTo(GameResources.DialogueMemoriesScene), "Icons/Conversations", "Conversations");
             AddIconButton(() => Scene.NavigateTo(GameResources.OptionsSceneName), "Icons/Options", "Options");
+            AddIconButton(() => Scene.NavigateTo(GameResources.SaveLoadSceneName), "Icons/Options", "Save/Load");
             AddIconButton(OpenConfirmationMenu, "Icons/ExitToMenu", "Main Menu");
             HudBranch = new ClickUIBranch("HUD", 2);
             _clickables.ForEach(x => HudBranch.Add(x));
