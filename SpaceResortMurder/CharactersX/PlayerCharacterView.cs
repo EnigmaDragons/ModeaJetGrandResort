@@ -13,7 +13,7 @@ namespace SpaceResortMurder.CharactersX
     {
         private static readonly BobbingEffect BobbingEffect = new BobbingEffect();
 
-        private readonly Dictionary<Expression, string> _images = new DictionaryWithDefault<Expression, string>("characters/main_character")
+        private readonly DictionaryWithDefault<Expression, string> _images = new DictionaryWithDefault<Expression, string>("characters/main_character")
         {
             { Expression.Default,"characters/main_character" },
             { Expression.Angry, "characters/main_character_angry" },

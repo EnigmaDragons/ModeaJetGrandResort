@@ -198,11 +198,50 @@ namespace SpaceResortMurder
         };
 
         private static DictionaryWithDefault<string, string> _characterExpressions = new DictionaryWithDefault<string, string>("characters/placeholder") {
+            #region Officer Warren
             { nameof(OfficerWarren) + " " + Expression.Default, "characters/policeman" },
+            { nameof(OfficerWarren) + " " + Expression.Happy, "characters/policeman" },
+            { nameof(OfficerWarren) + " " + Expression.Angry, "characters/policeman" },
+            { nameof(OfficerWarren) + " " + Expression.Thinking, "characters/policeman" },
+            { nameof(OfficerWarren) + " " + Expression.Fear, "characters/policeman" },
+            { nameof(OfficerWarren) + " " + Expression.Sad, "characters/policeman" },
+            #endregion
+
+            #region Meleena
             { nameof(HackerMeleena) + " " + Expression.Default, "characters/hacker_corporate_spy" },
-            { nameof(CEORaymondsClone) + " " + Expression.Default, "characters/random_npc_01" },
-            { nameof(ResearcherTravis) + " " + Expression.Default, "characters/scientist_guy" },
+            { nameof(HackerMeleena) + " " + Expression.Happy, "characters/hacker_happy" },
+            { nameof(HackerMeleena) + " " + Expression.Angry, "characters/hacker_pissed_off" },
+            { nameof(HackerMeleena) + " " + Expression.Thinking, "characters/hacker_corporate_spy" },
+            { nameof(HackerMeleena) + " " + Expression.Fear, "characters/hacker_pissed_off" },
+            { nameof(HackerMeleena) + " " + Expression.Sad, "characters/hacker_pissed_off" },
+            #endregion
+
+            #region Zaid
             { nameof(ResortManagerZaid) + " " + Expression.Default, "Characters/resort_manager_colored" },
+            { nameof(ResortManagerZaid) + " " + Expression.Happy, "Characters/resort_manager_colored" },
+            { nameof(ResortManagerZaid) + " " + Expression.Angry, "Characters/resort_manager_colored" },
+            { nameof(ResortManagerZaid) + " " + Expression.Thinking, "Characters/resort_manager_colored" },
+            { nameof(ResortManagerZaid) + " " + Expression.Fear, "Characters/resort_manager_colored" },
+            { nameof(ResortManagerZaid) + " " + Expression.Sad, "Characters/resort_manager_colored" },
+            #endregion
+
+            #region Travis
+            { nameof(ResearcherTravis) + " " + Expression.Default, "characters/scientist_guy" },
+            { nameof(ResearcherTravis) + " " + Expression.Happy, "characters/scientist_guy" },
+            { nameof(ResearcherTravis) + " " + Expression.Angry, "characters/scientist_guy" },
+            { nameof(ResearcherTravis) + " " + Expression.Thinking, "characters/scientist_guy" },
+            { nameof(ResearcherTravis) + " " + Expression.Fear, "characters/scientist_guy" },
+            { nameof(ResearcherTravis) + " " + Expression.Sad, "characters/scientist_guy" },
+            #endregion
+
+            #region Raymond's Clone
+            { nameof(CEORaymondsClone) + " " + Expression.Default, "characters/raymond_alive" },
+            { nameof(CEORaymondsClone) + " " + Expression.Happy, "characters/raymond_alive" },
+            { nameof(CEORaymondsClone) + " " + Expression.Angry, "characters/raymond_sad" },
+            { nameof(CEORaymondsClone) + " " + Expression.Thinking, "characters/raymond_alive" },
+            { nameof(CEORaymondsClone) + " " + Expression.Fear, "characters/raymond_sad" },
+            { nameof(CEORaymondsClone) + " " + Expression.Sad, "characters/raymond_sad" },
+            #endregion
         };
 
         private static DictionaryWithDefault<string, string[]> _clues = new DictionaryWithDefault<string, string[]>(new string[] { "This clue has not been implemented" }) {
@@ -288,54 +327,62 @@ namespace SpaceResortMurder
             { nameof(WarrenIntroduction), new DialogueSequence(
                 "Who are you?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Hello there \\Player\\. This is your fist time powering up so I guess I better get you up to speed."),
-                    new DialogueElement(true, "I'm Officer Warren, and YOU are a bioroid detective."),
-                    new DialogueElement(false, "..."),
-                    new DialogueElement(true, "Lookie here, you got the schnazy ability to scan people and spot those little details I can't."),
-                    new DialogueElement(true, "Go ahead and try it out on me."),
+                    new DialogueElement(false, Expression.Thinking, "Who are you?"), 
+                    new DialogueElement(true, Expression.Default, "Hello there \\Player\\. This is your fist time powering up so I guess I better get you up to speed."),
+                    new DialogueElement(true, Expression.Default, "I'm Officer Warren, and YOU are a bioroid detective."),
+                    new DialogueElement(false, Expression.Thinking, "..."),
+                    new DialogueElement(true, Expression.Default, "Lookie here, you got the schnazy ability to scan people and spot those little details I can't."),
+                    new DialogueElement(true, Expression.Happy, "Go ahead and try it out on me."),
             } ) },
             { nameof(PettyTheftAt12), new DialogueSequence(
                 "You've commited petty theft at the age of 12.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "What did I tell you, isn't scanning pretty fancy. Alright now to get to what's at hand."),
-                    new DialogueElement(true, "Right before powering you up I got pinged by the manager at ModeaJet Grand Resort about a corp exec murder."),
-                    new DialogueElement(true, "The victim is Raymond Soule, the CEO of the cloning company Human Perfect."),
-                    new DialogueElement(true, "Mr.Soule arrived intact at ModeaJet Grand Resort at around 7:00 AM this morning, but was found dead today in his ship."),
-                    new DialogueElement(true, "Go look around the ship for clues but don't go touching everything you see."),
-                    new DialogueElement(true, "Can't expect any clues to come searching for you..."), 
+                    new DialogueElement(false, Expression.Default, "You've commited petty theft at the age of 12."),
+                    new DialogueElement(true, Expression.Happy, "What did I tell you, isn't scanning pretty fancy. Alright now to get to what's at hand."),
+                    new DialogueElement(true, Expression.Default, "Right before powering you up I got pinged by the manager at ModeaJet Grand Resort about a corp exec murder."),
+                    new DialogueElement(true, Expression.Default, "The victim is Raymond Soule, the CEO of the cloning company Human Perfect."),
+                    new DialogueElement(true, Expression.Default, "Mr.Soule arrived intact at ModeaJet Grand Resort at around 7:00 AM this morning, but was found dead today in his ship."),
+                    new DialogueElement(true, Expression.Happy, "Go look around the ship for clues but don't go touching everything you see."),
+                    new DialogueElement(true, Expression.Happy, "Can't expect any clues to come searching for you..."), 
             } ) },
             { nameof(AnytimeUpTilNow), new DialogueSequence(
                 "The murder took place anytime up until now.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "You don't have that quite right. No worries though, I said that he arrived at the resort at 7 AM intact."),
+                    new DialogueElement(false, Expression.Default, "The murder took place anytime up until now."),
+                    new DialogueElement(true, Expression.Default, "You don't have that quite right. No worries though, I said that he arrived at the resort at 7 AM intact."),
                 }
             ) },
             { nameof(BetweenSevenAMToEightPM), new DialogueSequence(
                 "The murder must have taken place between 7 AM and 8 PM.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Exactly! Looks like we're ready to get started. Let's start investigating Raymond's craft."),
+                    new DialogueElement(false, Expression.Default, "The murder must have taken place between 7 AM and 8 PM."),
+                    new DialogueElement(true, Expression.Happy, "Exactly! Looks like we're ready to get started. Let's start investigating Raymond's craft."),
             } ) },
             { nameof(WeHaveUntilMidnight), new DialogueSequence(
                 "We have until midnight, it's best if we hurry.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Man thats not even close! Powering up the first time must be a hell of a ride."),
+                    new DialogueElement(false, Expression.Happy, "We have until midnight, it's best if we hurry."),
+                    new DialogueElement(true, Expression.Angry, "Man thats not even close! Powering up the first time must be a hell of a ride."),
             } ) },
             { nameof(DetainedMeleena), new DialogueSequence(
                 "Where did she come from?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "She left that modded craft, and she is pretty close to the crime scene. I have detained her to stay with me, so you can question her."),
+                    new DialogueElement(false, Expression.Default, "Where did she come from?"),
+                    new DialogueElement(true, Expression.Default, "She left that modded craft, and she is pretty close to the crime scene. I have detained her to stay with me, so you can question her."),
             } ) },
             { nameof(NeedASearchOrder), new DialogueSequence(
                 "I need a search order for Meleena's craft.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "I'll submit a request for Ms.Ka'lick's craft. Thankfully this is a high profile corp CEO case, so I'm sure we will get a reply soon."),
-                    new DialogueElement(true, "In the meantime, You should make sure to get the statement from the hotel manager."),
+                    new DialogueElement(false, Expression.Default, "I need a search order for Meleena's craft."),
+                    new DialogueElement(true, Expression.Happy, "I'll submit a request for Ms.Ka'lick's craft. Thankfully this is a high profile corp CEO case, so I'm sure we will get a reply soon."),
+                    new DialogueElement(true, Expression.Default, "In the meantime, You should make sure to get the statement from the hotel manager."),
             } ) },
             { nameof(IsTheSearchOrderReady), new DialogueSequence(
                 "Do we have the search order now?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Got it right here. I'm sure the case will be cracked wide open when we get in there."),
-                    new DialogueElement(false, "That's very improbable."),
+                    new DialogueElement(false, Expression.Default, "Do we have the search order now?"),
+                    new DialogueElement(true, Expression.Happy, "Got it right here. I'm sure the case will be cracked wide open when we get in there."),
+                    new DialogueElement(false, Expression.Thinking, "That's very improbable."),
                 } ) },
             #endregion
 
@@ -343,88 +390,100 @@ namespace SpaceResortMurder
             { nameof(WhoAreYou), new DialogueSequence(
                 "Who are you?",
                 new DialogueElement[] {
-                new DialogueElement(true, "It's fraggin rude not to introduce yourself first bioroid!"),
-                new DialogueElement(false, "My name is \\Player\\."),
-                new DialogueElement(true, "Alright roid, I'm Meleena Ka'lick, a corporate freelancer on vacation, satisfied?"),
-                new DialogueElement(false, "Yes."),
+                    new DialogueElement(false, Expression.Default, "Who are you?"),
+                    new DialogueElement(true, Expression.Angry, "It's fraggin rude not to introduce yourself first bioroid!"),
+                    new DialogueElement(false, Expression.Default, "My name is \\Player\\."),
+                    new DialogueElement(true, Expression.Default, "Alright roid, I'm Meleena Ka'lick, a corporate freelancer on vacation, satisfied?"),
+                    new DialogueElement(false, Expression.Default, "Yes."),
             } ) },
             { nameof(MeleenasAccount), new DialogueSequence(
                 "Give me your account from this morning until night.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Did you leave your manners in the recharger roid?"),
-                    new DialogueElement(false, "No, but I don't think it's necessary to utilize them with you."),
-                    new DialogueElement(true, "Fraggin roids. Alright since awaking in meat-space, I have been relaxing in my room and craft all day."),
-                    new DialogueElement(true, "And before you ask I have seen nothing out of the ordinary cept you."),
+                    new DialogueElement(false, Expression.Default, "Give me your account from this morning until night."),
+                    new DialogueElement(true, Expression.Default, "Did you leave your manners in the recharger roid?"),
+                    new DialogueElement(false, Expression.Default, "No, but I don't think it's necessary to utilize them with you."),
+                    new DialogueElement(true, Expression.Angry, "Fraggin roids. Alright since awaking in meat-space, I have been relaxing in my room and craft all day."),
+                    new DialogueElement(true, Expression.Default, "And before you ask I have seen nothing out of the ordinary cept you."),
             } ) },
             { nameof(CorporateFreelancersCantNormallyAffordPersonalSpaceCrafts), new DialogueSequence(
                 "Corporate freelancers can't normally purchase their own craft.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Beats your pig-rig over there."),
-                    new DialogueElement(true, "I'm a data specialist, tasked with gathering invaluable paydata. You'd be surprised how well those corp execs pay for my info."),
+                    new DialogueElement(false, Expression.Thinking, "Corporate freelancers can't normally purchase their own craft."),
+                    new DialogueElement(true, Expression.Happy, "Beats your pig-rig over there."),
+                    new DialogueElement(true, Expression.Default, "I'm a data specialist, tasked with gathering invaluable paydata. You'd be surprised how well those corp execs pay for my info."),
             } ) },
             { nameof(SearchYourCraftForEvidence), new DialogueSequence(
                 "Your craft is at the crime scene, I'm going to have to search it for evidence.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Drek! Gotta a search order for that?"),
+                    new DialogueElement(false, Expression.Default, "Your craft is at the crime scene, I'm going to have to search it for evidence."),
+                    new DialogueElement(true, Expression.Fear, "Drek! Gotta a search order for that?"),
             } ) },
             { nameof(YouHaveARatherCleanRecord), new DialogueSequence(
                 "Your record is squeaky clean and rather small.",
                 new DialogueElement[] {
+                    new DialogueElement(false, Expression.Thinking, "Your record is squeaky clean and rather small."),
                     new DialogueElement(true, Expression.Happy, "Goody-two-shoes Meleena that's me."),
             } ) },
             { nameof(ProveIt), new DialogueSequence(
                 "You are the closest, you must have hacked the door on Raymond's craft.",
                 new DialogueElement[] {
+                    new DialogueElement(false, Expression.Thinking, "You are the closest, you must have hacked the door on Raymond's craft."),
                     new DialogueElement(true, Expression.Angry, "Just cause I'm data specialist doesn't mean I'm a decker."),
             } ) },
             { nameof(HereIsTheSearchOrder), new DialogueSequence(
                 "Here is the search order for your ship.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "This is jacked! The OPID don't give a frag about privacy."),
+                    new DialogueElement(false, Expression.Default, "Here is the search order for your ship."),
+                    new DialogueElement(true, Expression.Angry, "This is jacked! The OPID don't give a frag about privacy."),
             } ) },
             { nameof(YouAreAHacker), new DialogueSequence(
                 "\"Data Raven\" you are rather infamous, What are you really doing here?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Drek!"),
-                    new DialogueElement(true, "The chip-truth is I got word that Raymond Soule was visiting this small time resort. CEO's don't take time off to small time resorts."), 
-                    new DialogueElement(true, "I knew there was gonna be easy paydata for someone who has their own craft. I didn't Derezz Raymond."),
-                    new DialogueElement(true, "\\Player\\ I only use my decking to fight corp corruption and don't you think it would be useful if you had a decker in your pocket for future investigations. Please don't include \"Data Raven\" in your report."),
+                    new DialogueElement(false, Expression.Default, "\"Data Raven\" you are rather infamous, What are you really doing here?"),
+                    new DialogueElement(true, Expression.Fear, "Drek!"),
+                    new DialogueElement(true, Expression.Fear, "The chip-truth is I got word that Raymond Soule was visiting this small time resort. CEO's don't take time off to small time resorts."), 
+                    new DialogueElement(true, Expression.Default, "I knew there was gonna be easy paydata for someone who has their own craft. I didn't Derezz Raymond."),
+                    new DialogueElement(true, Expression.Default, "\\Player\\ I only use my decking to fight corp corruption and don't you think it would be useful if you had a decker in your pocket for future investigations. Please don't include \"Data Raven\" in your report."),
             } ) },
             { nameof(IWontReportDataRaven), new DialogueSequence(
-                "I won't report data raven.",
+                "I won't report \"Data Raven\".",
                 new DialogueElement[] {
-                    new DialogueElement(true, "You won't regret this roid!"),
-                    new DialogueElement(false, "Could you give me the encryption key for the data drive you recently used."),
-                    new DialogueElement(true, "Anything for my new chummer. It's got some valuable paydata."), 
+                    new DialogueElement(false, Expression.Default, "I won't report \"Data Raven\"."),
+                    new DialogueElement(true, Expression.Happy, "You won't regret this roid!"),
+                    new DialogueElement(false, Expression.Default, "Could you give me the encryption key for the data drive you recently used."),
+                    new DialogueElement(true, Expression.Happy, "Anything for my new chummer. It's got some valuable paydata."), 
             } ) },
             { nameof(DeckersMakeTheWorldWorse), new DialogueSequence(
                 "\"Data Raven\" needs to answer for her crimes.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Drek!"),
-                    new DialogueElement(false, "If you don't want your charges to get even worse, you will give me the encryption key for your data drive."),
-                    new DialogueElement(true, "Fraggin bioroid badges are incapable of being human! You can have the data drive it's not even fraggin useful to your case."),
+                    new DialogueElement(false, Expression.Angry, "\"Data Raven\" needs to answer for her crimes."),
+                    new DialogueElement(true, Expression.Fear, "Drek!"),
+                    new DialogueElement(false, Expression.Angry, "If you don't want your charges to get even worse, you will give me the encryption key for your data drive."),
+                    new DialogueElement(true, Expression.Angry, "Fraggin bioroid badges are incapable of being human! You can have the data drive it's not even fraggin useful to your case."),
             } ) },
             { nameof(YouBrokeIntoRaymondsShip), new DialogueSequence(
                 "You broke into Raymond's craft with your skeleton key.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Drek! Listen badge, I'll give you the chip-truth."),
-                    new DialogueElement(true, "I fragged his ICE to find paydata in his craft. I was going to run, but I felt a blast on the side of his craft."),
-                    new DialogueElement(true, "I hid myself and waited. Right when my patience was wearin thin, Raymond comes in muttering to himself, launchs the ship, opens the hatch and pops out."),
-                    new DialogueElement(true, "He immediately launchs the craft and then opens the space hatch."),
-                    new DialogueElement(true, "I heard a loud thud which in retrospect must have come from Raymond's fried body being dumped on the ground."),
-                    new DialogueElement(true, "The meat in the ship wasn't muttering, so I don't know who it was that landed the ship, got out, and left."),
-                    new DialogueElement(true, "As soon as he left I floored it outta there."),
+                    new DialogueElement(false, Expression.Default, "You broke into Raymond's craft with your skeleton key."),
+                    new DialogueElement(true, Expression.Fear, "Drek! Listen roid, I'll give you the chip-truth."),
+                    new DialogueElement(true, Expression.Sad, "I fragged his ICE to find paydata in his craft. I was going to run, but I felt a blast on the side of his craft."),
+                    new DialogueElement(true, Expression.Default, "I hid myself and waited. Right when my patience was wearin thin, Raymond comes in muttering to himself, launchs the ship, opens the hatch and pops out."),
+                    new DialogueElement(true, Expression.Default, "I heard a loud thud which in retrospect must have come from Raymond's fried body being dumped on the ground."),
+                    new DialogueElement(true, Expression.Default, "The meat in the ship wasn't muttering, so I don't know who it was that landed the ship, got out, and left."),
+                    new DialogueElement(true, Expression.Default, "As soon as he left I floored it outta there."),
             } ) },
             { nameof(MeleenaYouShotTheShip), new DialogueSequence(
                 "You hacked Raymond's T71 energy blaster and shot his craft.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "What! Why the frag would I do that? I like to think of myself as sneaky."),
+                    new DialogueElement(false, Expression.Default, "You hacked Raymond's T71 energy blaster and shot his craft."),
+                    new DialogueElement(true, Expression.Angry, "What! Why the frag would I do that? I like to think of myself as sneaky."),
             } ) },
             { nameof(YouDidntHearAVoiceYouLaunchedTheShip), new DialogueSequence(
                 "You lied about someone else entering Raymond's ship when you were there.",
                 new DialogueElement[] {
-                    new DialogueElement(false, "You were the one who launched the ship."), 
-                    new DialogueElement(true, "Drek! Your not pinning this on me roid! I woulda zeroed the ship's logs."),
+                    new DialogueElement(false, Expression.Angry, "You lied about someone else entering Raymond's ship when you were there."),
+                    new DialogueElement(false, Expression.Thinking, "You were the one who launched the ship."), 
+                    new DialogueElement(true, Expression.Angry, "Drek! Your not pinning this on me roid! I woulda zeroed the ship's logs."),
             } ) },
             #endregion
 
@@ -432,253 +491,293 @@ namespace SpaceResortMurder
             { nameof(WhoAreYouZaid), new DialogueSequence(
                 "You manage this resort?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "I'm Zaid Ahuji, manager of this grand resort. I assume you will be wanting a room while you stay here and investigate the er... incident."),
-                    new DialogueElement(true, "It comes with a state of the art recharger, for one such as yourself."),
-                    new DialogueElement(false, "I believe I can close this case before the night is over."),
-                    new DialogueElement(true, "Of course! Given someone of your er... skill I'm sure. Though if it stumps you for the night don't hesitate to ask for a room."),
+                    new DialogueElement(false, Expression.Default, "You manage this resort?"),
+                    new DialogueElement(true, Expression.Default, "I'm Zaid Ahuji, manager of this grand resort. I assume you will be wanting a room while you stay here and investigate the er... incident."),
+                    new DialogueElement(true, Expression.Happy, "It comes with a state of the art recharger, for one such as yourself."),
+                    new DialogueElement(false, Expression.Default, "I believe I can close this case before the night is over."),
+                    new DialogueElement(true, Expression.Default, "Of course! Given someone of your er... skill I'm sure. Though if it stumps you for the night don't hesitate to ask for a room."),
             } ) },
             { nameof(ZaidsAccount), new DialogueSequence(
                 "What can you recall up until you pinged us?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Right away! I was staying here in the lobby er... when I see a notification that Raymond's ship was leaving."),
-                    new DialogueElement(true, "I didn't find that odd but 20 minutes later Raymond's ship was returning."),
-                    new DialogueElement(true, "I headed over to the docking bay. That's where I saw er... Raymond's ship was open."),
-                    new DialogueElement(true, "Upon coming over I saw Raymond's er... figure and then immidiately called you."),
+                    new DialogueElement(false, Expression.Default, "What can you recall up until you pinged us?"),
+                    new DialogueElement(true, Expression.Default, "Right away! I was staying here in the lobby er... when I see a notification that Raymond's ship was leaving."),
+                    new DialogueElement(true, Expression.Default, "I didn't find that odd but 20 minutes later Raymond's ship was returning."),
+                    new DialogueElement(true, Expression.Default, "I headed over to the docking bay. That's where I saw er... Raymond's ship was open."),
+                    new DialogueElement(true, Expression.Fear, "Upon coming over I saw Raymond's er... figure and then immidiately called you."),
             } ) },
             { nameof(WhoIsStayingAtYourResort), new DialogueSequence(
                 "Tell me who is currently staying at your resort?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Right away! Meleena Ke'lick who arrived in her own ship. Travis Falcon a colleague of Raymond Soule. And the now deceased Raymond Soule."),
+                    new DialogueElement(false, Expression.Default, "Tell me who is currently staying at your resort?"),
+                    new DialogueElement(true, Expression.Default, "Right away! Meleena Ke'lick who arrived in her own ship. Travis Falcon a colleague of Raymond Soule. And the now deceased Raymond Soule."),
             } ) },
             { nameof(WhySoFewPeopleAtTheResort), new DialogueSequence(
                 "Your resort seems to be lacking in occupants?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Ever since the reports of me allegedly selling customer data. It's been hard to rebuild my reputation."),
+                    new DialogueElement(false, Expression.Default, "Your resort seems to be lacking in occupants?"),
+                    new DialogueElement(true, Expression.Sad, "Ever since the reports of me allegedly selling customer data. It's been hard to rebuild my reputation."),
             } ) },
             { nameof(WhyWasRaymondHere), new DialogueSequence(
                 "Why was Raymond Soule visiting your resort?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Raymond was going to let me test a new line of resort clones. Which would greatly increase popularity."),
+                    new DialogueElement(false, Expression.Default, "Why was Raymond Soule visiting your resort?"),
+                    new DialogueElement(true, Expression.Happy, "Raymond was going to let me test a new line of resort clones. Which would greatly increase popularity."),
             } ) },
             { nameof(DoYouHaveAnyCamerasAtYourResort), new DialogueSequence(
                 "Do you have any surveillance that would be useful to my investigation?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "After reports of me allegedly selling customer data. I had to remove all my cameras to put customers at ease."),
+                    new DialogueElement(false, Expression.Default, "Do you have any surveillance that would be useful to my investigation?"),
+                    new DialogueElement(true, Expression.Sad, "After reports of me allegedly selling customer data. I had to remove all my cameras to put customers at ease."),
             } ) },
             { nameof(DidYouReleaseTheGarbage), new DialogueSequence(
                 "I noticed that the garbage airlock was recently used, was that you?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "No I thought it was strange the garbage airlock was empty."),
+                    new DialogueElement(false, Expression.Thinking, "I noticed that the garbage airlock was recently used, was that you?"),
+                    new DialogueElement(true, Expression.Thinking, "No I thought it was strange the garbage airlock was empty."),
             } ) },
             { nameof(DidRaymondApproveYourResort), new DialogueSequence(
                 "Did Raymond decide to let your resort test the resort clones?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Yes, He said he quite liked the place."),
+                    new DialogueElement(false, Expression.Default, "Did Raymond decide to let your resort test the resort clones?"),
+                    new DialogueElement(true, Expression.Happy, "Yes, He said he quite liked the place."),
             } ) },
             { nameof(WillYourAcceptanceBePutIntoQuestion), new DialogueSequence(
                 "Now that Raymond is dead will your acceptance for the resort clones be revoked?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "No, I'm quite confident they will still follow his decision."),
+                    new DialogueElement(false, Expression.Default, "Now that Raymond is dead will your acceptance for the resort clones be revoked?"),
+                    new DialogueElement(true, Expression.Happy, "No, I'm quite confident they will still follow his decision."),
             } ) },
             { nameof(YouWereNotAcceptedForBetaTesting), new DialogueSequence(
                 "ModeaJet Grand Resort was not accepted for the resort clone beta testing.",
                 new DialogueElement[] {
-                    new DialogueElement(false, "I found a list of resorts and yours was crossed off."), 
-                    new DialogueElement(true, "But what about the message Raymond sent!"),
-                    new DialogueElement(false, "How would you know about that, as it was sent at 7:50 PM"), 
-                    new DialogueElement(true, "..."),
-                    new DialogueElement(false, "You should tell me what really happened."), 
-                    new DialogueElement(true, "Alright when I found Raymond's body, I er... sent the message on his pad."),
-                    new DialogueElement(true, "I was wrongly accused of illegally selling customer's data. It wasn't fair my Resort went from thriving to this. I am in debt with the wrong people. I needed to pay ModeaJet."),
-                    new DialogueElement(true, "Please don't tell anyone that Raymond didn't send that message or I'm doomed."), 
+                    new DialogueElement(false, Expression.Angry, "ModeaJet Grand Resort was not accepted for the resort clone beta testing."),
+                    new DialogueElement(false, Expression.Angry, "I found a list of resorts and yours was crossed off."), 
+                    new DialogueElement(true, Expression.Fear, "But what about the message Raymond sent!"),
+                    new DialogueElement(false, Expression.Thinking, "How would you know about that, as it was sent at 7:50 PM"), 
+                    new DialogueElement(true, Expression.Fear, "..."),
+                    new DialogueElement(false, Expression.Default, "You should tell me what really happened."), 
+                    new DialogueElement(true, Expression.Fear, "Alright when I found Raymond's body, I er... sent the message on his pad."),
+                    new DialogueElement(true, Expression.Sad, "I was wrongly accused of illegally selling customer's data. It wasn't fair my Resort went from thriving to this. I am in debt with the wrong people. I needed to pay ModeaJet."),
+                    new DialogueElement(true, Expression.Fear, "Please don't tell anyone that Raymond didn't send that message or I'm doomed."), 
             } ) },
             { nameof(IWontSealYourFate), new DialogueSequence(
                 "I won't be the one to seal your fate, it will stay off my report.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Thank you so much! God bless you!"),
+                    new DialogueElement(false, Expression.Default, "I won't be the one to seal your fate, it will stay off my report."),
+                    new DialogueElement(true, Expression.Happy, "Thank you so much! God bless you!"),
             } ) },
             { nameof(YouBroughtThisOnYourself), new DialogueSequence(
                 "Your own poor decisions lead you to these consequences.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "No... no... what am I going to do?"),
+                    new DialogueElement(false, Expression.Default, "Your own poor decisions lead you to these consequences."),
+                    new DialogueElement(true, Expression.Sad, "No... no... what am I going to do?"),
             } ) },
             { nameof(ZaidYouHackedRaymondsDoor), new DialogueSequence(
                 "When you went to check out Raymond's ship the door was still closed and you hacked it.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "I didn't I swear. I wouldn't be running a resort if I was a decker."),
+                    new DialogueElement(false, Expression.Angry, "When you went to check out Raymond's ship the door was still closed and you hacked it."),
+                    new DialogueElement(true, Expression.Fear, "I didn't I swear. I wouldn't be running a resort if I was a decker."),
             } ) },
             { nameof(ZaidLaunchedTheShipToGetHisPad), new DialogueSequence(
                 "You didn't just find his body. You launched his ship to retrieve his pad.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Sorry sir, I only came to check on the ship after it had landed."),
+                    new DialogueElement(false, Expression.Default, "You didn't just find his body. You launched his ship to retrieve his pad."),
+                    new DialogueElement(true, Expression.Default, "Sorry sir, I only came to check on the ship after it had landed."),
             } ) },
             #endregion
 
             #region Travis
             { nameof(DidYouWorkWithRaymond), new DialogueSequence(
-                "What is your relationship with the Raymond Soule?",
+                "What is your relationship with Raymond Soule?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "You are a brand new detective bioroid, I hear when your kind is new that you are more prone to error. It's caused by a lack of synaptic connections which are what allow humans to connect pieces of data together."),
-                    new DialogueElement(false, "Are you claiming I have a wrong assumption."),
-                    new DialogueElement(true, "... No just an observation. Given your prescence it is probable there was a death."),
-                    new DialogueElement(false, "..."),
-                    new DialogueElement(true, "My relationship with Raymond Soule is that of employee and employer."),
+                    new DialogueElement(false, Expression.Default, "What is your relationship with Raymond Soule?"),
+                    new DialogueElement(true, Expression.Thinking, "You are a brand new detective bioroid, I hear when your kind is new that you are more prone to error. It's caused by a lack of synaptic connections which are what allow humans to connect pieces of data together."),
+                    new DialogueElement(false, Expression.Default, "Are you claiming I have a wrong assumption."),
+                    new DialogueElement(true, Expression.Thinking, "... No just an observation. Given your prescence it is probable there was a death."),
+                    new DialogueElement(false, Expression.Default, "..."),
+                    new DialogueElement(true, Expression.Default, "My relationship with Raymond Soule is that of employee and employer."),
             } ) },
             { nameof(WhyIsTravisAtTheResort), new DialogueSequence(
                 "Why did Raymond Soule bring you to this resort?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "..."),
-                    new DialogueElement(true, "I was brought by Raymond for the purpose of secretly forming a clone of him. This resort was chosen as it has no surveillance."),
+                    new DialogueElement(false, Expression.Default, "Why did Raymond Soule bring you to this resort?"),
+                    new DialogueElement(true, Expression.Thinking, "..."),
+                    new DialogueElement(true, Expression.Default, "I was brought by Raymond for the purpose of secretly forming a clone of him. This resort was chosen as it has no surveillance."),
             } ) },
             { nameof(ExplainTheCloningMachine), new DialogueSequence(
                 "This is not a normal cloning device.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Of course, it wouldn't be located in any public database that you have access to."),
-                    new DialogueElement(true, "This is an experimental cloning device capable of making more accurate clones than ever before."),
-                    new DialogueElement(true, "It uses 13 needles on the target, to extract different kinds of material to synthesize."),
-                    new DialogueElement(true, "Then we map out a target's brain, while the clones body is being formed. The last step is forming the new brain and seal up the clone."), 
-                    new DialogueElement(true, "Now I know it's illegal to use unapproved cloning devices on humans, but Raymond demanded it or I would be fired and my reputation dragged through the mud. I had no choice."), 
-                    new DialogueElement(true, "Will you spare me from the judgment, of Raymond's wrong doing."), 
+                    new DialogueElement(false, Expression.Default, "This is not a normal cloning device."),
+                    new DialogueElement(true, Expression.Happy, "Of course, it wouldn't be located in any public database that you have access to."),
+                    new DialogueElement(true, Expression.Happy, "This is an experimental cloning device capable of making more accurate clones than ever before."),
+                    new DialogueElement(true, Expression.Default, "It uses 13 needles on the target, to extract different kinds of material to synthesize."),
+                    new DialogueElement(true, Expression.Default, "Then we map out a target's brain, while the clones body is being formed. The last step is forming the new brain and seal up the clone."), 
+                    new DialogueElement(true, Expression.Fear, "Now I know it's illegal to use unapproved cloning devices on humans, but Raymond demanded it or I would be fired and my reputation dragged through the mud. I had no choice."), 
+                    new DialogueElement(true, Expression.Sad, "Will you spare me from the judgment, of Raymond's wrong doing."), 
             } ) },
             { nameof(WontTurnYouInForRaymondsAction), new DialogueSequence(
                 "You shouldn't pay for Raymond's crimes.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "I'm glad you you are a just bioroid."),
+                    new DialogueElement(false, Expression.Default, "You shouldn't pay for Raymond's crimes."),
+                    new DialogueElement(true, Expression.Happy, "I'm glad you you are a just bioroid."),
                 } ) },
             { nameof(YouAreStillResposible), new DialogueSequence(
                 "You are still responsible for agreeing to do it.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "... how unfortunate."),
+                    new DialogueElement(false, Expression.Angry, "You are still responsible for agreeing to do it."),
+                    new DialogueElement(true, Expression.Thinking, "... how unfortunate."),
                 } ) },
             { nameof(TravissAccount), new DialogueSequence(
                 "Give me your full account of today's events?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Constructing your timeline bioroid? Alright I can assist you."),
-                    new DialogueElement(true, "Raymond's craft arrived at 7 AM, I went directly to this room and worked til 4:30 setting up the cloning device."),
-                    new DialogueElement(true, "Raymond Soule joined me to begin the cloning process at 5 PM. the process was finished at 6:30. Raymond and his clone then left for the night."),
-                    new DialogueElement(true, "I have remained here coordinating my research team, up until now."),
+                    new DialogueElement(false, Expression.Default, "Give me your full account of today's events?"),
+                    new DialogueElement(true, Expression.Thinking, "Constructing your timeline bioroid? Alright I can assist you."),
+                    new DialogueElement(true, Expression.Default, "Raymond's craft arrived at 7 AM, I went directly to this room and worked til 4:30 setting up the cloning device."),
+                    new DialogueElement(true, Expression.Default, "Raymond Soule joined me to begin the cloning process at 5 PM. the process was finished at 6:30. Raymond and his clone then left for the night."),
+                    new DialogueElement(true, Expression.Default, "I have remained here coordinating my research team, up until now."),
             } ) },
             { nameof(WhereIsYourClone), new DialogueSequence(
                 "Where is Raymond's clone?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Let's have a look, I had a tracking device embedded in him upon creation. Interesting he is chilling in Raymond's room."),
+                    new DialogueElement(false, Expression.Default, "Where is Raymond's clone?"),
+                    new DialogueElement(true, Expression.Happy, "Let's have a look, I had a tracking device embedded in him upon creation. Interesting he is chilling in Raymond's room."),
             } ) },
             { nameof(CloningMalfunction), new DialogueSequence(
                 "Raymond's clone claims that there was a malfunction when cloning that caused an electric discharge?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "... Yes there was an electrical discharge that hit the clone."),
+                    new DialogueElement(false, Expression.Default, "Raymond's clone claims that there was a malfunction when cloning that caused an electric discharge?"),
+                    new DialogueElement(true, Expression.Thinking, "... Yes there was an electrical discharge that hit the clone."),
             } ) },
             { nameof(PowerBatteryArm), new DialogueSequence(
                 "What do you use your Power Battery Arm for?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "... I use it as a portable power source. In this paticular instance I used some of the energy from it to power the cloning device."),
+                    new DialogueElement(false, Expression.Default, "What do you use your Power Battery Arm for?"),
+                    new DialogueElement(true, Expression.Default, "... I use it as a portable power source. In this paticular instance I used some of the energy from it to power the cloning device."),
             } ) },
             { nameof(MatterRemovalBruises), new DialogueSequence(
                 "Raymond's clone claims that the needles removing matter causes bruises?",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Interesting, that's very suspicious."),
-                    new DialogueElement(true, "Raymond's clone is lying the process does not leave a mark on it's user, if he has bruises they came from somewhere else."),
+                    new DialogueElement(false, Expression.Thinking, "Raymond's clone claims that the needles removing matter causes bruises?"),
+                    new DialogueElement(true, Expression.Thinking, "Interesting, that's very suspicious."),
+                    new DialogueElement(true, Expression.Default, "Raymond's clone is lying the process does not leave a mark on it's user, if he has bruises they came from somewhere else."),
             } ) },
             { nameof(YourBrotherWasKilled), new DialogueSequence(
                 "Your brother died in a cloning experiment and Raymond covered it up.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "... So you think this would be my motive for murder?"),
-                    new DialogueElement(false, "It's a strong motive."), 
-                    new DialogueElement(true, "Well since I didn't commit the murder, I'll make that motive even stronger."),
-                    new DialogueElement(true, "My brother told Raymond the experiment wasn't ready, But Raymond wasn't willing to delay it, he rushed it ignoring all safety percautions."),
+                    new DialogueElement(false, Expression.Default, "Your brother died in a cloning experiment and Raymond covered it up."),
+                    new DialogueElement(true, Expression.Thinking, "... So you think this would be my motive for murder?"),
+                    new DialogueElement(false, Expression.Default, "It's a strong motive."), 
+                    new DialogueElement(true, Expression.Angry, "Well since I didn't commit the murder, I'll make that motive even stronger."),
+                    new DialogueElement(true, Expression.Angry, "My brother told Raymond the experiment wasn't ready, But Raymond wasn't willing to delay it, he rushed it ignoring all safety percautions."),
                 }
             ) },
             { nameof(ViolentExperimentalResearch), new DialogueSequence(
                 "The technique used by this cloning chamber is the same one used in the incident that killed your brother.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Ah so now you think I would make a clone that would attempt to kill Raymond?"),
-                    new DialogueElement(true, "Well sorry to disappoint, but even though the experiment resulted in a massacre, it did produce results and we were able to perfect the technique."),
-                    new DialogueElement(true, "This is the same method, but without that fatal flaw."),
+                    new DialogueElement(false, Expression.Default, "The technique used by this cloning chamber is the same one used in the incident that killed your brother."),
+                    new DialogueElement(true, Expression.Thinking, "Ah so now you think I would make a clone that would attempt to kill Raymond?"),
+                    new DialogueElement(true, Expression.Default, "Well sorry to disappoint, but even though the experiment resulted in a massacre, it did produce results and we were able to perfect the technique."),
+                    new DialogueElement(true, Expression.Default, "This is the same method, but without that fatal flaw."),
             } ) },
             #endregion
 
             #region Raymond's Clone
             { nameof(FoundYouRaymondsClone), new DialogueSequence(
-                "I have discover you Raymond's clone.",
+                "I have discoverd you clone.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "I'm not a clone! I'll excuse your mistake this time. I sent my clone to sleep on my ship that one we don't run the risk of having both of us discovered at the same time."),
+                    new DialogueElement(false, Expression.Default, "I have discoverd you clone."),
+                    new DialogueElement(true, Expression.Default, "I'm not a clone! I'll excuse your mistake this time. I sent my clone to sleep on my ship that one we don't run the risk of having both of us discovered at the same time."),
             } ) },
             { nameof(WhyKeepCloneSecret), new DialogueSequence(
                 "Why are you trying to keep your clone a secret.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "I have become far too busy in my CEO resposibilities, but I'll be much more capable to handle them if I have 2 of me. But I'll lost influence if they find out I'm using a clone to do that."),
+                    new DialogueElement(false, Expression.Default, "Why are you trying to keep your clone a secret."),
+                    new DialogueElement(true, Expression.Default, "I have become far too busy in my CEO resposibilities, but I'll be much more capable to handle them if I have 2 of me. But I'll lost influence if they find out I'm using a clone to do that."),
             } ) },
             { nameof(ElectricDischarge), new DialogueSequence(
                 "Where exactly does that recent electrical burn come from.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Ah yes..."),
-                    new DialogueElement(true, "Well you see..."),
-                    new DialogueElement(true, "The cloning process had a malfunction and I was hit with an electrical discharge."), 
+                    new DialogueElement(false, Expression.Thinking, "Where exactly does that recent electrical burn come from."),
+                    new DialogueElement(true, Expression.Thinking, "Ah yes..."),
+                    new DialogueElement(true, Expression.Thinking, "Well you see..."),
+                    new DialogueElement(true, Expression.Default, "The cloning process had a malfunction and I was hit with an electrical discharge."), 
             } ) },
             { nameof(Bruises), new DialogueSequence(
                 "You have quite a few recent bruises on you.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Yes bruises..."),
-                    new DialogueElement(true, "When the needles take matter from you in the new cloning process, it leaves bruises."),
+                    new DialogueElement(false, Expression.Default, "You have quite a few recent bruises on you."),
+                    new DialogueElement(true, Expression.Thinking, "Yes bruises..."),
+                    new DialogueElement(true, Expression.Default, "When the needles take matter from you in the new cloning process, it leaves bruises."),
             } ) },
             { nameof(RaymondSaysTheCloningDoesNotGiveBruises), new DialogueSequence(
                 "Raymond said that cloning does not give bruises.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Travis is lying."),
+                    new DialogueElement(false, Expression.Default, "Raymond said that cloning does not give bruises."),
+                    new DialogueElement(true, Expression.Fear, "Travis is lying."),
             } ) },
             { nameof(ItCouldOnlyHaveBeenUsedByYou), new DialogueSequence(
                 "The T71 Energy Blaster requires Raymond's DNA, you must have been the one to shoot it.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "I didn't... I lent it to my clone right after he was cloned because he was worried about assassin's on the way to the ship."), 
-                    new DialogueElement(false, "Then why is it in your room."),
-                    new DialogueElement(true, "..."),
-                    new DialogueElement(true, "He returned it to me."), 
+                    new DialogueElement(false, Expression.Default, "The T71 Energy Blaster requires Raymond's DNA, you must have been the one to shoot it."),
+                    new DialogueElement(true, Expression.Thinking, "I didn't... I lent it to my clone right after he was cloned because he was worried about assassin's on the way to the ship."), 
+                    new DialogueElement(false, Expression.Default, "Then why is it in your room."),
+                    new DialogueElement(true, Expression.Fear, "..."),
+                    new DialogueElement(true, Expression.Fear, "He returned it to me."), 
             } ) },
             { nameof(YourCloneShotYourShip), new DialogueSequence(
                 "Your other half shot your ship with the T71 energy blaster.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Not a problem, I'll just pay for repairs and a new paint job when I get Earth-side."),
+                    new DialogueElement(false, Expression.Default, "Your other half shot your ship with the T71 energy blaster."),
+                    new DialogueElement(true, Expression.Happy, "Not a problem, I'll just pay for repairs and a new paint job when I get Earth-side."),
             } ) },
             { nameof(YouWereDesignedToKill), new DialogueSequence(
                 "You were designed to kill your look a like.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "I was not designed, I'm Raymond Soule! I'm going to report you for treating me with such discontempt!"),
-                    new DialogueElement(false, "Then the clone was designed to kill."),
-                    new DialogueElement(true, "Well it hasn't fragging tried to kill me yet."), 
+                    new DialogueElement(false, Expression.Default, "You were designed to kill your look a like."),
+                    new DialogueElement(true, Expression.Angry, "I was not designed, I'm Raymond Soule! I'm going to report you for treating me with such discontempt!"),
+                    new DialogueElement(false, Expression.Thinking, "Then the clone was designed to kill."),
+                    new DialogueElement(true, Expression.Angry, "Well it hasn't fragging tried to kill me yet."), 
             } ) },
             { nameof(AnotherWitnessHeardYouOnTheShip), new DialogueSequence(
                 "A witness heard your voice aboard Raymond's craft.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "My clone has an identical voice, They probably just heard my clones voice."),
+                    new DialogueElement(false, Expression.Default, "A witness heard your voice aboard Raymond's craft."),
+                    new DialogueElement(true, Expression.Default, "My clone has an identical voice, They probably just heard my clones voice."),
             } ) },
             { nameof(YourBeingRidiculous), new DialogueSequence(
                 "I know you were designed to kill and that the bruises come from a stuggle with Raymond.",
                 new DialogueElement[] {
-                    new DialogueElement(false, "If you don't start telling me the truth I will just have to accuse you."),
-                    new DialogueElement(true, "... you are right. I had a violent urge to kill him and tried to choke him. He managed to get away from me though."), 
-                    new DialogueElement(true, "I didn't choose to have the killing urge and I didn't choose to be formed as a clone. But if it's found out that I'm a clone I'll lose everything."),
-                    new DialogueElement(true, "Detective if you leave the fact that I'm a clone off of your report, Human Perfect, under my leadership, will give you a handsome reward for your assistance in bringing the would be assassin to justice."),
+                    new DialogueElement(false, Expression.Angry, "I know you were designed to kill and that the bruises come from a stuggle with Raymond."),
+                    new DialogueElement(false, Expression.Angry, "If you don't start telling me the truth I will be forced to accuse you."),
+                    new DialogueElement(true, Expression.Fear, "... you are right. I had a violent urge to kill him and tried to choke him. He managed to get away from me though."), 
+                    new DialogueElement(true, Expression.Sad, "I didn't choose to have the killing urge and I didn't choose to be formed as a clone. But if it's found out that I'm a clone I'll lose everything."),
+                    new DialogueElement(true, Expression.Happy, "Detective if you leave the fact that I'm a clone off of your report, Human Perfect, under my leadership, will give you a handsome reward for your assistance in bringing the would be assassin to justice."),
             } ) },
             { nameof(PostCloneYouShotTheShip), new DialogueSequence(
                 "Now that you're being honest, you shot the craft.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "... After our struggle I chased after Raymond with his gun, but when we got to the docking bay I came to my senses and willed myself not to shoot Raymond so I shot the ship."),
-                    new DialogueElement(true, "I lied about the electrical discharge. After shooting Raymond's ship, Raymond ran into the garbage airlock and I was hit with a bolt of electricity. That knocked me out."), 
+                    new DialogueElement(false, Expression.Default, "Now that you're being honest, you shot the craft."),
+                    new DialogueElement(true, Expression.Thinking, "... After our struggle I chased after Raymond with his gun, but when we got to the docking bay I came to my senses and willed myself not to shoot Raymond so I shot the ship."),
+                    new DialogueElement(true, Expression.Default, "I lied about the electrical discharge. After shooting Raymond's ship, Raymond ran into the garbage airlock and I was hit with a bolt of electricity. That knocked me out."), 
             } ) },
             { nameof(PostCloneYouLaunchedTheShip), new DialogueSequence(
                 "Now tell me honestly, you were the one that launched the ship.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "I did, I saw Raymond's body floating in space among garbage. I wanted to save him so I flew my craft to him but the time I brought him into the ship he was dead."),
+                    new DialogueElement(false, Expression.Default, "Now tell me honestly, you were the one that launched the ship."),
+                    new DialogueElement(true, Expression.Sad, "I did, I saw Raymond's body floating in space among garbage. I wanted to save him so I flew my craft to him but the time I brought him into the ship he was dead."),
             } ) },
             { nameof(YouCanKeepYourLife), new DialogueSequence(
                 "I won't rob you of your life, and a reward is certainly deserved for catching your assassin.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "Pleasure doing business with you."),
+                    new DialogueElement(false, Expression.Happy, "I won't rob you of your life, and a reward is certainly deserved for catching your assassin."),
+                    new DialogueElement(true, Expression.Happy, "Pleasure doing business with you."),
             } ) },
             { nameof(YouRanYourCompanyPoorly), new DialogueSequence(
                 "I won't help you continue running your evil company.",
                 new DialogueElement[] {
-                    new DialogueElement(true, "... Maybe I can still convince people to let me run it. I'll just have to make some calls."),
+                    new DialogueElement(false, Expression.Angry, "I won't help you continue running your evil company."),
+                    new DialogueElement(true, Expression.Fear, "... Maybe I can still convince people to let me run it. I'll just have to make some calls."),
             } ) },
             #endregion
         };

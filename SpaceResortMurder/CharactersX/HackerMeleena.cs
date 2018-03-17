@@ -2,7 +2,6 @@
 using MonoDragons.Core.PhysicsEngine;
 using SpaceResortMurder.Clues.RaymondsSpaceCraft;
 using SpaceResortMurder.Dialogues.Meleena;
-using SpaceResortMurder.Dialogues.Zaid;
 using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.State;
 
@@ -11,19 +10,19 @@ namespace SpaceResortMurder.CharactersX
     public class HackerMeleena : Character
     {
         public HackerMeleena() : base(nameof(HackerMeleena), new Size2(480, 1128),
+            new IWontReportDataRaven(),
+            new DeckersMakeTheWorldWorse(),
             new WhoAreYou(),
             new MeleenasAccount(),
             new CorporateFreelancersCantNormallyAffordPersonalSpaceCrafts(),
             new SearchYourCraftForEvidence(),
-            new YouHaveARatherCleanRecord(),
-            new YouAreAHacker(),
             new HereIsTheSearchOrder(),
-            new IWontReportDataRaven(),
-            new DeckersMakeTheWorldWorse(),
-            new ProveIt(),
+            new YouAreAHacker(),
             new YouBrokeIntoRaymondsShip(),
-            new MeleenaYouShotTheShip(),
-            new YouDidntHearAVoiceYouLaunchedTheShip()) {}
+            new YouDidntHearAVoiceYouLaunchedTheShip(),
+            new YouHaveARatherCleanRecord(),
+            new ProveIt(),
+            new MeleenaYouShotTheShip()) {}
 
         public override string WhereAreYou()
         {

@@ -1,6 +1,4 @@
-﻿using SpaceResortMurder.CharactersX;
-using SpaceResortMurder.Clues.DockingBay;
-using SpaceResortMurder.State;
+﻿using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Dialogues.Meleena
 {
@@ -10,8 +8,7 @@ namespace SpaceResortMurder.Dialogues.Meleena
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(MeleenasShip))
-                   && (CurrentGameState.IsThinking(nameof(HackerMeleena)) || CurrentGameState.IsThinking(nameof(WhoAreYou)));
+            return CurrentGameState.IsThinking(nameof(CorporateFreelancersCantNormallyAffordPersonalSpaceCrafts));
         }
     }
 }

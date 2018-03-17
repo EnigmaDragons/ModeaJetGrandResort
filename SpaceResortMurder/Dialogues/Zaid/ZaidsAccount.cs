@@ -1,5 +1,4 @@
-﻿using SpaceResortMurder.CharactersX;
-using SpaceResortMurder.State;
+﻿using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Dialogues.Zaid
 {
@@ -9,7 +8,7 @@ namespace SpaceResortMurder.Dialogues.Zaid
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(WhoAreYouZaid)) || CurrentGameState.IsThinking(nameof(ResortManagerZaid)); 
+            return CurrentGameState.IsThinking(nameof(WhoAreYouZaid)); 
         }
     }
 }

@@ -7,6 +7,7 @@ using MonoDragons.Core.Inputs;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Style;
+using SpaceResortMurder.CharactersX;
 
 namespace SpaceResortMurder.Credits
 {
@@ -16,7 +17,8 @@ namespace SpaceResortMurder.Credits
         
         private int _countdown;
 
-        public abstract string Image { get; }
+        public abstract Character Character { get; }
+        public abstract Expression Expression { get; }
         public abstract string Role { get; }
         public abstract string Name { get; }
 
@@ -42,10 +44,15 @@ namespace SpaceResortMurder.Credits
                 }));
             _elements.Add(new HorizontalFlyInAnimation(
                 new Label
-                    { Text = Name,
+                    {
+                        Text = Name,
                         Transform = new Transform2(new Vector2(1920, yStart + 135), new Size2(800, 75))
                     })
                 { FromDir = HorizontalDirection.Right, ToDir = HorizontalDirection.Left });
+            var characterImage = Character.CreateFacingImage(Expression);
+            characterImage.Transform.Location = new Vector2(-500, yStart + 200);
+            characterImage.Transform.Size /= 3;
+            _elements.Add(new HorizontalFlyInAnimation(characterImage));
 
             _countdown = _elements.Count;
             _elements.ForEach(x => x.Start(() => FinishedOne(onFinished)));

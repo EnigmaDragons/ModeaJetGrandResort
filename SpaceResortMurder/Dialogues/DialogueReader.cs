@@ -31,6 +31,7 @@ namespace SpaceResortMurder.Dialogues
             Input.On(Control.A, Advance);
             _box = new ImageBox { Transform = new Transform2(new Size2(1920, 1080)), Image = "Convo/ChatBox" };
             _chatBox.ShowMessage(_lines.Dequeue().Line);
+            _onAdvance(lines.First());
         }
 
         public void Update(TimeSpan delta)

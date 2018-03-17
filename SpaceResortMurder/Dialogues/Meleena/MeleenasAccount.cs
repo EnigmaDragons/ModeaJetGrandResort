@@ -1,4 +1,6 @@
-﻿namespace SpaceResortMurder.Dialogues.Meleena
+﻿using SpaceResortMurder.State;
+
+namespace SpaceResortMurder.Dialogues.Meleena
 {
     public class MeleenasAccount : Dialogue
     {
@@ -6,7 +8,7 @@
 
         public override bool IsActive()
         {
-            return true;
+            return CurrentGameState.IsThinking(nameof(WhoAreYou));
         }
     }
 }

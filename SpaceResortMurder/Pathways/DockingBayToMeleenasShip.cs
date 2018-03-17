@@ -1,5 +1,7 @@
 ﻿using MonoDragons.Core.PhysicsEngine;
+using SpaceResortMurder.Dialogues.Meleena;
 using SpaceResortMurder.LocationsX;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Pathways
 {
@@ -8,6 +10,6 @@ namespace SpaceResortMurder.Pathways
         public DockingBayToMeleenasShip(Transform2 transform, string traverseArrowType)
             : base(transform, nameof(MeleenasShipInterior), "To Modded Craft", traverseArrowType) { }
 
-        public override bool IsTraversible => false;
+        public override bool IsTraversible =>  CurrentGameState.IsThinking(nameof(HereIsTheSearchOrder));
     }
 }
