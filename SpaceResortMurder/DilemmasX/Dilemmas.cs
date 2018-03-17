@@ -15,12 +15,13 @@ namespace SpaceResortMurder.DilemmasX
 
         private List<Dilemma> _dilemmas = new List<Dilemma>
         {
-            new WhatWasTheTimeFrameForTheMurder(),
-            new WhoShotRaymondsShip(),
-            new WhoHackedTheDoor(),
             new WasZaidsResortAcceptedAsABetaTester(),
-            new WasMeleenaTellingTheTruthAboutWhatHappenedOnRaymondsShip(),
+            new WhereDidRaymondsCloneGetAnElectricalBurn(),
+            new WhatWasTheTimeFrameForTheMurder(),
+            new WhoHackedTheDoor(),
+            new WhereDidTheBruisesComeFrom(),
             new WhoLaunchedTheShip(),
+            new WhoShotRaymondsShip(),
             new WasTheCloneDesignedToKill(),
         };
 

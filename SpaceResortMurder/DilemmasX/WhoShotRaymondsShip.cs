@@ -7,7 +7,7 @@ namespace SpaceResortMurder.DilemmasX
 {
     public class WhoShotRaymondsShip : Dilemma
     {
-        public WhoShotRaymondsShip() : base(new Vector2(250, 138), nameof(WhoShotRaymondsShip), 
+        public WhoShotRaymondsShip() : base(new Vector2(1020, 738), nameof(WhoShotRaymondsShip), 
             new RaymondShotHisOwnShip(),
             new ZaidShotRaymondsShip(),
             new MeleenaShotRaymondsShip(),

@@ -2,28 +2,30 @@
 using MonoDragons.Core.PhysicsEngine;
 using SpaceResortMurder.Dialogues.RaymondsClone;
 using SpaceResortMurder.LocationsX;
-using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.CharactersX
 {
     public class CEORaymondsClone : Character
     {
-        public CEORaymondsClone() : base(nameof(CEORaymondsClone), new Size2(480, 1128), 
+        public CEORaymondsClone() : base(nameof(CEORaymondsClone), new Size2(480, 1128),
             new FoundYouRaymondsClone(),
             new WhyKeepCloneSecret(),
             new ElectricDischarge(),
             new Bruises(),
             new RaymondSaysTheCloningDoesNotGiveBruises(),
-
-            new MeetingRaymondsClone(),
-            new YourLookALikeIsDead(),
-            new GoToTheLobby(),
-            new DidYouChokeYourClone(),
-            new MeleenaIdentifiedYourVoice()) {}
+            new ItCouldOnlyHaveBeenUsedByYou(),
+            new YourCloneShotYourShip(),
+            new YouWereDesignedToKill(),
+            new AnotherWitnessHeardYouOnTheShip(),
+            new YourBeingRidiculous(),
+            new PostCloneYouShotTheShip(),
+            new PostCloneYouLaunchedTheShip(),
+            new YouCanKeepYourLife(),
+            new YouRanYourCompanyPoorly()) {}
 
         public override string WhereAreYou()
         {
-            return CurrentGameState.IsThinking(nameof(GoToTheLobby)) ? nameof(Lobby) : nameof(VacantRoom);
+            return nameof(VacantRoom);
         }
 
         public override Transform2 WhereAreYouStanding()

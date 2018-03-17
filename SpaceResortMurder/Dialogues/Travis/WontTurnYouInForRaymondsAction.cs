@@ -4,7 +4,10 @@ namespace SpaceResortMurder.Dialogues.Travis
 {
     public class WontTurnYouInForRaymondsAction : Dialogue
     {
-        public WontTurnYouInForRaymondsAction() : base(nameof(WontTurnYouInForRaymondsAction)) {}
+        public WontTurnYouInForRaymondsAction() : base(nameof(WontTurnYouInForRaymondsAction))
+        {
+            IsExclusive = true;
+        }
 
         public override bool IsActive()
         {

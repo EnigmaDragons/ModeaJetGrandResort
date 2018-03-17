@@ -1,8 +1,8 @@
 ﻿namespace SpaceResortMurder.Deductions.CauseOfDeath
 {
-    public class PoisonNeedles : Deduction
+    public class KilledInSpace : Deduction
     {
-        public PoisonNeedles() : base(nameof(PoisonNeedles)) {}
+        public KilledInSpace() : base(nameof(KilledInSpace)) {}
 
         public override bool IsActive()
         {

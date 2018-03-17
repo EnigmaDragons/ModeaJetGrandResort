@@ -7,7 +7,7 @@ namespace SpaceResortMurder.DilemmasX
 {
     public class WhoHackedTheDoor : Dilemma
     {
-        public WhoHackedTheDoor() : base(new Vector2(990, 558), nameof(WhoHackedTheDoor), 
+        public WhoHackedTheDoor() : base(new Vector2(1020, 208), nameof(WhoHackedTheDoor), 
             new ZaidHackedTheDoor(),
             new TravisHackedTheDoor(),
             new MeleenaHackedTheDoor()) {}

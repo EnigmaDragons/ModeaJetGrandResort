@@ -1,4 +1,5 @@
 ﻿using SpaceResortMurder.Deductions.TheMurdererWas;
+using SpaceResortMurder.Dialogues.Meleena;
 using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Deductions.TheCulpritsMotive
@@ -9,7 +10,7 @@ namespace SpaceResortMurder.Deductions.TheCulpritsMotive
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(MeleenaWasTheCulprit));
+            return CurrentGameState.IsThinking(nameof(MeleenaWasTheCulprit)) && CurrentGameState.IsThinking(nameof(YouBrokeIntoRaymondsShip));
         }
     }
 }

@@ -7,7 +7,7 @@ namespace SpaceResortMurder.DilemmasX
 {
     public class WasTheCloneDesignedToKill : Dilemma
     {
-        public WasTheCloneDesignedToKill() : base(new Vector2(250, 558), nameof(WasTheCloneDesignedToKill), 
+        public WasTheCloneDesignedToKill() : base(new Vector2(1490, 593), nameof(WasTheCloneDesignedToKill), 
             new DesignedToKill(),
             new PerfectedDesign()) {}
 

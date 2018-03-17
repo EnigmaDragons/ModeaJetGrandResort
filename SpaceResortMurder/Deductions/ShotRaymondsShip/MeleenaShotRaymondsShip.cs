@@ -1,4 +1,8 @@
-﻿namespace SpaceResortMurder.Deductions
+﻿using SpaceResortMurder.CharactersX;
+using SpaceResortMurder.Dialogues.Meleena;
+using SpaceResortMurder.State;
+
+namespace SpaceResortMurder.Deductions
 {
     public class MeleenaShotRaymondsShip : Deduction
     {
@@ -6,7 +10,7 @@
 
         public override bool IsActive()
         {
-            return true;
+            return CurrentGameState.IsThinking(nameof(HackerMeleena)) && CurrentGameState.IsThinking(nameof(WhoAreYou));
         }
     }
 }

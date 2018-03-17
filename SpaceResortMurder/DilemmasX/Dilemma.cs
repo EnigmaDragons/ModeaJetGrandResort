@@ -9,6 +9,7 @@ using MonoDragons.Core.UserInterface;
 using SpaceResortMurder.Deductions;
 using SpaceResortMurder.State;
 using System.Collections.Generic;
+using SpaceResortMurder.Style;
 
 namespace SpaceResortMurder.DilemmasX
 {
@@ -26,7 +27,7 @@ namespace SpaceResortMurder.DilemmasX
 
         protected Dilemma(Vector2 position, string dilemma, params Deduction[] deductions)
         {
-            _transform = new Transform2(position, new Size2(405, 135));
+            _transform = new Transform2(position, UiButtons.PonderingSize());
             _dilemma = dilemma;
             _deductions = deductions;
         }
