@@ -112,6 +112,7 @@ namespace SpaceResortMurder.Dialogues
         {
             ClickUiBranch.Clear();
             _reader = new DialogueReader(elements, InitDialogueOptions, _onNextDialogueElement);
+            _onNextDialogueElement(elements[0]);
             DisableDialogueControls();
             _isPresentingToUser = true;
         }
