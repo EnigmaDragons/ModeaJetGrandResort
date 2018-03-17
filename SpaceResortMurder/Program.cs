@@ -32,20 +32,22 @@ namespace SpaceResortMurder
         {
             HandleExceptions(() =>
             {
-                using (var game = Perf.Time("Startup", () => CreateGame("Logo")))
+                using (var game = Perf.Time("Startup", () => CreateGame("DockingBay")))
                     game.Run();
             });
         }
 
-        private static Game CreateGame(string startingScene)
+        private static Game CreateGame(string requestedStartingScene)
         {
             Init();
             const string gameName = "ModeaJet Grand Resort";
             var scene = SetupScene();
 #if DEBUG
             var controller = new DeveloperCheatController(CreateKeyboardController());
+            var startingScene = requestedStartingScene;
 #else
             var controller = CreateKeyboardController();
+            var startingScene = "Logo";
 #endif
             return CurrentOptions.IsFullscreen
                 ? new NeedlesslyComplexMainGame(gameName, startingScene, new Size2(1920, 1080), scene, controller)

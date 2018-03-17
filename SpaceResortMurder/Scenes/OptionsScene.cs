@@ -79,7 +79,7 @@ namespace SpaceResortMurder.Scenes
                 CurrentOptions.Update((x) => x.SoundVolume = Math.Max(x.SoundVolume - 0.1f, 0));
                 _soundVolume.Text = GetSoundVolumeText();
             }));
-            _soundVolume = VolumeLabel(GetSoundVolumeText(), new Vector2(colX + iconWidth + margin, Height(1)), Color.Black);
+            _soundVolume = VolumeLabel(GetSoundVolumeText(), new Vector2(colX + iconWidth + margin, Height(1)), Color.White);
             Add(_soundVolume);
             Add(UiButtons.SmallIcon("Icons/PlusGreen", new Vector2(colX + 240 + iconWidth + margin * 2, Height(1) + iconYOffset), () =>
             {
@@ -92,7 +92,7 @@ namespace SpaceResortMurder.Scenes
                 CurrentOptions.Update((x) => x.MusicVolume = Math.Max(x.MusicVolume - 0.1f, 0));
                 _musicVolume.Text = GetMusicVolumeText();
             }));
-            _musicVolume = VolumeLabel(GetMusicVolumeText(), new Vector2(colX + iconWidth + margin, Height(2)), Color.Black);
+            _musicVolume = VolumeLabel(GetMusicVolumeText(), new Vector2(colX + iconWidth + margin, Height(2)), Color.White);
             Add(_musicVolume);
             Add(UiButtons.SmallIcon("Icons/PlusGreen", new Vector2(colX + 240 + iconWidth + margin * 2, Height(2) + iconYOffset), () =>
             {
@@ -125,7 +125,7 @@ namespace SpaceResortMurder.Scenes
 
         protected override void DrawBackground()
         {
-            UI.FillScreen("UI/OptionsBg");
+            UI.FillScreen("Pondering/PonderingBgHr");
             UI.Darken();
         }
 

@@ -22,9 +22,9 @@ namespace SpaceResortMurder.LocationsX
             new List<IPathway>
             {
                 new DockingBayToLobby(new Transform2(new Vector2(0, 571), new Size2(287, 227))),
-                new DockingBayToRaymondsShip(new Transform2(new Vector2(1670, 960), new Size2(96, 96)), "U"),
-                new DockingBayToMeleenasShip(new Transform2(new Vector2(1190, 945), new Size2(96, 96)), "U"),
-                new DockingBayToPoliceCruiser(new Transform2(new Vector2(740, 930), new Size2(96, 96)), "U"),
+                new DockingBayToRaymondsShip(new Transform2(new Vector2(1670, 915), new Size2(96, 96)), "U"),
+                new DockingBayToMeleenasShip(new Transform2(new Vector2(1190, 915), new Size2(96, 96)), "U"),
+                new DockingBayToPoliceCruiser(new Transform2(new Vector2(740, 915), new Size2(96, 96)), "U"),
             }) {}
     }
 }
