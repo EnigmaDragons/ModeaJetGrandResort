@@ -16,7 +16,7 @@ namespace SpaceResortMurder.DilemmasX
 
         protected override void OnInit()
         {
-            Audio.PlayMusic("Pondering", 0.37f );
+            Audio.PlayMusic("Pondering", 0.78f );
             _header = UiLabels.FullWidthHeaderLabel("Current Investigation", Color.White);
 
             Add(UiButtons.Back(() => Scene.NavigateTo(CurrentGameState.CurrentLocation)));

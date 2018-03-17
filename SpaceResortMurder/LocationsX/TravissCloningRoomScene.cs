@@ -10,7 +10,7 @@ namespace SpaceResortMurder.LocationsX
 
         protected override void OnInit()
         {
-            Audio.PlayMusic("CloningRoom");
+            Audio.PlayMusic("CloningRoom", 0.94f);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace SpaceResortMurder.TutorialsX
     public abstract class Tutorial : IVisualAutomaton
     {
         private readonly string _name;
+        private TimeSpan _timeSinceTutorialAppeared = TimeSpan.Zero;
 
         protected abstract bool TutorialIsUnlocked { get; }
         protected abstract Vector2 OverlayPosition { get; }
@@ -20,12 +21,14 @@ namespace SpaceResortMurder.TutorialsX
 
         protected Tutorial(string name)
         {
-            Button = new ScreenClickable(End) { IsEnabled = false } ;
+            Button = new ScreenClickable(EndIfViewed) { IsEnabled = false } ;
             _name = name;
         }
 
         public void Update(TimeSpan delta)
         {
+            if(ShouldShowTutorial())
+                _timeSinceTutorialAppeared += delta;
             Button.IsEnabled = ShouldShowTutorial();
         }
 
@@ -43,9 +46,10 @@ namespace SpaceResortMurder.TutorialsX
             return CurrentOptions.TutorialsAreEnabled && TutorialIsUnlocked && !CurrentGameState.HasViewedItem(_name);
         }
 
-        private void End()
+        private void EndIfViewed()
         {
-            Event.Publish(new ItemViewed(_name));
+            if(_timeSinceTutorialAppeared >= TimeSpan.FromMilliseconds(500))
+                Event.Publish(new ItemViewed(_name));
         }
     }
 }
