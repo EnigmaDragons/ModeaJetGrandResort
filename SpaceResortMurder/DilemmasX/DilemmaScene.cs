@@ -21,7 +21,7 @@ namespace SpaceResortMurder.DilemmasX
 
             Add(UiButtons.Back(() => Scene.NavigateTo(CurrentGameState.CurrentLocation)));
             if(GameObjects.Dilemmas.HasTheory)
-                Add(UiButtons.MenuRed("Resolve", new Vector2(UI.OfScreenWidth(0.5f) - 180, 980), () => Scene.NavigateTo(GameResources.ResolutionSceneName)));
+                Add(UiButtons.MenuRed("Resolve", new Vector2(UI.OfScreenWidth(0.5f) - 180, 980), () => Scene.NavigateTo(GameResources.EndingSceneName)));
 
             GameObjects.Dilemmas.GetActiveDilemmas().ForEach(d =>
             {

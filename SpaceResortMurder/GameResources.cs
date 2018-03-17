@@ -43,7 +43,6 @@ namespace SpaceResortMurder
         public const string CreditsSceneName = "Credits";
         public const string DilemmasSceneName = "Dilemmas";
         public const string DialogueMemoriesScene = "Dialogue Memories";
-        public const string ResolutionSceneName = "Resolution";
         public const string EndingSceneName = "Ending";
         public const string SaveLoadSceneName = "SaveLoad";
         public const string PickNameSceneName = "PickName";
@@ -62,7 +61,6 @@ namespace SpaceResortMurder
                 TestSymbols(d.Opener);
                 d.Elements.ForEach(s => TestSymbols(s.Line));
             });
-            _resolutionQuestionsText.Values.ForEach(s => TestSymbols(s));
             _pathwayText.Values.ForEach(s => TestSymbols(s));
         }
 
@@ -113,11 +111,6 @@ namespace SpaceResortMurder
             var sequence = _dialogues[dialog];
             return new DialogueSequence(ReplaceSymbols(sequence.Opener), sequence.Elements.Select(e =>
                 new DialogueElement(e.IsCharacterTalking, e.Expression, ReplaceSymbols(e.Line))).ToArray());
-        }
-
-        public static string GetResolutionText(string resolution)
-        {
-            return ReplaceSymbols(_resolutionQuestionsText[resolution].ToCharArray());
         }
 
         public static string GetPathwayText(string pathway)
@@ -294,7 +287,7 @@ namespace SpaceResortMurder
             { nameof(UnencryptedDataDrive), new string[] {
                 "The data drive contains Raymond's files about a recent cloning experiment gone wrong.",
                 "The experiment was supposed to make perfect clones. It used needles to extract key matter for replication.",
-                "The experiment turned deadly when all the clones tried to kill their look a likes. It was a massacre. The researcher Bernard Falcon was overseeing the project and paid for it with his life.",
+                "The experiment turned deadly when all the clones tried to kill their look a likes. It was a massacre. Bearnard Falcon, Travis's brother was overseeing the project and paid for it with his life.",
                 "Raymond Soule covered up the massacre by staging a terroist attack that supposedly killed the people.",
             } },
             { nameof(SkeletonKey), new string[] {
@@ -864,10 +857,6 @@ namespace SpaceResortMurder
 
             { nameof(GetAnEncryptionKeyForMeleenasDataDrive), "Get Meleena's Data Encryption Key" },
             { nameof(CheckWhatsOnMeleenasDataDrive), "Decrypt Meleena's Data Stick" },
-        };
-
-        private static DictionaryWithDefault<string, string> _resolutionQuestionsText = new DictionaryWithDefault<string, string>("This option is not implemented") {
-            { nameof(IAmLeaving), "I am leaving" }
         };
 
         private static DictionaryWithDefault<string, string> _pathwayText = new DictionaryWithDefault<string, string>("This pathway should not be stopping you"){
