@@ -11,7 +11,7 @@ namespace SpaceResortMurder.SavesX
         private string _fileName;
 
         public bool HasSave { get; private set; }
-        public string PlayerName { get; private set; } = "Empty";
+        public string PlayerName { get; private set; } = "";
         public string CoverImage { get; private set; } = "Images/None";
 
         public static SaveSlot Create(int slot)

@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 
@@ -7,7 +6,7 @@ namespace SpaceResortMurder.Style
 {
     public static class UiLabels
     {
-        public static IVisual FullWidthHeaderLabel(string text, Color color)
+        public static Label FullWidthHeaderLabel(string text, Color color)
         {
             return new Label
             {
