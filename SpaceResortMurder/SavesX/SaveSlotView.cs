@@ -28,14 +28,13 @@ namespace SpaceResortMurder.SavesX
 
         public void Init()
         {
-            _visuals.Add(new ImageBox { Image = "UI/SaveSlotBox", Transform = new Transform2(_position - new Vector2(5, 5), new Size2(490, 325)) });
-            var button = new ExpandingImageButton(_slot.CoverImage, _slot.CoverImage, _slot.CoverImage,
-                new Transform2(_position, new Size2(480, 270)), new Size2(6, 6), () => _slot.Execute(_getMode()),
+            var button = new ExpandingImageButton("UI/SaveSlotBox", "UI/SaveSlotBox", "UI/SaveSlotBox",
+                new Transform2(_position - new Vector2(5, 5), new Size2(490, 325)), new Size2(5, 5), () => _slot.Execute(_getMode()),
                 () => _slot.HasSave || _getMode() == SaveMode.Save);
             ClickUiBranch.Add(button);
             _visuals.Add(button);
-            _visuals.Add(new Label { Text = _slot.PlayerName, Transform = new Transform2(_position + new Vector2(0, 270), new Size2(480, 50)) });
-
+            _visuals.Add(new ImageBox { Image = _slot.CoverImage, Transform = new Transform2(_position, new Size2(480, 270)) });
+            _visuals.Add(new Label { Text = _slot.PlayerName, Transform = new Transform2(_position + new Vector2(0, 272), new Size2(480, 48)) });
         }
 
         public void Update(TimeSpan delta)
