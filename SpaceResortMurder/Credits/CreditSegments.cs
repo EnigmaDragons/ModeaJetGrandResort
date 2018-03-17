@@ -4,11 +4,10 @@ namespace SpaceResortMurder.Credits
 {
     public sealed class EnigmaDragonsCredit : BasicJamCreditSegment
     {
-        public override Character Character => GameObjects.Characters.GetCharacter<CEORaymondsClone>();
+        public override Character Character => null;
         public override Expression Expression => Expression.Default;
         public override string Role => "Enigma Dragons";
         public override string Name => "";
-
     }
 
     public sealed class ProjectManagerCredit : BasicJamCreditSegment

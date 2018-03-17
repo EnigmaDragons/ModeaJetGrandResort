@@ -444,9 +444,9 @@ namespace SpaceResortMurder
                     new DialogueElement(true, Expression.Default, "\\Player\\, I only use my decking to fight corp corruption, and don't you think it would be useful if you had a decker in your pocket for future investigations? Please don't include \"Data Raven\" in your report."),
             } ) },
             { nameof(IWontReportDataRaven), new DialogueSequence(
-                "I won't report \"Data Raven\" and you are going to give me the endryption key for your data drive.",
+                "Give me the encryption key and I won't report \"Data Raven\".",
                 new DialogueElement[] {
-                    new DialogueElement(false, Expression.Default, "I won't report \"Data Raven\" and you are going to give me the endryption key for your data drive."),
+                    new DialogueElement(false, Expression.Default, "Give me the encryption key and I won't report \"Data Raven\"."),
                     new DialogueElement(true, Expression.Happy, "You won't regret this, roid! Anything for my new chummer. It's got some valuable paydata."),
             } ) },
             { nameof(DeckersMakeTheWorldWorse), new DialogueSequence(

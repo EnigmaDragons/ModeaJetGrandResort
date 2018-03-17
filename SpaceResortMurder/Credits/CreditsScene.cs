@@ -20,6 +20,7 @@ namespace SpaceResortMurder.Credits
             Audio.PlayMusicOnce("Credits", 1);
             AddUi(new ScreenClickable(() => Scene.NavigateTo(GameResources.MainMenuSceneName)));
 
+            AddAnimation(new TitleJamCreditSegment());
             AddAnimation(new EnigmaDragonsCredit());
             AddAnimation(new ProjectManagerCredit());
             AddAnimation(new GameDesignerCredit());

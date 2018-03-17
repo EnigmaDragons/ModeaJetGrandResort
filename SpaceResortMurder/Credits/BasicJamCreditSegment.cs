@@ -36,7 +36,8 @@ namespace SpaceResortMurder.Credits
         {
             var yStart = Rng.Int(280, 800);
 
-            _elements.Add(Rng.Bool() ? CharacterFromLeft() : CharacterFromRight());
+            if (Character != null)
+                _elements.Add(Rng.Bool() ? CharacterFromLeft() : CharacterFromRight());
             _elements.Add(new HorizontalFlyInAnimation(
                 new Label
                 {
