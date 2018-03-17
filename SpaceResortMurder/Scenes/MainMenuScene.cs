@@ -29,7 +29,7 @@ namespace SpaceResortMurder.Scenes
         protected override void DrawBackground()
         {
             UI.FillScreen("Locations/TitleScreenBg");
-            World.Draw("UI/Title", new Transform2(new Vector2(430, 190), Rotation2.Default, new Size2(1134, 474), 0.6f));
+            World.Draw("UI/Title", new Transform2(new Vector2(430, 190), Rotation2.Default, new Size2(1134, 474), 0.7f));
             UI.DrawCenteredWithOffset("UI/Copyright", new Vector2(313, 32), new Vector2(744, 494));
         }
 

@@ -21,7 +21,6 @@ namespace SpaceResortMurder.Credits
             AddUi(new ScreenClickable(() => Scene.NavigateTo(GameResources.MainMenuSceneName)));
 
             AddAnimation(new TitleJamCreditSegment());
-            AddAnimation(new EnigmaDragonsCredit());
             AddAnimation(new ProjectManagerCredit());
             AddAnimation(new GameDesignerCredit());
             AddAnimation(new LeadArtistCredit());
