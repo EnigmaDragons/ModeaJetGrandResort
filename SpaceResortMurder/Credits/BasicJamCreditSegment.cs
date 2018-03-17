@@ -53,9 +53,6 @@ namespace SpaceResortMurder.Credits
             characterImage.Transform.Location = new Vector2(-500, yStart + 200);
             characterImage.Transform.Size /= 3;
             _elements.Add(new HorizontalFlyInAnimation(characterImage));
-            //_elements.Add(new HorizontalFlyInAnimation(Character.CreateFacingImage());
-            /*new ImageBox { , Transform = new Transform2(new Vector2(-500, yStart - 250), new Size2(300, 200)) })
-            { FromDir = HorizontalDirection.Left, ToDir = HorizontalDirection.Right });*/
 
             _countdown = _elements.Count;
             _elements.ForEach(x => x.Start(() => FinishedOne(onFinished)));
