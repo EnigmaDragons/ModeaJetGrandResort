@@ -1,5 +1,4 @@
-﻿using SpaceResortMurder.Clues.MeleenasSpaceCraft;
-using SpaceResortMurder.State;
+﻿using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Dialogues.Travis
 {
@@ -11,7 +10,6 @@ namespace SpaceResortMurder.Dialogues.Travis
         {
             return (CurrentGameState.IsThinking(nameof(YouAreStillResposible))
                     || CurrentGameState.IsThinking(nameof(WontTurnYouInForRaymondsAction)))
-                && CurrentGameState.IsThinking(nameof(UnencryptedDataDrive))
                 && CurrentGameState.IsThinking(nameof(YourBrotherWasKilled));
         }
     }

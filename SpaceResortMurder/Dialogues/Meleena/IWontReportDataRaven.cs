@@ -11,7 +11,8 @@ namespace SpaceResortMurder.Dialogues.Meleena
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(YouAreAHacker));
+            return CurrentGameState.IsThinking(nameof(YouAreAHacker))
+                && !CurrentGameState.IsThinking(nameof(DeckersMakeTheWorldWorse));
         }
     }
 }

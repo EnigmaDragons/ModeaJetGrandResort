@@ -1,14 +1,14 @@
-﻿using Microsoft.Xna.Framework;
-using MonoDragons.Core.PhysicsEngine;
+﻿using MonoDragons.Core.PhysicsEngine;
 
 namespace SpaceResortMurder.Clues.DockingBay
 {
     public class RaymondsShip : Clue
     {
-        public RaymondsShip() : base(
-            "Placeholder/RaymondsShip+", 
-            new Transform2(new Vector2(700, 500), new Size2(290, 140)), 
-            new Size2(580, 280), 
+        public RaymondsShip(Transform2 transform) : base(
+            "Clues/RaymondsShip",
+            "Clues/RaymondsShip-Medium",
+            transform, 
+            new Size2(251, 330), 
             nameof(RaymondsShip),
             "Raymond's Craft") {}
     }

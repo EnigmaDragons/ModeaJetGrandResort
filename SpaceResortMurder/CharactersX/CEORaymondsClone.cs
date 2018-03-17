@@ -8,20 +8,27 @@ namespace SpaceResortMurder.CharactersX
     public class CEORaymondsClone : Character
     {
         public CEORaymondsClone() : base(nameof(CEORaymondsClone), new Size2(480, 1128),
+            new YouCanKeepYourLife(),
+            new YouRanYourCompanyPoorly(),
             new FoundYouRaymondsClone(),
+
             new WhyKeepCloneSecret(),
+
+            new YourBeingRidiculous(),
+
             new ElectricDischarge(),
+
             new Bruises(),
             new RaymondSaysTheCloningDoesNotGiveBruises(),
+
+            new YouWereDesignedToKill(),
+
             new ItCouldOnlyHaveBeenUsedByYou(),
             new YourCloneShotYourShip(),
-            new YouWereDesignedToKill(),
-            new AnotherWitnessHeardYouOnTheShip(),
-            new YourBeingRidiculous(),
             new PostCloneYouShotTheShip(),
-            new PostCloneYouLaunchedTheShip(),
-            new YouCanKeepYourLife(),
-            new YouRanYourCompanyPoorly()) {}
+
+            new AnotherWitnessHeardYouOnTheShip(),
+            new PostCloneYouLaunchedTheShip()) {}
 
         public override string WhereAreYou()
         {

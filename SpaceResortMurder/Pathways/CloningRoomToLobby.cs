@@ -1,5 +1,7 @@
 ﻿using MonoDragons.Core.PhysicsEngine;
+using SpaceResortMurder.Clues.CloningRoom;
 using SpaceResortMurder.LocationsX;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Pathways
 {
@@ -8,6 +10,6 @@ namespace SpaceResortMurder.Pathways
         public CloningRoomToLobby(Transform2 transform, string traverseArrowType)
             : base(transform, nameof(Lobby), "To Lobby", traverseArrowType) { }
 
-        public override bool IsTraversible => true;
+        public override bool IsTraversible => CurrentGameState.IsThinking(nameof(CloningChamber));
     }
 }

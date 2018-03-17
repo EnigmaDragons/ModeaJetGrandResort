@@ -1,20 +1,16 @@
-﻿using Microsoft.Xna.Framework;
-using MonoDragons.Core.PhysicsEngine;
+﻿using MonoDragons.Core.PhysicsEngine;
 using SpaceResortMurder.Clues.RaymondsSpaceCraft;
+using SpaceResortMurder.Dialogues.Meleena;
 using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Pathways
 {
-    public class DockingBayToLobby : ExpandingImagePathway
+    public class DockingBayToLobby : LightUpPathway
     {
-        public DockingBayToLobby() : base(
-            nameof(DockingBayToLobby), 
-            "Placeholder/Door", 
-            new Transform2(new Vector2(0, 0), new Size2(350, 348)), 
-            nameof(Lobby),
-            "To Lobby") {}
+        public DockingBayToLobby(Transform2 transform) 
+            : base(transform, nameof(Lobby), "Traverse/DockingBayToLobbyDoor", "To Lobby") { }
 
-        public override bool IsTraversible =>  CurrentGameState.IsThinking(nameof(RaymondsCorpse));
+        public override bool IsTraversible =>  CurrentGameState.IsThinking(nameof(RaymondsCorpse)) && CurrentGameState.IsThinking(nameof(WhoAreYou));
     }
 }

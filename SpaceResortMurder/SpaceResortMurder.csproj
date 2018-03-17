@@ -48,6 +48,7 @@
     <Compile Include="Clues\CloningRoom\CloningChamber.cs" />
     <Compile Include="Clues\Clue.cs" />
     <Compile Include="Clues\DockingBay\GarbageAirlock.cs" />
+    <Compile Include="Clues\DockingBay\PoliceCruiserShip.cs" />
     <Compile Include="Clues\DockingBay\MeleenasShip.cs" />
     <Compile Include="Clues\InvestigateClueView.cs" />
     <Compile Include="Clues\MeleenasSpaceCraft\EncryptedDataDrive.cs" />
@@ -364,7 +365,16 @@
     <Content Include="Content\Clues\DataEncrypted-Small.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Clues\GarbageAirlock.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Clues\HackingRig.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Clues\MeleenasShip.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Clues\PoliceCruiser.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Clues\RaymondPad-Medium.png">
@@ -374,6 +384,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Clues\RaymondsCorpse.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Clues\RaymondsShip-Medium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Clues\RaymondsShip.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Clues\ShipsLogs-Small.png">
@@ -497,6 +513,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Locations\BedroomBg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Locations\docking_bay_final.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Locations\hotel_lobby_environment.png">
@@ -653,6 +672,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sounds\Scanning.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Traverse\DockingBayToLobbyDoor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Traverse\PoliceCruiserDoor.png">

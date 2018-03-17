@@ -10,7 +10,9 @@ namespace SpaceResortMurder.Dialogues.RaymondsClone
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(RaymondsCloneShotRaymondsShip)) && CurrentGameState.IsThinking(nameof(T71EnergyBlaster));
+            return CurrentGameState.IsThinking(nameof(RaymondsCloneShotRaymondsShip)) 
+                && CurrentGameState.IsThinking(nameof(T71EnergyBlaster))
+                && CurrentGameState.IsThinking(nameof(FoundYouRaymondsClone));
         }
     }
 }

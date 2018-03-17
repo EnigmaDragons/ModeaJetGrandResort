@@ -193,7 +193,7 @@ namespace SpaceResortMurder
         private static DictionaryWithDefault<string, string> _characterNames = new DictionaryWithDefault<string, string>("Unnamed Character") {
             { nameof(OfficerWarren), "Warren, Officer" },
             { nameof(HackerMeleena), "\\Meleena\\" },
-            { nameof(CEORaymondsClone), "Raymond's Clone, CEO of Human Perfect" },
+            { nameof(CEORaymondsClone), "Raymond Soule's Clone" },
             { nameof(ResearcherTravis), "Travis Falcon, Clone Researcher" },
             { nameof(ResortManagerZaid), "Zaid Ahuja, Resort Manager" },
         };
@@ -258,6 +258,9 @@ namespace SpaceResortMurder
             } },
             { nameof(GarbageAirlock), new string[] {
                 "A garbage airlock that releases trash into space. It shows signs of recent use.",
+            } },
+            { nameof(PoliceCruiserShip), new string[] {
+                "My police cruiser is definitely a huge clue in this case. If only I could figure out what it means.",
             } },
             #endregion
 
@@ -867,12 +870,16 @@ namespace SpaceResortMurder
         };
 
         private static DictionaryWithDefault<string, string> _pathwayText = new DictionaryWithDefault<string, string>("This pathway should not be stopping you"){
-            { nameof(PoliceCruiserToDockingBay), "I am not ready yet" },
-            { nameof(DockingBayToLobby), "I need to investigate the crime scene first" },
-            { nameof(DockingBayToPoliceCruiser), "I need to investigate the crime scene first" },
-            { nameof(RaymondsShipToDockingBay), "I am not finished investigating here" },
-            { nameof(DockingBayToMeleenasShip), "I need the owner to unlock it for me" },
-            { nameof(MeleenasShipToDockingBay), "I am not finished investigating here" }
+            { nameof(CloningRoomToLobby), "I really should inspect the cloning chamber before I leave." },
+            { nameof(DockingBayToLobby), "\\DockingBayToLobby\\" },
+            { nameof(DockingBayToMeleenasShip), "I will need the owner of this craft to unlock it for me." },
+            { nameof(DockingBayToPoliceCruiser), "Who needs to investigate crime scenes when I can joyride in my cruiser." },
+            { nameof(LobbyToCloningRoom), "I love barging into random rooms for absolutely no reason." },
+            { nameof(LobbyToVacantRoom), "I'm sure to find a clue if I just wander aimlessly around for hours." },
+            { nameof(MeleenasShipToDockingBay), "Now that I did all that work to get in here, I am just gonna ignore everything in here." },
+            { nameof(PoliceCruiserToDockingBay), "\\PoliceCruiserToDockingBay\\" },
+            { nameof(RaymondsShipToDockingBay), "Look at all these obvious clues I'm trying to ignore." },
+            { nameof(VacantRoomToLobby), "I feel like I'm missing a smoking gun." },
         };
 
         private static Dictionary<string, Func<string>> _symbols = new Dictionary<string, Func<string>> {
@@ -888,6 +895,12 @@ namespace SpaceResortMurder
                         return "Meleena Ka'lick, Corporate Freelancer";
                     return "???";
                 }
+            },
+            { "DockingBayToLobby",
+                () => CurrentGameState.IsThinking(nameof(RaymondsCorpse)) ? "Let's pretend Warren doesn't have a female with him." : "Why investigate murders when you can chill in the lobby."
+            },
+            { "PoliceCruiserToDockingBay",
+                () => CurrentGameState.IsThinking(nameof(Clock)) ? "Maybe try talking to warren again once you have a working theory for the murder timeframe." : "I should talk to Officer Warren before leaving";
             }
         };
     }
