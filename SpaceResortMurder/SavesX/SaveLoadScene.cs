@@ -14,14 +14,17 @@ namespace SpaceResortMurder.SavesX
         private bool _savingEnabled;
         private Label _headerText;
         private SaveMode _mode;
+        private ImageTextButton _changeModeButton;
 
         protected override void OnInit()
         {
             _savingEnabled = CurrentGameState.CurrentLocation != GameResources.MainMenuSceneName;
             _headerText = UiLabels.FullWidthHeaderLabel("Game", Color.White);
+            _changeModeButton = UiButtons.MenuSmallBlue("Load", new Vector2(840, 960),
+                () => SetMode(_mode == SaveMode.Save ? SaveMode.Load : SaveMode.Save));
+            if(_savingEnabled)
+                Add(_changeModeButton);
             SetMode(_savingEnabled ? SaveMode.Save : SaveMode.Load);
-            if (_mode != SaveMode.Load)
-                Add(UiButtons.MenuSmallBlue("Load", new Vector2(840, 960), () => SetMode(SaveMode.Load), () => _mode != SaveMode.Load));
             Add(UiButtons.BackBlue(() => Scene.NavigateTo(CurrentGameState.CurrentLocation)));
 
             var positions = new[] {new Vector2(320, 200), new Vector2(1120, 200), new Vector2(320, 600), new Vector2(1120, 600),};
@@ -36,6 +39,7 @@ namespace SpaceResortMurder.SavesX
         private void SetMode(SaveMode mode)
         {
             _mode = mode;
+            _changeModeButton.Text = _mode == SaveMode.Save ? "Load" : "Save";
             _headerText.Text = $"{mode.ToString()} Game";
         }
 
