@@ -8,18 +8,18 @@ namespace SpaceResortMurder.CharactersX
     public class ResearcherTravis : Character
     {
         public ResearcherTravis() : base(nameof(ResearcherTravis), new Size2(488, 1000),
-            new WhyIsTravisAtTheResort(),
+            new WontTurnYouInForRaymondsAction(),
+            new YouAreStillResposible(),
             new DidYouWorkWithRaymond(),
-            new ExplainTheCloningMachine(),
+            new PowerBatteryArm(),
+            new WhyIsTravisAtTheResort(),
             new TravissAccount(),
             new WhereIsYourClone(),
-            new CloningMalfunction(),
-            new PowerBatteryArm(),
+            new ExplainTheCloningMachine(),
             new MatterRemovalBruises(),
+            new CloningMalfunction(),
             new YourBrotherWasKilled(),
-            new ViolentExperimentalResearch(),
-            new WontTurnYouInForRaymondsAction(),
-            new YouAreStillResposible()) {}
+            new ViolentExperimentalResearch()) {}
 
         public override string WhereAreYou()
         {

@@ -11,7 +11,8 @@ namespace SpaceResortMurder.Dialogues.RaymondsClone
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(YourBeingRidiculous));
+            return CurrentGameState.IsThinking(nameof(YourBeingRidiculous))
+                && !CurrentGameState.IsThinking(nameof(YouCanKeepYourLife));
         }
     }
 }

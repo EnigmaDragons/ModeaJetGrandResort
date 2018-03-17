@@ -10,7 +10,8 @@ namespace SpaceResortMurder.Dialogues.Zaid
         public override bool IsActive()
         {
             return CurrentGameState.IsThinking(nameof(ZaidLaunchedTheShip)) 
-                && CurrentGameState.IsThinking(nameof(YouWereNotAcceptedForBetaTesting));
+                && (CurrentGameState.IsThinking(nameof(IWontSealYourFate)) 
+                    || CurrentGameState.IsThinking(nameof(YouBroughtThisOnYourself)));
         }
     }
 }

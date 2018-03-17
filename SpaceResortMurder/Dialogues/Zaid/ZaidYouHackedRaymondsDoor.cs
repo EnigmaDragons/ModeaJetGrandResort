@@ -9,7 +9,7 @@ namespace SpaceResortMurder.Dialogues.Zaid
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(ZaidHackedTheDoor));
+            return CurrentGameState.IsThinking(nameof(ZaidHackedTheDoor)) && CurrentGameState.IsThinking(nameof(ZaidsAccount));
         }
     }
 }

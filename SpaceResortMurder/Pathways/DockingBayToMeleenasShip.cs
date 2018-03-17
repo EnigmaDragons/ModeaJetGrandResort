@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.PhysicsEngine;
+using SpaceResortMurder.Dialogues.Meleena;
 using SpaceResortMurder.LocationsX;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Pathways
 {
@@ -13,6 +15,6 @@ namespace SpaceResortMurder.Pathways
             nameof(MeleenasShipInterior),
             "To Modded Craft") {}
 
-        public override bool IsTraversible =>  false;
+        public override bool IsTraversible =>  CurrentGameState.IsThinking(nameof(HereIsTheSearchOrder));
     }
 }

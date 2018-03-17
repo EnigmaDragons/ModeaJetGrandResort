@@ -9,7 +9,9 @@ namespace SpaceResortMurder.Dialogues.Travis
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(UnencryptedDataDrive));
+            return CurrentGameState.IsThinking(nameof(UnencryptedDataDrive))
+                && (CurrentGameState.IsThinking(nameof(YouAreStillResposible))
+                    || CurrentGameState.IsThinking(nameof(WontTurnYouInForRaymondsAction)));
         }
     }
 }

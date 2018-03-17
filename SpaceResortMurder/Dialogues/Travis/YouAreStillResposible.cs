@@ -11,7 +11,8 @@ namespace SpaceResortMurder.Dialogues.Travis
 
         public override bool IsActive()
         {
-            return CurrentGameState.IsThinking(nameof(ExplainTheCloningMachine));
+            return CurrentGameState.IsThinking(nameof(ExplainTheCloningMachine)) 
+                && !CurrentGameState.IsThinking(nameof(WontTurnYouInForRaymondsAction));
         }
     }
 }

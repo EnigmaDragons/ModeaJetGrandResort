@@ -8,19 +8,19 @@ namespace SpaceResortMurder.CharactersX
     public class ResortManagerZaid : Character
     {
         public ResortManagerZaid() : base(nameof(ResortManagerZaid), new Size2(399, 937),
+            new IWontSealYourFate(),
+            new YouBroughtThisOnYourself(),
             new WhoAreYouZaid(),
+            new DoYouHaveAnyCamerasAtYourResort(),
+            new ZaidsAccount(),
+            new DidYouReleaseTheGarbage(),
+            new ZaidYouHackedRaymondsDoor(),
             new WhoIsStayingAtYourResort(),
             new WhySoFewPeopleAtTheResort(),
             new WhyWasRaymondHere(),
-            new DoYouHaveAnyCamerasAtYourResort(),
-            new DidYouReleaseTheGarbage(),
-            new ZaidsAccount(),
             new DidRaymondApproveYourResort(),
             new YouWereNotAcceptedForBetaTesting(),
             new WillYourAcceptanceBePutIntoQuestion(),
-            new IWontSealYourFate(),
-            new YouBroughtThisOnYourself(),
-            new ZaidYouHackedRaymondsDoor(),
             new ZaidLaunchedTheShipToGetHisPad()) {}
 
         public override string WhereAreYou()

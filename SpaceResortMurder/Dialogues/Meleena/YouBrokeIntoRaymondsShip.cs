@@ -12,7 +12,8 @@ namespace SpaceResortMurder.Dialogues.Meleena
         {
             return CurrentGameState.IsThinking(nameof(MeleenaHackedTheDoor)) 
                 && CurrentGameState.IsThinking(nameof(SkeletonKey)) 
-                && CurrentGameState.IsThinking(nameof(YouAreAHacker));
+                && (CurrentGameState.IsThinking(nameof(IWontReportDataRaven))
+                    || CurrentGameState.IsThinking(nameof(DeckersMakeTheWorldWorse)));
         }
     }
 }
