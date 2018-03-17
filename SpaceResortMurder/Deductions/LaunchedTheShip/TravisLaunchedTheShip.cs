@@ -1,4 +1,7 @@
-﻿namespace SpaceResortMurder.Deductions.LaunchedTheShip
+﻿using SpaceResortMurder.Dialogues.Zaid;
+using SpaceResortMurder.State;
+
+namespace SpaceResortMurder.Deductions.LaunchedTheShip
 {
     public class TravisLaunchedTheShip : Deduction
     {
@@ -6,7 +9,7 @@
 
         public override bool IsActive()
         {
-            return true;
+            return CurrentGameState.IsThinking(nameof(WhoIsStayingAtYourResort));
         }
     }
 }
