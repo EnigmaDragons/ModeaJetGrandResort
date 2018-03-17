@@ -64,6 +64,7 @@
     <Compile Include="Clues\ClueDisplayReader.cs" />
     <Compile Include="Credits\BasicJamCreditSegment.cs" />
     <Compile Include="Credits\CreditSegments.cs" />
+    <Compile Include="Credits\TitleJamCreditSegment.cs" />
     <Compile Include="Deductions\BruisesCameFrom\BruisesCameFromAStruggle.cs" />
     <Compile Include="Deductions\BruisesCameFrom\BruisesCameFromMatterRemoval.cs" />
     <Compile Include="Deductions\CauseOfDeath\ChokedBySomeone.cs" />

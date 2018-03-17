@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Animations\HorizontalFlyInAnimation.cs" />
     <Compile Include="Animations\IAnimation.cs" />
+    <Compile Include="Animations\VerticalFlyInAnimation.cs" />
     <Compile Include="Animations\WithOffset.cs" />
     <Compile Include="Animations\SinglePositionTraverseAnimation.cs" />
     <Compile Include="AudioSystem\Audio.cs" />
