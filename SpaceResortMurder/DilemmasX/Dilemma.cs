@@ -18,7 +18,6 @@ namespace SpaceResortMurder.DilemmasX
         private readonly string _dilemma;
         private readonly Deduction[] _deductions;
         private readonly Transform2 _transform;
-        private ImageBox _newDilemma;
         private ImageBox _newDeductions;
 
         public bool IsNew => !CurrentGameState.HasViewedItem(_dilemma);
@@ -37,16 +36,12 @@ namespace SpaceResortMurder.DilemmasX
             _deductions.ForEach(d => d.Init(ClearPriorDeductions,
                 new Transform2(
                     new Vector2(_transform.Location.X, _transform.Location.Y + _transform.Size.Height - 10),
-                    new Size2(_transform.Size.Width, 110))));
-            _newDilemma = new ImageBox
-            {
-                Transform = new Transform2(new Vector2(_transform.Location.X + 10, _transform.Location.Y + 10), new Size2(36, 36)),
-                Image = "UI/NewRedIconBorderless"
-            };
+                    new Size2(_transform.Size.Width, 130))));
             _newDeductions = new ImageBox
             {
-                Transform = new Transform2(new Vector2(_transform.Location.X + _transform.Size.Width - 58, _transform.Location.Y + 7), new Size2(36, 36)),
-                Image = "Pondering/NewDeductionIcon"
+                Transform = new Transform2(new Vector2(_transform.Location.X - 20, _transform.Location.Y - 20), new Size2(36, 36)),
+                Image = "UI/NewRedIcon",
+                IsActive = () => HasNewAnswers
             };
         }
 
@@ -68,11 +63,9 @@ namespace SpaceResortMurder.DilemmasX
         public List<IVisual> GetVisuals()
         {
             var visuals = new List<IVisual>();
-            if (IsNew)
-                visuals.Add(_newDilemma);
+            visuals.AddRange(_deductions.Where(x => x.IsSelected).Select(x => x.CreateConclusion()));
             if (HasNewAnswers)
                 visuals.Add(_newDeductions);
-            visuals.AddRange(_deductions.Where(x => x.IsSelected).Select(x => x.CreateConclusion()));
             return visuals;
         }
 

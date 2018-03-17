@@ -25,8 +25,8 @@ namespace SpaceResortMurder.DilemmasX
 
             GameObjects.Dilemmas.GetActiveDilemmas().ForEach(d =>
             {
-                d.GetVisuals().ForEach(v => AddVisual(v));
                 Add(d.CreateButton());
+                d.GetVisuals().ForEach(AddVisual);
             });
             Add(new DilemmasTutorial());
         }
