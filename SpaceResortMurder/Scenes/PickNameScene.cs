@@ -8,71 +8,73 @@ using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.State;
 using SpaceResortMurder.Style;
 using System;
+using MonoDragons.Core.Inputs;
+using SpaceResortMurder.CharactersX;
 
 namespace SpaceResortMurder.Scenes
 {
-    public class PickNameScene : IScene
+    public class PickNameScene : JamScene
     {
-        private ClickUI _clickUI;
         private KeyboardTyping _keyboard;
         private Label _textboxLabel;
-        private IVisual _textboxDescription;
-        private IVisual _border;
-        private VisualClickableUIElement _confirm;
         private Label _shouldGuideLabel;
-        private VisualClickableUIElement _guideMeButton;
-        private VisualClickableUIElement _noGuideButton;
+        private PlayerCharacterView _playerCharacter;
 
-        public void Init()
+        protected override void OnInit()
         {
-            _clickUI = new ClickUI();
+            _playerCharacter = new PlayerCharacterView(() => true);
+            Add(UiLabels.FullWidthHeaderLabel("New Game", Color.White));
+
             _keyboard = new KeyboardTyping(GameResources.DefaultPlayerCharacterName);
-            _textboxDescription = new Label { Text = "Player Name", Transform = new Transform2(new Vector2(860, 400), new Size2(200, 50)) };
-            _border = new ColoredRectangle { Color = Color.White, Transform = new Transform2(new Vector2(758, 498), new Size2(404, 79)) };
-            _textboxLabel = new Label { Text = GameResources.DefaultPlayerCharacterName, Transform = new Transform2(new Vector2(760, 500), new Size2(400, 75)), BackgroundColor = Color.Black };
-            _confirm = UiButtons.Menu("Confirm", new Vector2(780, 600), () =>
-            {
-                CurrentGameState.PlayerName = _keyboard.Result;
-                CurrentGameState.CurrentLocation = nameof(PoliceCruiserInterior);
-                Scene.NavigateTo(GameResources.LoadingSceneName);
-            });
-            _clickUI.Add(_confirm);
-            _shouldGuideLabel = new Label() { Text = "Guide Me a Little", Transform = new Transform2(new Vector2(760, 700), new Size2(400, 75)) };
-            _guideMeButton = UiButtons.Menu("Guide Me a Little", new Vector2(550, 800), () =>
+            Add(_keyboard);
+            var yStart = 281;
+            Add(new Label { Text = "Character Name", Transform = new Transform2(new Vector2(758, yStart), new Size2(400, 50)) });
+            Add(new ColoredRectangle { Color = Color.FromNonPremultiplied(31, 185, 219, 199), Transform = new Transform2(new Vector2(758, yStart + 60 - 2), new Size2(404, 79)) });
+            _textboxLabel = new Label { Text = GameResources.DefaultPlayerCharacterName, Transform = new Transform2(new Vector2(760, yStart + 60), new Size2(400, 75)), BackgroundColor  =Color.FromNonPremultiplied(25, 75, 110, 255) };
+            Add(_textboxLabel);
+
+            yStart = 561;
+            Add(new Label { Text = "Difficulty", Transform = new Transform2(new Vector2(860, yStart), new Size2(200, 50)) });
+            Add(new ColoredRectangle { Color = Color.FromNonPremultiplied(31, 185, 219, 199), Transform = new Transform2(new Vector2(758, yStart + 60 - 2), new Size2(404, 79)) });
+            _shouldGuideLabel = new Label { Text = "Guide Me a Little", Transform = new Transform2(new Vector2(760, yStart + 60), new Size2(400, 75)), BackgroundColor = Color.FromNonPremultiplied(25, 75, 110, 255) };
+            Add(_shouldGuideLabel);
+            Add(UiButtons.MenuSmallBlue("Guide Me", new Vector2(700, yStart + 170), () =>
             {
                 CurrentGameState.ShowObjectives = true;
                 _shouldGuideLabel.Text = "Guide Me a Little";
-            });
-            _clickUI.Add(_guideMeButton);
-            _noGuideButton = UiButtons.Menu("I Know What I'm Doing", new Vector2(1010, 800), () =>
+            }));
+            Add(UiButtons.MenuSmallBlue("I'm A Pro", new Vector2(980, yStart + 170), () =>
             {
                 CurrentGameState.ShowObjectives = false;
                 _shouldGuideLabel.Text = "I Know What I'm Doing";
-            });
-            _clickUI.Add(_noGuideButton);
+            }));
+
+            Input.On(Control.Start, StartGame);
+            Add(UiButtons.Menu("Begin", new Vector2(780, 980), StartGame));
         }
 
-        public void Update(TimeSpan delta)
+        private void StartGame()
         {
-            _clickUI.Update(delta);
-            _keyboard.Update(delta);
+            CurrentGameState.PlayerName = _keyboard.Result;
+            CurrentGameState.CurrentLocation = nameof(PoliceCruiserInterior);
+            Scene.NavigateTo(GameResources.LoadingSceneName);
+        }
+
+        protected override void OnUpdate(TimeSpan delta)
+        {
+            _playerCharacter.Update(delta);
             _textboxLabel.Text = _keyboard.Result;
         }
 
-        public void Draw()
+        protected override void DrawBackground()
         {
-            _textboxDescription.Draw();
-            _border.Draw();
-            _textboxLabel.Draw();
-            _confirm.Draw();
-            _shouldGuideLabel.Draw();
-            _guideMeButton.Draw();
-            _noGuideButton.Draw();
+            UI.FillScreen("Locations/TitleScreenBg");
+            UI.Darken(165);
         }
 
-        public void Dispose()
+        protected override void DrawForeground()
         {
-            _clickUI.Dispose();
+            _playerCharacter.Draw();
         }
     }
 }
