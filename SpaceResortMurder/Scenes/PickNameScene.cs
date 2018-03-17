@@ -24,7 +24,7 @@ namespace SpaceResortMurder.Scenes
         {
             _playerCharacter = new PlayerCharacterView(() => true);
             var header = UiLabels.FullWidthHeaderLabel("New Game", Color.White);
-            header.Transform.Location = new Vector2(header.Transform.Location.X, 188);
+            header.Transform.Location = new Vector2(header.Transform.Location.X, 158);
             Add(header);
 
             _keyboard = new KeyboardTyping(GameResources.DefaultPlayerCharacterName);
@@ -52,7 +52,7 @@ namespace SpaceResortMurder.Scenes
             }));
 
             Input.On(Control.Start, StartGame);
-            Add(UiButtons.Menu("Begin", new Vector2(780, 870), StartGame));
+            Add(UiButtons.Menu("Begin", new Vector2(780, 900), StartGame));
         }
 
         private void StartGame()
