@@ -13,6 +13,7 @@ namespace SpaceResortMurder.State
         public static float SoundVolume { get => _value.SoundVolume; set => _value.SoundVolume = value; }
         public static double MillisPerTextCharacter { get => _value.MillisPerTextCharacter; set => _value.MillisPerTextCharacter = value; }
         public static bool TutorialsAreEnabled { get => _value.TutorialsEnabled; set => _value.TutorialsEnabled = value; }
+        public static int FakeLoadMilliseconds { get => _value.FakeLoadMilliseconds; set => _value.FakeLoadMilliseconds = value; }
 
         static CurrentOptions()
         {

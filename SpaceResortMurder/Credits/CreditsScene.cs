@@ -16,6 +16,7 @@ namespace SpaceResortMurder.Credits
 
         protected override void OnInit()
         {
+            GameObjects.InitIfNeeded();
             Audio.PlayMusicOnce("Credits");
             AddUi(new ScreenClickable(() => Scene.NavigateTo(GameResources.MainMenuSceneName)));
 

@@ -47,6 +47,7 @@ namespace SpaceResortMurder
         public const string EndingSceneName = "Ending";
         public const string SaveLoadSceneName = "SaveLoad";
         public const string PickNameSceneName = "PickName";
+        public const string LoadingSceneName = "Loading";
 
         public const string DefaultPlayerCharacterName = "ZX3-B";
 
@@ -193,7 +194,7 @@ namespace SpaceResortMurder
         private static DictionaryWithDefault<string, string> _characterNames = new DictionaryWithDefault<string, string>("Unnamed Character") {
             { nameof(OfficerWarren), "Warren, Officer" },
             { nameof(HackerMeleena), "\\Meleena\\" },
-            { nameof(CEORaymondsClone), "Raymond's Clone, CEO of Human Perfect" },
+            { nameof(CEORaymondsClone), "Raymond Soule's Clone" },
             { nameof(ResearcherTravis), "Travis Falcon, Clone Researcher" },
             { nameof(ResortManagerZaid), "Zaid Ahuja, Resort Manager" },
         };
@@ -258,6 +259,9 @@ namespace SpaceResortMurder
             } },
             { nameof(GarbageAirlock), new string[] {
                 "A garbage airlock that releases trash into space. It shows signs of recent use.",
+            } },
+            { nameof(PoliceCruiserShip), new string[] {
+                "My police cruiser is definitely a huge clue in this case. If only I could figure out what it means.",
             } },
             #endregion
 
@@ -394,7 +398,7 @@ namespace SpaceResortMurder
                     new DialogueElement(false, Expression.Default, "Who are you?"),
                     new DialogueElement(true, Expression.Angry, "It's fraggin rude not to introduce yourself first bioroid!"),
                     new DialogueElement(false, Expression.Default, "My name is \\Player\\."),
-                    new DialogueElement(true, Expression.Default, "Alright roid, I'm Meleena Ka'lick, a corporate freelancer on vacation, satisfied?"),
+                    new DialogueElement(true, Expression.Default, "Alright roid, I'm Meleena Ka'lick, a corp freelancer on vacation, satisfied?"),
                     new DialogueElement(false, Expression.Default, "Yes."),
             } ) },
             { nameof(MeleenasAccount), new DialogueSequence(
@@ -874,7 +878,7 @@ namespace SpaceResortMurder
             { nameof(LobbyToCloningRoom), "I love barging into random rooms for absolutely no reason." },
             { nameof(LobbyToVacantRoom), "I'm sure to find a clue if I just wander aimlessly around for hours." },
             { nameof(MeleenasShipToDockingBay), "Now that I did all that work to get in here, I am just gonna ignore everything in here." },
-            { nameof(PoliceCruiserToDockingBay), "I should really talk with Officer Warren before leaving." },
+            { nameof(PoliceCruiserToDockingBay), "\\PoliceCruiserToDockingBay\\" },
             { nameof(RaymondsShipToDockingBay), "Look at all these obvious clues I'm trying to ignore." },
             { nameof(VacantRoomToLobby), "I feel like I'm missing a smoking gun." },
         };
@@ -895,6 +899,9 @@ namespace SpaceResortMurder
             },
             { "DockingBayToLobby",
                 () => CurrentGameState.IsThinking(nameof(RaymondsCorpse)) ? "Let's pretend Warren doesn't have a female with him." : "Why investigate murders when you can chill in the lobby."
+            },
+            { "PoliceCruiserToDockingBay",
+                () => CurrentGameState.IsThinking(nameof(Clock)) ? "Maybe try talking to warren again once you have a working theory for the murder timeframe." : "I should talk to Officer Warren before leaving"
             }
         };
     }

@@ -15,23 +15,27 @@ namespace SpaceResortMurder
         private static bool _hasInit = false;
 
         public static AppDataJsonIo IO { get; }
-        public static Dilemmas Dilemmas { get; }
-        public static Hud Hud { get; }
-        public static Characters Characters { get; }
-        public static Locations Locations { get; }
-        public static Objectives Objectives { get; }
-        public static Resolutions Resolutions { get; } 
+        public static Dilemmas Dilemmas { get; private set; }
+        public static Hud Hud { get; private set; }
+        public static Characters Characters { get; private set; }
+        public static Locations Locations { get; private set; }
+        public static Objectives Objectives { get; private set; }
+        public static Resolutions Resolutions { get; private set; } 
 
         static GameObjects()
         {
             IO = new AppDataJsonIo("ModeaJet Grand Resort");
+#if DEBUG
             Dilemmas = new Dilemmas();
             Hud = new Hud();
             Characters = new Characters();
             Locations = new Locations();
             Objectives = new Objectives();
             Resolutions = new Resolutions();
+#endif
         }
+
+
 
         public static void InitIfNeeded()
         {
@@ -40,6 +44,14 @@ namespace SpaceResortMurder
             //CurrentGame.Cursor = Cursors.Default;
             if (_hasInit)
                 return;
+#if !DEBUG
+            Dilemmas = new Dilemmas();
+            Hud = new Hud();
+            Characters = new Characters();
+            Locations = new Locations();
+            Objectives = new Objectives();
+            Resolutions = new Resolutions();
+#endif
             Dilemmas.Init();
             Hud.Init();
             Characters.Init();

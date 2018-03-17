@@ -73,9 +73,9 @@ namespace MonoDragons.Core.UserInterface
             DrawCenteredWithOffset(imageName, new Vector2(CurrentDisplay.GameWidth / CurrentDisplay.Scale, CurrentDisplay.GameHeight / CurrentDisplay.Scale), Vector2.Zero);
         }
 
-        public static void DrawCentered(string imageName)
+        public static void DrawCentered(string imageName, float scale = 1)
         {
-            DrawCenteredWithOffset(imageName, Vector2.Zero);
+            DrawCenteredWithOffset(imageName, Vector2.Zero, scale);
         }
 
         public static void DrawCentered(string imageName, Vector2 widthHeight)
@@ -88,10 +88,10 @@ namespace MonoDragons.Core.UserInterface
             DrawCenteredWithOffset(imageName, transform.ToRectangle().Size.ToVector2(), transform.Location);
         }
 
-        public static void DrawCenteredWithOffset(string imageName, Vector2 offSet)
+        public static void DrawCenteredWithOffset(string imageName, Vector2 offSet, float scale = 1)
         {
             var texture = Resources.Load<Texture2D>(imageName);
-            DrawCenteredWithOffset(imageName, new Vector2(texture.Width, texture.Height), offSet);
+            DrawCenteredWithOffset(imageName, new Vector2(texture.Width * scale, texture.Height * scale), offSet);
         }
 
         public static void DrawCenteredWithOffset(string imageName, Vector2 widthHeight, Vector2 offSet)

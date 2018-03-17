@@ -253,6 +253,7 @@
     <Compile Include="Scenes\JamScene.cs" />
     <Compile Include="Deductions\DeductionScene.cs" />
     <Compile Include="LocationsX\LocationScene.cs" />
+    <Compile Include="Scenes\LoadingScene.cs" />
     <Compile Include="Scenes\PickNameScene.cs" />
     <Compile Include="Scenes\SaveLoadScene.cs" />
     <Compile Include="State\CurrentGameState.cs" />
@@ -288,7 +289,7 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MonoDragons.Core\lib\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Windows.Forms" />
