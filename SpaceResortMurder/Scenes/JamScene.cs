@@ -38,6 +38,11 @@ namespace SpaceResortMurder.Scenes
         public void Update(TimeSpan delta)
         {
             _automata.ForEach(x => x.Update(delta));
+            OnUpdate(delta);
+        }
+
+        protected virtual void OnUpdate(TimeSpan delta)
+        {
         }
 
         public void Draw()

@@ -63,6 +63,12 @@ namespace MonoDragons.Core.UserInterface
             _darken.Draw(Transform2.Zero);
         }
 
+        public static void Darken(int amount)
+        {
+            new ColoredRectangle{ Color = Color.FromNonPremultiplied(0, 0, 0, amount), Transform = new Transform2(new Size2(1920, 1080)) }
+                .Draw(Transform2.Zero);
+        }
+
         public static void DrawBackgroundColor(Color color)
         {
             CurrentGame.GraphicsDevice.Clear(color);

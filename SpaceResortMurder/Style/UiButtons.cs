@@ -27,6 +27,18 @@ namespace SpaceResortMurder.Style
                 { OnPress = PlayMenuButtonSound };
         }
 
+        public static ImageTextButton MenuSmallBlue(string text, Vector2 position, Action onClick)
+        {
+            return MenuSmallBlue(text, position, onClick, () => true);
+        }
+
+        public static ImageTextButton MenuSmallBlue(string text, Vector2 position, Action onClick, Func<bool> isVisible)
+        {
+            return new ImageTextButton(new Transform2(position, new Size2(240, 60)), onClick, text,
+                    "UI/BlueButton", "UI/BlueButton-Hover", "UI/BlueButton-Press", isVisible)
+                { OnPress = UiButtons.PlayMenuButtonSound };
+        }
+
         public static VisualClickableUIElement MenuRed(string text, Vector2 position, Action onClick)
         {
             return new ImageTextButton(new Rectangle(position.ToPoint(), new Point(360, 75)), onClick, text,

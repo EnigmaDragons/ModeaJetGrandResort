@@ -32,7 +32,7 @@ namespace SpaceResortMurder
         {
             HandleExceptions(() =>
             {
-                using (var game = Perf.Time("Startup", () => CreateGame("SaveLoad")))
+                using (var game = Perf.Time("Startup", () => CreateGame("Main Menu")))
                     game.Run();
             });
         }
