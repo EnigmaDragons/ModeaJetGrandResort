@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using SpaceResortMurder.Deductions.TheMurdererWas;
+using SpaceResortMurder.Dialogues.Warren;
+using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.DilemmasX
 {
@@ -14,7 +16,7 @@ namespace SpaceResortMurder.DilemmasX
 
         public override bool IsActive()
         {
-            return true;
+            return CurrentGameState.IsThinking(nameof(WarrenIntroduction));
         }
     }
 }
