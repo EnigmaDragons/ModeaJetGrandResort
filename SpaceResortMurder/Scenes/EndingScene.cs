@@ -15,6 +15,7 @@ namespace SpaceResortMurder.Scenes
     public class EndingScene : JamScene
     {
         private Label _label;
+        private const string _newLines = " \r\n \r\n";
         private bool _wasMeleenaTheCulprit;
         private bool _wasZaidTheCulprit;
         private bool _wasRaymondAloneTheCulprit;
@@ -115,7 +116,7 @@ namespace SpaceResortMurder.Scenes
                 _humanPerfectScore += _wasTravisTheCulprit ? -1 : 0;
             }
                 
-            return WrapText(deathHeader) + " \n \n";
+            return WrapText(deathHeader) + _newLines;
         }
 
         private string GenerateTravisConclusion()
@@ -142,7 +143,7 @@ namespace SpaceResortMurder.Scenes
                 _humanPerfectScore += -1;
             }
 
-            return WrapText(travisConclusion) + " \n \n";
+            return WrapText(travisConclusion) + _newLines;
         }
 
         private string GenerateWasZaidArrested()
@@ -151,7 +152,7 @@ namespace SpaceResortMurder.Scenes
                 return "";
 
             return _isZaidArrested
-                ? WrapText("Resort Manager Zaid Ahuja who was previously suspected of illegally selling his customers data, is now being arrested for fraud! He sent a message as Raymond Soule to approve his resort fro testing Human Perfect's new luxury clones.") + " \n \n"
+                ? WrapText("Resort Manager Zaid Ahuja who was previously suspected of illegally selling his customers data, is now being arrested for fraud! He sent a message as Raymond Soule to approve his resort fro testing Human Perfect's new luxury clones.") + _newLines
                 : "";
         }
 
@@ -166,7 +167,7 @@ namespace SpaceResortMurder.Scenes
             else 
                 luxuryClones = "Before Raymond Soule's demise he decided ModeaJet Grand Resort would test out Human Perfect's new luxury clone.";
 
-            return WrapText(luxuryClones) + " \n \n";
+            return WrapText(luxuryClones) + _newLines;
         }
 
         private string GenerateMeleenaConclusion()
@@ -178,7 +179,7 @@ namespace SpaceResortMurder.Scenes
             var meleenaConclusion = _isMeleenaArrested 
                 ? $"The infamous Data Raven was caught by {CurrentGameState.PlayerName} while investigating the death of Raymond Soule. An Impressive achievement early on in this bioroid's career." 
                 : "Cyber Terrorist Data Raven strikes again, by exposing Human Perfect's illegal human experimentation that resulted in a massacre of their own researchers. In addition Raymond Soule covered it by staging a terroist attack.";
-            return WrapText(meleenaConclusion) + " \n \n";
+            return WrapText(meleenaConclusion) + _newLines;
         }
 
         private string GenerateDataRavenFallout()
@@ -205,14 +206,14 @@ namespace SpaceResortMurder.Scenes
                 _humanPerfectScore += -1;
             }
 
-            return WrapText(dataRavenFallout) + " \n \n";
+            return WrapText(dataRavenFallout) + _newLines;
         }
 
         private string GenerateTravisBreakthrough()
         {
             _humanPerfectScore += _doesHumanPerfectGetABreakthrough ? 4 : 0;
             return _doesHumanPerfectGetABreakthrough
-                ? WrapText("Human Perfect releases a new cloning technique that can make far more perfect replications of the target than ever before. The implications are staggering, and all doubts from the stakeholders about their new CFO have been quelched.") + " \n \n"
+                ? WrapText("Human Perfect releases a new cloning technique that can make far more perfect replications of the target than ever before. The implications are staggering, and all doubts from the stakeholders about their new CFO have been quelched.") + _newLines
                 : "";
         }
 
@@ -225,7 +226,7 @@ namespace SpaceResortMurder.Scenes
             var zaidConclusion = _isZaidsResortChosenForLuxuryClones
                 ? "ModeaJet Grand Resort has become the most popular resort in the region. Occupants rave about Human Perfect's luxury clones."
                 : "Resort Manager Zaid Ahuja goes missing, he is rumored to have owed large sums of money to the Yakuza. Police speculate he is most likely dead.";
-            return WrapText(zaidConclusion) + " \n \n";
+            return WrapText(zaidConclusion) + _newLines;
         }
 
         private string GenerateAmazingRazeResortFlop()
@@ -233,7 +234,7 @@ namespace SpaceResortMurder.Scenes
             _humanPerfectScore += _isZaidsResortChosenForLuxuryClones ? 0 : -3;
             return _isZaidsResortChosenForLuxuryClones
                 ? ""
-                : WrapText("The Amazing Raze Resort was caught smuggling illegal drugs and providing prostitution services using Human Perfect's luxury clones.") + " \n \n";
+                : WrapText("The Amazing Raze Resort was caught smuggling illegal drugs and providing prostitution services using Human Perfect's luxury clones.") + _newLines;
         }
 
         private string GenerateHumanPerfectFooter()

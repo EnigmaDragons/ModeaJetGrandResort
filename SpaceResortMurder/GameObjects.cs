@@ -1,12 +1,9 @@
-﻿using MonoDragons.Core.Engine;
-using MonoDragons.Core.IO;
-using MonoDragons.Core.UserInterface;
+﻿using MonoDragons.Core.IO;
 using SpaceResortMurder.CharactersX;
 using SpaceResortMurder.DilemmasX;
 using SpaceResortMurder.HudX;
 using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.ObjectivesX;
-using SpaceResortMurder.ResolutionsX;
 
 namespace SpaceResortMurder
 {
@@ -20,7 +17,6 @@ namespace SpaceResortMurder
         public static Characters Characters { get; private set; }
         public static Locations Locations { get; private set; }
         public static Objectives Objectives { get; private set; }
-        public static Resolutions Resolutions { get; private set; } 
 
         static GameObjects()
         {
@@ -31,7 +27,6 @@ namespace SpaceResortMurder
             Characters = new Characters();
             Locations = new Locations();
             Objectives = new Objectives();
-            Resolutions = new Resolutions();
 #endif
         }
 

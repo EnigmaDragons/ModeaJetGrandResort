@@ -245,10 +245,6 @@
     <Compile Include="Pathways\RaymondsShipToDockingBay.cs" />
     <Compile Include="Pathways\TraverseArrowPathway.cs" />
     <Compile Include="Pathways\VacantRoomToLobby.cs" />
-    <Compile Include="ResolutionsX\IAmLeaving.cs" />
-    <Compile Include="ResolutionsX\Resolution.cs" />
-    <Compile Include="ResolutionsX\Resolutions.cs" />
-    <Compile Include="ResolutionsX\ResolutionScene.cs" />
     <Compile Include="DictionaryWithDefault.cs" />
     <Compile Include="Scenes\EndingScene.cs" />
     <Compile Include="Scenes\JamScene.cs" />

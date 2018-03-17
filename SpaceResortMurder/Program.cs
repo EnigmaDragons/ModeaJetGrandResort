@@ -12,7 +12,6 @@ using MonoDragons.Core.Text;
 using SpaceResortMurder.Dialogues;
 using SpaceResortMurder.DilemmasX;
 using SpaceResortMurder.LocationsX;
-using SpaceResortMurder.ResolutionsX;
 using SpaceResortMurder.Scenes;
 using SpaceResortMurder.State;
 using SpaceResortMurder.Style;
@@ -96,7 +95,6 @@ namespace SpaceResortMurder
                 { nameof(RaymondsShipInterior), () => new RaymondsShipInteriorScene() },
                 { GameResources.DialogueMemoriesScene, () => new DialogueMemoriesScene() },
                 { nameof(MeleenasShipInterior), () => new MeleenasShipInteriorScene() },
-                { GameResources.ResolutionSceneName, () => new ResolutionScene() },
                 { GameResources.EndingSceneName, () => new EndingScene() },
                 { nameof(VacantRoom), () => new VacantRoomScene() },
                 { nameof(TravissCloningRoom), () => new TravissCloningRoomScene() },
