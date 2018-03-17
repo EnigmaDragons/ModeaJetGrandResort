@@ -79,7 +79,12 @@ namespace SpaceResortMurder.Dialogues
             foreach (var word in words)
             {
                 var size = _spriteFont.MeasureString(word);
-                if (word.StartsWith("\n"))
+                if (word == "\n")
+                {
+                    sb.Append(word);
+                    lineWidth = 0;
+                }
+                else if (word.StartsWith("\n"))
                 {
                     sb.Append("\n" + new string(word.Skip(1).ToArray()) + " ");
                     lineWidth = size.X + spaceWidth;

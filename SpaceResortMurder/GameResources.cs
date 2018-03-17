@@ -148,39 +148,39 @@ namespace SpaceResortMurder
         private static DictionaryWithDefault<string, string> _scanInfo = new DictionaryWithDefault<string, string>("This scan is not implemented")
         {
             { nameof(OfficerWarren),
-                "Name: Warren Alexander \n" +
-                "Condition: Normal \n" +
-                "Augments: None \n" +
-                "Criminal Record: Found guilty of petty theft at the age of 12 \n" +
+                "Name: Warren Alexander \n \n" +
+                "Condition: Normal \n \n" +
+                "Augments: None \n \n" +
+                "Criminal Record: Found guilty of petty theft at the age of 12 \n \n" +
                 "Occupation: OPID (Outer Planet Investigative Department), 17 years"
             },
             { nameof(HackerMeleena),
-                "Name: Meleena Ka'lick \n" +
-                "Condition: Heightened pulse, Poor balance (May have recently exited cyberspace) \n" +
-                "Augments: CyberDeck, used to jack into cyberspace \n" +
-                "Criminal Record: Clean \n" +
-                "Occupation: Corporate Freelancer, 9 years \n" +
+                "Name: Meleena Ka'lick \n \n" +
+                "Condition: Heightened pulse, Poor balance (May have recently exited cyberspace) \n \n" +
+                "Augments: CyberDeck, used to jack into cyberspace \n \n" +
+                "Criminal Record: Clean \n \n" +
+                "Occupation: Corporate Freelancer, 9 years \n \n" +
                 "Red Flags: Extremely limited records, possible alias or record cleaning"
             },
             { nameof(ResortManagerZaid),
-                "Name: Zaid Ahuji \n" +
-                "Condition: Normal \n" +
-                "Augments: None \n" +
-                "Criminal Record: Accused, but not convicted, of illegally selling customer data \n" +
+                "Name: Zaid Ahuji \n \n" +
+                "Condition: Normal \n \n" +
+                "Augments: None \n \n" +
+                "Criminal Record: Accused, but not convicted, of illegally selling customer data \n \n" +
                 "Occupation: ModeaJet Resort Manager, 2 years"
             },
             { nameof(ResearcherTravis),
-                "Name: Travis Falcon \n" +
-                "Condition: Recent Xetope use, an expensive legal smart drug that increases a user's focus \n" +
-                "Augments: Power Battery Arm, an expensive arm used as a portable power source \n" +
-                "Criminal Record: Human Perfect's Research Division is currently being investigated for human experimentation \n" +
+                "Name: Travis Falcon \n \n" +
+                "Condition: Recent Xetope use, an expensive legal smart drug that increases a user's focus \n \n" +
+                "Augments: Power Battery Arm, an expensive arm used as a portable power source \n \n" +
+                "Criminal Record: Human Perfect's Research Division is currently being investigated for human experimentation \n \n" +
                 "Occupation: Human Perfect Lead Researcher, 13 years"
             },
             { nameof(CEORaymondsClone),
-                "Name: Raymond Soule \n" +
-                "Condition: Recent bruising, a burn mark from an electric discharge \n" +
-                "Augments: Tracking Explosive Chip, embedded in the skull, both tracks and acts as a means to kill the person remotely \n" +
-                "Criminal Record: Currently under investigation for illegal human experimentation at his company Human First \n" +
+                "Name: Raymond Soule \n \n" +
+                "Condition: Recent bruising, a burn mark from an electric discharge \n \n" +
+                "Augments: Tracking Explosive Chip, embedded in the skull, both tracks and acts as a means to kill the person remotely \n \n" +
+                "Criminal Record: Currently under investigation for illegal human experimentation at his company Human First \n \n" +
                 "Occupation: CEO of Human Perfect, 21 years"
             },
         };
