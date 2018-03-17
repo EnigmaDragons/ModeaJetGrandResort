@@ -29,6 +29,7 @@ using SpaceResortMurder.Deductions.LaunchedTheShip;
 using SpaceResortMurder.Deductions.TimeFrameForMurder;
 using SpaceResortMurder.Pathways;
 using MonoDragons.Core.Common;
+using SpaceResortMurder.Clues.VacantRoom;
 using SpaceResortMurder.Deductions.BruisesCameFrom;
 using SpaceResortMurder.Deductions.ElectricalBurnsComeFrom;
 using SpaceResortMurder.Dialogues;

@@ -1,20 +1,14 @@
-﻿using Microsoft.Xna.Framework;
-using MonoDragons.Core.PhysicsEngine;
-using SpaceResortMurder.Clues.RaymondsSpaceCraft;
+﻿using MonoDragons.Core.PhysicsEngine;
+using SpaceResortMurder.Clues.VacantRoom;
 using SpaceResortMurder.LocationsX;
 using SpaceResortMurder.State;
 
 namespace SpaceResortMurder.Pathways
 {
-    public class VacantRoomToLobby : ExpandingImagePathway
+    public class VacantRoomToLobby : LightUpPathway
     {
-        public VacantRoomToLobby() : base(
-            nameof(VacantRoomToLobby),
-            "Placeholder/Door",
-            new Transform2(new Vector2(0, 0), new Size2(350, 348)),
-            nameof(Lobby),
-            "To Lobby")
-        { }
+        public VacantRoomToLobby(Transform2 transform) 
+            : base(transform, nameof(Lobby), "Traverse/HotelRoomDoor", "To Lobby") {}
 
         public override bool IsTraversible => CurrentGameState.IsThinking(nameof(T71EnergyBlaster));
     }

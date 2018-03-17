@@ -32,7 +32,7 @@ namespace SpaceResortMurder
         {
             HandleExceptions(() =>
             {
-                using (var game = Perf.Time("Startup", () => CreateGame("DockingBay")))
+                using (var game = Perf.Time("Startup", () => CreateGame("VacantRoom")))
                     game.Run();
             });
         }
@@ -57,7 +57,7 @@ namespace SpaceResortMurder
         private static void Init()
         {
             InitFonts();
-#if Debug
+#if DEBUG
             GameResources.TestAllSymbols();
 #endif
             Audio.MusicVolume = CurrentOptions.MusicVolume;
