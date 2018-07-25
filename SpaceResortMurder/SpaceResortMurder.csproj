@@ -297,264 +297,92 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\characters\dead_body.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\characters\hacker_corporate_spy.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\characters\hacker_happy.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\characters\hacker_pissed_off.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\characters\main_character.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\characters\main_character_angry.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\characters\main_character_happy.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\characters\placeholder.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\characters\policeman.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\characters\random_npc_01.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\characters\random_npc_02.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\characters\raymond_alive.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\characters\raymond_sad.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\characters\resort_manager_base.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\characters\resort_manager_colored.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\characters\scientist_guy-old.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\characters\scientist_guy.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\Clock-Alt.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\Clock.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\CloningChamber-Medium.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\CloningChamber.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\DataDecrypted-Small.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\DataEncrypted-Small.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\GarbageAirlock.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\HackingRig.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\MeleenasShip.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\PoliceCruiser.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\RaymondPad-Medium.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\RaymondsCorpse-Medium.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\RaymondsCorpse.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\RaymondsShip-Medium.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\RaymondsShip.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\ShipsLogs-Small.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\SkeletonKey-Small.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Clues\SmokingBlaster-Medium.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Convo\ChatBox.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Convo\DialogueButton-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Convo\DialogueButton-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Convo\DialogueButton.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Convo\ExclusiveDialogueButton-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Convo\ExclusiveDialogueButton-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Convo\ExclusiveDialogueButton.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Convo\NameLabel.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Convo\ScanButton-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Convo\ScanButton-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Convo\ScanButton.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Convo\ScanDataView.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Convo\ScanLine.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Conversations-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Conversations-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Conversations.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Dilemmas-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Dilemmas-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Dilemmas.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\ExitToMenu-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\ExitToMenu-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\ExitToMenu.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Locations-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Locations-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Locations.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Magnify.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\MinusGreen-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\MinusGreen-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\MinusGreen.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Objective-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Objective-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Objective.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Options-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Options-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Options.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\PlusGreen-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\PlusGreen-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\PlusGreen.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Save-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Save-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Icons\Save.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Locations\docking_bay_final.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Locations\hotel_lobby_environment.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Locations\hotelroom_environment.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Locations\lobby_final.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Locations\MeleenaShipBg-Mod.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Locations\meleenas_spaceship_painted.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Locations\PoliceCruiserPainted.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Locations\raymond_final_bg.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Locations\researcher_room_final.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Locations\TitleScreenBg.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Content\characters\dead_body.png" />
+    <Content Include="Content\characters\hacker_corporate_spy.png" />
+    <Content Include="Content\characters\hacker_happy.png" />
+    <Content Include="Content\characters\hacker_pissed_off.png" />
+    <Content Include="Content\characters\main_character.png" />
+    <Content Include="Content\characters\main_character_angry.png" />
+    <Content Include="Content\characters\main_character_happy.png" />
+    <Content Include="Content\characters\placeholder.png" />
+    <Content Include="Content\characters\policeman.png" />
+    <Content Include="Content\characters\random_npc_01.png" />
+    <Content Include="Content\characters\random_npc_02.png" />
+    <Content Include="Content\characters\raymond_alive.png" />
+    <Content Include="Content\characters\raymond_sad.png" />
+    <Content Include="Content\characters\resort_manager_base.png" />
+    <Content Include="Content\characters\resort_manager_colored.png" />
+    <Content Include="Content\characters\scientist_guy-old.png" />
+    <Content Include="Content\characters\scientist_guy.png" />
+    <Content Include="Content\Clues\Clock-Alt.png" />
+    <Content Include="Content\Clues\Clock.png" />
+    <Content Include="Content\Clues\CloningChamber-Medium.png" />
+    <Content Include="Content\Clues\CloningChamber.png" />
+    <Content Include="Content\Clues\DataDecrypted-Small.png" />
+    <Content Include="Content\Clues\DataEncrypted-Small.png" />
+    <Content Include="Content\Clues\GarbageAirlock.png" />
+    <Content Include="Content\Clues\HackingRig.png" />
+    <Content Include="Content\Clues\MeleenasShip.png" />
+    <Content Include="Content\Clues\PoliceCruiser.png" />
+    <Content Include="Content\Clues\RaymondPad-Medium.png" />
+    <Content Include="Content\Clues\RaymondsCorpse-Medium.png" />
+    <Content Include="Content\Clues\RaymondsCorpse.png" />
+    <Content Include="Content\Clues\RaymondsShip-Medium.png" />
+    <Content Include="Content\Clues\RaymondsShip.png" />
+    <Content Include="Content\Clues\ShipsLogs-Small.png" />
+    <Content Include="Content\Clues\SkeletonKey-Small.png" />
+    <Content Include="Content\Clues\SmokingBlaster-Medium.png" />
+    <Content Include="Content\Convo\ChatBox.png" />
+    <Content Include="Content\Convo\DialogueButton-Hover.png" />
+    <Content Include="Content\Convo\DialogueButton-Press.png" />
+    <Content Include="Content\Convo\DialogueButton.png" />
+    <Content Include="Content\Convo\ExclusiveDialogueButton-Hover.png" />
+    <Content Include="Content\Convo\ExclusiveDialogueButton-Press.png" />
+    <Content Include="Content\Convo\ExclusiveDialogueButton.png" />
+    <Content Include="Content\Convo\NameLabel.png" />
+    <Content Include="Content\Convo\ScanButton-Hover.png" />
+    <Content Include="Content\Convo\ScanButton-Press.png" />
+    <Content Include="Content\Convo\ScanButton.png" />
+    <Content Include="Content\Convo\ScanDataView.png" />
+    <Content Include="Content\Convo\ScanLine.png" />
+    <Content Include="Content\Icons\Conversations-Hover.png" />
+    <Content Include="Content\Icons\Conversations-Press.png" />
+    <Content Include="Content\Icons\Conversations.png" />
+    <Content Include="Content\Icons\Dilemmas-Hover.png" />
+    <Content Include="Content\Icons\Dilemmas-Press.png" />
+    <Content Include="Content\Icons\Dilemmas.png" />
+    <Content Include="Content\Icons\ExitToMenu-Hover.png" />
+    <Content Include="Content\Icons\ExitToMenu-Press.png" />
+    <Content Include="Content\Icons\ExitToMenu.png" />
+    <Content Include="Content\Icons\Locations-Hover.png" />
+    <Content Include="Content\Icons\Locations-Press.png" />
+    <Content Include="Content\Icons\Locations.png" />
+    <Content Include="Content\Icons\Magnify.png" />
+    <Content Include="Content\Icons\MinusGreen-Hover.png" />
+    <Content Include="Content\Icons\MinusGreen-Press.png" />
+    <Content Include="Content\Icons\MinusGreen.png" />
+    <Content Include="Content\Icons\Objective-Hover.png" />
+    <Content Include="Content\Icons\Objective-Press.png" />
+    <Content Include="Content\Icons\Objective.png" />
+    <Content Include="Content\Icons\Options-Hover.png" />
+    <Content Include="Content\Icons\Options-Press.png" />
+    <Content Include="Content\Icons\Options.png" />
+    <Content Include="Content\Icons\PlusGreen-Hover.png" />
+    <Content Include="Content\Icons\PlusGreen-Press.png" />
+    <Content Include="Content\Icons\PlusGreen.png" />
+    <Content Include="Content\Icons\Save-Hover.png" />
+    <Content Include="Content\Icons\Save-Press.png" />
+    <Content Include="Content\Icons\Save.png" />
+    <Content Include="Content\Locations\docking_bay_final.png" />
+    <Content Include="Content\Locations\hotel_lobby_environment.png" />
+    <Content Include="Content\Locations\hotelroom_environment.png" />
+    <Content Include="Content\Locations\lobby_final.png" />
+    <Content Include="Content\Locations\MeleenaShipBg-Mod.png" />
+    <Content Include="Content\Locations\meleenas_spaceship_painted.png" />
+    <Content Include="Content\Locations\PoliceCruiserPainted.png" />
+    <Content Include="Content\Locations\raymond_final_bg.png" />
+    <Content Include="Content\Locations\researcher_room_final.png" />
+    <Content Include="Content\Locations\TitleScreenBg.png" />
     <Content Include="Content\Music\CloningRoom.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -585,96 +413,38 @@
     <Content Include="Content\Music\VacantRoom.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Placeholder\airlock.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Content\Placeholder\airlock.png" />
     <Content Include="Content\Music\Pondering.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Placeholder\Clock-Closeup.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\Clock.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\CloningChamber.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\CloningRoom.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\DataStick.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\dialoguebox.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\DockingBay.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\Door.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\HackerRig.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\Lobby.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\MeleenasShip.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\MeleenasSpaceCraft.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\necronomicon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\Pad.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\PoliceCruiserShip.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\PoliceCruiser.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\RaymondsCorpse.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\RaymondsShip+.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\RaymondsShip.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\ShipsLogs.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\SkeletonKey.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\SpaceResortPlaceholder.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\T71EnergyBlaster.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Placeholder\TravelArrow.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Pondering\DilemmaCard-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Pondering\DilemmaCard-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Pondering\DilemmaCard.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Pondering\PonderingOverlay.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Content\Placeholder\Clock-Closeup.png" />
+    <Content Include="Content\Placeholder\Clock.jpg" />
+    <Content Include="Content\Placeholder\CloningChamber.png" />
+    <Content Include="Content\Placeholder\CloningRoom.jpg" />
+    <Content Include="Content\Placeholder\DataStick.png" />
+    <Content Include="Content\Placeholder\dialoguebox.png" />
+    <Content Include="Content\Placeholder\DockingBay.png" />
+    <Content Include="Content\Placeholder\Door.png" />
+    <Content Include="Content\Placeholder\HackerRig.png" />
+    <Content Include="Content\Placeholder\Lobby.jpg" />
+    <Content Include="Content\Placeholder\MeleenasShip.png" />
+    <Content Include="Content\Placeholder\MeleenasSpaceCraft.jpg" />
+    <Content Include="Content\Placeholder\necronomicon.png" />
+    <Content Include="Content\Placeholder\Pad.png" />
+    <Content Include="Content\Placeholder\PoliceCruiserShip.png" />
+    <Content Include="Content\Placeholder\PoliceCruiser.jpg" />
+    <Content Include="Content\Placeholder\RaymondsCorpse.png" />
+    <Content Include="Content\Placeholder\RaymondsShip+.png" />
+    <Content Include="Content\Placeholder\RaymondsShip.png" />
+    <Content Include="Content\Placeholder\ShipsLogs.jpg" />
+    <Content Include="Content\Placeholder\SkeletonKey.png" />
+    <Content Include="Content\Placeholder\SpaceResortPlaceholder.png" />
+    <Content Include="Content\Placeholder\T71EnergyBlaster.png" />
+    <Content Include="Content\Placeholder\TravelArrow.png" />
+    <Content Include="Content\Pondering\DilemmaCard-Hover.png" />
+    <Content Include="Content\Pondering\DilemmaCard-Press.png" />
+    <Content Include="Content\Pondering\DilemmaCard.png" />
+    <Content Include="Content\Pondering\PonderingOverlay.png" />
     <Content Include="Content\Sounds\MenuButtonPress.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -684,201 +454,71 @@
     <Content Include="Content\Sounds\Scanning.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Traverse\DockingBayToLobbyDoor.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\HotelRoomDoor.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\LobbyDoor1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\LobbyDoor2.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\PoliceCruiserDoor.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\RaymondShuttleExit.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowD-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowD-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowD.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowGreenD-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowGreenD-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowGreenD.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowGreenL-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowGreenL-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowGreenL.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowGreenR-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowGreenR-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowGreenR.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowGreenU-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowGreenU-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowGreenU.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowL-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowL-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowL.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowR-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowR-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowR.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowU-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowU-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Traverse\TraverseArrowU.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\BackButton-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\BackButton-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\BackButton.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\BackButtonBlue-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\BackButtonBlue-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\BackButtonBlue.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\BlueButton-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\BlueButton-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\BlueButton.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\ClueBox.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\Copyright.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\DilemmaSceneBg.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\MainMenuBg.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\MainMenuBorder.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\NewBlueIcon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Pondering\NewDeductionIcon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\NewGreenIcon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\NewRedIcon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\NewRedIconBorderless.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\ObjectiveCard.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\PixelButton-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\PixelButton-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\PixelButton.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\PixelButtonRed-Hover.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\PixelButtonRed-Press.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\PixelButtonRed.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Pondering\PonderingBgHr.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\SaveBg.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\SaveSlotBox.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\ScreenOverlay-Purple.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\ScreenOverlay-Red.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\ScreenOverlay.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Pondering\SelectedDeduction.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\Title.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\UI\TutorialOverlay.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Content\Traverse\DockingBayToLobbyDoor.png" />
+    <Content Include="Content\Traverse\HotelRoomDoor.png" />
+    <Content Include="Content\Traverse\LobbyDoor1.png" />
+    <Content Include="Content\Traverse\LobbyDoor2.png" />
+    <Content Include="Content\Traverse\PoliceCruiserDoor.png" />
+    <Content Include="Content\Traverse\RaymondShuttleExit.png" />
+    <Content Include="Content\Traverse\TraverseArrowD-Hover.png" />
+    <Content Include="Content\Traverse\TraverseArrowD-Press.png" />
+    <Content Include="Content\Traverse\TraverseArrowD.png" />
+    <Content Include="Content\Traverse\TraverseArrowGreenD-Hover.png" />
+    <Content Include="Content\Traverse\TraverseArrowGreenD-Press.png" />
+    <Content Include="Content\Traverse\TraverseArrowGreenD.png" />
+    <Content Include="Content\Traverse\TraverseArrowGreenL-Hover.png" />
+    <Content Include="Content\Traverse\TraverseArrowGreenL-Press.png" />
+    <Content Include="Content\Traverse\TraverseArrowGreenL.png" />
+    <Content Include="Content\Traverse\TraverseArrowGreenR-Hover.png" />
+    <Content Include="Content\Traverse\TraverseArrowGreenR-Press.png" />
+    <Content Include="Content\Traverse\TraverseArrowGreenR.png" />
+    <Content Include="Content\Traverse\TraverseArrowGreenU-Hover.png" />
+    <Content Include="Content\Traverse\TraverseArrowGreenU-Press.png" />
+    <Content Include="Content\Traverse\TraverseArrowGreenU.png" />
+    <Content Include="Content\Traverse\TraverseArrowL-Hover.png" />
+    <Content Include="Content\Traverse\TraverseArrowL-Press.png" />
+    <Content Include="Content\Traverse\TraverseArrowL.png" />
+    <Content Include="Content\Traverse\TraverseArrowR-Hover.png" />
+    <Content Include="Content\Traverse\TraverseArrowR-Press.png" />
+    <Content Include="Content\Traverse\TraverseArrowR.png" />
+    <Content Include="Content\Traverse\TraverseArrowU-Hover.png" />
+    <Content Include="Content\Traverse\TraverseArrowU-Press.png" />
+    <Content Include="Content\Traverse\TraverseArrowU.png" />
+    <Content Include="Content\UI\BackButton-Hover.png" />
+    <Content Include="Content\UI\BackButton-Press.png" />
+    <Content Include="Content\UI\BackButton.png" />
+    <Content Include="Content\UI\BackButtonBlue-Hover.png" />
+    <Content Include="Content\UI\BackButtonBlue-Press.png" />
+    <Content Include="Content\UI\BackButtonBlue.png" />
+    <Content Include="Content\UI\BlueButton-Hover.png" />
+    <Content Include="Content\UI\BlueButton-Press.png" />
+    <Content Include="Content\UI\BlueButton.png" />
+    <Content Include="Content\UI\ClueBox.png" />
+    <Content Include="Content\UI\Copyright.png" />
+    <Content Include="Content\UI\DilemmaSceneBg.jpg" />
+    <Content Include="Content\UI\MainMenuBg.jpg" />
+    <Content Include="Content\UI\MainMenuBorder.png" />
+    <Content Include="Content\UI\NewBlueIcon.png" />
+    <Content Include="Content\Pondering\NewDeductionIcon.png" />
+    <Content Include="Content\UI\NewGreenIcon.png" />
+    <Content Include="Content\UI\NewRedIcon.png" />
+    <Content Include="Content\UI\NewRedIconBorderless.png" />
+    <Content Include="Content\UI\ObjectiveCard.png" />
+    <Content Include="Content\UI\PixelButton-Hover.png" />
+    <Content Include="Content\UI\PixelButton-Press.png" />
+    <Content Include="Content\UI\PixelButton.png" />
+    <Content Include="Content\UI\PixelButtonRed-Hover.png" />
+    <Content Include="Content\UI\PixelButtonRed-Press.png" />
+    <Content Include="Content\UI\PixelButtonRed.png" />
+    <Content Include="Content\Pondering\PonderingBgHr.jpg" />
+    <Content Include="Content\UI\SaveBg.png" />
+    <Content Include="Content\UI\SaveSlotBox.png" />
+    <Content Include="Content\UI\ScreenOverlay-Purple.png" />
+    <Content Include="Content\UI\ScreenOverlay-Red.png" />
+    <Content Include="Content\UI\ScreenOverlay.png" />
+    <Content Include="Content\Pondering\SelectedDeduction.png" />
+    <Content Include="Content\UI\Title.png" />
+    <Content Include="Content\UI\TutorialOverlay.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -892,40 +532,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Fonts\BodyFont.spritefont">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Content\Fonts\lunchds.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Content\Fonts\lunchds.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\Cursors\PacmanGhost.ani">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Content\Fonts\BodyFont-0.5.spritefont" />
-    <Content Include="Content\Fonts\BodyFont-0.5.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Content\Fonts\BodyFont-0.75.spritefont" />
-    <Content Include="Content\Fonts\BodyFont-0.75.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Fonts\BodyFont.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Content\Fonts\HeaderFont-0.5.spritefont" />
-    <Content Include="Content\Fonts\HeaderFont-0.5.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Content\Fonts\HeaderFont-0.75.spritefont" />
-    <Content Include="Content\Fonts\HeaderFont-0.75.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Content\Fonts\HeaderFont.spritefont" />
-    <Content Include="Content\Fonts\HeaderFont.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
